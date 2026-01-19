@@ -1,0 +1,44 @@
+2026-01-16 16:58:40,018 - __main__ - INFO - Auto-detected input file: ..\DATA CELER\CarteraPendiente.xlsx
+2026-01-16 16:58:40,019 - __main__ - INFO - ================================================================================
+2026-01-16 16:58:40,020 - __main__ - INFO - STARTING CELER DATA TRANSFORMATION
+2026-01-16 16:58:40,020 - __main__ - INFO - ================================================================================
+2026-01-16 16:58:40,021 - __main__ - INFO - Input file: ..\DATA CELER\CarteraPendiente.xlsx
+2026-01-16 16:58:40,021 - __main__ - INFO - Output file: output\Cartera_Transformada_20260116_165840.xlsx
+2026-01-16 16:58:40,022 - __main__ - INFO - Reading Celer file: ..\DATA CELER\CarteraPendiente.xlsx
+2026-01-16 16:58:40,962 - __main__ - INFO - Successfully read 1044 rows, 49 columns
+2026-01-16 16:58:40,963 - services.column_transformer - INFO - ColumnTransformer initialized with 23 output columns
+2026-01-16 16:58:40,964 - __main__ - INFO - Starting column transformation...
+2026-01-16 16:58:40,964 - services.column_transformer - INFO - Starting transformation for 1044 rows
+2026-01-16 16:58:40,974 - services.column_transformer - WARNING - Column A generation not yet implemented, using placeholder
+2026-01-16 16:58:40,996 - services.column_transformer - INFO - Transformation completed successfully for 1044 rows, 23 columns
+2026-01-16 16:58:40,996 - __main__ - INFO - Writing output file: output\Cartera_Transformada_20260116_165840.xlsx
+2026-01-16 16:58:41,459 - __main__ - INFO - Successfully wrote 1044 rows to output\Cartera_Transformada_20260116_165840.xlsx
+2026-01-16 16:58:41,459 - __main__ - INFO - ================================================================================
+2026-01-16 16:58:41,460 - __main__ - INFO - TRANSFORMATION COMPLETED SUCCESSFULLY
+2026-01-16 16:58:41,460 - __main__ - INFO - ================================================================================
+2026-01-16 16:58:41,461 - __main__ - INFO - Input rows: 1044
+2026-01-16 16:58:41,461 - __main__ - INFO - Output rows: 1044
+2026-01-16 16:58:41,462 - __main__ - INFO - Output columns: 23 (A-W)
+2026-01-16 16:58:41,462 - __main__ - INFO - Output file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\output\Cartera_Transformada_20260116_165840.xlsx
+2026-01-16 17:01:17,946 - __main__ - INFO - Auto-detected input file: ..\DATA CELER\CarteraPendiente.xlsx
+2026-01-16 17:01:17,946 - __main__ - INFO - ================================================================================
+2026-01-16 17:01:17,947 - __main__ - INFO - STARTING CELER DATA TRANSFORMATION
+2026-01-16 17:01:17,947 - __main__ - INFO - ================================================================================
+2026-01-16 17:01:17,948 - __main__ - INFO - Input file: ..\DATA CELER\CarteraPendiente.xlsx
+2026-01-16 17:01:17,948 - __main__ - INFO - Output file: output\Cartera_Transformada_20260116_170117.xlsx
+2026-01-16 17:01:17,948 - __main__ - INFO - Reading Celer file: ..\DATA CELER\CarteraPendiente.xlsx
+2026-01-16 17:01:18,987 - __main__ - INFO - Successfully read 1044 rows, 49 columns
+2026-01-16 17:01:18,987 - services.column_transformer - INFO - ColumnTransformer initialized with 23 output columns
+2026-01-16 17:01:18,988 - __main__ - INFO - Starting column transformation...
+2026-01-16 17:01:18,988 - services.column_transformer - INFO - Starting transformation for 1044 rows
+2026-01-16 17:01:18,996 - services.column_transformer - WARNING - Column A generation not yet implemented, using placeholder
+2026-01-16 17:01:19,003 - services.column_transformer - INFO - Transformation completed successfully for 1044 rows, 23 columns
+2026-01-16 17:01:19,003 - __main__ - INFO - Writing output file: output\Cartera_Transformada_20260116_170117.xlsx
+2026-01-16 17:01:19,592 - __main__ - INFO - Successfully wrote 1044 rows to output\Cartera_Transformada_20260116_170117.xlsx
+2026-01-16 17:01:19,593 - __main__ - INFO - ================================================================================
+2026-01-16 17:01:19,593 - __main__ - INFO - TRANSFORMATION COMPLETED SUCCESSFULLY
+2026-01-16 17:01:19,594 - __main__ - INFO - ================================================================================
+2026-01-16 17:01:19,594 - __main__ - INFO - Input rows: 1044
+2026-01-16 17:01:19,595 - __main__ - INFO - Output rows: 1044
+2026-01-16 17:01:19,595 - __main__ - INFO - Output columns: 23 (A-W)
+2026-01-16 17:01:19,596 - __main__ - INFO - Output file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\output\Cartera_Transformada_20260116_170117.xlsx

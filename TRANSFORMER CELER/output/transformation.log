@@ -64,3 +64,170 @@
 2026-01-19 09:28:52,877 - __main__ - INFO - Output rows: 1044
 2026-01-19 09:28:52,877 - __main__ - INFO - Output columns: 23 (A-W)
 2026-01-19 09:28:52,878 - __main__ - INFO - Output file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\output\Cartera_Transformada_20260119_092851.xlsx
+2026-01-19 10:58:52,464 - __main__ - INFO - ================================================================================
+2026-01-19 10:58:52,464 - __main__ - INFO - STARTING CELER DATA TRANSFORMATION
+2026-01-19 10:58:52,464 - __main__ - INFO - ================================================================================
+2026-01-19 10:58:52,465 - __main__ - INFO - Input file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 10:58:52,465 - __main__ - INFO - Input format: .XML
+2026-01-19 10:58:52,465 - __main__ - INFO - Output file: output\Cartera_Transformada_20260119_105852.xlsx
+2026-01-19 10:58:52,465 - __main__ - INFO - Reading Celer file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 10:58:52,465 - adapters.xml_reader - INFO - ExcelXMLReader initialized
+2026-01-19 10:58:52,465 - adapters.xml_reader - INFO - Reading XML file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 10:58:52,471 - __main__ - ERROR - Error reading file ..\DATA CELER\CarteraPendiente.xml: not well-formed (invalid token): line 2186, column 65
+2026-01-19 10:58:52,471 - __main__ - ERROR - File processing error: Error reading file ..\DATA CELER\CarteraPendiente.xml: not well-formed (invalid token): line 2186, column 65
+2026-01-19 10:59:10,620 - __main__ - INFO - ================================================================================
+2026-01-19 10:59:10,621 - __main__ - INFO - STARTING CELER DATA TRANSFORMATION
+2026-01-19 10:59:10,621 - __main__ - INFO - ================================================================================
+2026-01-19 10:59:10,621 - __main__ - INFO - Input file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 10:59:10,621 - __main__ - INFO - Input format: .XML
+2026-01-19 10:59:10,621 - __main__ - INFO - Output file: output\Cartera_Transformada_20260119_105910.xlsx
+2026-01-19 10:59:10,621 - __main__ - INFO - Reading Celer file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 10:59:10,622 - adapters.xml_reader - INFO - ExcelXMLReader initialized
+2026-01-19 10:59:10,622 - adapters.xml_reader - INFO - Reading XML file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 10:59:10,622 - adapters.xml_reader - ERROR - Failed to parse XML file: XMLParser() got an unexpected keyword argument 'recover'
+2026-01-19 10:59:10,622 - __main__ - ERROR - Error reading file ..\DATA CELER\CarteraPendiente.xml: Failed to parse XML file: XMLParser() got an unexpected keyword argument 'recover'
+2026-01-19 10:59:10,622 - __main__ - ERROR - File processing error: Error reading file ..\DATA CELER\CarteraPendiente.xml: Failed to parse XML file: XMLParser() got an unexpected keyword argument 'recover'
+2026-01-19 11:05:57,104 - __main__ - INFO - ================================================================================
+2026-01-19 11:05:57,104 - __main__ - INFO - PROGRAM 2: XML FORMAT TRANSFORMATION
+2026-01-19 11:05:57,105 - __main__ - INFO - ================================================================================
+2026-01-19 11:05:57,105 - __main__ - INFO - Input file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:05:57,105 - __main__ - INFO - Output file: output\Cartera_Transformada_XML_20260119_110557.xlsx
+2026-01-19 11:05:57,105 - __main__ - INFO - [PROGRAM 2 - XML] Reading file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:05:57,122 - adapters.xml_reader - INFO - ExcelXMLReader initialized
+2026-01-19 11:05:57,122 - adapters.xml_reader - INFO - Reading XML file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:05:57,273 - adapters.xml_reader - INFO - Successfully parsed XML with lxml (recover mode)
+2026-01-19 11:05:57,291 - adapters.xml_reader - INFO - Found 1049 rows in XML
+2026-01-19 11:05:57,292 - adapters.xml_reader - INFO - Found 49 headers at row 4
+2026-01-19 11:05:57,560 - adapters.xml_reader - INFO - Created DataFrame with 1044 rows and 49 columns
+2026-01-19 11:05:57,582 - __main__ - INFO - [PROGRAM 2 - XML] Successfully read 1044 rows, 49 columns
+2026-01-19 11:05:57,583 - services.column_transformer - INFO - ColumnTransformer initialized with 23 output columns
+2026-01-19 11:05:57,584 - __main__ - INFO - [PROGRAM 2 - XML] Starting column transformation...
+2026-01-19 11:05:57,584 - services.column_transformer - INFO - Starting transformation for 1044 rows
+2026-01-19 11:05:57,591 - services.column_transformer - WARNING - Column A generation not yet implemented, using placeholder
+2026-01-19 11:05:57,594 - services.column_transformer - INFO - Transformation completed successfully for 1044 rows, 23 columns
+2026-01-19 11:05:57,594 - __main__ - INFO - Writing output file: output\Cartera_Transformada_XML_20260119_110557.xlsx
+2026-01-19 11:05:58,166 - __main__ - INFO - Successfully wrote 1044 rows to output\Cartera_Transformada_XML_20260119_110557.xlsx
+2026-01-19 11:05:58,166 - __main__ - INFO - ================================================================================
+2026-01-19 11:05:58,166 - __main__ - INFO - PROGRAM 2: TRANSFORMATION COMPLETED SUCCESSFULLY
+2026-01-19 11:05:58,166 - __main__ - INFO - ================================================================================
+2026-01-19 11:05:58,167 - __main__ - INFO - Input rows: 1044
+2026-01-19 11:05:58,167 - __main__ - INFO - Output rows: 1044
+2026-01-19 11:05:58,167 - __main__ - INFO - Output columns: 23
+2026-01-19 11:05:58,167 - __main__ - INFO - Output file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\output\Cartera_Transformada_XML_20260119_110557.xlsx
+2026-01-19 11:14:51,247 - main - INFO - ================================================================================
+2026-01-19 11:14:51,247 - main - INFO - PROGRAM 1: XLSX FORMAT TRANSFORMATION
+2026-01-19 11:14:51,247 - main - INFO - ================================================================================
+2026-01-19 11:14:51,248 - main - INFO - Input file: ..\DATA CELER\CarteraPendiente.xlsx
+2026-01-19 11:14:51,248 - main - INFO - Output file: output\TEST_XLSX_output.xlsx
+2026-01-19 11:14:51,248 - main - INFO - [PROGRAM 1 - XLSX] Reading file: ..\DATA CELER\CarteraPendiente.xlsx
+2026-01-19 11:14:51,785 - main - INFO - [PROGRAM 1 - XLSX] Successfully read 1044 rows, 49 columns
+2026-01-19 11:14:51,785 - services.column_transformer - INFO - ColumnTransformer initialized with 23 output columns
+2026-01-19 11:14:51,785 - main - INFO - [PROGRAM 1 - XLSX] Starting column transformation...
+2026-01-19 11:14:51,785 - services.column_transformer - INFO - Starting transformation for 1044 rows
+2026-01-19 11:14:51,790 - services.column_transformer - WARNING - Column A generation not yet implemented, using placeholder
+2026-01-19 11:14:51,794 - services.column_transformer - INFO - Transformation completed successfully for 1044 rows, 23 columns
+2026-01-19 11:14:51,794 - main - INFO - Writing output file: output\TEST_XLSX_output.xlsx
+2026-01-19 11:14:52,106 - main - INFO - Successfully wrote 1044 rows to output\TEST_XLSX_output.xlsx
+2026-01-19 11:14:52,106 - main - INFO - ================================================================================
+2026-01-19 11:14:52,106 - main - INFO - PROGRAM 1: TRANSFORMATION COMPLETED SUCCESSFULLY
+2026-01-19 11:14:52,107 - main - INFO - ================================================================================
+2026-01-19 11:14:52,107 - main - INFO - Input rows: 1044
+2026-01-19 11:14:52,107 - main - INFO - Output rows: 1044
+2026-01-19 11:14:52,107 - main - INFO - Output columns: 23
+2026-01-19 11:14:52,107 - main - INFO - Output file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\output\TEST_XLSX_output.xlsx
+2026-01-19 11:27:19,490 - main - INFO - ================================================================================
+2026-01-19 11:27:19,490 - main - INFO - PROGRAM 2: XML FORMAT TRANSFORMATION
+2026-01-19 11:27:19,490 - main - INFO - ================================================================================
+2026-01-19 11:27:19,490 - main - INFO - Input file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:27:19,490 - main - INFO - Output file: output\TEST_XML_output_v2.xlsx
+2026-01-19 11:27:19,491 - main - INFO - [PROGRAM 2 - XML] Reading file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:27:19,510 - main - ERROR - [PROGRAM 2 - XML] Error reading file: unterminated triple-quoted string literal (detected at line 252) (xml_reader.py, line 250)
+2026-01-19 11:27:19,510 - main - ERROR - [PROGRAM 2 - XML] Error: [PROGRAM 2 - XML] Error reading file: unterminated triple-quoted string literal (detected at line 252) (xml_reader.py, line 250)
+Traceback (most recent call last):
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\main.py", line 106, in read_celer_xml
+    from adapters.xml_reader import read_celer_xml as xml_reader
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\adapters\xml_reader.py", line 250
+    """
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 252)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\main.py", line 254, in transform_xml_format
+    source_df = read_celer_xml(input_file)
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\main.py", line 119, in read_celer_xml
+    raise FileProcessingError(error_msg)
+domain.exceptions.FileProcessingError: [PROGRAM 2 - XML] Error reading file: unterminated triple-quoted string literal (detected at line 252) (xml_reader.py, line 250)
+2026-01-19 11:27:23,333 - main - INFO - ================================================================================
+2026-01-19 11:27:23,334 - main - INFO - PROGRAM 2: XML FORMAT TRANSFORMATION
+2026-01-19 11:27:23,334 - main - INFO - ================================================================================
+2026-01-19 11:27:23,334 - main - INFO - Input file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:27:23,335 - main - INFO - Output file: output\TEST_XML_output_v2.xlsx
+2026-01-19 11:27:23,336 - main - INFO - [PROGRAM 2 - XML] Reading file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:27:23,342 - main - ERROR - [PROGRAM 2 - XML] Error reading file: unterminated triple-quoted string literal (detected at line 252) (xml_reader.py, line 250)
+2026-01-19 11:27:23,343 - main - ERROR - [PROGRAM 2 - XML] Error: [PROGRAM 2 - XML] Error reading file: unterminated triple-quoted string literal (detected at line 252) (xml_reader.py, line 250)
+Traceback (most recent call last):
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\main.py", line 106, in read_celer_xml
+    from adapters.xml_reader import read_celer_xml as xml_reader
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\adapters\xml_reader.py", line 250
+    """
+    ^
+SyntaxError: unterminated triple-quoted string literal (detected at line 252)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\main.py", line 254, in transform_xml_format
+    source_df = read_celer_xml(input_file)
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\main.py", line 119, in read_celer_xml
+    raise FileProcessingError(error_msg)
+domain.exceptions.FileProcessingError: [PROGRAM 2 - XML] Error reading file: unterminated triple-quoted string literal (detected at line 252) (xml_reader.py, line 250)
+2026-01-19 11:28:44,227 - main - INFO - ================================================================================
+2026-01-19 11:28:44,227 - main - INFO - PROGRAM 2: XML FORMAT TRANSFORMATION
+2026-01-19 11:28:44,228 - main - INFO - ================================================================================
+2026-01-19 11:28:44,228 - main - INFO - Input file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:28:44,228 - main - INFO - Output file: output\TEST_XML_output_v2.xlsx
+2026-01-19 11:28:44,228 - main - INFO - [PROGRAM 2 - XML] Reading file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:28:44,235 - main - ERROR - [PROGRAM 2 - XML] Error reading file: cannot import name 'read_celer_xml' from 'adapters.xml_reader' (C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\adapters\xml_reader.py)
+2026-01-19 11:28:44,237 - main - ERROR - [PROGRAM 2 - XML] Error: [PROGRAM 2 - XML] Error reading file: cannot import name 'read_celer_xml' from 'adapters.xml_reader' (C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\adapters\xml_reader.py)
+Traceback (most recent call last):
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\main.py", line 106, in read_celer_xml
+    from adapters.xml_reader import read_celer_xml as xml_reader
+ImportError: cannot import name 'read_celer_xml' from 'adapters.xml_reader' (C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\adapters\xml_reader.py)
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\main.py", line 254, in transform_xml_format
+    source_df = read_celer_xml(input_file)
+  File "C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\main.py", line 119, in read_celer_xml
+    raise FileProcessingError(error_msg)
+domain.exceptions.FileProcessingError: [PROGRAM 2 - XML] Error reading file: cannot import name 'read_celer_xml' from 'adapters.xml_reader' (C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\adapters\xml_reader.py)
+2026-01-19 11:29:54,949 - main - INFO - ================================================================================
+2026-01-19 11:29:54,949 - main - INFO - PROGRAM 2: XML FORMAT TRANSFORMATION
+2026-01-19 11:29:54,950 - main - INFO - ================================================================================
+2026-01-19 11:29:54,950 - main - INFO - Input file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:29:54,950 - main - INFO - Output file: output\TEST_XML_output_FINAL.xlsx
+2026-01-19 11:29:54,950 - main - INFO - [PROGRAM 2 - XML] Reading file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:29:54,959 - adapters.xml_reader - INFO - ExcelXMLReader initialized
+2026-01-19 11:29:54,960 - adapters.xml_reader - INFO - Reading XML file: ..\DATA CELER\CarteraPendiente.xml
+2026-01-19 11:29:55,120 - adapters.xml_reader - INFO - Successfully parsed XML with lxml (recover mode)
+2026-01-19 11:29:55,137 - adapters.xml_reader - INFO - Found 1049 rows in XML
+2026-01-19 11:29:55,138 - adapters.xml_reader - INFO - Found 49 headers at row 4
+2026-01-19 11:29:55,434 - adapters.xml_reader - INFO - Created DataFrame with 1044 rows and 49 columns
+2026-01-19 11:29:55,458 - main - INFO - [PROGRAM 2 - XML] Successfully read 1044 rows, 49 columns
+2026-01-19 11:29:55,459 - services.column_transformer - INFO - ColumnTransformer initialized with 23 output columns
+2026-01-19 11:29:55,459 - main - INFO - [PROGRAM 2 - XML] Starting column transformation...
+2026-01-19 11:29:55,459 - services.column_transformer - INFO - Starting transformation for 1044 rows
+2026-01-19 11:29:55,466 - services.column_transformer - WARNING - Column A generation not yet implemented, using placeholder
+2026-01-19 11:29:55,468 - services.column_transformer - INFO - Transformation completed successfully for 1044 rows, 23 columns
+2026-01-19 11:29:55,468 - main - INFO - Writing output file: output\TEST_XML_output_FINAL.xlsx
+2026-01-19 11:29:55,999 - main - INFO - Successfully wrote 1044 rows to output\TEST_XML_output_FINAL.xlsx
+2026-01-19 11:29:55,999 - main - INFO - ================================================================================
+2026-01-19 11:29:56,000 - main - INFO - PROGRAM 2: TRANSFORMATION COMPLETED SUCCESSFULLY
+2026-01-19 11:29:56,000 - main - INFO - ================================================================================
+2026-01-19 11:29:56,000 - main - INFO - Input rows: 1044
+2026-01-19 11:29:56,000 - main - INFO - Output rows: 1044
+2026-01-19 11:29:56,001 - main - INFO - Output columns: 23
+2026-01-19 11:29:56,001 - main - INFO - Output file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\TRANSFORMER CELER\output\TEST_XML_output_FINAL.xlsx

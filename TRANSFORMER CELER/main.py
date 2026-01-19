@@ -2,11 +2,16 @@
 Main Transformation Script - Celer to Standardized Format
 ----------------------------------------------------------
 Reads Celer export file and transforms it to standardized 23-column format (A-W).
+Two separate programs: one for XLSX format, another for XML format.
 
 Usage:
-    python main.py [input_file] [output_file]
+    python main.py
     
-    If no arguments provided, uses default paths from .env
+    Program will prompt you to choose:
+    1. Process XLSX format
+    2. Process XML format
+    
+    Then enter the input file path.
 """
 
 import logging
@@ -49,12 +54,12 @@ def setup_directories() -> None:
         logger.debug(f"Ensured directory exists: {dir_path}")
 
 
-def read_celer_file(file_path: Path) -> pd.DataFrame:
+def read_celer_xlsx(file_path: Path) -> pd.DataFrame:
     """
-    Read Celer export Excel file.
+    PROGRAM 1: Read Celer XLSX format.
     
     Args:
-        file_path: Path to Celer Excel file
+        file_path: Path to Celer XLSX file
         
     Returns:
         DataFrame with Celer data
@@ -63,20 +68,53 @@ def read_celer_file(file_path: Path) -> pd.DataFrame:
         FileProcessingError: If file cannot be read
     """
     try:
-        logger.info(f"Reading Celer file: {file_path}")
+        logger.info(f"[PROGRAM 1 - XLSX] Reading file: {file_path}")
         
         # Read Excel file starting at row 5 (header_row=4)
         df = pd.read_excel(file_path, header=CELER_MAPPING.header_row)
+        logger.info(f"[PROGRAM 1 - XLSX] Successfully read {len(df)} rows, {len(df.columns)} columns")
         
-        logger.info(f"Successfully read {len(df)} rows, {len(df.columns)} columns")
         return df
         
     except FileNotFoundError:
-        error_msg = f"File not found: {file_path}"
+        error_msg = f"[PROGRAM 1 - XLSX] File not found: {file_path}"
         logger.error(error_msg)
         raise FileProcessingError(error_msg)
     except Exception as e:
-        error_msg = f"Error reading file {file_path}: {str(e)}"
+        error_msg = f"[PROGRAM 1 - XLSX] Error reading file: {str(e)}"
+        logger.error(error_msg)
+        raise FileProcessingError(error_msg)
+
+
+def read_celer_xml(file_path: Path) -> pd.DataFrame:
+    """
+    PROGRAM 2: Read Celer XML format.
+    
+    Args:
+        file_path: Path to Celer XML file
+        
+    Returns:
+        DataFrame with Celer data
+        
+    Raises:
+        FileProcessingError: If file cannot be read
+    """
+    try:
+        logger.info(f"[PROGRAM 2 - XML] Reading file: {file_path}")
+        
+        # Read Excel XML format
+        from adapters.xml_reader import read_celer_xml as xml_reader
+        df = xml_reader(file_path, header_row=CELER_MAPPING.header_row)
+        logger.info(f"[PROGRAM 2 - XML] Successfully read {len(df)} rows, {len(df.columns)} columns")
+        
+        return df
+        
+    except FileNotFoundError:
+        error_msg = f"[PROGRAM 2 - XML] File not found: {file_path}"
+        logger.error(error_msg)
+        raise FileProcessingError(error_msg)
+    except Exception as e:
+        error_msg = f"[PROGRAM 2 - XML] Error reading file: {str(e)}"
         logger.error(error_msg)
         raise FileProcessingError(error_msg)
 
@@ -133,60 +171,40 @@ def write_output_file(df: pd.DataFrame, file_path: Path) -> None:
         raise FileProcessingError(error_msg)
 
 
-def transform_celer_data(
-    input_file: Optional[Path] = None,
+def transform_xlsx_format(
+    input_file: Path,
     output_file: Optional[Path] = None
 ) -> None:
     """
-    Main transformation function.
+    PROGRAM 1: Transform XLSX format files.
     
     Args:
-        input_file: Path to input Celer file (default: searches in input/ folder)
-        output_file: Path to output file (default: output/Cartera_Transformada_YYYYMMDD.xlsx)
+        input_file: Path to input XLSX file
+        output_file: Path to output file (optional)
     """
     try:
         # Setup
         setup_directories()
         
-        # Determine input file
-        if input_file is None:
-            # Look for Excel files in parent DATA CELER folder or current input folder
-            data_celer_path = Path('../DATA CELER')
-            if data_celer_path.exists():
-                excel_files = list(data_celer_path.glob('*.xlsx'))
-                if excel_files:
-                    input_file = excel_files[0]
-                    logger.info(f"Auto-detected input file: {input_file}")
-            
-            if input_file is None:
-                raise FileProcessingError(
-                    "No input file specified and no Excel file found in DATA CELER folder. "
-                    "Please provide input file path."
-                )
-        
-        input_file = Path(input_file)
-        
         # Determine output file
         if output_file is None:
             timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
-            output_file = Path(f'output/Cartera_Transformada_{timestamp}.xlsx')
-        
-        output_file = Path(output_file)
+            output_file = Path(f'output/Cartera_Transformada_XLSX_{timestamp}.xlsx')
         
         logger.info("="*80)
-        logger.info("STARTING CELER DATA TRANSFORMATION")
+        logger.info("PROGRAM 1: XLSX FORMAT TRANSFORMATION")
         logger.info("="*80)
         logger.info(f"Input file: {input_file}")
         logger.info(f"Output file: {output_file}")
         
-        # Read input file
-        source_df = read_celer_file(input_file)
+        # Read XLSX file
+        source_df = read_celer_xlsx(input_file)
         
         # Initialize transformer
         transformer = ColumnTransformer()
         
         # Perform transformation
-        logger.info("Starting column transformation...")
+        logger.info("[PROGRAM 1 - XLSX] Starting column transformation...")
         transformed_df = transformer.transform(source_df)
         
         # Write output file
@@ -194,12 +212,177 @@ def transform_celer_data(
         
         # Summary
         logger.info("="*80)
-        logger.info("TRANSFORMATION COMPLETED SUCCESSFULLY")
+        logger.info("PROGRAM 1: TRANSFORMATION COMPLETED SUCCESSFULLY")
         logger.info("="*80)
         logger.info(f"Input rows: {len(source_df)}")
         logger.info(f"Output rows: {len(transformed_df)}")
-        logger.info(f"Output columns: {len(transformed_df.columns)} (A-W)")
+        logger.info(f"Output columns: {len(transformed_df.columns)}")
         logger.info(f"Output file: {output_file.absolute()}")
+        
+    except Exception as e:
+        logger.error(f"[PROGRAM 1 - XLSX] Error: {e}", exc_info=True)
+        raise
+
+
+def transform_xml_format(
+    input_file: Path,
+    output_file: Optional[Path] = None
+) -> None:
+    """
+    PROGRAM 2: Transform XML format files.
+    
+    Args:
+        input_file: Path to input XML file
+        output_file: Path to output file (optional)
+    """
+    try:
+        # Setup
+        setup_directories()
+        
+        # Determine output file
+        if output_file is None:
+            timestamp = datetime.now().strftime('%Y%m%d_%H%M%S')
+            output_file = Path(f'output/Cartera_Transformada_XML_{timestamp}.xlsx')
+        
+        logger.info("="*80)
+        logger.info("PROGRAM 2: XML FORMAT TRANSFORMATION")
+        logger.info("="*80)
+        logger.info(f"Input file: {input_file}")
+        logger.info(f"Output file: {output_file}")
+        
+        # Read XML file
+        source_df = read_celer_xml(input_file)
+        
+        # Initialize transformer
+        transformer = ColumnTransformer()
+        
+        # Perform transformation
+        logger.info("[PROGRAM 2 - XML] Starting column transformation...")
+        transformed_df = transformer.transform(source_df)
+        
+        # Write output file
+        write_output_file(transformed_df, output_file)
+        
+        # Summary
+        logger.info("="*80)
+        logger.info("PROGRAM 2: TRANSFORMATION COMPLETED SUCCESSFULLY")
+        logger.info("="*80)
+        logger.info(f"Input rows: {len(source_df)}")
+        logger.info(f"Output rows: {len(transformed_df)}")
+        logger.info(f"Output columns: {len(transformed_df.columns)}")
+        logger.info(f"Output file: {output_file.absolute()}")
+        
+    except Exception as e:
+        logger.error(f"[PROGRAM 2 - XML] Error: {e}", exc_info=True)
+        raise
+
+
+def show_menu() -> int:
+    """
+    Display console menu and get user choice.
+    
+    Returns:
+        User's choice (1 or 2)
+    """
+    print("\n" + "="*60)
+    print(" CELER DATA TRANSFORMATION - CHOOSE INPUT FORMAT")
+    print("="*60)
+    print()
+    print("  1. Process XLSX format (Excel .xlsx files)")
+    print("  2. Process XML format (Excel 2003 XML files)")
+    print()
+    print("="*60)
+    
+    while True:
+        try:
+            choice = input("\nEnter your choice (1 or 2): ").strip()
+            if choice in ['1', '2']:
+                return int(choice)
+            else:
+                print("❌ Invalid choice. Please enter 1 or 2.")
+        except KeyboardInterrupt:
+            print("\n\nOperation cancelled by user.")
+            sys.exit(0)
+        except Exception:
+            print("❌ Invalid input. Please enter 1 or 2.")
+
+
+def get_input_file(format_name: str, extension: str) -> Path:
+    """
+    Get input file path from user.
+    
+    Args:
+        format_name: Name of format (e.g., "XLSX", "XML")
+        extension: Expected file extension (e.g., ".xlsx", ".xml")
+        
+    Returns:
+        Path to input file
+    """
+    print(f"\n📁 Enter path to {format_name} file:")
+    print(f"   Example: ../DATA CELER/CarteraPendiente{extension}")
+    print(f"   (Press Enter for auto-detection)")
+    
+    while True:
+        try:
+            file_path = input("\nFile path: ").strip().strip('"').strip("'")
+            
+            if not file_path:
+                # Try auto-detection
+                data_celer_path = Path('../DATA CELER')
+                if data_celer_path.exists():
+                    files = list(data_celer_path.glob(f'*{extension}'))
+                    files = [f for f in files if not f.name.startswith('~$')]
+                    
+                    if files:
+                        file_path = str(files[0])
+                        print(f"✅ Auto-detected file: {file_path}")
+                    else:
+                        print(f"❌ No {extension} files found in DATA CELER folder.")
+                        continue
+            
+            path = Path(file_path)
+            
+            if not path.exists():
+                print(f"❌ File not found: {file_path}")
+                print("   Please check the path and try again.")
+                continue
+            
+            if path.suffix.lower() != extension:
+                print(f"❌ File must have {extension} extension.")
+                print(f"   Your file has: {path.suffix}")
+                continue
+            
+            return path
+            
+        except KeyboardInterrupt:
+            print("\n\nOperation cancelled by user.")
+            sys.exit(0)
+        except Exception as e:
+            print(f"❌ Error: {e}")
+            print("   Please try again.")
+
+
+def main() -> None:
+    """CLI entry point - Interactive console menu"""
+    try:
+        # Show menu and get choice
+        choice = show_menu()
+        
+        if choice == 1:
+            # PROGRAM 1: XLSX Format
+            print("\n✅ Selected: PROGRAM 1 - XLSX FORMAT")
+            input_file = get_input_file("XLSX", ".xlsx")
+            transform_xlsx_format(input_file)
+            
+        elif choice == 2:
+            # PROGRAM 2: XML Format
+            print("\n✅ Selected: PROGRAM 2 - XML FORMAT")
+            input_file = get_input_file("XML", ".xml")
+            transform_xml_format(input_file)
+        
+        print("\n" + "="*60)
+        print("✅ Process completed successfully!")
+        print("="*60 + "\n")
         
     except MissingColumnsError as e:
         logger.error(f"Missing required columns: {e}")
@@ -217,20 +400,6 @@ def transform_celer_data(
     except Exception as e:
         logger.error(f"Unexpected error: {e}", exc_info=True)
         sys.exit(1)
-
-
-def main() -> None:
-    """CLI entry point"""
-    input_file = None
-    output_file = None
-    
-    if len(sys.argv) > 1:
-        input_file = sys.argv[1]
-    
-    if len(sys.argv) > 2:
-        output_file = sys.argv[2]
-    
-    transform_celer_data(input_file, output_file)
 
 
 if __name__ == "__main__":

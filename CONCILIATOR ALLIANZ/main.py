@@ -28,10 +28,11 @@ class AllianzConciliator:
     Identifica pólizas que requieren conciliación basándose en coincidencias
     """
     
-    def __init__(self, celer_file_path, allianz_personas_path, allianz_colectivas_path):
+    def __init__(self, celer_file_path, allianz_personas_path, allianz_colectivas_path, data_source='both'):
         self.celer_file = Path(celer_file_path)
         self.allianz_personas_file = Path(allianz_personas_path)
         self.allianz_colectivas_file = Path(allianz_colectivas_path)
+        self.data_source = data_source.lower()  # 'personas', 'colectivas', or 'both'
         
         self.celer_df = None
         self.allianz_df = None
@@ -74,21 +75,30 @@ class AllianzConciliator:
         return self.celer_df
     
     def load_allianz_data(self):
-        """Load and prepare Allianz data (both PERSONAS and COLECTIVAS)"""
-        logger.info("Loading Allianz files...")
+        """Load and prepare Allianz data based on data_source setting"""
+        logger.info(f"Loading Allianz files ({self.data_source.upper()})...")
         
-        # Load PERSONAS
-        personas_df = read_allianz_file(str(self.allianz_personas_file))
-        personas_df['_source'] = 'PERSONAS'
-        logger.info(f"✓ PERSONAS: {len(personas_df)} records")
+        dataframes = []
         
-        # Load COLECTIVAS
-        colectivas_df = read_allianz_file(str(self.allianz_colectivas_file))
-        colectivas_df['_source'] = 'COLECTIVAS'
-        logger.info(f"✓ COLECTIVAS: {len(colectivas_df)} records")
+        # Load PERSONAS if requested
+        if self.data_source in ['personas', 'both']:
+            personas_df = read_allianz_file(str(self.allianz_personas_file))
+            personas_df['_source'] = 'PERSONAS'
+            logger.info(f"✓ PERSONAS: {len(personas_df)} records")
+            dataframes.append(personas_df)
         
-        # Combine
-        self.allianz_df = pd.concat([personas_df, colectivas_df], ignore_index=True)
+        # Load COLECTIVAS if requested
+        if self.data_source in ['colectivas', 'both']:
+            colectivas_df = read_allianz_file(str(self.allianz_colectivas_file))
+            colectivas_df['_source'] = 'COLECTIVAS'
+            logger.info(f"✓ COLECTIVAS: {len(colectivas_df)} records")
+            dataframes.append(colectivas_df)
+        
+        # Combine loaded dataframes
+        if not dataframes:
+            raise ValueError(f"Invalid data_source: {self.data_source}. Must be 'personas', 'colectivas', or 'both'")
+        
+        self.allianz_df = pd.concat(dataframes, ignore_index=True)
         
         # Normalize and create match key
         self.allianz_df['_poliza_norm'] = self.allianz_df['Póliza'].apply(self.normalize_number)
@@ -187,7 +197,8 @@ class AllianzConciliator:
         
         # Policies ONLY IN ALLIANZ (not in Celer)
         print("\n" + "=" * 80)
-        print("[!] POLIZAS SOLO EN ALLIANZ (No encontradas en Celer)")
+        print("[ALERTA] POLIZAS PAGADAS - FALTAN EN SISTEMA CELER")
+        print("(Estas polizas fueron pagadas por el cliente pero no estan actualizadas en su sistema)")
         print("=" * 80)
         print(f"Total: {len(self.results['only_allianz'])} polizas")
         
@@ -200,7 +211,7 @@ class AllianzConciliator:
         
         # Policies ONLY IN CELER (not in Allianz)
         print("\n" + "=" * 80)
-        print("[!] POLIZAS SOLO EN CELER (No encontradas en Allianz)")
+        print("[INFO] POLIZAS SOLO EN CELER (No encontradas en Allianz)")
         print("=" * 80)
         print(f"Total: {len(self.results['only_celer'])} polizas")
         
@@ -221,8 +232,8 @@ class AllianzConciliator:
         total_only_celer = len(self.results['only_celer'])
         
         print(f"\n[OK] Cartera pendiente: {total_to_reconcile}")
-        print(f"[!]  Solo en Allianz: {total_only_allianz}")
-        print(f"[!]  Solo en Celer: {total_only_celer}")
+        print(f"[ALERTA] Pagadas - Faltan en sistema: {total_only_allianz}")
+        print(f"[INFO]   Solo en Celer: {total_only_celer}")
         
         if len(self.allianz_df) > 0:
             match_rate = (total_to_reconcile / len(set(self.allianz_df['_match_key']))) * 100
@@ -261,6 +272,38 @@ class AllianzConciliator:
 
 def main():
     """Main entry point"""
+    # Display menu and get user selection
+    print("\n" + "=" * 80)
+    print("CONCILIADOR ALLIANZ - SELECCION DE DATOS")
+    print("=" * 80)
+    print("\nSeleccione que datos de Allianz desea procesar:")
+    print("\n  1. PERSONAS solamente")
+    print("  2. COLECTIVAS solamente")
+    print("  3. AMBOS (PERSONAS + COLECTIVAS)")
+    print("\n" + "=" * 80)
+    
+    # Get user input
+    while True:
+        try:
+            selection = input("\nIngrese su opcion (1-3): ").strip()
+            
+            if selection == '1':
+                data_source = 'personas'
+                break
+            elif selection == '2':
+                data_source = 'colectivas'
+                break
+            elif selection == '3':
+                data_source = 'both'
+                break
+            else:
+                print("[ERROR] Opcion invalida. Por favor ingrese 1, 2 o 3.")
+        except KeyboardInterrupt:
+            print("\n\n[INFO] Proceso cancelado por el usuario.")
+            sys.exit(0)
+        except Exception as e:
+            print(f"[ERROR] Error al leer entrada: {e}")
+    
     # Default file paths
     base_dir = Path(__file__).parent
     celer_file = base_dir.parent / "TRANSFORMER CELER" / "output" / "Cartera_Transformada_XML_20260119_110557.xlsx"
@@ -271,7 +314,8 @@ def main():
     conciliator = AllianzConciliator(
         celer_file_path=celer_file,
         allianz_personas_path=allianz_personas,
-        allianz_colectivas_path=allianz_colectivas
+        allianz_colectivas_path=allianz_colectivas,
+        data_source=data_source
     )
     
     # Run conciliation

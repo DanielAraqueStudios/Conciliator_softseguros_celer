@@ -170,18 +170,18 @@ class AllianzConciliator:
         
         # Policies that NEED RECONCILIATION
         print("\n" + "=" * 80)
-        print("[OK] POLIZAS QUE REQUIEREN CONCILIACION (Existen en ambos sistemas)")
+        print("[OK] CARTERA PENDIENTE (Existen en ambos sistemas)")
         print("=" * 80)
-        print(f"Total: {len(self.results['to_reconcile'])} pólizas")
+        print(f"Total: {len(self.results['to_reconcile'])} polizas")
         
         if self.results['to_reconcile']:
             print("\nDetalle:")
             for i, record in enumerate(self.results['to_reconcile'], 1):
-                print(f"\n  {i}. Póliza: {record['poliza']} | Recibo: {record['recibo']}")
+                print(f"\n  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']}")
                 print(f"     Celer:   {record['tomador_celer']}")
                 print(f"     Allianz: {record['cliente_allianz']} ({record['source']})")
                 print(f"     Cartera: ${record['cartera_total_allianz']:,.0f} | Vencida: ${record['vencida_allianz']:,.0f}")
-                print(f"     Comisión: ${record['comision_allianz']:,.2f}")
+                print(f"     Comision: ${record['comision_allianz']:,.2f}")
         else:
             print("\n  ⚠️ No hay pólizas para conciliar")
         
@@ -220,7 +220,7 @@ class AllianzConciliator:
         total_only_allianz = len(self.results['only_allianz'])
         total_only_celer = len(self.results['only_celer'])
         
-        print(f"\n[OK] Para conciliar: {total_to_reconcile}")
+        print(f"\n[OK] Cartera pendiente: {total_to_reconcile}")
         print(f"[!]  Solo en Allianz: {total_only_allianz}")
         print(f"[!]  Solo en Celer: {total_only_celer}")
         

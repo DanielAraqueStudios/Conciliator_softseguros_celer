@@ -192,6 +192,7 @@ La hoja "Detalle" contiene **23 columnas** (A-W) con la siguiente estructura:
 2. **Números de Póliza**:
    - 8 dígitos numéricos
    - Formato: `########`
+   - ⚠️ **Importante**: Pueden tener ceros a la izquierda en Celer (ej: `023537654`) que deben normalizarse para comparación con Allianz (`23537654`)
 
 3. **Matrículas**:
    - Formato alfanumérico: 3 letras + 3 números (`AAA###`)
@@ -237,35 +238,35 @@ numpy>=1.24.0          # Operaciones numéricas
 - **Sistema Operativo**: Windows (desarrollo)
 - **Encoding**: UTF-8 para manejar caracteres especiales
 
-## 📦 Estructura del Proyecto (Propuesta)
+## 📦 Estructura del Proyecto
 
 ```
 CONCILIATOR ALLIANZ/
 ├── README.md                    # Este archivo
-├── requirements.txt             # Dependencias
-├── main.py                      # Punto de entrada
 ├── INPUT/                       # Datos de entrada
-│   ├── COLECTIVAS/             # Seguros colectivos
-│   └── PERSONAS/               # Seguros individuales
-├── OUTPUT/                      # Archivos procesados
-├── schemas/                     # Modelos de datos
-│   └── allianz_schema.py
-├── services/                    # Lógica de negocio
-│   ├── reader.py               # Lectura de .xlsb
-│   ├── validator.py            # Validaciones
-│   └── transformer.py          # Transformaciones
-└── tests/                       # Pruebas unitarias
+│   ├── COLECTIVAS/             # Seguros colectivos (953 registros)
+│   └── PERSONAS/               # Seguros individuales (77 registros)
+└── tests/                       # Pruebas automatizadas
+    ├── test_sample_data.py     # Validación de muestras del README
+    ├── test_readme_samples.py  # Cross-check Celer ↔ Allianz
+    └── test_reconciliation.py  # Reconciliación completa
+
+MAIN PROJECT/
+└── main.py                      # Lector de archivos .xlsb con auto-detección
 ```
 
-## 🚀 Funcionalidades Propuestas
+## 🚀 Funcionalidades Implementadas
 
-### Sprint 1: Lectura y Validación
-- [ ] Lector de archivos `.xlsb`
-- [ ] Validación de estructura de columnas
-- [ ] Detección automática de hojas "Detalle"
-- [ ] Manejo de caracteres especiales (Ð, Ñ, acentos, &)
-- [ ] Validación de tipos de datos
-- [ ] Logs de errores y advertencias
+### Sprint 1: Lectura y Validación ✅
+- [x] Lector de archivos `.xlsb` con `pyxlsb`
+- [x] Validación de estructura de columnas (23 columnas esperadas)
+- [x] Detección automática de hojas "Detalle"
+- [x] Auto-detección de fila de encabezados (maneja 2-20 filas vacías)
+- [x] Manejo de caracteres especiales (Ð, Ñ, acentos, &)
+- [x] Validación de tipos de datos
+- [x] Logs de errores y advertencias
+- [x] Normalización de números de póliza (elimina ceros a la izquierda)
+- [x] Tests automatizados: 3/3 muestras verificadas en ambos sistemas
 
 ### Sprint 2: Análisis de Cartera
 - [ ] Cálculo de totales por aging (1-30, 31-90, etc.)
@@ -324,13 +325,31 @@ assert row["1-30"] + row["31-90"] + row["91-180"] + row["180+"] == row["Vencida"
 - Pueden ser más eficientes que `.xlsx` pero menos compatibles
 - Considerar conversión a `.xlsx` si es necesario
 
+## ✅ Tests Implementados
+
+### 1. test_sample_data.py
+- **Objetivo**: Verificar que las 3 muestras del README existen en los archivos de entrada
+- **Resultado**: ✅ 3/3 muestras encontradas en PERSONAS
+- **Cobertura**: Validación de datos documentados
+
+### 2. test_readme_samples.py
+- **Objetivo**: Cross-check entre archivos Celer y Allianz
+- **Resultado**: ✅ 3/3 muestras encontradas en AMBOS sistemas
+- **Features**: Normalización de números con ceros a la izquierda
+
+### 3. test_reconciliation.py
+- **Objetivo**: Reconciliación completa Celer ↔ Allianz
+- **Resultado**: 2 coincidencias directas, 1042 solo en Celer, 1028 solo en Allianz
+- **Match Rate**: 0.19% (indica que Celer contiene múltiples aseguradoras)
+
 ## 🎓 Próximos Pasos
 
-1. **Implementar lector de `.xlsb`**: Validar que `pyxlsb` puede leer correctamente los archivos
+1. ~~**Implementar lector de `.xlsb`**~~: ✅ Completado
 2. **Crear esquemas Pydantic**: Definir modelos de validación para las 23 columnas
 3. **Desarrollar validadores**: Verificar tipos, rangos y consistencia
 4. **Construir transformador**: Limpiar, normalizar y enriquecer datos
 5. **Crear sistema de reportes**: Generar outputs consolidados
+6. **GUI para carga de archivos**: Interfaz para seleccionar archivos dinámicamente
 
 ## 📞 Contacto y Soporte
 
@@ -340,4 +359,5 @@ assert row["1-30"] + row["31-90"] + row["91-180"] + row["180+"] == row["Vencida"
 
 ---
 
-**Última actualización**: 19 de enero de 2026
+**Última actualización**: 20 de enero de 2026  
+**Estado**: Sprint 1 completado ✅ | Tests pasando 3/3 ✅

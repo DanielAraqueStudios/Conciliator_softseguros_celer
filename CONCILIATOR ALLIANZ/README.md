@@ -243,6 +243,7 @@ numpy>=1.24.0          # Operaciones numéricas
 ```
 CONCILIATOR ALLIANZ/
 ├── README.md                    # Este archivo
+├── main.py                      # Programa principal de conciliación
 ├── INPUT/                       # Datos de entrada
 │   ├── COLECTIVAS/             # Seguros colectivos (953 registros)
 │   └── PERSONAS/               # Seguros individuales (77 registros)
@@ -252,7 +253,9 @@ CONCILIATOR ALLIANZ/
     └── test_reconciliation.py  # Reconciliación completa
 
 MAIN PROJECT/
-└── main.py                      # Lector de archivos .xlsb con auto-detección
+├── main.py                      # Lector de archivos .xlsb con auto-detección
+└── TRANSFORMER CELER/
+    └── output/                  # Archivos transformados de Celer
 ```
 
 ## 🚀 Funcionalidades Implementadas
@@ -268,36 +271,56 @@ MAIN PROJECT/
 - [x] Normalización de números de póliza (elimina ceros a la izquierda)
 - [x] Tests automatizados: 3/3 muestras verificadas en ambos sistemas
 
-### Sprint 2: Análisis de Cartera
+### Sprint 2: Sistema de Conciliación ✅
+- [x] Programa principal `main.py` con clase `AllianzConciliator`
+- [x] Menú interactivo para seleccionar origen de datos (PERSONAS/COLECTIVAS/AMBOS)
+- [x] Carga y normalización automática de archivos Celer y Allianz
+- [x] Sistema de match key: `{poliza_normalizada}_{recibo_normalizado}`
+- [x] Clasificación en 3 categorías:
+  - **Cartera Pendiente**: Pólizas en ambos sistemas (20 registros)
+  - **[ALERTA] Pagadas - Faltan en sistema**: En Allianz pero no en Celer (1010 registros)
+  - **[INFO] Solo en Celer**: En Celer pero no en Allianz (1024 registros)
+- [x] Reporte detallado en consola con información de cliente, cartera y comisiones
+- [x] Estadísticas de coincidencia y tasas de match
+
+### Sprint 3: Análisis de Cartera (Pendiente)
 - [ ] Cálculo de totales por aging (1-30, 31-90, etc.)
 - [ ] Resumen por macroramo
 - [ ] Resumen por sucursal/regional
 - [ ] Identificación de pólizas críticas (180+ días)
 - [ ] Estadísticas de comisiones vencidas
 
-### Sprint 3: Conciliación
-- [ ] Comparación entre archivos COLECTIVAS vs PERSONAS
-- [ ] Detección de duplicados
-- [ ] Validación de sumas (Vencida + No Vencida = Cartera Total)
-- [ ] Verificación de proporciones vencidas
-- [ ] Reporte de inconsistencias
-
-### Sprint 4: Reportes
+### Sprint 4: Reportes y Exportación (Pendiente)
+- [ ] Exportación de resultados a Excel (.xlsx)
 - [ ] Generación de archivo consolidado
 - [ ] Dashboard de métricas clave
-- [ ] Exportación a formato estándar (.xlsx)
 - [ ] Resumen ejecutivo
 - [ ] Alertas automáticas para pólizas críticas
 
-## 📈 Métricas Clave a Calcular
+## 📈 Métricas Clave
 
-1. **Cartera Total**: Suma de todas las carteras
-2. **% Cartera Vencida**: (Vencida / Cartera Total) × 100
-3. **Aging Promedio**: Días promedio de vencimiento
-4. **Comisión Total Vencida**: Suma de comisiones vencidas
-5. **Top 10 Pólizas Vencidas**: Por monto
-6. **Distribución por Ramo**: Automóviles vs Multirriesgo vs otros
-7. **Distribución Geográfica**: Por regional/sucursal
+### Resultados de Conciliación Actual (Enero 2026)
+
+**Datos procesados:**
+- Total Celer: 1,044 registros
+- Total Allianz: 1,030 registros (77 PERSONAS + 953 COLECTIVAS)
+
+**Clasificación:**
+1. **Cartera Pendiente** (20 pólizas): Existen en ambos sistemas, requieren conciliación
+2. **[ALERTA] Pagadas - Faltan en sistema** (1,010 pólizas): Clientes pagaron a Allianz pero no están actualizados en Celer
+3. **Solo en Celer** (1,024 pólizas): No encontradas en reporte Allianz
+
+**Tasas de coincidencia:**
+- Allianz: 1.94% (20/1030)
+- Celer: 1.92% (20/1044)
+
+### Métricas por Origen de Datos
+
+| Origen | Registros | Cartera Pendiente | Alertas | Solo en Celer | Match Rate |
+|--------|-----------|-------------------|---------|---------------|------------|
+| PERSONAS | 77 | 20 | 57 | 1,024 | 25.97% |
+| COLECTIVAS | 953 | 0 | 953 | 1,044 | 0.00% |
+| AMBOS | 1,030 | 20 | 1,010 | 1,024 | 1.94% |
 
 ## ⚠️ Consideraciones Especiales
 
@@ -324,8 +347,57 @@ assert row["1-30"] + row["31-90"] + row["91-180"] + row["180+"] == row["Vencida"
 - Los archivos `.xlsb` requieren la librería `pyxlsb`
 - Pueden ser más eficientes que `.xlsx` pero menos compatibles
 - Considerar conversión a `.xlsx` si es necesario
+✅ 20 coincidencias, 1,010 solo en Allianz, 1,024 solo en Celer
+- **Match Rate**: 1.94% (Celer contiene múltiples aseguradoras)
 
-## ✅ Tests Implementados
+## 🎯 Uso del Sistema
+
+### Ejecución del Programa Principal
+
+```bash
+# Navegar a la carpeta del proyecto
+cd "CONCILIATOR ALLIANZ"
+
+# Ejecutar el conciliador
+python main.py
+```
+
+### Menú Interactivo
+
+Al ejecutar, aparecerá un menú de selección:
+
+```
+================================================================================
+CON~~**Sistema de conciliación completo**~~: ✅ Completado
+3. ~~**Normalización de números de póliza**~~: ✅ Completado
+4. ~~**Menú interactivo de selección**~~: ✅ Completado
+5. **Exportación a Excel**: Guardar resultados en archivo .xlsx
+6. **Sistema de filtros**: Filtrar por monto, fecha, o estado
+7. **Dashboard visual**: Gráficos de distribución y aging
+8. **Automatización**: Programar ejecución mensual
+9. **Notificaciones**: Email alerts para pólizas críticas
+  1. PERSONAS solamente
+  2. COLECTIVAS solamente
+  3. AMBOS (PERSONAS + COLECTIVAS)
+
+================================================================================
+
+Ingrese su opcion (1-3): _
+```Sprint 2 completado ✅ | Tests pasando 3/3 ✅  
+**Sistema**: Producción - Conciliador funcional con menú interactivo
+
+### Salida del Programa
+
+El programa genera un reporte detallado que incluye:
+
+1. **Resumen**: Totales de registros Celer y Allianz
+2. **Cartera Pendiente**: Listado de pólizas en ambos sistemas con:
+   - Número de póliza y recibo
+   - Nombre del cliente (Celer vs Allianz)
+   - Montos de cartera total, vencida y comisión
+3. **[ALERTA] Pagadas - Faltan en sistema**: Pólizas que requieren actualización
+4. **[INFO] Solo en Celer**: Pólizas no encontradas en Allianz
+5. **Estadísticas**: Totales y tasas de coincidencia
 
 ### 1. test_sample_data.py
 - **Objetivo**: Verificar que las 3 muestras del README existen en los archivos de entrada

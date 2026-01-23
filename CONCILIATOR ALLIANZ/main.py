@@ -22,6 +22,57 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
+def select_file_from_folder(folder_path, extension, description):
+    """
+    List files in folder and let user select one
+    If only one file exists, returns it automatically
+    """
+    folder = Path(folder_path)
+    
+    if not folder.exists():
+        raise FileNotFoundError(f"Folder not found: {folder}")
+    
+    # Find all files with extension
+    files = list(folder.glob(f"*{extension}"))
+    
+    if len(files) == 0:
+        raise FileNotFoundError(f"No {extension} files found in {folder}")
+    
+    if len(files) == 1:
+        # Only one file, use it automatically
+        print(f"\n[INFO] Archivo encontrado - {description}: {files[0].name}")
+        return files[0]
+    
+    # Multiple files, show menu
+    print(f"\n{description.upper()}")
+    print("=" * 80)
+    print(f"Se encontraron {len(files)} archivos. Seleccione uno:")
+    print()
+    
+    for i, file in enumerate(files, 1):
+        file_size = file.stat().st_size / 1024  # KB
+        print(f"  {i}. {file.name} ({file_size:.2f} KB)")
+    
+    print("=" * 80)
+    
+    while True:
+        try:
+            selection = input(f"\nIngrese su opcion (1-{len(files)}): ").strip()
+            index = int(selection) - 1
+            
+            if 0 <= index < len(files):
+                selected_file = files[index]
+                print(f"[OK] Seleccionado: {selected_file.name}")
+                return selected_file
+            else:
+                print(f"[ERROR] Opcion invalida. Por favor ingrese un numero entre 1 y {len(files)}.")
+        except ValueError:
+            print("[ERROR] Por favor ingrese un numero valido.")
+        except KeyboardInterrupt:
+            print("\n\n[INFO] Proceso cancelado por el usuario.")
+            sys.exit(0)
+
+
 class AllianzConciliator:
     """
     Sistema de conciliación entre Celer y Allianz
@@ -304,11 +355,20 @@ def main():
         except Exception as e:
             print(f"[ERROR] Error al leer entrada: {e}")
     
-    # Default file paths
+    # Define folder paths
     base_dir = Path(__file__).parent
-    celer_file = base_dir.parent / "TRANSFORMER CELER" / "output" / "Cartera_Transformada_XML_20260119_110557.xlsx"
-    allianz_personas = base_dir / "INPUT" / "PERSONAS" / "Informe Intermediario UNION AGENCIA DE SEGUROS LTDA_1701932_11_Jan_2026 (2).xlsb"
-    allianz_colectivas = base_dir / "INPUT" / "COLECTIVAS" / "Informe Intermediario UNION AGENCIA DE SEGUROS LTDA_1701932_11_Jan_2026 (1).xlsb"
+    celer_folder = base_dir.parent / "TRANSFORMER CELER" / "output"
+    personas_folder = base_dir / "INPUT" / "PERSONAS"
+    colectivas_folder = base_dir / "INPUT" / "COLECTIVAS"
+    
+    # Select files from folders
+    print("\n" + "=" * 80)
+    print("SELECCION DE ARCHIVOS")
+    print("=" * 80)
+    
+    celer_file = select_file_from_folder(celer_folder, ".xlsx", "Archivo Celer Transformado")
+    allianz_personas = select_file_from_folder(personas_folder, ".xlsb", "Archivo Allianz PERSONAS")
+    allianz_colectivas = select_file_from_folder(colectivas_folder, ".xlsb", "Archivo Allianz COLECTIVAS")
     
     # Create conciliator
     conciliator = AllianzConciliator(

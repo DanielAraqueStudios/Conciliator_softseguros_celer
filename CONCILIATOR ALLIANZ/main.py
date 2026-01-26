@@ -8,6 +8,7 @@ import sys
 from pathlib import Path
 import pandas as pd
 import logging
+from datetime import datetime
 
 # Add parent directory to import main reader
 sys.path.insert(0, str(Path(__file__).parent.parent))
@@ -100,10 +101,17 @@ class AllianzConciliator:
         """
         Normalize policy/recibo numbers by removing leading zeros
         Handles: '023537654' -> '23537654'
+        Examples:
+          - '023178309' -> '23178309' ✓
+          - '0023178309' -> '23178309' ✓
+          - '23178309' -> '23178309' ✓
         """
         try:
-            return str(int(str(value).strip()))
+            # Convert to int to remove leading zeros, then back to string
+            result = str(int(str(value).strip()))
+            return result
         except (ValueError, TypeError):
+            # If conversion fails, just strip spaces
             return str(value).strip()
     
     def load_celer_data(self):
@@ -162,17 +170,34 @@ class AllianzConciliator:
         # Normalize and create match keys
         self.allianz_df['_poliza_norm'] = self.allianz_df['Póliza'].apply(self.normalize_number)
         self.allianz_df['_recibo_norm'] = self.allianz_df['Recibo'].apply(self.normalize_number)
-        self.allianz_df['_fecha_inicio_str'] = pd.to_datetime(self.allianz_df['F.INI VIG'], errors='coerce').dt.strftime('%Y-%m-%d')
+        
+        # Convert Excel serial dates to datetime
+        # Excel dates are stored as integers (days since 1899-12-30)
+        def convert_excel_date(serial_date):
+            if pd.isna(serial_date):
+                return 'NaT'
+            try:
+                # Excel origin is 1899-12-30 (not 1900-01-01 due to Excel bug)
+                dt = pd.to_datetime('1899-12-30') + pd.to_timedelta(int(serial_date), unit='D')
+                return dt.strftime('%Y-%m-%d')
+            except:
+                return 'NaT'
+        
+        self.allianz_df['_fecha_inicio_str'] = self.allianz_df['F.INI VIG'].apply(convert_excel_date)
         
         # Match keys: completo (poliza+recibo+fecha) y parcial (poliza+fecha)
         self.allianz_df['_match_key_full'] = self.allianz_df['_poliza_norm'] + "_" + self.allianz_df['_recibo_norm'] + "_" + self.allianz_df['_fecha_inicio_str']
         self.allianz_df['_match_key_partial'] = self.allianz_df['_poliza_norm'] + "_" + self.allianz_df['_fecha_inicio_str']
         
         logger.info(f"✓ Allianz TOTAL: {len(self.allianz_df)} records")
-        return self.allianz_df with 3 cases:
-        1. Full match (poliza + recibo + fecha) → NO HAN PAGADO
-        2. Partial match (poliza + fecha, diff recibo) → ACTUALIZAR SISTEMA
-        3. No match on poliza → CORREGIR POLIZA
+        return self.allianz_df
+    
+    def perform_conciliation(self):
+        """
+        Perform conciliation analysis with 3 cases:
+        1. Full match (poliza + recibo + fecha) - NO HAN PAGADO
+        2. Partial match (poliza + fecha, diff recibo) - ACTUALIZAR SISTEMA
+        3. No match on poliza - CORREGIR POLIZA
         """
         logger.info("Starting conciliation analysis...")
         
@@ -228,17 +253,168 @@ class AllianzConciliator:
         
         # CASO 3: CORREGIR POLIZA - Registros que no coinciden en póliza
         # Solo en Allianz (no en Celer)
+        only_allianz_count = 0
         for key in allianz_keys_full:
             if key not in celer_keys_full:
                 allianz_row = self.allianz_df[self.allianz_df['_match_key_full'] == key].iloc[0]
                 # Verificar si al menos coincide parcialmente
                 if allianz_row['_match_key_partial'] not in celer_keys_partial:
+                    # DEBUG: Log first 3 cases to verify normalization
+                    if only_allianz_count < 3:
+                        logger.debug(f"Only Allianz #{only_allianz_count + 1}: Poliza raw='{allianz_row['Póliza']}' norm='{allianz_row['_poliza_norm']}' | Key={key}")
+                    
                     self.results['only_allianz'].append({
                         'poliza': allianz_row['_poliza_norm'],
                         'recibo': allianz_row['_recibo_norm'],
                         'fecha_inicio': allianz_row['_fecha_inicio_str'],
                         'cliente': allianz_row['Cliente - Tomador'],
-                        'source': allianz_row['_source'],_full']))}")
+                        'source': allianz_row['_source'],
+                        'cartera_total': allianz_row.get('Cartera Total', 0)
+                    })
+                    only_allianz_count += 1
+        
+        # Solo en Celer (no en Allianz)
+        only_celer_count = 0
+        for key in celer_keys_full:
+            if key not in allianz_keys_full:
+                celer_row = self.celer_df[self.celer_df['_match_key_full'] == key].iloc[0]
+                # Verificar si al menos coincide parcialmente
+                if celer_row['_match_key_partial'] not in allianz_keys_partial:
+                    # DEBUG: Log first 3 cases to verify normalization
+                    if only_celer_count < 3:
+                        logger.debug(f"Only Celer #{only_celer_count + 1}: Poliza raw='{celer_row['Poliza']}' norm='{celer_row['_poliza_norm']}' | Key={key}")
+                    
+                    self.results['only_celer'].append({
+                        'poliza': celer_row['_poliza_norm'],
+                        'recibo': celer_row['_documento_norm'],
+                        'fecha_inicio': celer_row['_fecha_inicio_str'],
+                        'tomador': celer_row.get('Tomador', 'N/A'),
+                        'saldo': celer_row.get('Saldo', 0)
+                    })
+                    only_celer_count += 1
+        
+        logger.info("Conciliation analysis completed")
+    
+    def save_report_to_file(self):
+        """Save detailed conciliation report to text file"""
+        # Create output directory if it doesn't exist
+        output_dir = Path(__file__).parent / "output"
+        output_dir.mkdir(exist_ok=True)
+        
+        # Generate filename with timestamp
+        timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+        output_file = output_dir / f"Reporte_Conciliacion_{timestamp}.txt"
+        
+        with open(output_file, 'w', encoding='utf-8') as f:
+            # Header
+            f.write("=" * 80 + "\n")
+            f.write("REPORTE DE CONCILIACION ALLIANZ\n")
+            f.write("=" * 80 + "\n")
+            f.write(f"\nFecha de generacion: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
+            f.write(f"Fuente de datos: {self.data_source.upper()}\n")
+            
+            # Summary
+            f.write(f"\nRESUMEN:\n")
+            f.write(f"  - Total Celer: {len(self.celer_df)} registros\n")
+            f.write(f"  - Total Allianz: {len(self.allianz_df)} registros\n")
+            f.write(f"  - Polizas unicas Celer: {len(set(self.celer_df['_match_key_full']))}\n")
+            f.write(f"  - Polizas unicas Allianz: {len(set(self.allianz_df['_match_key_full']))}\n")
+            
+            # CASO 1: NO HAN PAGADO
+            f.write("\n" + "=" * 80 + "\n")
+            f.write("[CASO 1] NO HAN PAGADO - CARTERA PENDIENTE\n")
+            f.write("(Poliza + Recibo + Fecha coinciden en ambos sistemas)\n")
+            f.write("=" * 80 + "\n")
+            f.write(f"Total: {len(self.results['no_pagado'])} polizas\n")
+            
+            if self.results['no_pagado']:
+                f.write("\nDetalle:\n")
+                for i, record in enumerate(self.results['no_pagado'], 1):
+                    f.write(f"\n  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}\n")
+                    f.write(f"     Celer:   {record['tomador_celer']}\n")
+                    f.write(f"     Allianz: {record['cliente_allianz']} ({record['source']})\n")
+                    f.write(f"     Cartera: ${record['cartera_total']:,.0f} | Vencida: ${record['vencida']:,.0f}\n")
+                    f.write(f"     Comision: ${record['comision']:,.2f}\n")
+            
+            # CASO 2: ACTUALIZAR SISTEMA
+            f.write("\n" + "=" * 80 + "\n")
+            f.write("[CASO 2] ACTUALIZAR EN SISTEMA\n")
+            f.write("(Poliza + Fecha coinciden, pero DIFERENTE numero de recibo)\n")
+            f.write("=" * 80 + "\n")
+            f.write(f"Total: {len(self.results['actualizar_sistema'])} polizas\n")
+            
+            if self.results['actualizar_sistema']:
+                f.write("\nDetalle completo:\n")
+                for i, record in enumerate(self.results['actualizar_sistema'], 1):
+                    f.write(f"\n  {i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}\n")
+                    f.write(f"     Recibo Celer:   {record['recibo_celer']} | Saldo: ${record['saldo_celer']:,.0f}\n")
+                    f.write(f"     Recibo Allianz: {record['recibo_allianz']} | Cartera: ${record['cartera_allianz']:,.0f}\n")
+                    f.write(f"     Cliente: {record['cliente_allianz']} ({record['source']})\n")
+            
+            # CASO 3: CORREGIR POLIZA - Solo en Allianz
+            f.write("\n" + "=" * 80 + "\n")
+            f.write("[CASO 3] CORREGIR POLIZA - Solo en Allianz\n")
+            f.write("(Polizas en Allianz que NO coinciden con ninguna en Celer)\n")
+            f.write("=" * 80 + "\n")
+            f.write(f"Total: {len(self.results['only_allianz'])} polizas\n")
+            
+            if len(self.results['only_allianz']) > 0:
+                f.write(f"\nDetalle completo:\n")
+                for i, record in enumerate(self.results['only_allianz'], 1):
+                    f.write(f"  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}\n")
+                    f.write(f"     Cliente: {record['cliente']} ({record['source']})\n")
+                    f.write(f"     Cartera Total: ${record['cartera_total']:,.0f}\n")
+            
+            # CASO 3: CORREGIR POLIZA - Solo en Celer
+            f.write("\n" + "=" * 80 + "\n")
+            f.write("[CASO 3] CORREGIR POLIZA - Solo en Celer\n")
+            f.write("(Polizas en Celer que NO coinciden con ninguna en Allianz)\n")
+            f.write("=" * 80 + "\n")
+            f.write(f"Total: {len(self.results['only_celer'])} polizas\n")
+            
+            if len(self.results['only_celer']) > 0:
+                f.write(f"\nDetalle completo:\n")
+                for i, record in enumerate(self.results['only_celer'], 1):
+                    f.write(f"  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}\n")
+                    f.write(f"     Tomador: {record['tomador']}\n")
+                    f.write(f"     Saldo: ${record['saldo']:,.0f}\n")
+            
+            # Statistics
+            f.write("\n" + "=" * 80 + "\n")
+            f.write("ESTADISTICAS DE CONCILIACION\n")
+            f.write("=" * 80 + "\n")
+            
+            total_no_pagado = len(self.results['no_pagado'])
+            total_actualizar = len(self.results['actualizar_sistema'])
+            total_only_allianz = len(self.results['only_allianz'])
+            total_only_celer = len(self.results['only_celer'])
+            
+            f.write(f"\n[CASO 1] No han pagado (cartera pendiente): {total_no_pagado}\n")
+            f.write(f"[CASO 2] Actualizar en sistema (diferente recibo): {total_actualizar}\n")
+            f.write(f"[CASO 3] Corregir poliza - Solo en Allianz: {total_only_allianz}\n")
+            f.write(f"[CASO 3] Corregir poliza - Solo en Celer: {total_only_celer}\n")
+            
+            total_matched = total_no_pagado + total_actualizar
+            if len(self.allianz_df) > 0:
+                match_rate = (total_matched / len(set(self.allianz_df['_match_key_full']))) * 100
+                f.write(f"\nTasa de coincidencia total: {match_rate:.2f}%\n")
+            
+            f.write("\n" + "=" * 80 + "\n")
+        
+        logger.info(f"Report saved to: {output_file}")
+        return output_file
+    
+    def print_report(self):
+        """Print detailed conciliation report"""
+        print("\n" + "=" * 80)
+        print("REPORTE DE CONCILIACION ALLIANZ")
+        print("=" * 80)
+        
+        # Summary
+        print(f"\nRESUMEN:")
+        print(f"  - Total Celer: {len(self.celer_df)} registros")
+        print(f"  - Total Allianz: {len(self.allianz_df)} registros")
+        print(f"  - Polizas unicas Celer: {len(set(self.celer_df['_match_key_full']))}")
         print(f"  - Polizas unicas Allianz: {len(set(self.allianz_df['_match_key_full']))}")
         
         # CASO 1: NO HAN PAGADO
@@ -258,7 +434,21 @@ class AllianzConciliator:
                 print(f"     Comision: ${record['comision']:,.2f}")
         
         # CASO 2: ACTUALIZAR SISTEMA
-        prCASO 3: CORREGIR POLIZA - Solo en Allianz
+        print("\n" + "=" * 80)
+        print("[CASO 2] ACTUALIZAR EN SISTEMA")
+        print("(Poliza + Fecha coinciden, pero DIFERENTE numero de recibo)")
+        print("=" * 80)
+        print(f"Total: {len(self.results['actualizar_sistema'])} polizas")
+        
+        if self.results['actualizar_sistema']:
+            print("\nDetalle (primeras 20):")
+            for i, record in enumerate(self.results['actualizar_sistema'][:20], 1):
+                print(f"\n  {i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}")
+                print(f"     Recibo Celer:   {record['recibo_celer']} | Saldo: ${record['saldo_celer']:,.0f}")
+                print(f"     Recibo Allianz: {record['recibo_allianz']} | Cartera: ${record['cartera_allianz']:,.0f}")
+                print(f"     Cliente: {record['cliente_allianz']} ({record['source']})")
+        
+        # CASO 3: CORREGIR POLIZA - Solo en Allianz
         print("\n" + "=" * 80)
         print("[CASO 3] CORREGIR POLIZA - Solo en Allianz")
         print("(Polizas en Allianz que NO coinciden con ninguna en Celer)")
@@ -282,49 +472,16 @@ class AllianzConciliator:
         if len(self.results['only_celer']) > 0:
             print(f"\nPrimeras 10 polizas:")
             for i, record in enumerate(self.results['only_celer'][:10], 1):
-                print(f"  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inici
-        # Summary
-        print(f"\nRESUMEN:")
-        print(f"  - Total Celer: {len(self.celer_df)} registros")
-        print(f"  - Total Allianz: {len(self.allianz_df)} registros")
-        print(f"  - Polizas unicas Celer: {len(set(self.celer_df['_match_key']))}")
-        print(f"  - Polizas unicas Allianz: {len(set(self.allianz_df['_match_key']))}")
+                print(f"  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}")
+                print(f"     Tomador: {record['tomador']}")
+                print(f"     Saldo: ${record['saldo']:,.0f}")
         
-        # Policies that NEED RECONCILIATION
+        # Statistics
         print("\n" + "=" * 80)
-        print("[OK] CARTERA PENDIENTE (Existen en ambos sistemas)")
+        print("ESTADISTICAS DE CONCILIACION")
         print("=" * 80)
-        print(f"Total: {len(self.results['to_reconcile'])} polizas")
         
-        if self.results['to_reconcile']:
-            print("\nDetalle:")
-            for i, record in enumerate(self.results['to_reconcile'], 1):
-                print(f"\n  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']}")
-                print(f"     Celer:   {record['tomador_celer']}")
-                print(f"     Allianz: {record['cliente_allianz']} ({record['source']})")
-                print(f"     Cartera: ${record['cartera_total_allianz']:,.0f} | Vencida: ${record['vencida_allianz']:,.0f}")
-                print(f"     Comision: ${record['comision_allianz']:,.2f}")
-        else:
-            print("\n  ⚠️ No hay pólizas para conciliar")
-        
-        # Policies ONLY IN ALLIANZ (not in Celer)
-        print("\n" + "=" * 80)
-        print("[ALERTA] POLIZAS PAGADAS - FALTAN EN SISTEMA CELER")
-        print("(Estas polizas fueron pagadas por el cliente pero no estan actualizadas en su sistema)")
-        print("=" * 80)
-        print(f"Total: {len(self.results['only_allianz'])} polizas")
-        
-        if len(self.results['only_allianz']) > 0:
-            print(f"\nPrimeras 10 polizas:")
-            for i, record in enumerate(self.results['only_allianz'][:10], 1):
-                print(f"  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']}")
-                print(f"     Cliente: {record['cliente']} ({record['source']})")
-                print(f"     Cartera Total: ${record['cartera_total']:,.0f}")
-        
-        # Policies ONLY IN CELER (not in Allianz)
-        print("\n" + "=" * 80)
-        print("[INFO] POLIZAS SOLO EN CELER (No encontradas en Allianz)")
-        print(no_pagado = len(self.results['no_pagado'])
+        total_no_pagado = len(self.results['no_pagado'])
         total_actualizar = len(self.results['actualizar_sistema'])
         total_only_allianz = len(self.results['only_allianz'])
         total_only_celer = len(self.results['only_celer'])
@@ -337,22 +494,7 @@ class AllianzConciliator:
         total_matched = total_no_pagado + total_actualizar
         if len(self.allianz_df) > 0:
             match_rate = (total_matched / len(set(self.allianz_df['_match_key_full']))) * 100
-            print(f"\nTasa de coincidencia total
-        total_to_reconcile = len(self.results['to_reconcile'])
-        total_only_allianz = len(self.results['only_allianz'])
-        total_only_celer = len(self.results['only_celer'])
-        
-        print(f"\n[OK] Cartera pendiente: {total_to_reconcile}")
-        print(f"[ALERTA] Pagadas - Faltan en sistema: {total_only_allianz}")
-        print(f"[INFO]   Solo en Celer: {total_only_celer}")
-        
-        if len(self.allianz_df) > 0:
-            match_rate = (total_to_reconcile / len(set(self.allianz_df['_match_key']))) * 100
-            print(f"\nTasa de coincidencia Allianz: {match_rate:.2f}%")
-        
-        if len(self.celer_df) > 0:
-            match_rate = (total_to_reconcile / len(set(self.celer_df['_match_key']))) * 100
-            print(f"Tasa de coincidencia Celer: {match_rate:.2f}%")
+            print(f"\nTasa de coincidencia total: {match_rate:.2f}%")
         
         print("\n" + "=" * 80)
     
@@ -370,8 +512,12 @@ class AllianzConciliator:
             # Perform conciliation
             self.perform_conciliation()
             
-            # Print report
+            # Print report to console
             self.print_report()
+            
+            # Save report to file
+            output_file = self.save_report_to_file()
+            print(f"\n✅ Reporte guardado en: {output_file}")
             
             return True
             

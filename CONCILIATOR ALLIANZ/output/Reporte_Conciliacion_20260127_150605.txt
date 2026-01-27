@@ -1,0 +1,515 @@
+================================================================================
+REPORTE DE CONCILIACION ALLIANZ
+================================================================================
+
+Fecha de generacion: 2026-01-27 15:06:05
+Fuente de datos: PERSONAS
+
+RESUMEN:
+  - Total Celer: 94 registros
+  - Total Allianz: 60 registros
+  - Polizas unicas Celer: 94
+  - Polizas unicas Allianz: 60
+
+================================================================================
+[CASO 1] NO HAN PAGADO - CARTERA PENDIENTE
+(Poliza + Recibo + Fecha coinciden en ambos sistemas)
+================================================================================
+Total: 11 polizas
+
+Detalle:
+
+  1. Poliza: 23685571 | Recibo: 350651398 | Fecha: 2026-01-19
+     Celer:   GLORIA ELSI CASTRO ARIAS
+     Allianz: CASTRO ARIAS, GLORIA ELSI                     (PERSONAS)
+     Cartera: $374,051 | Vencida: $0
+     Comision: $39,291.13
+
+  2. Poliza: 23491451 | Recibo: 350301655 | Fecha: 2026-01-12
+     Celer:   JOSE GREGORIO PALOMINO BARBUDO
+     Allianz: PALOMINO BARBUDO, JOSE GREGORIO               (PERSONAS)
+     Cartera: $98,179 | Vencida: $0
+     Comision: $24,544.75
+
+  3. Poliza: 23651394 | Recibo: 350554956 | Fecha: 2026-01-20
+     Celer:   GLORIA PATRICIA MORENO LOPEZ
+     Allianz: MORENO LOPEZ, GLORIA PATRICIA                 (PERSONAS)
+     Cartera: $263,131 | Vencida: $0
+     Comision: $27,639.88
+
+  4. Poliza: 23626327 | Recibo: 350485508 | Fecha: 2026-01-15
+     Celer:   JUAN PABLO CASTAÑO VASQUEZ
+     Allianz: CASTAÐO VASQUEZ, JUAN PABLO                   (PERSONAS)
+     Cartera: $253,006 | Vencida: $0
+     Comision: $26,576.13
+
+  5. Poliza: 23372031 | Recibo: 350064014 | Fecha: 2026-01-13
+     Celer:   JUAN FERNANDO GOMEZ ZULUAGA
+     Allianz: GOMEZ ZULUAGA, JUAN FERNANDO                  (PERSONAS)
+     Cartera: $2,580,041 | Vencida: $0
+     Comision: $271,012.63
+
+  6. Poliza: 23729744 | Recibo: 350780882 | Fecha: 2026-01-22
+     Celer:   ANA MARCELA ARISTIZABAL ORTIZ
+     Allianz: ARISTIZABAL ORTIZ, ANA MARCELA                (PERSONAS)
+     Cartera: $81,514 | Vencida: $0
+     Comision: $8,562.38
+
+  7. Poliza: 23615822 | Recibo: 348896840 | Fecha: 2025-12-22
+     Celer:   HUMBERTO EMEL HIGUITA OQUENDO
+     Allianz: HIGUITA OQUENDO,HUMBERTO EMEL                 (PERSONAS)
+     Cartera: $772,348 | Vencida: $0
+     Comision: $81,129.13
+
+  8. Poliza: 23615822 | Recibo: 350462788 | Fecha: 2026-01-22
+     Celer:   HUMBERTO EMEL HIGUITA OQUENDO
+     Allianz: HIGUITA OQUENDO,HUMBERTO EMEL                 (PERSONAS)
+     Cartera: $772,348 | Vencida: $0
+     Comision: $81,129.13
+
+  9. Poliza: 23729799 | Recibo: 110616186 | Fecha: 2025-11-28
+     Celer:   ASOCIACION DE MUNICIPIOS DEL NORTE ANTIOQUEÑO - AMUNORTE
+     Allianz: AMUNORTE ANTIOQUEÐO                           (PERSONAS)
+     Cartera: $832,223 | Vencida: $832,223
+     Comision: $139,869.60
+
+  10. Poliza: 23715938 | Recibo: 350761189 | Fecha: 2026-01-06
+     Celer:   TERESITA DE JESUS CASTAÑEDA LOPEZ
+     Allianz: CASTAÐEDA LOPEZ, TERESITA DE JESUS            (PERSONAS)
+     Cartera: $229,511 | Vencida: $0
+     Comision: $24,108.50
+
+  11. Poliza: 23527545 | Recibo: 347216594 | Fecha: 2025-12-28
+     Celer:   JOVANA CATALINA CRESPO RAMIREZ
+     Allianz: CRESPO RAMIREZ, JOVANA CATALINA               (PERSONAS)
+     Cartera: $32,411 | Vencida: $0
+     Comision: $8,102.75
+
+================================================================================
+[CASO 2] ACTUALIZAR EN SISTEMA
+(Poliza + Fecha coinciden, pero DIFERENTE numero de recibo)
+================================================================================
+Total: 4 polizas
+
+Detalle completo:
+
+  1. Poliza: 23718547 | Fecha: 2026-01-02
+     Recibo Celer:   350763409 | Saldo: $166,551
+     Recibo Allianz: 112055326 | Cartera: $99,930
+     Cliente: SALDARRIAGA , JOHN FREDY                      (PERSONAS)
+
+  2. Poliza: 23690498 | Fecha: 2026-01-27
+     Recibo Celer:   -5 | Saldo: $221,092
+     Recibo Allianz: 350669366 | Cartera: $221,091
+     Cliente: LOAIZA BUITRAGO,GLADYS DEL SOCORRO            (PERSONAS)
+
+  3. Poliza: 23755204 | Fecha: 2026-01-22
+     Recibo Celer:   -2 | Saldo: $147,591
+     Recibo Allianz: 350971366 | Cartera: $147,592
+     Cliente: OCAMPO ESCOBAR,CLAUDIA MARIA                  (PERSONAS)
+
+  4. Poliza: 23670981 | Fecha: 2026-01-25
+     Recibo Celer:   -5 | Saldo: $182,190
+     Recibo Allianz: 350635722 | Cartera: $182,194
+     Cliente: PINEDA JARAMILLO, ANA MARIA                   (PERSONAS)
+
+================================================================================
+[CASO 3] CORREGIR POLIZA - Solo en Allianz
+(Polizas en Allianz que NO coinciden con ninguna en Celer)
+================================================================================
+Total: 45 polizas
+
+Detalle completo:
+  1. Poliza: 23008049 | Recibo: 350022921 | Fecha: 2026-01-16
+     Cliente: COOPERATIVA DE TRABAJADORES DEL SENA          (PERSONAS)
+     Cartera Total: $324,001
+  2. Poliza: 23610568 | Recibo: 350442590 | Fecha: 2026-01-01
+     Cliente: GARCIA MORENO, WILLIAM                        (PERSONAS)
+     Cartera Total: $796,156
+  3. Poliza: 23304865 | Recibo: 350248898 | Fecha: 2026-01-24
+     Cliente: FUNERARIA SAN JUAN BAUTISTA LTDA              (PERSONAS)
+     Cartera Total: $377,045
+  4. Poliza: 23178309 | Recibo: 349378509 | Fecha: 2026-01-16
+     Cliente: ALZATE GALINDO, PEDRO ANTONIO                 (PERSONAS)
+     Cartera Total: $209,816
+  5. Poliza: 23564015 | Recibo: 347315818 | Fecha: 2026-01-29
+     Cliente: HOUDAILLE ,VICENT GILLES GERARD               (PERSONAS)
+     Cartera Total: $433,200
+  6. Poliza: 23441899 | Recibo: 350277202 | Fecha: 2026-01-12
+     Cliente: MORENO LOPEZ, GLORIA PATRICIA                 (PERSONAS)
+     Cartera Total: $338,077
+  7. Poliza: 22779240 | Recibo: 350198762 | Fecha: 2026-01-14
+     Cliente: AGUDELO ISAZA, MARIO ALEJANDRO                (PERSONAS)
+     Cartera Total: $197,166
+  8. Poliza: 22928397 | Recibo: 349283188 | Fecha: 2026-01-30
+     Cliente: KNUTH DIAZ, JARMITH ABHELL                    (PERSONAS)
+     Cartera Total: $46,786
+  9. Poliza: 23601476 | Recibo: 350382945 | Fecha: 2026-01-05
+     Cliente: BENAVIDES VILLOTA, JAIRO ANDRES               (PERSONAS)
+     Cartera Total: $242,878
+  10. Poliza: 23582209 | Recibo: 348787221 | Fecha: 2025-12-28
+     Cliente: AGUDELO URIBE,MARIA JOSE                      (PERSONAS)
+     Cartera Total: $161,526
+  11. Poliza: 23786313 | Recibo: 111998039 | Fecha: 2025-12-31
+     Cliente: VALENCIA BURITICA, CARLOS ANDRES              (PERSONAS)
+     Cartera Total: $373,668
+  12. Poliza: 23796156 | Recibo: 112072719 | Fecha: 2026-01-22
+     Cliente: BETANCUR GIRALDO, GUILLERMO LEON              (PERSONAS)
+     Cartera Total: $2,862,913
+  13. Poliza: 23793041 | Recibo: 112066562 | Fecha: 2026-01-23
+     Cliente: LONDOÐO ROLDAN, VICTOR ALFONSO                (PERSONAS)
+     Cartera Total: $3,767,042
+  14. Poliza: 23770244 | Recibo: 111692319 | Fecha: 2025-12-10
+     Cliente: GALLEGO ORTIZ, TATIANA                        (PERSONAS)
+     Cartera Total: $2,429,110
+  15. Poliza: 23007963 | Recibo: 350022665 | Fecha: 2026-01-23
+     Cliente: COOPERATIVA DE TRABAJADORES DEL SENA          (PERSONAS)
+     Cartera Total: $292,853
+  16. Poliza: 23399672 | Recibo: 350262212 | Fecha: 2026-01-09
+     Cliente: REYES REYES,SANTIAGO                          (PERSONAS)
+     Cartera Total: $253,480
+  17. Poliza: 23663300 | Recibo: 349050322 | Fecha: 2025-12-15
+     Cliente: RESTREPO ZULUAGA,FELIPE ANDRES                (PERSONAS)
+     Cartera Total: $159,256
+  18. Poliza: 23672450 | Recibo: 350637017 | Fecha: 2026-01-29
+     Cliente: LOAIZA MONTOYA,LINA MARIA                     (PERSONAS)
+     Cartera Total: $100,787
+  19. Poliza: 23785336 | Recibo: 352051530 | Fecha: 2026-01-31
+     Cliente: ESCOBAR ZAPATA, JUAN PABLO                    (PERSONAS)
+     Cartera Total: $241,373
+  20. Poliza: 23549286 | Recibo: 347303061 | Fecha: 2025-12-27
+     Cliente: CRUZ ,JAIME MAURICIO                          (PERSONAS)
+     Cartera Total: $3,288,673
+  21. Poliza: 23237380 | Recibo: 350239343 | Fecha: 2026-01-13
+     Cliente: QUICENO LOPEZ, JONATHAN                       (PERSONAS)
+     Cartera Total: $377,599
+  22. Poliza: 23042358 | Recibo: 349345946 | Fecha: 2026-01-02
+     Cliente: WILMAR DARIO, GALEANO CASTRILLON              (PERSONAS)
+     Cartera Total: $68,332
+  23. Poliza: 23582209 | Recibo: 350353342 | Fecha: 2026-01-28
+     Cliente: AGUDELO URIBE,MARIA JOSE                      (PERSONAS)
+     Cartera Total: $161,526
+  24. Poliza: 22629971 | Recibo: 350191494 | Fecha: 2026-01-01
+     Cliente: ESCUDERO RINCON, RUBER ALBERTO                (PERSONAS)
+     Cartera Total: $225,993
+  25. Poliza: 23533502 | Recibo: 350317420 | Fecha: 2026-01-07
+     Cliente: AGUDELO FRANCO,CLARA INES                     (PERSONAS)
+     Cartera Total: $197,130
+  26. Poliza: 23198010 | Recibo: 347162178 | Fecha: 2026-01-05
+     Cliente: COOPERATIVA FRATERNIDAD SACERDOTAL            (PERSONAS)
+     Cartera Total: $499,500
+  27. Poliza: 23413077 | Recibo: 350265702 | Fecha: 2026-01-04
+     Cliente: GALEANO , MARIA NELA                          (PERSONAS)
+     Cartera Total: $340,471
+  28. Poliza: 23376877 | Recibo: 350073981 | Fecha: 2026-01-19
+     Cliente: ALVAREZ ASPRILLA, MAIBER ALBERTO              (PERSONAS)
+     Cartera Total: $2,704,498
+  29. Poliza: 23263137 | Recibo: 350242974 | Fecha: 2026-01-08
+     Cliente: ARBELAEZ ARANGO, MARIA ADELAIDA               (PERSONAS)
+     Cartera Total: $480,483
+  30. Poliza: 23503130 | Recibo: 350305953 | Fecha: 2026-01-25
+     Cliente: TORRES ROLDAN, MARIA EDITH                    (PERSONAS)
+     Cartera Total: $253,861
+  31. Poliza: 23505091 | Recibo: 350306571 | Fecha: 2026-01-09
+     Cliente: VASCO BOLIVAR, CARLOS ARTURO                  (PERSONAS)
+     Cartera Total: $320,016
+  32. Poliza: 23033785 | Recibo: 350028951 | Fecha: 2026-01-01
+     Cliente: AREIZA CORREA, JOSE MEDARDO                   (PERSONAS)
+     Cartera Total: $237,503
+  33. Poliza: 23526685 | Recibo: 350314971 | Fecha: 2026-01-07
+     Cliente: BEDOYA JAIME, DORYAN JAIME                    (PERSONAS)
+     Cartera Total: $124,436
+  34. Poliza: 23749041 | Recibo: 350965764 | Fecha: 2026-01-12
+     Cliente: ARBOLEDA TAMAYO,DIANA MAGLODY                 (PERSONAS)
+     Cartera Total: $42,971
+  35. Poliza: 23663300 | Recibo: 350617779 | Fecha: 2026-01-15
+     Cliente: RESTREPO ZULUAGA,FELIPE ANDRES                (PERSONAS)
+     Cartera Total: $159,256
+  36. Poliza: 23561786 | Recibo: 350144022 | Fecha: 2026-01-25
+     Cliente: ARTEAGA VELEZ, ERIKA ANDREA                   (PERSONAS)
+     Cartera Total: $150,417
+  37. Poliza: 23537654 | Recibo: 112009273 | Fecha: 2025-12-11
+     Cliente: AGUDELO DIEZ,GLORIA LUCIA                     (PERSONAS)
+     Cartera Total: $327,630
+  38. Poliza: 23786313 | Recibo: 353119021 | Fecha: 2026-01-31
+     Cliente: VALENCIA BURITICA, CARLOS ANDRES              (PERSONAS)
+     Cartera Total: $373,668
+  39. Poliza: 23727517 | Recibo: 350776492 | Fecha: 2026-01-01
+     Cliente: PINEDA JARAMILLO, ANA MARIA                   (PERSONAS)
+     Cartera Total: $458,291
+  40. Poliza: 23662573 | Recibo: 350617076 | Fecha: 2026-01-07
+     Cliente: DUQUE CORREA, SANDRA MILENA                   (PERSONAS)
+     Cartera Total: $441,825
+  41. Poliza: 23682934 | Recibo: 350648923 | Fecha: 2026-01-09
+     Cliente: JARAMILLO LLANOS,FERNEY OSWALDO               (PERSONAS)
+     Cartera Total: $244,014
+  42. Poliza: 23791522 | Recibo: 111971259 | Fecha: 2026-01-14
+     Cliente: INVERSIONES CATALEJO SAS                      (PERSONAS)
+     Cartera Total: $2,004,370
+  43. Poliza: 22951479 | Recibo: 349283501 | Fecha: 2026-01-28
+     Cliente: COOPERATIVA FRATERNIDAD SACERDOTAL            (PERSONAS)
+     Cartera Total: $26,671
+  44. Poliza: 23008768 | Recibo: 350025569 | Fecha: 2026-01-31
+     Cliente: RUIZ SANTANA, GLORIA TERESA                   (PERSONAS)
+     Cartera Total: $1,568,375
+  45. Poliza: 23380199 | Recibo: 350080846 | Fecha: 2026-01-13
+     Cliente: COOPERATIVA SAN ROQUE                         (PERSONAS)
+     Cartera Total: $505,750
+
+================================================================================
+[CASO 3] CORREGIR POLIZA - Solo en Celer
+(Polizas en Celer que NO coinciden con ninguna en Allianz)
+================================================================================
+Total: 79 polizas
+
+Detalle completo:
+  1. Poliza: 2304235800000 | Recibo: 349345946 | Fecha: 2026-01-02
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $68,332
+  2. Poliza: 2358220900000 | Recibo: 348787221 | Fecha: 2025-12-28
+     Tomador: MARIA JOSE AGUDELO URIBE
+     Saldo: $161,526
+  3. Poliza: 023651483 5 | Recibo: 348992250 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $823,718
+  4. Poliza: 2356178600000 | Recibo: 348761101 | Fecha: 2025-12-25
+     Tomador: ERIKA ANDREA ARTEAGA VELEZ
+     Saldo: $152,917
+  5. Poliza: 023651483 9 | Recibo: 346640034 | Fecha: 2025-11-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,074,413
+  6. Poliza: 023651483 6 | Recibo: 348992268 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,165,229
+  7. Poliza: 2330486500000 | Recibo: 348661814 | Fecha: 2025-12-24
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $377,046
+  8. Poliza: 23755204 | Recibo: -1 | Fecha: 2025-12-22
+     Tomador: CLAUDIA MARIA OCAMPO ESCOBAR
+     Saldo: $147,591
+  9. Poliza: 2362205400000 | Recibo: -8 | Fecha: 2026-01-01
+     Tomador: AB & C LOGISTICA S.A.S.
+     Saldo: $1,935,142
+  10. Poliza: 022884117 180 | Recibo: 110279670 | Fecha: 2025-09-23
+     Tomador: PEDRO ANTONIO ALZATE GALINDO
+     Saldo: $-602,423
+  11. Poliza: 023651483 8 | Recibo: 348992284 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,162,719
+  12. Poliza: 2344189900000 | Recibo: 350277202 | Fecha: 2026-01-12
+     Tomador: GLORIA PATRICIA MORENO LOPEZ
+     Saldo: $338,078
+  13. Poliza: 23699150 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: ROTRASVEHI S.A.S.
+     Saldo: $4,760,000
+  14. Poliza: 23203005 | Recibo: 111707810 | Fecha: 2025-12-17
+     Tomador: JUAN FELIPE LONDOÑO ALVAREZ
+     Saldo: $-774,592
+  15. Poliza: 2341291600000 | Recibo: 110859323 | Fecha: 2025-10-30
+     Tomador: PLASTICOS G. Y C. S.A.S.
+     Saldo: $-1,064,600
+  16. Poliza: 2362205400000 | Recibo: 351249549 | Fecha: 2025-11-01
+     Tomador: AB & C LOGISTICA S.A.S.
+     Saldo: $315,643
+  17. Poliza: 2352668500000 | Recibo: 350314971 | Fecha: 2026-01-07
+     Tomador: DORIAN JAIME BEDOYA SALDARRIAGA
+     Saldo: $124,438
+  18. Poliza: 2354310600190 | Recibo: 348733522 | Fecha: 2025-12-05
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $150,890
+  19. Poliza: 023651483 8 | Recibo: 346640026 | Fecha: 2025-11-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,162,719
+  20. Poliza: 2262997100000 | Recibo: 350191494 | Fecha: 2026-01-01
+     Tomador: RUBER ALBERTO ESCUDERO RINCON
+     Saldo: $225,993
+  21. Poliza: 2361863900000 | Recibo: -4 | Fecha: 2026-01-14
+     Tomador: ELECTROLUMEN SAS
+     Saldo: $5,057,500
+  22. Poliza: 23543106274 | Recibo: 111361816 | Fecha: 2025-11-27
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $520,030
+  23. Poliza: 2357649900000 | Recibo: 108136734 | Fecha: 2024-12-16
+     Tomador: COLEGIO JESUS MARIA
+     Saldo: $-32,000
+  24. Poliza: 23000185 | Recibo: 110321340 | Fecha: 2025-11-01
+     Tomador: KARIM KAI CHOHRA
+     Saldo: $-64,800
+  25. Poliza: 2361056800000 | Recibo: 350442590 | Fecha: 2026-01-01
+     Tomador: GARCIA MORENO WILLIAM
+     Saldo: $796,155
+  26. Poliza: 2196072300565 | Recibo: 111717868 | Fecha: 2025-12-23
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $2,361,004
+  27. Poliza: 23727517 | Recibo: -3 | Fecha: 2026-01-20
+     Tomador: ANA MARIA PINEDA JARAMILLO
+     Saldo: $632,817
+  28. Poliza: 023651483 9 | Recibo: 348992292 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,074,413
+  29. Poliza: 2368116700000 | Recibo: 350647370 | Fecha: 2026-01-01
+     Tomador: ROTRASVEHI S.A.S.
+     Saldo: $8,925,000
+  30. Poliza: 2277924000000 | Recibo: -2 | Fecha: 2026-01-14
+     Tomador: MARIO ALEJANDRO AGUDELO ISAZA
+     Saldo: $197,168
+  31. Poliza: 23727517 | Recibo: -2 | Fecha: 2025-12-20
+     Tomador: ANA MARIA PINEDA JARAMILLO
+     Saldo: $632,817
+  32. Poliza: 2196072300507 | Recibo: 111407254 | Fecha: 2025-11-29
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $-558,922
+  33. Poliza: 23729744 | Recibo: 349208425 | Fecha: 2025-12-22
+     Tomador: ANA MARCELA ARISTIZABAL ORTIZ
+     Saldo: $81,514
+  34. Poliza: 23780982 | Recibo: 111714733 | Fecha: 2025-12-20
+     Tomador: DIANA EDITH PAZ CANO
+     Saldo: $2,555,951
+  35. Poliza: 2366330000000 | Recibo: 350617779 | Fecha: 2026-01-15
+     Tomador: FELIPE ANDRES RESTREPO ZULUAGA
+     Saldo: $159,255
+  36. Poliza: 023651483 2 | Recibo: 348992227 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,162,719
+  37. Poliza: 2317830900000 | Recibo: 349378509 | Fecha: 2026-01-16
+     Tomador: PEDRO ANTONIO ALZATE GALINDO
+     Saldo: $209,816
+  38. Poliza: 23744529 | Recibo: CMED14731 | Fecha: 2025-12-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $11,536,779
+  39. Poliza: 2350313000000 | Recibo: 348720834 | Fecha: 2025-12-25
+     Tomador: MARIA EDITH TORRES ROLDAN
+     Saldo: $253,860
+  40. Poliza: 23744529 | Recibo: 2 | Fecha: 2025-12-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $-307,617
+  41. Poliza: 23699150 | Recibo: -3 | Fecha: 2025-11-01
+     Tomador: ROTRASVEHI S.A.S.
+     Saldo: $4,760,000
+  42. Poliza: 23670981 | Recibo: 349064638 | Fecha: 2025-12-25
+     Tomador: ANA MARIA PINEDA JARAMILLO
+     Saldo: $182,190
+  43. Poliza: 2196072300562 | Recibo: 111590695 | Fecha: 2025-12-15
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $1,647,295
+  44. Poliza: 2354310600190 | Recibo: 350322529 | Fecha: 2026-01-05
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $150,890
+  45. Poliza: 2340478500000 | Recibo: -10 | Fecha: 2026-01-14
+     Tomador: MARIA EUGENIA SANCHEZ DE LA PEÑA
+     Saldo: $146,928
+  46. Poliza: 2303378500000 | Recibo: 350028951 | Fecha: 2026-01-01
+     Tomador: JOSE MEDARDO AREIZA CORREA
+     Saldo: $237,503
+  47. Poliza: 2339967200000 | Recibo: 350262212 | Fecha: 2026-01-09
+     Tomador: SANTIAGO REYES REYES
+     Saldo: $253,481
+  48. Poliza: 23690498 | Recibo: 349098826 | Fecha: 2025-12-27
+     Tomador: GLADYS DEL SOCORRO LOAIZA BUITRAGO
+     Saldo: $221,092
+  49. Poliza: 23744529 | Recibo: -3 | Fecha: 2026-01-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $12,649,388
+  50. Poliza: 23593956 | Recibo: -10 | Fecha: 2026-01-15
+     Tomador: ANDRES ZULETA MARTINEZ
+     Saldo: $254,055
+  51. Poliza: 2362205400000 | Recibo: -7 | Fecha: 2025-12-01
+     Tomador: AB & C LOGISTICA S.A.S.
+     Saldo: $1,935,142
+  52. Poliza: 023651483 3 | Recibo: 348992235 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,086,743
+  53. Poliza: 2355807700000 | Recibo: 351374768 | Fecha: 2026-01-17
+     Tomador: WILLIAM ALBERTO TAMAYO CANO
+     Saldo: $7,298,487
+  54. Poliza: 023651483 7 | Recibo: 348992276 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,167,862
+  55. Poliza: 2258260800000 | Recibo: 350190413 | Fecha: 2026-01-01
+     Tomador: LINA MARIA AGUDELO ISAZA
+     Saldo: $217,024
+  56. Poliza: 2341307700000 | Recibo: 350265702 | Fecha: 2026-01-04
+     Tomador: MARIA NELA GALEANO
+     Saldo: $340,473
+  57. Poliza: 23699150 | Recibo: -4 | Fecha: 2025-12-01
+     Tomador: ROTRASVEHI S.A.S.
+     Saldo: $4,760,000
+  58. Poliza: 023651483 - 11 | Recibo: 348992318 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $990,575
+  59. Poliza: 23647756 | Recibo: 3647756-7 | Fecha: 2025-11-30
+     Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO
+     Saldo: $495,646
+  60. Poliza: 2365148300010 | Recibo: 348992300 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $740,901
+  61. Poliza: 2330486500000 | Recibo: 350248898 | Fecha: 2026-01-24
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $377,046
+  62. Poliza: 2211561500000 | Recibo: 349459622 | Fecha: 2025-12-01
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $4,172,910
+  63. Poliza: 2338416400000 | Recibo: 108612684 | Fecha: 2025-05-08
+     Tomador: ESCUELA NORMAL SUPERIOR ANTIOQUEÑA
+     Saldo: $-35,700
+  64. Poliza: 023651483 4 | Recibo: 348992243 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,079,331
+  65. Poliza: 2196072300307 | Recibo: 347051041 | Fecha: 2025-12-17
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $2,421,756
+  66. Poliza: 23379608 | Recibo: 107315180 | Fecha: 2025-01-21
+     Tomador: EDILMA DEL SOCORRO MARTÍNEZ ROJAS
+     Saldo: $-49,767
+  67. Poliza: 23768375 | Recibo: 350984328 | Fecha: 2026-01-05
+     Tomador: CARLOS ORLANDO PARRA OROZCO
+     Saldo: $253,257
+  68. Poliza: 2323738000000 | Recibo: 350239343 | Fecha: 2026-01-13
+     Tomador: JONATHAN QUICENO LOPEZ
+     Saldo: $377,600
+  69. Poliza: 023651483 1 | Recibo: 348992219 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $824,624
+  70. Poliza: 2361972600000 | Recibo: -9 | Fecha: 2025-12-28
+     Tomador: ANTIOQUEÑA DE TRANSPORTES S.A.S
+     Saldo: $18,787,745
+  71. Poliza: 2354310600278 | Recibo: 111469445 | Fecha: 2025-12-04
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $921,060
+  72. Poliza: 2211561500000 | Recibo: 351209808 | Fecha: 2026-01-01
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $4,172,910
+  73. Poliza: 23541083 | Recibo: 347269098 | Fecha: 2025-12-19
+     Tomador: ELIZABET CHAVERRA HINCAPIE
+     Saldo: $3,417,261
+  74. Poliza: 2354928600000 | Recibo: 347303061 | Fecha: 2025-12-27
+     Tomador: JAIME MAURICIO CRUZ
+     Saldo: $3,288,673
+  75. Poliza: 23778646 | Recibo: 111676437 | Fecha: 2025-11-26
+     Tomador: LICEO SALAZAR Y HERRERA
+     Saldo: $5,350,835
+  76. Poliza: 2366330000000 | Recibo: 349050322 | Fecha: 2025-12-15
+     Tomador: FELIPE ANDRES RESTREPO ZULUAGA
+     Saldo: $159,255
+  77. Poliza: 2368116300000 | Recibo: 350647362 | Fecha: 2026-01-01
+     Tomador: ROTRASVEHI S.A.S.
+     Saldo: $3,570,000
+  78. Poliza: 2196072300559 | Recibo: 111487215 | Fecha: 2025-12-05
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $1,665,587
+  79. Poliza: 2359725300000 | Recibo: 348811575 | Fecha: 2025-12-17
+     Tomador: PLASTICOS G. Y C. S.A.S.
+     Saldo: $849,660
+
+================================================================================
+ESTADISTICAS DE CONCILIACION
+================================================================================
+
+[CASO 1] No han pagado (cartera pendiente): 11
+[CASO 2] Actualizar en sistema (diferente recibo): 4
+[CASO 3] Corregir poliza - Solo en Allianz: 45
+[CASO 3] Corregir poliza - Solo en Celer: 79
+
+Tasa de coincidencia total: 25.00%
+
+================================================================================

@@ -114,6 +114,26 @@ class AllianzConciliator:
             # If conversion fails, just strip spaces
             return str(value).strip()
     
+    def normalize_recibo(self, value):
+        """
+        Normalize recibo numbers to last 9 significant digits for matching
+        Allianz recibos are always 9 digits, but Celer may have 10+ digits
+        
+        Examples:
+          - '1347216594' (10 digits) -> '347216594' (last 9)
+          - '347216594' (9 digits) -> '347216594' (unchanged)
+          - '023527545' (with leading zeros) -> '023527545' normalized to '23527545' -> '23527545' (last 9)
+        
+        Logic: First remove leading zeros, then take last 9 digits
+        """
+        try:
+            # First normalize to remove leading zeros
+            normalized = self.normalize_number(value)
+            # Take last 9 digits for matching (Allianz standard)
+            return normalized[-9:] if len(normalized) >= 9 else normalized
+        except (ValueError, TypeError):
+            return str(value).strip()
+    
     def load_celer_data(self):
         """Load and prepare Celer transformed data"""
         logger.info(f"Loading Celer file: {self.celer_file.name}")
@@ -138,7 +158,7 @@ class AllianzConciliator:
         
         # Normalize and create match keys
         self.celer_df['_poliza_norm'] = self.celer_df['Poliza'].apply(self.normalize_number)
-        self.celer_df['_documento_norm'] = self.celer_df['Documento'].apply(self.normalize_number)
+        self.celer_df['_documento_norm'] = self.celer_df['Documento'].apply(self.normalize_recibo)  # Last 9 digits
         self.celer_df['_fecha_inicio_str'] = pd.to_datetime(self.celer_df['F_Inicio'], errors='coerce').dt.strftime('%Y-%m-%d')
         
         # Match keys: completo (poliza+recibo+fecha) y parcial (poliza+fecha)
@@ -176,7 +196,7 @@ class AllianzConciliator:
         
         # Normalize and create match keys
         self.allianz_df['_poliza_norm'] = self.allianz_df['Póliza'].apply(self.normalize_number)
-        self.allianz_df['_recibo_norm'] = self.allianz_df['Recibo'].apply(self.normalize_number)
+        self.allianz_df['_recibo_norm'] = self.allianz_df['Recibo'].apply(self.normalize_recibo)  # Last 9 digits
         
         # Convert Excel serial dates to datetime
         # Excel dates are stored as integers (days since 1899-12-30)

@@ -34,6 +34,16 @@ from domain.exceptions import (
 # Load environment variables
 load_dotenv()
 
+
+def setup_directories() -> None:
+    """Create necessary directories if they don't exist"""
+    Path('output').mkdir(exist_ok=True)
+    Path('INPUT').mkdir(exist_ok=True)
+
+
+# Setup directories first
+setup_directories()
+
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -47,7 +57,7 @@ logging.basicConfig(
 logger = logging.getLogger(__name__)
 
 
-def setup_directories() -> None:
+def setup_directories_legacy() -> None:
     """Ensure required directories exist"""
     for dir_path in ['output', 'logs', 'temp']:
         Path(dir_path).mkdir(exist_ok=True)

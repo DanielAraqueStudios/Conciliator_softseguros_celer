@@ -38,7 +38,6 @@ load_dotenv()
 def setup_directories() -> None:
     """Create necessary directories if they don't exist"""
     Path('output').mkdir(exist_ok=True)
-    Path('INPUT').mkdir(exist_ok=True)
 
 
 # Setup directories first

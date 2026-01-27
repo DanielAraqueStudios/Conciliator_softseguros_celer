@@ -1,0 +1,2911 @@
+================================================================================
+REPORTE DE CONCILIACION ALLIANZ
+================================================================================
+
+Fecha de generacion: 2026-01-27 10:58:16
+Fuente de datos: PERSONAS
+
+RESUMEN:
+  - Total Celer: 875 registros
+  - Total Allianz: 77 registros
+  - Polizas unicas Celer: 875
+  - Polizas unicas Allianz: 77
+
+================================================================================
+[CASO 1] NO HAN PAGADO - CARTERA PENDIENTE
+(Poliza + Recibo + Fecha coinciden en ambos sistemas)
+================================================================================
+Total: 17 polizas
+
+Detalle:
+
+  1. Poliza: 23372031 | Recibo: 350064014 | Fecha: 2026-01-13
+     Celer:   JUAN FERNANDO GOMEZ ZULUAGA
+     Allianz: GOMEZ ZULUAGA, JUAN FERNANDO                  (PERSONAS)
+     Cartera: $2,580,041 | Vencida: $0
+     Comision: $271,012.63
+
+  2. Poliza: 23615822 | Recibo: 348896840 | Fecha: 2025-12-22
+     Celer:   HUMBERTO EMEL HIGUITA OQUENDO
+     Allianz: HIGUITA OQUENDO,HUMBERTO EMEL                 (PERSONAS)
+     Cartera: $772,348 | Vencida: $0
+     Comision: $81,129.13
+
+  3. Poliza: 23615822 | Recibo: 350462788 | Fecha: 2026-01-22
+     Celer:   HUMBERTO EMEL HIGUITA OQUENDO
+     Allianz: HIGUITA OQUENDO,HUMBERTO EMEL                 (PERSONAS)
+     Cartera: $772,348 | Vencida: $0
+     Comision: $81,129.13
+
+  4. Poliza: 23768375 | Recibo: 350984328 | Fecha: 2026-01-05
+     Celer:   CARLOS ORLANDO PARRA OROZCO
+     Allianz: PARRA OROZCO, CARLOS ORLANDO                  (PERSONAS)
+     Cartera: $253,258 | Vencida: $0
+     Comision: $26,602.63
+
+  5. Poliza: 23729799 | Recibo: 110616186 | Fecha: 2025-11-28
+     Celer:   ASOCIACION DE MUNICIPIOS DEL NORTE ANTIOQUEÑO - AMUNORTE
+     Allianz: AMUNORTE ANTIOQUEÐO                           (PERSONAS)
+     Cartera: $832,223 | Vencida: $832,223
+     Comision: $139,869.60
+
+  6. Poliza: 23491451 | Recibo: 350301655 | Fecha: 2026-01-12
+     Celer:   JOSE GREGORIO PALOMINO BARBUDO
+     Allianz: PALOMINO BARBUDO, JOSE GREGORIO               (PERSONAS)
+     Cartera: $98,179 | Vencida: $0
+     Comision: $24,544.75
+
+  7. Poliza: 23715938 | Recibo: 350761189 | Fecha: 2026-01-06
+     Celer:   TERESITA DE JESUS CASTAÑEDA LOPEZ
+     Allianz: CASTAÐEDA LOPEZ, TERESITA DE JESUS            (PERSONAS)
+     Cartera: $229,511 | Vencida: $0
+     Comision: $24,108.50
+
+  8. Poliza: 23685571 | Recibo: 350651398 | Fecha: 2026-01-19
+     Celer:   GLORIA ELSI CASTRO ARIAS
+     Allianz: CASTRO ARIAS, GLORIA ELSI                     (PERSONAS)
+     Cartera: $374,051 | Vencida: $0
+     Comision: $39,291.13
+
+  9. Poliza: 23729744 | Recibo: 350780882 | Fecha: 2026-01-22
+     Celer:   ANA MARCELA ARISTIZABAL ORTIZ
+     Allianz: ARISTIZABAL ORTIZ, ANA MARCELA                (PERSONAS)
+     Cartera: $81,514 | Vencida: $0
+     Comision: $8,562.38
+
+  10. Poliza: 23780982 | Recibo: 111714733 | Fecha: 2025-12-20
+     Celer:   DIANA EDITH PAZ CANO
+     Allianz: PAZ CANO, DIANA EDITH                         (PERSONAS)
+     Cartera: $2,555,951 | Vencida: $0
+     Comision: $268,482.25
+
+  11. Poliza: 23541083 | Recibo: 347269098 | Fecha: 2025-12-19
+     Celer:   ELIZABET CHAVERRA HINCAPIE
+     Allianz: CHAVERRA HINCAPIE,ELIZABET                    (PERSONAS)
+     Cartera: $3,417,261 | Vencida: $0
+     Comision: $358,956.00
+
+  12. Poliza: 23729744 | Recibo: 349208425 | Fecha: 2025-12-22
+     Celer:   ANA MARCELA ARISTIZABAL ORTIZ
+     Allianz: ARISTIZABAL ORTIZ, ANA MARCELA                (PERSONAS)
+     Cartera: $81,514 | Vencida: $0
+     Comision: $8,562.38
+
+  13. Poliza: 23670981 | Recibo: 349064638 | Fecha: 2025-12-25
+     Celer:   ANA MARIA PINEDA JARAMILLO
+     Allianz: PINEDA JARAMILLO, ANA MARIA                   (PERSONAS)
+     Cartera: $182,194 | Vencida: $0
+     Comision: $19,137.88
+
+  14. Poliza: 23651394 | Recibo: 350554956 | Fecha: 2026-01-20
+     Celer:   GLORIA PATRICIA MORENO LOPEZ
+     Allianz: MORENO LOPEZ, GLORIA PATRICIA                 (PERSONAS)
+     Cartera: $263,131 | Vencida: $0
+     Comision: $27,639.88
+
+  15. Poliza: 23690498 | Recibo: 349098826 | Fecha: 2025-12-27
+     Celer:   GLADYS DEL SOCORRO LOAIZA BUITRAGO
+     Allianz: LOAIZA BUITRAGO,GLADYS DEL SOCORRO            (PERSONAS)
+     Cartera: $221,091 | Vencida: $0
+     Comision: $23,224.00
+
+  16. Poliza: 23718547 | Recibo: 350763409 | Fecha: 2026-01-02
+     Celer:   JOHN FREDY SALDARRIAGA
+     Allianz: SALDARRIAGA , JOHN FREDY                      (PERSONAS)
+     Cartera: $166,551 | Vencida: $0
+     Comision: $17,494.88
+
+  17. Poliza: 23626327 | Recibo: 350485508 | Fecha: 2026-01-15
+     Celer:   JUAN PABLO CASTAÑO VASQUEZ
+     Allianz: CASTAÐO VASQUEZ, JUAN PABLO                   (PERSONAS)
+     Cartera: $253,006 | Vencida: $0
+     Comision: $26,576.13
+
+================================================================================
+[CASO 2] ACTUALIZAR EN SISTEMA
+(Poliza + Fecha coinciden, pero DIFERENTE numero de recibo)
+================================================================================
+Total: 2 polizas
+
+Detalle completo:
+
+  1. Poliza: 23755204 | Fecha: 2026-01-22
+     Recibo Celer:   -2 | Saldo: $147,591
+     Recibo Allianz: 350971366 | Cartera: $147,592
+     Cliente: OCAMPO ESCOBAR,CLAUDIA MARIA                  (PERSONAS)
+
+  2. Poliza: 23527545 | Fecha: 2025-12-28
+     Recibo Celer:   1347216594 | Saldo: $32,411
+     Recibo Allianz: 347216594 | Cartera: $32,411
+     Cliente: CRESPO RAMIREZ, JOVANA CATALINA               (PERSONAS)
+
+================================================================================
+[CASO 3] CORREGIR POLIZA - Solo en Allianz
+(Polizas en Allianz que NO coinciden con ninguna en Celer)
+================================================================================
+Total: 58 polizas
+
+Detalle completo:
+  1. Poliza: 23663300 | Recibo: 349050322 | Fecha: 2025-12-15
+     Cliente: RESTREPO ZULUAGA,FELIPE ANDRES                (PERSONAS)
+     Cartera Total: $159,256
+  2. Poliza: 23778295 | Recibo: 111706796 | Fecha: 2025-12-22
+     Cliente: LONDOÐO VELEZ, JOSE GUILLERMO                 (PERSONAS)
+     Cartera Total: $2,916,497
+  3. Poliza: 22951479 | Recibo: 349283501 | Fecha: 2026-01-28
+     Cliente: COOPERATIVA FRATERNIDAD SACERDOTAL            (PERSONAS)
+     Cartera Total: $26,671
+  4. Poliza: 23561786 | Recibo: 350144022 | Fecha: 2026-01-25
+     Cliente: ARTEAGA VELEZ, ERIKA ANDREA                   (PERSONAS)
+     Cartera Total: $150,417
+  5. Poliza: 23582209 | Recibo: 350353342 | Fecha: 2026-01-28
+     Cliente: AGUDELO URIBE,MARIA JOSE                      (PERSONAS)
+     Cartera Total: $161,526
+  6. Poliza: 22629971 | Recibo: 350191494 | Fecha: 2026-01-01
+     Cliente: ESCUDERO RINCON, RUBER ALBERTO                (PERSONAS)
+     Cartera Total: $225,993
+  7. Poliza: 23610568 | Recibo: 350442590 | Fecha: 2026-01-01
+     Cliente: GARCIA MORENO, WILLIAM                        (PERSONAS)
+     Cartera Total: $796,156
+  8. Poliza: 23770244 | Recibo: 111692319 | Fecha: 2025-12-10
+     Cliente: GALLEGO ORTIZ, TATIANA                        (PERSONAS)
+     Cartera Total: $2,429,110
+  9. Poliza: 23007963 | Recibo: 350022665 | Fecha: 2026-01-23
+     Cliente: COOPERATIVA DE TRABAJADORES DEL SENA          (PERSONAS)
+     Cartera Total: $292,853
+  10. Poliza: 23662573 | Recibo: 350617076 | Fecha: 2026-01-07
+     Cliente: DUQUE CORREA, SANDRA MILENA                   (PERSONAS)
+     Cartera Total: $441,825
+  11. Poliza: 23561786 | Recibo: 348761101 | Fecha: 2025-12-25
+     Cliente: ARTEAGA VELEZ, ERIKA ANDREA                   (PERSONAS)
+     Cartera Total: $152,918
+  12. Poliza: 23413077 | Recibo: 350265702 | Fecha: 2026-01-04
+     Cliente: GALEANO , MARIA NELA                          (PERSONAS)
+     Cartera Total: $340,471
+  13. Poliza: 23441899 | Recibo: 350277202 | Fecha: 2026-01-12
+     Cliente: MORENO LOPEZ, GLORIA PATRICIA                 (PERSONAS)
+     Cartera Total: $338,077
+  14. Poliza: 23008049 | Recibo: 350022921 | Fecha: 2026-01-16
+     Cliente: COOPERATIVA DE TRABAJADORES DEL SENA          (PERSONAS)
+     Cartera Total: $324,001
+  15. Poliza: 23304865 | Recibo: 346138021 | Fecha: 2025-11-24
+     Cliente: FUNERARIA SAN JUAN BAUTISTA LTDA              (PERSONAS)
+     Cartera Total: $377,045
+  16. Poliza: 23008768 | Recibo: 350025569 | Fecha: 2026-01-31
+     Cliente: RUIZ SANTANA, GLORIA TERESA                   (PERSONAS)
+     Cartera Total: $1,568,375
+  17. Poliza: 23491451 | Recibo: 348716238 | Fecha: 2025-12-12
+     Cliente: PALOMINO BARBUDO, JOSE GREGORIO               (PERSONAS)
+     Cartera Total: $98,179
+  18. Poliza: 23537654 | Recibo: 347252144 | Fecha: 2025-12-11
+     Cliente: AGUDELO DIEZ,GLORIA LUCIA                     (PERSONAS)
+     Cartera Total: $4,123,617
+  19. Poliza: 22779240 | Recibo: 348606728 | Fecha: 2025-12-14
+     Cliente: AGUDELO ISAZA, MARIO ALEJANDRO                (PERSONAS)
+     Cartera Total: $197,166
+  20. Poliza: 23564015 | Recibo: 347315818 | Fecha: 2026-01-29
+     Cliente: HOUDAILLE ,VICENT GILLES GERARD               (PERSONAS)
+     Cartera Total: $433,200
+  21. Poliza: 23672450 | Recibo: 350637017 | Fecha: 2026-01-29
+     Cliente: LOAIZA MONTOYA,LINA MARIA                     (PERSONAS)
+     Cartera Total: $100,787
+  22. Poliza: 23533502 | Recibo: 350317420 | Fecha: 2026-01-07
+     Cliente: AGUDELO FRANCO,CLARA INES                     (PERSONAS)
+     Cartera Total: $197,130
+  23. Poliza: 23304865 | Recibo: 348661814 | Fecha: 2025-12-24
+     Cliente: FUNERARIA SAN JUAN BAUTISTA LTDA              (PERSONAS)
+     Cartera Total: $377,045
+  24. Poliza: 23526685 | Recibo: 350314971 | Fecha: 2026-01-07
+     Cliente: BEDOYA JAIME, DORYAN JAIME                    (PERSONAS)
+     Cartera Total: $124,436
+  25. Poliza: 23663300 | Recibo: 350617779 | Fecha: 2026-01-15
+     Cliente: RESTREPO ZULUAGA,FELIPE ANDRES                (PERSONAS)
+     Cartera Total: $159,256
+  26. Poliza: 23582209 | Recibo: 348787221 | Fecha: 2025-12-28
+     Cliente: AGUDELO URIBE,MARIA JOSE                      (PERSONAS)
+     Cartera Total: $161,526
+  27. Poliza: 23503130 | Recibo: 350305953 | Fecha: 2026-01-25
+     Cliente: TORRES ROLDAN, MARIA EDITH                    (PERSONAS)
+     Cartera Total: $253,861
+  28. Poliza: 23690498 | Recibo: 350669366 | Fecha: 2026-01-27
+     Cliente: LOAIZA BUITRAGO,GLADYS DEL SOCORRO            (PERSONAS)
+     Cartera Total: $221,091
+  29. Poliza: 23263137 | Recibo: 350242974 | Fecha: 2026-01-08
+     Cliente: ARBELAEZ ARANGO, MARIA ADELAIDA               (PERSONAS)
+     Cartera Total: $480,483
+  30. Poliza: 23543347 | Recibo: 346368370 | Fecha: 2025-11-23
+     Cliente: GONZALEZ MEJIA, ESTEBAN                       (PERSONAS)
+     Cartera Total: $498,844
+  31. Poliza: 23198010 | Recibo: 347162178 | Fecha: 2026-01-05
+     Cliente: COOPERATIVA FRATERNIDAD SACERDOTAL            (PERSONAS)
+     Cartera Total: $499,500
+  32. Poliza: 23237380 | Recibo: 350239343 | Fecha: 2026-01-13
+     Cliente: QUICENO LOPEZ, JONATHAN                       (PERSONAS)
+     Cartera Total: $377,599
+  33. Poliza: 23304865 | Recibo: 350248898 | Fecha: 2026-01-24
+     Cliente: FUNERARIA SAN JUAN BAUTISTA LTDA              (PERSONAS)
+     Cartera Total: $377,045
+  34. Poliza: 23601476 | Recibo: 350382945 | Fecha: 2026-01-05
+     Cliente: BENAVIDES VILLOTA, JAIRO ANDRES               (PERSONAS)
+     Cartera Total: $242,878
+  35. Poliza: 22989110 | Recibo: 347122552 | Fecha: 2026-01-18
+     Cliente: SOLIS LEAL, MARIA VICTORIA                    (PERSONAS)
+     Cartera Total: $97,075
+  36. Poliza: 23549286 | Recibo: 347303061 | Fecha: 2025-12-27
+     Cliente: CRUZ ,JAIME MAURICIO                          (PERSONAS)
+     Cartera Total: $3,288,673
+  37. Poliza: 23033785 | Recibo: 350028951 | Fecha: 2026-01-01
+     Cliente: AREIZA CORREA, JOSE MEDARDO                   (PERSONAS)
+     Cartera Total: $237,503
+  38. Poliza: 23749041 | Recibo: 350965764 | Fecha: 2026-01-12
+     Cliente: ARBOLEDA TAMAYO,DIANA MAGLODY                 (PERSONAS)
+     Cartera Total: $42,971
+  39. Poliza: 23357554 | Recibo: 347178265 | Fecha: 2025-12-22
+     Cliente: MONTOYA MARTINEZ, MONICA MARIA                (PERSONAS)
+     Cartera Total: $1,834,871
+  40. Poliza: 23503130 | Recibo: 348720834 | Fecha: 2025-12-25
+     Cliente: TORRES ROLDAN, MARIA EDITH                    (PERSONAS)
+     Cartera Total: $253,861
+  41. Poliza: 23786313 | Recibo: 111839613 | Fecha: 2025-12-31
+     Cliente: VALENCIA BURITICA, CARLOS ANDRES              (PERSONAS)
+     Cartera Total: $3,748,400
+  42. Poliza: 23626327 | Recibo: 348920863 | Fecha: 2025-12-15
+     Cliente: CASTAÐO VASQUEZ, JUAN PABLO                   (PERSONAS)
+     Cartera Total: $253,006
+  43. Poliza: 23727517 | Recibo: 350776492 | Fecha: 2026-01-01
+     Cliente: PINEDA JARAMILLO, ANA MARIA                   (PERSONAS)
+     Cartera Total: $458,291
+  44. Poliza: 23380199 | Recibo: 350080846 | Fecha: 2026-01-13
+     Cliente: COOPERATIVA SAN ROQUE                         (PERSONAS)
+     Cartera Total: $505,750
+  45. Poliza: 23670981 | Recibo: 350635722 | Fecha: 2026-01-25
+     Cliente: PINEDA JARAMILLO, ANA MARIA                   (PERSONAS)
+     Cartera Total: $182,194
+  46. Poliza: 23178309 | Recibo: 349378509 | Fecha: 2026-01-16
+     Cliente: ALZATE GALINDO, PEDRO ANTONIO                 (PERSONAS)
+     Cartera Total: $209,816
+  47. Poliza: 23376877 | Recibo: 350073981 | Fecha: 2026-01-19
+     Cliente: ALVAREZ ASPRILLA, MAIBER ALBERTO              (PERSONAS)
+     Cartera Total: $2,704,498
+  48. Poliza: 23294284 | Recibo: 350247429 | Fecha: 2026-01-10
+     Cliente: PRADA LARA, LAURA                             (PERSONAS)
+     Cartera Total: $185,738
+  49. Poliza: 23749041 | Recibo: 349487599 | Fecha: 2025-12-12
+     Cliente: ARBOLEDA TAMAYO, DIANA MAGLODY                (PERSONAS)
+     Cartera Total: $42,971
+  50. Poliza: 23785336 | Recibo: 352051530 | Fecha: 2026-01-31
+     Cliente: ESCOBAR ZAPATA, JUAN PABLO                    (PERSONAS)
+     Cartera Total: $241,373
+  51. Poliza: 22928397 | Recibo: 349283188 | Fecha: 2026-01-30
+     Cliente: KNUTH DIAZ, JARMITH ABHELL                    (PERSONAS)
+     Cartera Total: $46,786
+  52. Poliza: 22779240 | Recibo: 350198762 | Fecha: 2026-01-14
+     Cliente: AGUDELO ISAZA, MARIO ALEJANDRO                (PERSONAS)
+     Cartera Total: $197,166
+  53. Poliza: 23682934 | Recibo: 350648923 | Fecha: 2026-01-09
+     Cliente: JARAMILLO LLANOS,FERNEY OSWALDO               (PERSONAS)
+     Cartera Total: $244,014
+  54. Poliza: 23404785 | Recibo: 350263384 | Fecha: 2026-01-14
+     Cliente: SANCHEZ DE LA PEÐA, MARIA EUGENIA             (PERSONAS)
+     Cartera Total: $146,926
+  55. Poliza: 22582608 | Recibo: 350190413 | Fecha: 2026-01-01
+     Cliente: AGUDELO ISAZA, LINA MARIA                     (PERSONAS)
+     Cartera Total: $217,027
+  56. Poliza: 23399672 | Recibo: 350262212 | Fecha: 2026-01-09
+     Cliente: REYES REYES,SANTIAGO                          (PERSONAS)
+     Cartera Total: $253,480
+  57. Poliza: 23042358 | Recibo: 349345946 | Fecha: 2026-01-02
+     Cliente: WILMAR DARIO, GALEANO CASTRILLON              (PERSONAS)
+     Cartera Total: $68,332
+  58. Poliza: 23505091 | Recibo: 350306571 | Fecha: 2026-01-09
+     Cliente: VASCO BOLIVAR, CARLOS ARTURO                  (PERSONAS)
+     Cartera Total: $320,016
+
+================================================================================
+[CASO 3] CORREGIR POLIZA - Solo en Celer
+(Polizas en Celer que NO coinciden con ninguna en Allianz)
+================================================================================
+Total: 856 polizas
+
+Detalle completo:
+  1. Poliza: 90001386552 | Recibo: -2 | Fecha: 2026-01-10
+     Tomador: ISABEL CRISTINA ZAPATA ZAPATA
+     Saldo: $286,692
+  2. Poliza: 13001049810 | Recibo: 14200656 | Fecha: 2025-12-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $319,440
+  3. Poliza: 81005219384 | Recibo: -13 | Fecha: 2026-01-12
+     Tomador: ROY ANTONIO CASTILLO GIRALDO
+     Saldo: $7,364
+  4. Poliza: 941339180000 | Recibo: -17 | Fecha: 2025-11-15
+     Tomador: MARTHA NELFY BOTERO GARCIA
+     Saldo: $434,700
+  5. Poliza: 4615560 | Recibo: -10 | Fecha: 2026-01-17
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $22,765
+  6. Poliza: 994000041773 | Recibo: 1 | Fecha: 2025-11-07
+     Tomador: MUNICIPIO DE ITUANGO
+     Saldo: $300,830
+  7. Poliza: 4362700 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: PROYECTAR ASOCIACION MUTUAL
+     Saldo: $21,158
+  8. Poliza: 890905421-1 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: LICEO SAN RAFAEL
+     Saldo: $295,758
+  9. Poliza: 1501955 | Recibo: -14 | Fecha: 2026-01-06
+     Tomador: LUCELI SALDARRIAGA ORTIZ
+     Saldo: $160,812
+  10. Poliza: 1354264 | Recibo: -10 | Fecha: 2026-01-14
+     Tomador: JAQUELINE CIFUENTES BURBANO
+     Saldo: $491,385
+  11. Poliza: 20013286 | Recibo: -4 | Fecha: 2025-12-30
+     Tomador: ELKIN RAUL SERNA GOMEZ
+     Saldo: $287,841
+  12. Poliza: 5300024072 | Recibo: 0 | Fecha: 2025-10-05
+     Tomador: MUNICIPIO DE VENECIA - ANTIOQUIA
+     Saldo: $1,106,200
+  13. Poliza: 1044292 | Recibo: -6 | Fecha: 2025-07-11
+     Tomador: LUZ ELENA MESA ZAPATA
+     Saldo: $161,175
+  14. Poliza: 994000054065 | Recibo: 0 | Fecha: 2025-11-11
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $197,699
+  15. Poliza: 890905208-9 | Recibo: AMMD 01541 | Fecha: 2025-12-01
+     Tomador: ESCUELA NORMAL SUPERIOR ANTIOQUEÑA
+     Saldo: $295,758
+  16. Poliza: 1368061 | Recibo: 76810350 | Fecha: 2025-11-30
+     Tomador: MARIA NELLY GIRALDO
+     Saldo: $143,346
+  17. Poliza: 1052966 | Recibo: -7 | Fecha: 2025-09-21
+     Tomador: DANIEL GUEVARA JARAMILLO
+     Saldo: $379,575
+  18. Poliza: 890902202-1 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: LICEO SALAZAR Y HERRERA
+     Saldo: $669,532
+  19. Poliza: 811044880-6-1 | Recibo: AMMD 01535 | Fecha: 2025-12-01
+     Tomador: FUNDACION UNIDAD EDUCATIVA SAN MARCOS
+     Saldo: $295,758
+  20. Poliza: 3071433 | Recibo: 0 | Fecha: 2025-12-30
+     Tomador: JUAN ESTEBAN TAMAYO PACHECO
+     Saldo: $1,598,692
+  21. Poliza: 918528 | Recibo: -9 | Fecha: 2025-12-31
+     Tomador: IVAN IGNACIO OSORIO CUERVO
+     Saldo: $2,118,063
+  22. Poliza: 994000052494 | Recibo: 2 | Fecha: 2025-11-07
+     Tomador: ASOCIACION DE MUNICIPIOS DEL NORTE ANTIOQUEÑO - AMUNORTE
+     Saldo: $137,770
+  23. Poliza: 4334246 | Recibo: -7 | Fecha: 2025-12-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $47,438
+  24. Poliza: 5300025233 | Recibo: 0 | Fecha: 2025-12-13
+     Tomador: E.S.E HOSPITAL SAN JUAN DE DIOS - ITUANGO
+     Saldo: $1,505,000
+  25. Poliza: 1279122 | Recibo: -10 | Fecha: 2025-10-03
+     Tomador: CATALINA PELAEZ HINCAPIE
+     Saldo: $91,983
+  26. Poliza: 4182797 | Recibo: -23 | Fecha: 2026-01-15
+     Tomador: YOMARO VASQUEZ VALDEBLANQUEZ
+     Saldo: $98,153
+  27. Poliza: 994000025289 | Recibo: 4 | Fecha: 2025-09-30
+     Tomador: MUNICIPIO YOLOMBO
+     Saldo: $64,054
+  28. Poliza: 2362205400000 | Recibo: 1351249549 | Fecha: 2025-11-01
+     Tomador: AB & C LOGISTICA S.A.S.
+     Saldo: $315,643
+  29. Poliza: 3929873 | Recibo: -19 | Fecha: 2025-12-25
+     Tomador: SANDRA JULIANA GRAJALES ATEHORTUA
+     Saldo: $155,391
+  30. Poliza: 101085000 | Recibo: 1 | Fecha: 2025-11-12
+     Tomador: BERACA CONSTRUCCIONES S.A.S
+     Saldo: $9,520
+  31. Poliza: 023651483 9 | Recibo: 348992292 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,074,413
+  32. Poliza: 511725 | Recibo: -8 | Fecha: 2026-01-15
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $220,000
+  33. Poliza: 2000374323 | Recibo: -11 | Fecha: 2026-01-20
+     Tomador: FERNEY ANTONIO RAMIREZ RODRIGUEZ
+     Saldo: $604,946
+  34. Poliza: 2355807700000 | Recibo: 351374768 | Fecha: 2026-01-17
+     Tomador: WILLIAM ALBERTO TAMAYO CANO
+     Saldo: $7,298,487
+  35. Poliza: 1479082 | Recibo: -4 | Fecha: 2026-01-15
+     Tomador: IRINA ESTHER MONERY SAADE
+     Saldo: $1,260,047
+  36. Poliza: 890981212 | Recibo: 6529507 | Fecha: 2025-02-01
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $515,403
+  37. Poliza: 1018000075101 | Recibo: 1 | Fecha: 2025-12-15
+     Tomador: DIANA MARCELA URIBE PUERTA
+     Saldo: $2,786,167
+  38. Poliza: 1408313 | Recibo: -8 | Fecha: 2026-01-17
+     Tomador: NUBIA ESTELLA RODRIGUEZ SALAZAR
+     Saldo: $286,692
+  39. Poliza: 5529257 | Recibo: 21157593 | Fecha: 2025-11-30
+     Tomador: JUANA MARIA TEJADA SUAREZ
+     Saldo: $-42,777
+  40. Poliza: 1422176 | Recibo: -17 | Fecha: 2025-12-04
+     Tomador: TANIA CRISTINA HOYOS HURTADO
+     Saldo: $160,812
+  41. Poliza: 13001004511 | Recibo: 14145411 | Fecha: 2025-06-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $-231,047
+  42. Poliza: 71707215 | Recibo: 23377 | Fecha: 2025-08-31
+     Tomador: FIDEMCOOP COOPERATIVA MULTIACTIVA DE SERVICIOS
+     Saldo: $37,400
+  43. Poliza: 2304235800000 | Recibo: 349345946 | Fecha: 2026-01-02
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $68,332
+  44. Poliza: 90001474407 | Recibo: 75820761 | Fecha: 2025-09-26
+     Tomador: JUAN FELIPE GIRALDO VIEIRA
+     Saldo: $6,438,242
+  45. Poliza: 5350087503 | Recibo: 0 | Fecha: 2025-12-16
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,615,800
+  46. Poliza: 100933 | Recibo: -23 | Fecha: 2025-12-05
+     Tomador: ANA CECILIA HERNANDEZ ESCUDERO
+     Saldo: $1,155,595
+  47. Poliza: 994000000468 | Recibo: 9 | Fecha: 2025-11-21
+     Tomador: E.S.E HOSPITAL SANTA ISABEL - SAN PEDRO DE LOS MILAGROS
+     Saldo: $53,969
+  48. Poliza: 1044292 | Recibo: -11 | Fecha: 2025-12-11
+     Tomador: LUZ ELENA MESA ZAPATA
+     Saldo: $161,175
+  49. Poliza: 1006711 | Recibo: 1 | Fecha: 2025-12-15
+     Tomador: EDIFICIO PALOMAR PROPIEDAD HORIZONTAL
+     Saldo: $16,483,646
+  50. Poliza: 3635101 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: ASOCIACION MUTUAL LUZ DIVINA
+     Saldo: $354,702
+  51. Poliza: 101099431 | Recibo: -11 | Fecha: 2026-01-15
+     Tomador: JOSE RAMIRO SALAZAR LOPEZ
+     Saldo: $143,346
+  52. Poliza: 2368116700000 | Recibo: 1350647370 | Fecha: 2026-01-01
+     Tomador: ROTRASVEHI S.A.S.
+     Saldo: $8,925,000
+  53. Poliza: 100072669 | Recibo: 4 | Fecha: 2025-11-21
+     Tomador: INGENIERIA Y VISION S.A.S
+     Saldo: $57,548
+  54. Poliza: 941339180000 | Recibo: -19 | Fecha: 2026-01-15
+     Tomador: MARTHA NELFY BOTERO GARCIA
+     Saldo: $434,700
+  55. Poliza: 5350087566 | Recibo: 5350087566 | Fecha: 2025-12-20
+     Tomador: COOPERATIVA AGROPECUARIA DE ENTRERRIOS LTDA
+     Saldo: $326,600
+  56. Poliza: 3100031356 | Recibo: 181870231 | Fecha: 2025-08-29
+     Tomador: GESTION FUTURO ROBLES S.A.S.
+     Saldo: $1,680,000
+  57. Poliza: 100933 | Recibo: -21 | Fecha: 2025-10-05
+     Tomador: ANA CECILIA HERNANDEZ ESCUDERO
+     Saldo: $1,155,595
+  58. Poliza: 900001211325 | Recibo: 100011197128 | Fecha: 2025-05-02
+     Tomador: SERVICIOS PUBLICOS Y SEGURIDAD SAS
+     Saldo: $397,914
+  59. Poliza: 370598 | Recibo: -22 | Fecha: 2025-11-01
+     Tomador: ELIANA MILENA VALDERRAMA PELAEZ
+     Saldo: $138,915
+  60. Poliza: 890982415 | Recibo: SCMP7794343 | Fecha: 2025-12-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $933,240
+  61. Poliza: 890901391-0 | Recibo: AMMD 01486 | Fecha: 2025-12-01
+     Tomador: ESCUELAS CATOLICAS
+     Saldo: $295,758
+  62. Poliza: 2815912 | Recibo: -2 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA MULTIACTIVA EL BAGRE
+     Saldo: $5,700,000
+  63. Poliza: 994000023912 | Recibo: 2 | Fecha: 2025-02-15
+     Tomador: CORPOBOSQUES
+     Saldo: $364,319
+  64. Poliza: 1052966 | Recibo: -4 | Fecha: 2025-06-21
+     Tomador: DANIEL GUEVARA JARAMILLO
+     Saldo: $379,575
+  65. Poliza: 1247623 | Recibo: -5 | Fecha: 2025-12-05
+     Tomador: CARLOS ALBERTO POSADA BETANCUR
+     Saldo: $91,983
+  66. Poliza: 3072392 | Recibo: 0 | Fecha: 2025-11-21
+     Tomador: LUZ BELLY VELEZ VALLEJO
+     Saldo: $2,521,417
+  67. Poliza: 370598 | Recibo: -18 | Fecha: 2025-07-01
+     Tomador: ELIANA MILENA VALDERRAMA PELAEZ
+     Saldo: $138,915
+  68. Poliza: 71707215-1 | Recibo: E24102 | Fecha: 2025-11-01
+     Tomador: UNION AGENCIA DE SEGUROS LTDA
+     Saldo: $609,000
+  69. Poliza: 994000041777 | Recibo: 0 | Fecha: 2025-10-30
+     Tomador: ASOCIACION DE MUNICIPIOS DEL NORTE ANTIOQUEÑO - AMUNORTE
+     Saldo: $199,198
+  70. Poliza: 994000000933 | Recibo: 0 | Fecha: 2025-11-19
+     Tomador: E.S.E. HOSPITAL LA INMACULADA - GUATAPE
+     Saldo: $805,233
+  71. Poliza: 1155791 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: MARIA JOSE ZAPATA MERINO
+     Saldo: $891,605
+  72. Poliza: 5606751 | Recibo: -4 | Fecha: 2025-12-01
+     Tomador: GRUPO EXEQUIAL JARDINES DEL CIELO
+     Saldo: $44,563
+  73. Poliza: 2354310600190 | Recibo: 348733522 | Fecha: 2025-12-05
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $150,890
+  74. Poliza: 023651483 1 | Recibo: 348992219 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $824,624
+  75. Poliza: 807126 | Recibo: 14067240 | Fecha: 2026-01-01
+     Tomador: UNION AGENCIA DE SEGUROS LTDA
+     Saldo: $10,905,466
+  76. Poliza: 890981425-4 | Recibo: AMMD 01586 | Fecha: 2025-12-01
+     Tomador: COLEGIO SAGRADO CORAZÓN DE MARÍA
+     Saldo: $295,758
+  77. Poliza: 900001445010 | Recibo: -2 | Fecha: 2025-11-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $24,619
+  78. Poliza: 94359961 | Recibo: 2 | Fecha: 2025-12-18
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $1,023,791
+  79. Poliza: 100286316 | Recibo: 0 | Fecha: 2026-01-06
+     Tomador: GRUPO EMPRESARIAL PINTUCOM S.A.S
+     Saldo: $111,460
+  80. Poliza: 1205792 | Recibo: -1 | Fecha: 2025-12-29
+     Tomador: EDNA LUCIA GIRALDO GOMEZ
+     Saldo: $1,471,978
+  81. Poliza: 81005298810 | Recibo: -5 | Fecha: 2026-01-15
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $103,386
+  82. Poliza: 890982420-22 | Recibo: 148039081 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $59,220
+  83. Poliza: 2365148300010 | Recibo: 348992300 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $740,901
+  84. Poliza: 900001301143 | Recibo: 1 | Fecha: 2026-01-16
+     Tomador: ANA LUCIA ARANGO PEREZ
+     Saldo: $205,429
+  85. Poliza: 5606751 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: GRUPO EXEQUIAL JARDINES DEL CIELO
+     Saldo: $44,563
+  86. Poliza: 890906740-0 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO PARROQUIAL CARMELITANO
+     Saldo: $295,758
+  87. Poliza: 3100031356 | Recibo: 182311647 | Fecha: 2025-09-16
+     Tomador: GESTION FUTURO ROBLES S.A.S.
+     Saldo: $-1,692,246
+  88. Poliza: 1052966 | Recibo: -10 | Fecha: 2025-12-21
+     Tomador: DANIEL GUEVARA JARAMILLO
+     Saldo: $379,575
+  89. Poliza: 856620 | Recibo: -8 | Fecha: 2026-01-01
+     Tomador: TRANSPORTES OSORIO RIOS
+     Saldo: $508,617
+  90. Poliza: 37723 | Recibo: -8 | Fecha: 2025-10-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  91. Poliza: 4000069 | Recibo: 10 | Fecha: 2025-06-19
+     Tomador: ASOCIACION MUTUAL BIENESTAR
+     Saldo: $378,000
+  92. Poliza: 472118 | Recibo: 12061 | Fecha: 2025-07-01
+     Tomador: PROYECTAR ASOCIACION MUTUAL
+     Saldo: $600,000
+  93. Poliza: 1075103 | Recibo: -5 | Fecha: 2025-10-30
+     Tomador: CORPORACION GUILLERMO TABORDA
+     Saldo: $120,473
+  94. Poliza: 67-994000001452 | Recibo: 6 | Fecha: 2026-01-22
+     Tomador: COOPERATIVA MULTIACTIVA EL BAGRE
+     Saldo: $116,774
+  95. Poliza: 8272261 | Recibo: -6 | Fecha: 2025-11-30
+     Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO
+     Saldo: $1,591,047
+  96. Poliza: 2196072300565 | Recibo: 111717868 | Fecha: 2025-12-23
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $2,361,004
+  97. Poliza: 1059506 | Recibo: 0 | Fecha: 2025-12-30
+     Tomador: ANDRES FELIPE BEDOYA RENDON
+     Saldo: $7,909,968
+  98. Poliza: 9524440 | Recibo: -11 | Fecha: 2025-10-30
+     Tomador: TEJEDOR TEJEDOR FELICIANO
+     Saldo: $61,950
+  99. Poliza: 994000004677 | Recibo: 4 | Fecha: 2025-11-12
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $-272,556
+  100. Poliza: 1205773 | Recibo: -1 | Fecha: 2025-12-29
+     Tomador: CARLOS MARIO BUILES MORENO
+     Saldo: $1,192,070
+  101. Poliza: 3185898 | Recibo: -6 | Fecha: 2025-11-30
+     Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO
+     Saldo: $379,995
+  102. Poliza: 2362205400000 | Recibo: -8 | Fecha: 2026-01-01
+     Tomador: AB & C LOGISTICA S.A.S.
+     Saldo: $1,935,142
+  103. Poliza: 994000000640 | Recibo: 0 | Fecha: 2025-11-19
+     Tomador: E.S.E. HOSPITAL LA INMACULADA - GUATAPE
+     Saldo: $7,170,869
+  104. Poliza: 900000824335 | Recibo: -4 | Fecha: 2025-12-30
+     Tomador: WILLIAM ALZATE VILLA
+     Saldo: $43,280
+  105. Poliza: 370598 | Recibo: -19 | Fecha: 2025-08-01
+     Tomador: ELIANA MILENA VALDERRAMA PELAEZ
+     Saldo: $138,915
+  106. Poliza: 23744529 | Recibo: CMED14413 | Fecha: 2025-11-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $12,649,388
+  107. Poliza: 100285590 | Recibo: 0 | Fecha: 2025-12-01
+     Tomador: YULIANA PAOLA LOTERO CANO
+     Saldo: $41,650
+  108. Poliza: 994000000171 | Recibo: 5 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $3,141,600
+  109. Poliza: 5300025503 | Recibo: 0 | Fecha: 2026-01-04
+     Tomador: MUNICIPIO DE SAN PEDRO DE LOS MILAGROS
+     Saldo: $758,600
+  110. Poliza: 890905208-9 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: ESCUELA NORMAL SUPERIOR ANTIOQUEÑA
+     Saldo: $295,758
+  111. Poliza: 5286098 | Recibo: -5 | Fecha: 2025-11-11
+     Tomador: JORGE LUIS MARTINEZ GONZALEZ
+     Saldo: $154,750
+  112. Poliza: 929385040000 | Recibo: -18 | Fecha: 2025-12-15
+     Tomador: ANGELA MARINA ECHEVERRI DE MORALES
+     Saldo: $1,529,850
+  113. Poliza: 9222389 | Recibo: -2 | Fecha: 2025-07-01
+     Tomador: LINA MARIA ARIAS MAYA
+     Saldo: $206,010
+  114. Poliza: 37723 | Recibo: -9 | Fecha: 2025-11-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  115. Poliza: 2358220900000 | Recibo: 348787221 | Fecha: 2025-12-28
+     Tomador: MARIA JOSE AGUDELO URIBE
+     Saldo: $161,526
+  116. Poliza: 994000000356 | Recibo: 2 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $3,141,600
+  117. Poliza: 900464133-7 | Recibo: -22 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $44,444
+  118. Poliza: 5223469 | Recibo: 21090223-1 | Fecha: 2025-11-01
+     Tomador: LICEO SALAZAR Y HERRERA
+     Saldo: $51,343
+  119. Poliza: 100933 | Recibo: -22 | Fecha: 2025-11-05
+     Tomador: ANA CECILIA HERNANDEZ ESCUDERO
+     Saldo: $1,155,595
+  120. Poliza: 900001350905 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: GRUPO EXEQUIAL JARDINES DEL CIELO
+     Saldo: $69,024
+  121. Poliza: 1418137 | Recibo: -18 | Fecha: 2026-01-01
+     Tomador: DAYANA PAMELA DUQUE CRUZ
+     Saldo: $160,812
+  122. Poliza: 1563126253001 | Recibo: 1 | Fecha: 2025-07-15
+     Tomador: JUAN MANUEL URIBE CRESPO
+     Saldo: $168,986
+  123. Poliza: 20013286 | Recibo: -2 | Fecha: 2025-10-30
+     Tomador: ELKIN RAUL SERNA GOMEZ
+     Saldo: $287,841
+  124. Poliza: 37723 | Recibo: -7 | Fecha: 2025-09-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  125. Poliza: 4513-854125- 753201 | Recibo: -4 | Fecha: 2025-10-15
+     Tomador: JUAN PEDRO POSADA VERGARA
+     Saldo: $20,000
+  126. Poliza: 810058 | Recibo: 14076627 | Fecha: 2025-12-03
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $169,912
+  127. Poliza: 900001261306 | Recibo: -2 | Fecha: 2026-01-08
+     Tomador: SEDIC CONSULTING SAS
+     Saldo: $442,136
+  128. Poliza: 1059504 | Recibo: 0 | Fecha: 2025-12-24
+     Tomador: SAMUEL DIAZ TAMAYO
+     Saldo: $1,364,593
+  129. Poliza: 900000867422 | Recibo: -3 | Fecha: 2026-01-03
+     Tomador: ANTIOQUEÑA DE TRANSPORTES S.A.S
+     Saldo: $2,052,750
+  130. Poliza: 4991077 | Recibo: -20 | Fecha: 2026-01-19
+     Tomador: DANIEL SANTIAGO OSPINA HIGUITA
+     Saldo: $367,088
+  131. Poliza: 1052966 | Recibo: -6 | Fecha: 2025-08-21
+     Tomador: DANIEL GUEVARA JARAMILLO
+     Saldo: $379,575
+  132. Poliza: 45213-854125-844214 | Recibo: -4 | Fecha: 2026-01-10
+     Tomador: GRACIELA MOLINA DE RESTREPO
+     Saldo: $40,000
+  133. Poliza: 100285648 | Recibo: 0 | Fecha: 2025-12-17
+     Tomador: GRUPO EMPRESARIAL PINTUCOM S.A.S
+     Saldo: $85,347
+  134. Poliza: 81003567635 | Recibo: -1 | Fecha: 2025-12-26
+     Tomador: ROOBINSON HAROLD LOPEZ LEON
+     Saldo: $52,851
+  135. Poliza: 023651483 9 | Recibo: 346640034 | Fecha: 2025-11-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,074,413
+  136. Poliza: 3790112 | Recibo: -23 | Fecha: 2026-01-23
+     Tomador: IVAN IGNACIO OSORIO CUERVO
+     Saldo: $232,097
+  137. Poliza: 90001386552 | Recibo: -1 | Fecha: 2025-12-10
+     Tomador: ISABEL CRISTINA ZAPATA ZAPATA
+     Saldo: $286,692
+  138. Poliza: 1379680 | Recibo: 21175153 | Fecha: 2025-12-31
+     Tomador: UNION AGENCIA DE SEGUROS LTDA
+     Saldo: $1,106,332
+  139. Poliza: 900433742-1 | Recibo: AMMD 01559 | Fecha: 2025-12-01
+     Tomador: COLEGIO PARROQUIAL NUESTRA SEÑORA DE CHIQUINQUIRÁ
+     Saldo: $295,758
+  140. Poliza: 5286098 | Recibo: -7 | Fecha: 2026-01-11
+     Tomador: JORGE LUIS MARTINEZ GONZALEZ
+     Saldo: $154,750
+  141. Poliza: 994000025686 | Recibo: 0 | Fecha: 2026-01-13
+     Tomador: FUNDACION LAS GOLONDRINAS
+     Saldo: $1,427,108
+  142. Poliza: 167714 | Recibo: -20 | Fecha: 2025-07-30
+     Tomador: CLAUDIA PATRICIA CORREA GIRALDO
+     Saldo: $568,155
+  143. Poliza: 1528718 | Recibo: -12 | Fecha: 2026-01-01
+     Tomador: IAC COMERCIALIZADORA NORDESTE SAN ROQUE
+     Saldo: $266,792
+  144. Poliza: 900001211325 | Recibo: -4 | Fecha: 2025-12-02
+     Tomador: SERVICIOS PUBLICOS Y SEGURIDAD SAS
+     Saldo: $170,150
+  145. Poliza: 994000000086 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: ASOCIACION MUTUAL SAN JERONIMO
+     Saldo: $2,000,000
+  146. Poliza: 994000004677 | Recibo: 5 | Fecha: 2025-11-12
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $-129,178
+  147. Poliza: 994000025646 | Recibo: 0 | Fecha: 2026-01-02
+     Tomador: FUNDACION SOCIAL EL RETIRO
+     Saldo: $825,439
+  148. Poliza: 1422176 | Recibo: -18 | Fecha: 2026-01-04
+     Tomador: TANIA CRISTINA HOYOS HURTADO
+     Saldo: $160,812
+  149. Poliza: 1018000075601 | Recibo: 1 | Fecha: 2026-01-13
+     Tomador: JANNETH CARMONA ZAPATA
+     Saldo: $2,548,969
+  150. Poliza: 928879 | Recibo: -5 | Fecha: 2025-10-21
+     Tomador: ANA MARIA FLOREZ ORJUELA
+     Saldo: $350,816
+  151. Poliza: 3144016 | Recibo: -7 | Fecha: 2025-11-30
+     Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO
+     Saldo: $1,313,663
+  152. Poliza: 811028188 | Recibo: AMCL 06186 | Fecha: 2025-11-01
+     Tomador: IUSH-INSTITUCION UNIVERSITARIA SALAZAR Y HERRERA
+     Saldo: $1,251,913
+  153. Poliza: 811039430-5 | Recibo: AMMD 01485 | Fecha: 2025-12-01
+     Tomador: COLEGIO DE MARIA
+     Saldo: $295,758
+  154. Poliza: 23755204 | Recibo: -1 | Fecha: 2025-12-22
+     Tomador: CLAUDIA MARIA OCAMPO ESCOBAR
+     Saldo: $147,591
+  155. Poliza: 3868134 | Recibo: -8 | Fecha: 2025-12-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $7,545,941
+  156. Poliza: 890982415 | Recibo: SCMP7538487 | Fecha: 2025-10-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $933,240
+  157. Poliza: 900433742-1 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO PARROQUIAL NUESTRA SEÑORA DE CHIQUINQUIRÁ
+     Saldo: $295,758
+  158. Poliza: 71707215-1 | Recibo: 2379 | Fecha: 2025-04-05
+     Tomador: UNION AGENCIA DE SEGUROS LTDA
+     Saldo: $-72,000
+  159. Poliza: 900001445010 | Recibo: -4 | Fecha: 2026-01-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $24,619
+  160. Poliza: 100933 | Recibo: -19 | Fecha: 2025-08-05
+     Tomador: ANA CECILIA HERNANDEZ ESCUDERO
+     Saldo: $1,155,595
+  161. Poliza: 023651483 4 | Recibo: 348992243 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,079,331
+  162. Poliza: 900001261306 | Recibo: -1 | Fecha: 2025-12-08
+     Tomador: SEDIC CONSULTING SAS
+     Saldo: $442,136
+  163. Poliza: 3438252 | Recibo: 21198456 | Fecha: 2025-11-28
+     Tomador: SISTEMAS Y SOLUCIONES ATHENEA S.A.S
+     Saldo: $660,801
+  164. Poliza: 994000000087 | Recibo: 186 | Fecha: 2025-11-01
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $405,002
+  165. Poliza: 312971 | Recibo: 43554035 | Fecha: 2025-11-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $609,060
+  166. Poliza: 10108149478 | Recibo: -12 | Fecha: 2025-12-01
+     Tomador: GLENN MICHAEL TORRES
+     Saldo: $629,790
+  167. Poliza: 982361 | Recibo: -10 | Fecha: 2026-01-15
+     Tomador: NUBIA ESTELLA RODRIGUEZ SALAZAR
+     Saldo: $1,862,111
+  168. Poliza: 900001432152 | Recibo: -4 | Fecha: 2026-01-23
+     Tomador: LUCILA GIRALDO MONTOYA
+     Saldo: $779,013
+  169. Poliza: 900001444007 | Recibo: -3 | Fecha: 2025-12-17
+     Tomador: MONICA MARCELA NARANJO OROZCO
+     Saldo: $481,442
+  170. Poliza: 994000025540 | Recibo: 0 | Fecha: 2025-12-11
+     Tomador: ASOCIACION DE MUNICIPIOS DEL NORTE ANTIOQUEÑO - AMUNORTE
+     Saldo: $59,500
+  171. Poliza: 900001211325 | Recibo: -5 | Fecha: 2026-01-02
+     Tomador: SERVICIOS PUBLICOS Y SEGURIDAD SAS
+     Saldo: $170,150
+  172. Poliza: 100883490 | Recibo: 10 | Fecha: 2025-09-30
+     Tomador: MARIA CRISTINA LONDOÑO ATEHORTUA
+     Saldo: $75,214
+  173. Poliza: 900077615-5 | Recibo: AMMD 01587 | Fecha: 2025-12-01
+     Tomador: COLEGIO PARROQUIAL JUAN PABLO II
+     Saldo: $295,758
+  174. Poliza: 2366330000000 | Recibo: 349050322 | Fecha: 2025-12-15
+     Tomador: FELIPE ANDRES RESTREPO ZULUAGA
+     Saldo: $159,255
+  175. Poliza: 20000141566 | Recibo: 100011985636 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA AGROPECUARIA DE ENTRERRIOS LTDA
+     Saldo: $2,181,667
+  176. Poliza: 1044292 | Recibo: -12 | Fecha: 2026-01-11
+     Tomador: LUZ ELENA MESA ZAPATA
+     Saldo: $161,175
+  177. Poliza: 2357649900000 | Recibo: 1108136734 | Fecha: 2024-12-16
+     Tomador: COLEGIO JESUS MARIA
+     Saldo: $-32,000
+  178. Poliza: 614854 | Recibo: -9 | Fecha: 2025-08-30
+     Tomador: LUZ STELLA CORREA GOMEZ
+     Saldo: $213,465
+  179. Poliza: 810058 | Recibo: 14076566 | Fecha: 2025-11-10
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $-238,473
+  180. Poliza: 1491405 | Recibo: -16 | Fecha: 2026-01-23
+     Tomador: YELY YARITZA ZAPATA GARCIA
+     Saldo: $321,623
+  181. Poliza: 4513-854125- 753201 | Recibo: 753201 | Fecha: 2025-06-15
+     Tomador: JUAN PEDRO POSADA VERGARA
+     Saldo: $20,000
+  182. Poliza: 901039812-1 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO PARROQUIAL NUESTRA SEÑORA DEL BUEN CONSEJO
+     Saldo: $295,758
+  183. Poliza: 1528779 | Recibo: -11 | Fecha: 2025-12-01
+     Tomador: COOSANROQUE
+     Saldo: $1,382,603
+  184. Poliza: 4513-854125- 753201 | Recibo: -3 | Fecha: 2025-09-15
+     Tomador: JUAN PEDRO POSADA VERGARA
+     Saldo: $20,000
+  185. Poliza: 81003850865 | Recibo: -3 | Fecha: 2025-12-30
+     Tomador: CARLOS AUGUSTO BAENA ORTIZ
+     Saldo: $152,795
+  186. Poliza: 772984 | Recibo: -5 | Fecha: 2025-12-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $820,000
+  187. Poliza: 5223469 | Recibo: 21090223-3 | Fecha: 2025-11-01
+     Tomador: LICEO SALAZAR Y HERRERA
+     Saldo: $14,003
+  188. Poliza: 890984320-3 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: INSTITUTO VICARIAL JESUS MAESTRO
+     Saldo: $295,758
+  189. Poliza: 312971 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $433,631
+  190. Poliza: 4362700 | Recibo: -4 | Fecha: 2025-12-01
+     Tomador: PROYECTAR ASOCIACION MUTUAL
+     Saldo: $21,158
+  191. Poliza: 5219492 | Recibo: -2 | Fecha: 2025-12-08
+     Tomador: ASOCIACION MUTUAL COOPERACION FAMILIAR DE ANTIOQUIA COMUFA
+     Saldo: $478,704
+  192. Poliza: 5138368 | Recibo: -19 | Fecha: 2025-11-24
+     Tomador: ASTRID YANNETH LOPERA RANGEL
+     Saldo: $17,678
+  193. Poliza: 1348485 | Recibo: 21205673 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA AGROPECUARIA DE ENTRERRIOS LTDA
+     Saldo: $800,588
+  194. Poliza: 5223469 | Recibo: 21154386-3 | Fecha: 2025-12-01
+     Tomador: LICEO SALAZAR Y HERRERA
+     Saldo: $16,813
+  195. Poliza: 3226199 | Recibo: 21126566 | Fecha: 2025-11-20
+     Tomador: COOPERATIVA DE DESARROLLO Y EMPLEO SOCIAL - PRECOODES
+     Saldo: $734,663
+  196. Poliza: 1000475 | Recibo: 12 | Fecha: 2025-11-10
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $140,450
+  197. Poliza: 5350087328 | Recibo: 12841150 | Fecha: 2025-12-31
+     Tomador: LILIAM ZAPATA PEREZ
+     Saldo: $675,000
+  198. Poliza: 37723 | Recibo: -5 | Fecha: 2025-07-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  199. Poliza: 5259603 | Recibo: -10 | Fecha: 2026-01-22
+     Tomador: ASTRID YANNETH LOPERA RANGEL
+     Saldo: $35,297
+  200. Poliza: 1409021 | Recibo: 76835074 | Fecha: 2025-11-30
+     Tomador: JOSE HERMES HIDALGO GIRALDO
+     Saldo: $330,926
+  201. Poliza: 1528779 | Recibo: -12 | Fecha: 2026-01-01
+     Tomador: COOSANROQUE
+     Saldo: $1,382,603
+  202. Poliza: 1044292 | Recibo: -9 | Fecha: 2025-10-11
+     Tomador: LUZ ELENA MESA ZAPATA
+     Saldo: $161,175
+  203. Poliza: 45213-854125-844214 | Recibo: -2 | Fecha: 2025-11-10
+     Tomador: GRACIELA MOLINA DE RESTREPO
+     Saldo: $40,000
+  204. Poliza: 1002079 | Recibo: 10 | Fecha: 2025-10-06
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $129,642
+  205. Poliza: 1171825 | Recibo: -5 | Fecha: 2025-11-05
+     Tomador: JOHN OSWALDO JARAMILLO VALLEJO
+     Saldo: $315,000
+  206. Poliza: 2354928600000 | Recibo: 347303061 | Fecha: 2025-12-27
+     Tomador: JAIME MAURICIO CRUZ
+     Saldo: $3,288,673
+  207. Poliza: 2354310600190 | Recibo: 350322529 | Fecha: 2026-01-05
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $150,890
+  208. Poliza: 2317830900000 | Recibo: 349378509 | Fecha: 2026-01-16
+     Tomador: PEDRO ANTONIO ALZATE GALINDO
+     Saldo: $209,816
+  209. Poliza: 994000004268 | Recibo: 3 | Fecha: 2025-11-30
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $-288,113
+  210. Poliza: 5286098 | Recibo: -6 | Fecha: 2025-12-11
+     Tomador: JORGE LUIS MARTINEZ GONZALEZ
+     Saldo: $154,750
+  211. Poliza: 994000000082 | Recibo: 0 | Fecha: 2025-11-19
+     Tomador: E.S.E. HOSPITAL LA INMACULADA - GUATAPE
+     Saldo: $338,234
+  212. Poliza: 3057460 | Recibo: -7 | Fecha: 2025-12-01
+     Tomador: FONDO DE EMPLEADOS UNIVERSIDAD CATOLICA DEL NORTE
+     Saldo: $423,867
+  213. Poliza: 900001445010 | Recibo: -3 | Fecha: 2025-12-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $24,619
+  214. Poliza: 1205790 | Recibo: -11 | Fecha: 2025-11-29
+     Tomador: JUANA MARIA OSSA ISAZA
+     Saldo: $652,346
+  215. Poliza: 890906740-0 | Recibo: AMMD 01489 | Fecha: 2025-12-01
+     Tomador: COLEGIO PARROQUIAL CARMELITANO
+     Saldo: $295,758
+  216. Poliza: 2258260800000 | Recibo: 350190413 | Fecha: 2026-01-01
+     Tomador: LINA MARIA AGUDELO ISAZA
+     Saldo: $217,024
+  217. Poliza: 900000588236 | Recibo: -16 | Fecha: 2026-01-17
+     Tomador: SEBASTIAN POSADA MIRA
+     Saldo: $71,082
+  218. Poliza: 1059499 | Recibo: 0 | Fecha: 2025-11-27
+     Tomador: FELIPE VARGAS BRAVO
+     Saldo: $1,393,945
+  219. Poliza: 4513-854125- 822150 | Recibo: 0 | Fecha: 2025-09-09
+     Tomador: COOPERATIVA AGROPECUARIA DE ENTRERRIOS LTDA
+     Saldo: $295,000
+  220. Poliza: 9222389 | Recibo: -4 | Fecha: 2025-09-01
+     Tomador: LINA MARIA ARIAS MAYA
+     Saldo: $206,010
+  221. Poliza: 99165 | Recibo: -10 | Fecha: 2025-09-25
+     Tomador: LUZ MARINA ARANGO GOMEZ
+     Saldo: $324,135
+  222. Poliza: 15-994000000645 | Recibo: 2 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA DE AHORRO Y CREDITO CREAFAM - COOCREAFAM
+     Saldo: $111,500
+  223. Poliza: 1012164 | Recibo: 12 | Fecha: 2025-11-10
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $240,052
+  224. Poliza: 2211561500000 | Recibo: 351209808 | Fecha: 2026-01-01
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $4,172,910
+  225. Poliza: 100074693 | Recibo: 0 | Fecha: 2026-01-06
+     Tomador: GRUPO EMPRESARIAL PINTUCOM S.A.S
+     Saldo: $41,650
+  226. Poliza: 1480667 | Recibo: -4 | Fecha: 2026-01-15
+     Tomador: CLAUDIA JANETH LOPEZ COLORADO
+     Saldo: $172,986
+  227. Poliza: 900001292385 | Recibo: 100012079126 | Fecha: 2025-12-27
+     Tomador: ALIRIO ORDOÑEZ
+     Saldo: $-325,566
+  228. Poliza: 890980053-3-2 | Recibo: AMMD 01582 | Fecha: 2025-12-01
+     Tomador: ESCUELAS POPULARES EUCARISTICAS
+     Saldo: $295,758
+  229. Poliza: 1469126 | Recibo: -13 | Fecha: 2025-12-30
+     Tomador: EDISON LEANDRO ARBOLEDA GIL
+     Saldo: $321,624
+  230. Poliza: 100933 | Recibo: -20 | Fecha: 2025-09-05
+     Tomador: ANA CECILIA HERNANDEZ ESCUDERO
+     Saldo: $1,155,595
+  231. Poliza: 5300025234 | Recibo: 0 | Fecha: 2025-12-15
+     Tomador: E.S.E HOSPITAL SAN JUAN DE DIOS - ITUANGO
+     Saldo: $1,255,400
+  232. Poliza: 900094908-1 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO PARROQUIAL EMAUS
+     Saldo: $295,758
+  233. Poliza: 994000000360 | Recibo: 2 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $1,630,300
+  234. Poliza: 9524440 | Recibo: -10 | Fecha: 2025-09-30
+     Tomador: TEJEDOR TEJEDOR FELICIANO
+     Saldo: $61,950
+  235. Poliza: 900001350905 | Recibo: -8 | Fecha: 2025-11-01
+     Tomador: GRUPO EXEQUIAL JARDINES DEL CIELO
+     Saldo: $69,024
+  236. Poliza: 5098946 | Recibo: -23 | Fecha: 2025-11-19
+     Tomador: GLORIA ESTER COLORADO GOMEZ
+     Saldo: $74,063
+  237. Poliza: 802969 | Recibo: 14567 | Fecha: 2025-10-15
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $6,600
+  238. Poliza: 167714 | Recibo: -24 | Fecha: 2025-11-30
+     Tomador: CLAUDIA PATRICIA CORREA GIRALDO
+     Saldo: $568,155
+  239. Poliza: 1000474 | Recibo: 11 | Fecha: 2025-06-12
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $26,873
+  240. Poliza: 4362700 | Recibo: 21134486 | Fecha: 2025-11-01
+     Tomador: PROYECTAR ASOCIACION MUTUAL
+     Saldo: $21,158
+  241. Poliza: 1945004 | Recibo: 8 | Fecha: 2025-01-19
+     Tomador: JUAN FERNANDO CORREA GOMEZ
+     Saldo: $-691,091
+  242. Poliza: 1011179 | Recibo: 15 | Fecha: 2025-12-15
+     Tomador: EDIFICIO PALOMAR PROPIEDAD HORIZONTAL
+     Saldo: $-300,000
+  243. Poliza: 23744529 | Recibo: CMED14731 | Fecha: 2025-12-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $11,536,779
+  244. Poliza: 5350087335 | Recibo: 5350087335 | Fecha: 2025-12-13
+     Tomador: OLGA LUCIA PULIDO RAYO
+     Saldo: $943,100
+  245. Poliza: 2330486500000 | Recibo: 348661814 | Fecha: 2025-12-24
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $377,046
+  246. Poliza: 2000489529 | Recibo: 1805300422 | Fecha: 2025-12-27
+     Tomador: SEBASTIAN ARISTIZABAL HENAO
+     Saldo: $376,447
+  247. Poliza: 81005335714 | Recibo: 64222484 | Fecha: 2025-11-28
+     Tomador: JOHN FREDDY TABORDA PEREZ
+     Saldo: $169,313
+  248. Poliza: 90001641766 | Recibo: 77584244 | Fecha: 2025-12-29
+     Tomador: EDDISON RAMIRO VASQUEZ POSADA
+     Saldo: $160,812
+  249. Poliza: 811039319-5 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO SAN FRANCISCO DE ASIS
+     Saldo: $295,758
+  250. Poliza: 900001295299 | Recibo: 100012194800 | Fecha: 2026-01-03
+     Tomador: JULIANA ARANGO CARDENAS
+     Saldo: $205,429
+  251. Poliza: 5259603 | Recibo: -9 | Fecha: 2025-12-22
+     Tomador: ASTRID YANNETH LOPERA RANGEL
+     Saldo: $35,297
+  252. Poliza: 2000387219 | Recibo: -9 | Fecha: 2026-01-10
+     Tomador: EDWIN CATAÑO RUIZ
+     Saldo: $719,112
+  253. Poliza: 167714 | Recibo: -22 | Fecha: 2025-09-30
+     Tomador: CLAUDIA PATRICIA CORREA GIRALDO
+     Saldo: $568,155
+  254. Poliza: 3144016 | Recibo: -8 | Fecha: 2025-12-30
+     Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO
+     Saldo: $1,313,663
+  255. Poliza: 807116 | Recibo: 14067233 | Fecha: 2026-01-01
+     Tomador: UNION AGENCIA DE SEGUROS LTDA
+     Saldo: $2,586,629
+  256. Poliza: 994000000397 | Recibo: 4 | Fecha: 2026-01-05
+     Tomador: UNION AGENCIA DE SEGUROS LTDA
+     Saldo: $120,443
+  257. Poliza: 1188437 | Recibo: -3 | Fecha: 2025-11-30
+     Tomador: MARNY ELLYN VASQUEZ VALDEBLANQUEZ
+     Saldo: $314,961
+  258. Poliza: 994000041713 | Recibo: 0 | Fecha: 2025-11-07
+     Tomador: MUNICIPIO YOLOMBO
+     Saldo: $706,585
+  259. Poliza: 2211561500000 | Recibo: 349459622 | Fecha: 2025-12-01
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $4,172,910
+  260. Poliza: 994000000366 | Recibo: 2 | Fecha: 2025-12-19
+     Tomador: CLIVEM CLINICA VERTIGO Y EQUILIBRIO DE MEDELLIN S.A.S
+     Saldo: $4,924,099
+  261. Poliza: 856620 | Recibo: 21056358 | Fecha: 2025-06-01
+     Tomador: TRANSPORTES OSORIO RIOS
+     Saldo: $-562,501
+  262. Poliza: 2361972600000 | Recibo: -9 | Fecha: 2025-12-28
+     Tomador: ANTIOQUEÑA DE TRANSPORTES S.A.S
+     Saldo: $18,787,745
+  263. Poliza: 994000054178 | Recibo: 0 | Fecha: 2025-11-20
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $1,567,306
+  264. Poliza: 2000377942 | Recibo: 1805311402 | Fecha: 2026-01-01
+     Tomador: JHON JAIRO DUQUE GIRALDO
+     Saldo: $754,471
+  265. Poliza: 1476632 | Recibo: -4 | Fecha: 2026-01-02
+     Tomador: ANA MARIA URIBE MOLINA
+     Saldo: $91,983
+  266. Poliza: 4513-854125- 753201 | Recibo: -1 | Fecha: 2025-07-15
+     Tomador: JUAN PEDRO POSADA VERGARA
+     Saldo: $20,000
+  267. Poliza: 1188437 | Recibo: -1 | Fecha: 2025-09-30
+     Tomador: MARNY ELLYN VASQUEZ VALDEBLANQUEZ
+     Saldo: $314,961
+  268. Poliza: 167714 | Recibo: -21 | Fecha: 2025-08-30
+     Tomador: CLAUDIA PATRICIA CORREA GIRALDO
+     Saldo: $568,155
+  269. Poliza: 37723 | Recibo: -11 | Fecha: 2026-01-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  270. Poliza: 1205793 | Recibo: -1 | Fecha: 2025-12-29
+     Tomador: SANDRA MILENA MONTOYA CASTAÑEDA
+     Saldo: $686,896
+  271. Poliza: 900315447-6 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO PARROQUIAL SAN BUENAVENTURA
+     Saldo: $295,758
+  272. Poliza: 900001350905 | Recibo: -6 | Fecha: 2025-09-01
+     Tomador: GRUPO EXEQUIAL JARDINES DEL CIELO
+     Saldo: $69,024
+  273. Poliza: 4513-854125- 753201 | Recibo: -2 | Fecha: 2025-08-15
+     Tomador: JUAN PEDRO POSADA VERGARA
+     Saldo: $20,000
+  274. Poliza: 529580 | Recibo: -8 | Fecha: 2025-12-31
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $2,467,522
+  275. Poliza: 811044880-6 | Recibo: AMMD 01536 | Fecha: 2025-12-01
+     Tomador: FUNDACION UNIDAD EDUCATIVA SAN MARCOS
+     Saldo: $295,758
+  276. Poliza: 4513854125-840724 | Recibo: 890857 | Fecha: 2025-12-06
+     Tomador: CARL DAWKINS BOWEI
+     Saldo: $40,000
+  277. Poliza: 900000897761 | Recibo: -3 | Fecha: 2025-10-27
+     Tomador: LETICIA MARIA GIRALDO PULGARIN
+     Saldo: $598,852
+  278. Poliza: 99165 | Recibo: -12 | Fecha: 2025-11-25
+     Tomador: LUZ MARINA ARANGO GOMEZ
+     Saldo: $324,135
+  279. Poliza: 994000000372 | Recibo: 1 | Fecha: 2025-12-21
+     Tomador: EYC GLOBAL S.A.S
+     Saldo: $2,233,769
+  280. Poliza: 1052966 | Recibo: -11 | Fecha: 2026-01-21
+     Tomador: DANIEL GUEVARA JARAMILLO
+     Saldo: $379,575
+  281. Poliza: 2359725300000 | Recibo: 348811575 | Fecha: 2025-12-17
+     Tomador: PLASTICOS G. Y C. S.A.S.
+     Saldo: $849,660
+  282. Poliza: 81005335714 | Recibo: 64222483 | Fecha: 2025-11-28
+     Tomador: JOHN FREDDY TABORDA PEREZ
+     Saldo: $169,313
+  283. Poliza: 370598 | Recibo: -20 | Fecha: 2025-09-01
+     Tomador: ELIANA MILENA VALDERRAMA PELAEZ
+     Saldo: $138,915
+  284. Poliza: 2356178600000 | Recibo: 348761101 | Fecha: 2025-12-25
+     Tomador: ERIKA ANDREA ARTEAGA VELEZ
+     Saldo: $152,917
+  285. Poliza: 67-994000001450 | Recibo: 5 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA DE AHORRO Y CREDITO CREAFAM - COOCREAFAM
+     Saldo: $352,121
+  286. Poliza: 90001600664 | Recibo: -5 | Fecha: 2026-01-09
+     Tomador: MONICA ELIZABETH MORENO DIAZ
+     Saldo: $160,812
+  287. Poliza: 890980044-7 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO PABLO VI
+     Saldo: $295,758
+  288. Poliza: 900001314323 | Recibo: 1 | Fecha: 2026-01-01
+     Tomador: EMCO PARTS S.A.S
+     Saldo: $1,963,500
+  289. Poliza: 900001301337 | Recibo: 1 | Fecha: 2026-01-16
+     Tomador: MONICA MARIA GONZALEZ GIRALDO
+     Saldo: $306,095
+  290. Poliza: 2340478500000 | Recibo: -10 | Fecha: 2026-01-14
+     Tomador: MARIA EUGENIA SANCHEZ DE LA PEÑA
+     Saldo: $146,928
+  291. Poliza: 101092379 | Recibo: -12 | Fecha: 2026-01-01
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $470,663
+  292. Poliza: 85002012519 | Recibo: 23110997 | Fecha: 2025-10-22
+     Tomador: INSTITUCION UNIVERSITARIA MARCO FIDEL SUAREZ
+     Saldo: $319,294
+  293. Poliza: 2000336616 | Recibo: -3 | Fecha: 2026-01-05
+     Tomador: JUAN CAMILO DUQUE GIRALDO
+     Saldo: $803,026
+  294. Poliza: 1063167 | Recibo: -25 | Fecha: 2026-01-01
+     Tomador: JUAN CARLOS JIMENEZ ESCOBAR
+     Saldo: $2,678,555
+  295. Poliza: 2000556668 | Recibo: 1805326994 | Fecha: 2026-01-11
+     Tomador: EDWIN LEONARDO HERNANDEZ MONTOYA
+     Saldo: $526,435
+  296. Poliza: 1463584 | Recibo: -5 | Fecha: 2025-12-29
+     Tomador: GLORIA ELENA POSADA BETANCUR
+     Saldo: $91,983
+  297. Poliza: 1205790 | Recibo: -12 | Fecha: 2025-12-29
+     Tomador: JUANA MARIA OSSA ISAZA
+     Saldo: $686,896
+  298. Poliza: 900001097398 | Recibo: 100012137216 | Fecha: 2025-12-12
+     Tomador: COOPERATIVA AGROPECUARIA DE ENTRERRIOS LTDA
+     Saldo: $2,784,494
+  299. Poliza: 2361056800000 | Recibo: 350442590 | Fecha: 2026-01-01
+     Tomador: GARCIA MORENO WILLIAM
+     Saldo: $796,155
+  300. Poliza: 811007406-0 | Recibo: AMCL 08938 | Fecha: 2025-12-01
+     Tomador: INSTITUTO PARROQUIAL JESUS DE LA BUENA ESPERANZA
+     Saldo: $295,758
+  301. Poliza: 1247623 | Recibo: -6 | Fecha: 2026-01-05
+     Tomador: CARLOS ALBERTO POSADA BETANCUR
+     Saldo: $91,983
+  302. Poliza: 900001134385 | Recibo: -21 | Fecha: 2026-01-22
+     Tomador: M.V ARQUITECTOS S.A
+     Saldo: $655,143
+  303. Poliza: 23727517 | Recibo: -3 | Fecha: 2026-01-20
+     Tomador: ANA MARIA PINEDA JARAMILLO
+     Saldo: $632,817
+  304. Poliza: 94250120 | Recibo: 4 | Fecha: 2025-12-17
+     Tomador: CARLOS AMILCAR PULGARIN TORO
+     Saldo: $-1,601,984
+  305. Poliza: 1437467 | Recibo: -5 | Fecha: 2025-12-30
+     Tomador: GONZALO ANTONIO MORA HENAO
+     Saldo: $264,720
+  306. Poliza: 2262997100000 | Recibo: 350191494 | Fecha: 2026-01-01
+     Tomador: RUBER ALBERTO ESCUDERO RINCON
+     Saldo: $225,993
+  307. Poliza: 2352668500000 | Recibo: 350314971 | Fecha: 2026-01-07
+     Tomador: DORIAN JAIME BEDOYA SALDARRIAGA
+     Saldo: $124,438
+  308. Poliza: 3071417 | Recibo: 3 | Fecha: 2025-11-08
+     Tomador: ANTIOQUEÑA DE TRANSPORTES S.A.S
+     Saldo: $844,078
+  309. Poliza: 994000054474 | Recibo: 0 | Fecha: 2025-12-11
+     Tomador: ASOCIACION DE MUNICIPIOS DEL NORTE ANTIOQUEÑO - AMUNORTE
+     Saldo: $85,227
+  310. Poliza: 1527232 | Recibo: -11 | Fecha: 2025-12-01
+     Tomador: COOSANROQUE
+     Saldo: $16,276,903
+  311. Poliza: 1527797 | Recibo: -11 | Fecha: 2025-12-17
+     Tomador: MARGARITA PALACIO ARROYAVE
+     Saldo: $91,983
+  312. Poliza: 900001455259 | Recibo: -2 | Fecha: 2026-01-04
+     Tomador: CAMILO ERNESTO YEPEZ GARCIA
+     Saldo: $108,065
+  313. Poliza: 1052966 | Recibo: -8 | Fecha: 2025-10-21
+     Tomador: DANIEL GUEVARA JARAMILLO
+     Saldo: $379,575
+  314. Poliza: 811039319-5 | Recibo: -9 | Fecha: 2025-12-01
+     Tomador: COLEGIO SAN FRANCISCO DE ASIS
+     Saldo: $295,758
+  315. Poliza: 1527797 | Recibo: -12 | Fecha: 2026-01-17
+     Tomador: MARGARITA PALACIO ARROYAVE
+     Saldo: $91,983
+  316. Poliza: 23593956 | Recibo: -10 | Fecha: 2026-01-15
+     Tomador: ANDRES ZULETA MARTINEZ
+     Saldo: $254,055
+  317. Poliza: 1062883 | Recibo: -25 | Fecha: 2026-01-01
+     Tomador: CAMILO ALEXANDER HURTADO CASTAÑO
+     Saldo: $491,385
+  318. Poliza: 1434486 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: INVERSIONES LUZHGM SAS
+     Saldo: $444,444
+  319. Poliza: 3692775 | Recibo: 64294513 | Fecha: 2026-01-11
+     Tomador: CARLOS AMILCAR PULGARIN TORO
+     Saldo: $303,427
+  320. Poliza: 90001252860 | Recibo: -2 | Fecha: 2026-01-16
+     Tomador: MIGUEL ANGEL COLORADO RESTREPO
+     Saldo: $91,983
+  321. Poliza: 90001598704 | Recibo: -6 | Fecha: 2026-01-23
+     Tomador: MINERA LA FORTUNA SAS
+     Saldo: $2,194,053
+  322. Poliza: 1205783 | Recibo: -35 | Fecha: 2025-12-29
+     Tomador: ASTRID ASTRID ARROYO GENES
+     Saldo: $1,233,260
+  323. Poliza: 1171825 | Recibo: -6 | Fecha: 2025-12-05
+     Tomador: JOHN OSWALDO JARAMILLO VALLEJO
+     Saldo: $315,000
+  324. Poliza: 994000010331 | Recibo: 0 | Fecha: 2025-12-17
+     Tomador: E.S.E. HOSPITAL LA INMACULADA - GUATAPE
+     Saldo: $8,909,974
+  325. Poliza: 81003998275 | Recibo: -13 | Fecha: 2025-12-29
+     Tomador: SEBASTIAN POSADA MIRA
+     Saldo: $54,994
+  326. Poliza: 900001211325 | Recibo: -2 | Fecha: 2025-10-02
+     Tomador: SERVICIOS PUBLICOS Y SEGURIDAD SAS
+     Saldo: $170,150
+  327. Poliza: 23647756 | Recibo: 23647756-7 | Fecha: 2025-11-30
+     Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO
+     Saldo: $495,646
+  328. Poliza: 17790 | Recibo: 5899086 | Fecha: 2025-12-30
+     Tomador: ACINPRO
+     Saldo: $8,742,392
+  329. Poliza: 23699150 | Recibo: -3 | Fecha: 2025-11-01
+     Tomador: ROTRASVEHI S.A.S.
+     Saldo: $4,760,000
+  330. Poliza: 994000001862 | Recibo: 0 | Fecha: 2025-11-19
+     Tomador: E.S.E. HOSPITAL LA INMACULADA - GUATAPE
+     Saldo: $1,995,233
+  331. Poliza: 81004834579 | Recibo: -7 | Fecha: 2026-01-18
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $33,262
+  332. Poliza: 810058 | Recibo: 14046603 | Fecha: 2025-11-10
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $149,045
+  333. Poliza: 1279122 | Recibo: -11 | Fecha: 2025-11-03
+     Tomador: CATALINA PELAEZ HINCAPIE
+     Saldo: $91,983
+  334. Poliza: 2901125900118 | Recibo: 8 | Fecha: 2025-11-30
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $9,971,412
+  335. Poliza: 3100030966 | Recibo: 1000292464 | Fecha: 2025-10-08
+     Tomador: FUNDACION CAMINOS PROMOCION DE ESTILO DE VIDA SALUDABLE
+     Saldo: $-234,329
+  336. Poliza: 994000016959 | Recibo: 0 | Fecha: 2025-11-07
+     Tomador: CORPOBOSQUES
+     Saldo: $13,090
+  337. Poliza: 900000899623 | Recibo: -8 | Fecha: 2025-07-28
+     Tomador: CARNES RYKAS SAS
+     Saldo: $141,998
+  338. Poliza: 901039812-1 | Recibo: AMMD 01496 | Fecha: 2025-12-01
+     Tomador: COLEGIO PARROQUIAL NUESTRA SEÑORA DEL BUEN CONSEJO
+     Saldo: $295,758
+  339. Poliza: 5219492 | Recibo: -3 | Fecha: 2026-01-08
+     Tomador: ASOCIACION MUTUAL COOPERACION FAMILIAR DE ANTIOQUIA COMUFA
+     Saldo: $478,704
+  340. Poliza: 890980044-7 | Recibo: AMMD 01490 | Fecha: 2025-12-01
+     Tomador: COLEGIO PABLO VI
+     Saldo: $295,758
+  341. Poliza: 1496223 | Recibo: -1 | Fecha: 2025-12-30
+     Tomador: DORA LUZ HURTADO FRANCO
+     Saldo: $134,091
+  342. Poliza: 1000475 | Recibo: 10 | Fecha: 2025-10-06
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $156,836
+  343. Poliza: 100952316 | Recibo: 10 | Fecha: 2025-09-30
+     Tomador: MARIA NOHEMY ALVAREZ GUTIERREZ
+     Saldo: $180,802
+  344. Poliza: 900000867422 | Recibo: -2 | Fecha: 2025-12-03
+     Tomador: ANTIOQUEÑA DE TRANSPORTES S.A.S
+     Saldo: $2,052,750
+  345. Poliza: 900476251-1 | Recibo: -7 | Fecha: 2026-01-01
+     Tomador: CORSAHE - CORPORACION DE FOMENTO ASISTENCIAL DEL LICEO Y LA IUSH
+     Saldo: $500,000
+  346. Poliza: 2350313000000 | Recibo: 348720834 | Fecha: 2025-12-25
+     Tomador: MARIA EDITH TORRES ROLDAN
+     Saldo: $253,860
+  347. Poliza: 994000000167 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA DE LA GUAJIRA CONFIAMOS
+     Saldo: $10,878,415
+  348. Poliza: 5146850 | Recibo: 64194006 | Fecha: 2025-12-15
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $136,964
+  349. Poliza: 100074665 | Recibo: 0 | Fecha: 2026-01-06
+     Tomador: GRUPO EMPRESARIAL PINTUCOM S.A.S
+     Saldo: $41,650
+  350. Poliza: 1044292 | Recibo: -5 | Fecha: 2025-06-11
+     Tomador: LUZ ELENA MESA ZAPATA
+     Saldo: $161,175
+  351. Poliza: 900094908-1 | Recibo: AMMD 01492 | Fecha: 2025-12-01
+     Tomador: COLEGIO PARROQUIAL EMAUS
+     Saldo: $295,758
+  352. Poliza: 900000897761 | Recibo: -2 | Fecha: 2025-09-27
+     Tomador: LETICIA MARIA GIRALDO PULGARIN
+     Saldo: $598,852
+  353. Poliza: 994000000087 | Recibo: 185 | Fecha: 2025-11-01
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $1,910,242
+  354. Poliza: 890981212 | Recibo: 6774011 | Fecha: 2025-04-01
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $515,403
+  355. Poliza: 10108076058 | Recibo: 1239716707 | Fecha: 2025-12-01
+     Tomador: DIOCESIS DE GIRARDOT
+     Saldo: $40,287,975
+  356. Poliza: 1000475 | Recibo: 11 | Fecha: 2025-06-12
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $18,233
+  357. Poliza: 994000000117 | Recibo: 0 | Fecha: 2025-12-12
+     Tomador: CONGREGACIÓN DE MISIONEROS HIJOS DEL INMACULADO CORAZÓN DE MARÍA PROVINCIA COLOMBIA VENEZUELA
+     Saldo: $5,372,850
+  358. Poliza: 900001187535 | Recibo: -7 | Fecha: 2026-01-01
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $4,760,330
+  359. Poliza: 3455956 | Recibo: 21167477 | Fecha: 2025-11-01
+     Tomador: ASOCIACION MUTUAL LUZ DIVINA
+     Saldo: $1,259,447
+  360. Poliza: 1063168 | Recibo: -12 | Fecha: 2025-11-01
+     Tomador: MARIA CECILIA OSPINA GOMEZ
+     Saldo: $486,723
+  361. Poliza: 3071316 | Recibo: -4 | Fecha: 2026-01-11
+     Tomador: JOSE EDUARDO DUQUE GIRALDO
+     Saldo: $492,661
+  362. Poliza: 1391216 | Recibo: -9 | Fecha: 2026-01-08
+     Tomador: VICTOR ALFONSO JARAMILLO ARROYAVE
+     Saldo: $1,394,390
+  363. Poliza: 2000257671 | Recibo: -7 | Fecha: 2026-01-07
+     Tomador: JUAN CAMILO DUQUE GIRALDO
+     Saldo: $767,203
+  364. Poliza: 1063168 | Recibo: -11 | Fecha: 2025-10-01
+     Tomador: MARIA CECILIA OSPINA GOMEZ
+     Saldo: $486,723
+  365. Poliza: 4991077 | Recibo: -19 | Fecha: 2025-12-19
+     Tomador: DANIEL SANTIAGO OSPINA HIGUITA
+     Saldo: $367,088
+  366. Poliza: 1338303 | Recibo: 2 | Fecha: 2025-10-29
+     Tomador: DIANA PATRICIA GOMEZ GIRALDO
+     Saldo: $-834,860
+  367. Poliza: 1171825 | Recibo: -7 | Fecha: 2026-01-05
+     Tomador: JOHN OSWALDO JARAMILLO VALLEJO
+     Saldo: $315,000
+  368. Poliza: 94448631 | Recibo: 2 | Fecha: 2025-12-12
+     Tomador: ALEXANDER JIMENEZ SERNA
+     Saldo: $-1,210,030
+  369. Poliza: 4384810 | Recibo: -19 | Fecha: 2025-12-22
+     Tomador: EDILMA DE JESUS ESCUDERO AGUDELO
+     Saldo: $371,488
+  370. Poliza: 23543106274 | Recibo: 111361816 | Fecha: 2025-11-27
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $520,030
+  371. Poliza: 4334246 | Recibo: -8 | Fecha: 2026-01-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $47,438
+  372. Poliza: 1516992 | Recibo: -1 | Fecha: 2026-01-20
+     Tomador: SOFIA HERNANDEZ MESA
+     Saldo: $160,812
+  373. Poliza: 100089193 | Recibo: -7 | Fecha: 2026-01-15
+     Tomador: JORGE IVAN HOYOS HINCAPIE
+     Saldo: $112,856
+  374. Poliza: 1018000075001 | Recibo: 1 | Fecha: 2025-12-09
+     Tomador: NATALIA URIBE MOLINA
+     Saldo: $4,309,853
+  375. Poliza: 994000054192 | Recibo: 0 | Fecha: 2025-11-12
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $350,728
+  376. Poliza: 1433832 | Recibo: -4 | Fecha: 2025-12-04
+     Tomador: MAKROVEHICULOS MJV S.A.S
+     Saldo: $444,444
+  377. Poliza: 81005335299 | Recibo: -1 | Fecha: 2025-12-28
+     Tomador: ASTRID YANNETH LOPERA RANGEL
+     Saldo: $42,007
+  378. Poliza: 994000004677 | Recibo: 1 | Fecha: 2025-11-12
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $1,959,696
+  379. Poliza: 1059492 | Recibo: 0 | Fecha: 2025-11-14
+     Tomador: CIR KEVIN RODRIGUEZ GUERRERO
+     Saldo: $674,547
+  380. Poliza: 994000054107 | Recibo: 0 | Fecha: 2025-11-11
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $557,160
+  381. Poliza: 10108149478 | Recibo: -11 | Fecha: 2025-11-01
+     Tomador: GLENN MICHAEL TORRES
+     Saldo: $629,790
+  382. Poliza: 9002946109 | Recibo: 7794331 | Fecha: 2025-12-01
+     Tomador: UNION AGENCIA DE SEGUROS LTDA
+     Saldo: $10,045,434
+  383. Poliza: 772984 | Recibo: -6 | Fecha: 2026-01-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $820,000
+  384. Poliza: 0531783 7 | Recibo: 123 | Fecha: 2026-01-11
+     Tomador: JAVIER IGNACIO MONTOYA RODRIGUEZ
+     Saldo: $369,989
+  385. Poliza: 13001038968 | Recibo: 14183392 | Fecha: 2025-09-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $-292,309
+  386. Poliza: 1412636 | Recibo: -9 | Fecha: 2025-12-28
+     Tomador: LUZ DARY FLOREZ ALZATE
+     Saldo: $143,346
+  387. Poliza: 994000024865 | Recibo: 2 | Fecha: 2025-09-22
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $44,554
+  388. Poliza: 5350081925 | Recibo: 12733746 | Fecha: 2025-09-15
+     Tomador: SANDRA MILENA GALINDO QUIROS
+     Saldo: $675,000
+  389. Poliza: 529580 | Recibo: -7 | Fecha: 2025-11-30
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $2,467,522
+  390. Poliza: 2277924000000 | Recibo: -2 | Fecha: 2026-01-14
+     Tomador: MARIO ALEJANDRO AGUDELO ISAZA
+     Saldo: $197,168
+  391. Poliza: 1193272 | Recibo: -4 | Fecha: 2026-01-01
+     Tomador: DORA NANCY YEPES QUIROZ
+     Saldo: $734,777
+  392. Poliza: 147231 | Recibo: -42 | Fecha: 2025-09-25
+     Tomador: DORA ISABEL OCAMPO GIRALDO
+     Saldo: $337,470
+  393. Poliza: 23744529 | Recibo: 1 | Fecha: 2025-11-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $-1,424,660
+  394. Poliza: 100870295 | Recibo: -3 | Fecha: 2025-12-30
+     Tomador: MARIBEL ZAPATA PELAEZ
+     Saldo: $734,196
+  395. Poliza: 1012164 | Recibo: 3 | Fecha: 2025-07-31
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $37,475
+  396. Poliza: 90001597084 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: NORBEY GARCIA PARAMO
+     Saldo: $160,812
+  397. Poliza: 1188437 | Recibo: -4 | Fecha: 2025-12-30
+     Tomador: MARNY ELLYN VASQUEZ VALDEBLANQUEZ
+     Saldo: $314,961
+  398. Poliza: 81005332199 | Recibo: -2 | Fecha: 2026-01-20
+     Tomador: ALLISON DANIELA BENAVIDES BARTELS
+     Saldo: $14,626
+  399. Poliza: 3100031356 | Recibo: 181911348 | Fecha: 2025-09-16
+     Tomador: GESTION FUTURO ROBLES S.A.S.
+     Saldo: $-608,448
+  400. Poliza: 3071213 | Recibo: 0 | Fecha: 2025-12-23
+     Tomador: YEISON ARLEY CASTAÑO GRAJALES
+     Saldo: $3,274,212
+  401. Poliza: 5350088208 | Recibo: 0 | Fecha: 2025-12-23
+     Tomador: FUNDACION HOSPITAL SAN JUAN DE DIOS - EL RETIRO
+     Saldo: $1,255,400
+  402. Poliza: 900464133-7 | Recibo: E22816 | Fecha: 2025-09-01
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $32,500
+  403. Poliza: 13001038968 | Recibo: 14179734 | Fecha: 2025-10-22
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $764,838
+  404. Poliza: 929385040000 | Recibo: -17 | Fecha: 2025-11-15
+     Tomador: ANGELA MARINA ECHEVERRI DE MORALES
+     Saldo: $1,529,850
+  405. Poliza: 928879 | Recibo: -6 | Fecha: 2025-11-21
+     Tomador: ANA MARIA FLOREZ ORJUELA
+     Saldo: $350,816
+  406. Poliza: 994000004268 | Recibo: -9 | Fecha: 2025-12-30
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $2,827,865
+  407. Poliza: 13001049810 | Recibo: 14200652 | Fecha: 2025-12-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $2,555,520
+  408. Poliza: 2815912 | Recibo: -3 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA MULTIACTIVA EL BAGRE
+     Saldo: $5,700,000
+  409. Poliza: 890980053-3-3 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: ESCUELAS POPULARES EUCARISTICAS
+     Saldo: $295,758
+  410. Poliza: 67-994000001442 | Recibo: 5 | Fecha: 2026-01-10
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $170,991
+  411. Poliza: 1422176 | Recibo: -16 | Fecha: 2025-11-04
+     Tomador: TANIA CRISTINA HOYOS HURTADO
+     Saldo: $160,812
+  412. Poliza: 94345871 | Recibo: 1 | Fecha: 2025-12-19
+     Tomador: SEDIC S.A.
+     Saldo: $1,778,745
+  413. Poliza: 5200253 | Recibo: 20948236 | Fecha: 2025-09-01
+     Tomador: COOPERATIVA DE LA GUAJIRA CONFIAMOS
+     Saldo: $35,866
+  414. Poliza: 167714 | Recibo: -18 | Fecha: 2025-05-30
+     Tomador: CLAUDIA PATRICIA CORREA GIRALDO
+     Saldo: $568,155
+  415. Poliza: 900396323 | Recibo: E23372 | Fecha: 2025-09-01
+     Tomador: TRANSPORTES OSORIO RIOS
+     Saldo: $95,700
+  416. Poliza: 2338416400000 | Recibo: 1108612684 | Fecha: 2025-05-08
+     Tomador: ESCUELA NORMAL SUPERIOR ANTIOQUEÑA
+     Saldo: $-35,700
+  417. Poliza: 1002079 | Recibo: 3 | Fecha: 2025-07-31
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $15,071
+  418. Poliza: 4513-854125- 852255 | Recibo: 0 | Fecha: 2025-10-18
+     Tomador: COOPERATIVA DE AHORRO Y CREDITO DE ENTRERRIOS LTDA
+     Saldo: $154,000
+  419. Poliza: 994000000500 | Recibo: 2 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $1,630,300
+  420. Poliza: 994000000070 | Recibo: 5 | Fecha: 2025-12-23
+     Tomador: COOPERATIVA DE AHORRO Y CREDITO CREAFAM - COOCREAFAM
+     Saldo: $-1,453,666
+  421. Poliza: 23744529 | Recibo: -3 | Fecha: 2026-01-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $12,649,388
+  422. Poliza: 1002079 | Recibo: 11 | Fecha: 2025-06-12
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $15,071
+  423. Poliza: 1472032 | Recibo: -3 | Fecha: 2025-11-20
+     Tomador: LEIDY NATALIA SERNA TABARES
+     Saldo: $411,196
+  424. Poliza: 994000041720 | Recibo: 0 | Fecha: 2025-11-07
+     Tomador: MUNICIPIO DE VENECIA - ANTIOQUIA
+     Saldo: $132,496
+  425. Poliza: 681685 | Recibo: -7 | Fecha: 2025-12-30
+     Tomador: GENSEL SAS
+     Saldo: $233,195
+  426. Poliza: 101153155 | Recibo: -10 | Fecha: 2026-01-05
+     Tomador: YOMARO VASQUEZ VALDEBLANQUEZ
+     Saldo: $172,986
+  427. Poliza: 147231 | Recibo: -43 | Fecha: 2025-10-25
+     Tomador: DORA ISABEL OCAMPO GIRALDO
+     Saldo: $337,470
+  428. Poliza: 994000054185 | Recibo: 0 | Fecha: 2025-11-12
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $318,749
+  429. Poliza: 023651483 8 | Recibo: 348992284 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,162,719
+  430. Poliza: 81004868672 | Recibo: -3 | Fecha: 2025-12-22
+     Tomador: JHONATAN ALBERTO MARTINEZ CASTAÑO
+     Saldo: $32,525
+  431. Poliza: 890982415 | Recibo: SCMP7923620 | Fecha: 2026-01-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $15,368,010
+  432. Poliza: 4513-854125- 753201 | Recibo: -5 | Fecha: 2025-11-15
+     Tomador: JUAN PEDRO POSADA VERGARA
+     Saldo: $20,000
+  433. Poliza: 4573583 | Recibo: -34 | Fecha: 2025-10-01
+     Tomador: UNADCOOP - COOPERATIVA MULTIACTIVA DE LA UNIVERSIDAD NACIONAL ABIERTA Y A DISTANCIA
+     Saldo: $2,339,391
+  434. Poliza: 1491405 | Recibo: -15 | Fecha: 2025-12-23
+     Tomador: YELY YARITZA ZAPATA GARCIA
+     Saldo: $321,623
+  435. Poliza: 900001187535 | Recibo: -6 | Fecha: 2025-12-01
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $4,760,330
+  436. Poliza: 994000004268 | Recibo: 123 | Fecha: 2025-12-03
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $157,982
+  437. Poliza: 994000052968 | Recibo: 2 | Fecha: 2025-09-22
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $57,120
+  438. Poliza: 890984320-3 | Recibo: AMMD 01491 | Fecha: 2025-12-01
+     Tomador: INSTITUTO VICARIAL JESUS MAESTRO
+     Saldo: $295,758
+  439. Poliza: 1091801 | Recibo: -25 | Fecha: 2026-01-01
+     Tomador: CLAUDIA PATRICIA VELEZ GOMEZ
+     Saldo: $3,105,904
+  440. Poliza: 100286264 | Recibo: 0 | Fecha: 2026-01-06
+     Tomador: GRUPO EMPRESARIAL PINTUCOM S.A.S
+     Saldo: $111,460
+  441. Poliza: 3926199 | Recibo: -6 | Fecha: 2026-01-01
+     Tomador: MAKICENTER MAZ SAS
+     Saldo: $443,442
+  442. Poliza: 4573583 | Recibo: -36 | Fecha: 2025-12-01
+     Tomador: UNADCOOP - COOPERATIVA MULTIACTIVA DE LA UNIVERSIDAD NACIONAL ABIERTA Y A DISTANCIA
+     Saldo: $2,339,391
+  443. Poliza: 900001444007 | Recibo: -4 | Fecha: 2026-01-17
+     Tomador: MONICA MARCELA NARANJO OROZCO
+     Saldo: $481,442
+  444. Poliza: 994000054628 | Recibo: 0 | Fecha: 2026-01-02
+     Tomador: FUNDACION SOCIAL EL RETIRO
+     Saldo: $1,054,081
+  445. Poliza: 1338329 | Recibo: 1 | Fecha: 2025-11-10
+     Tomador: CAROLINA VALDERRAMA RENDON
+     Saldo: $-1,162,705
+  446. Poliza: 4740359 | Recibo: -12 | Fecha: 2025-11-16
+     Tomador: ALBA LUCIA ZULUAGA ARISTIZABAL
+     Saldo: $258,008
+  447. Poliza: 3866371 | Recibo: -8 | Fecha: 2025-12-27
+     Tomador: DIOCESIS DE GIRARDOT
+     Saldo: $24,882
+  448. Poliza: 1348472 | Recibo: -7 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA AGROPECUARIA DE ENTRERRIOS LTDA
+     Saldo: $2,103,986
+  449. Poliza: 809745 | Recibo: -8 | Fecha: 2026-01-01
+     Tomador: UNIVERSIDAD DE MEDELLIN
+     Saldo: $2,645,522
+  450. Poliza: 800105459-0 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: LICEO FRANCISCO RESTREPO MOLINA
+     Saldo: $295,758
+  451. Poliza: 994000050267 | Recibo: 3 | Fecha: 2026-01-02
+     Tomador: CORPOBOSQUES
+     Saldo: $336,987
+  452. Poliza: 3100027880 | Recibo: 181234133 | Fecha: 2024-12-20
+     Tomador: FUNDACION CAMINOS PROMOCION DE ESTILO DE VIDA SALUDABLE
+     Saldo: $-233,342
+  453. Poliza: 3455956 | Recibo: 21165379 | Fecha: 2025-10-01
+     Tomador: ASOCIACION MUTUAL LUZ DIVINA
+     Saldo: $965,104
+  454. Poliza: 994000000138 | Recibo: 0 | Fecha: 2025-11-19
+     Tomador: E.S.E. HOSPITAL LA INMACULADA - GUATAPE
+     Saldo: $7,945,233
+  455. Poliza: 23778646 | Recibo: 1111676437 | Fecha: 2025-11-26
+     Tomador: LICEO SALAZAR Y HERRERA
+     Saldo: $5,350,835
+  456. Poliza: 941339180000 | Recibo: -18 | Fecha: 2025-12-15
+     Tomador: MARTHA NELFY BOTERO GARCIA
+     Saldo: $434,700
+  457. Poliza: 1527934 | Recibo: -12 | Fecha: 2026-01-01
+     Tomador: COOSANROQUE
+     Saldo: $11,341,963
+  458. Poliza: 900000380780 | Recibo: -7 | Fecha: 2026-01-09
+     Tomador: GERMAN GIOVANY ECHEVERRY TORRES
+     Saldo: $443,487
+  459. Poliza: 900000396514 | Recibo: -28 | Fecha: 2026-01-16
+     Tomador: FRANCISCO JAVIER PATIÑO LOPEZ
+     Saldo: $112,783
+  460. Poliza: 312971 | Recibo: 39033083 | Fecha: 2025-09-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $403,981
+  461. Poliza: 90001613383 | Recibo: -4 | Fecha: 2026-01-15
+     Tomador: MINERA LA FORTUNA SAS
+     Saldo: $736,425
+  462. Poliza: 900001447336 | Recibo: -3 | Fecha: 2026-01-21
+     Tomador: BRAYAN CAMILO MORALES CORREA
+     Saldo: $90,865
+  463. Poliza: 100286548 | Recibo: 0 | Fecha: 2025-12-18
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $230,323
+  464. Poliza: 81005335306 | Recibo: -1 | Fecha: 2025-12-28
+     Tomador: ASTRID YANNETH LOPERA RANGEL
+     Saldo: $64,622
+  465. Poliza: 900001373741 | Recibo: -7 | Fecha: 2026-01-06
+     Tomador: ARRENDAMIENTOS ECHEVERRI Y ASOCIADOS S.A.S
+     Saldo: $729,609
+  466. Poliza: 100078139 | Recibo: 13743136 | Fecha: 2026-01-20
+     Tomador: EYC GLOBAL S.A.S
+     Saldo: $2,510,202
+  467. Poliza: 5350085943 | Recibo: 12813020 | Fecha: 2025-11-25
+     Tomador: MARIA RUBIELA GOMEZ MUÑOZ
+     Saldo: $445,600
+  468. Poliza: 37723 | Recibo: -6 | Fecha: 2025-08-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  469. Poliza: 022884117 180 | Recibo: 110279670 | Fecha: 2025-09-23
+     Tomador: PEDRO ANTONIO ALZATE GALINDO
+     Saldo: $-602,423
+  470. Poliza: 1205802 | Recibo: -1 | Fecha: 2025-12-29
+     Tomador: DIANA MARIA DEL SOCORRO PEREZ BLANDON
+     Saldo: $855,841
+  471. Poliza: 900000738703 | Recibo: -9 | Fecha: 2026-01-12
+     Tomador: HADER ALVEIRO TAMAYO OSPINA
+     Saldo: $61,260
+  472. Poliza: 1059505 | Recibo: 0 | Fecha: 2025-12-26
+     Tomador: ALEXANDER JIMENEZ SERNA
+     Saldo: $760,151
+  473. Poliza: 100248460 | Recibo: 0 | Fecha: 2024-11-07
+     Tomador: CONSTRUCTORA FDS
+     Saldo: $939,227
+  474. Poliza: 4573583 | Recibo: -35 | Fecha: 2025-11-01
+     Tomador: UNADCOOP - COOPERATIVA MULTIACTIVA DE LA UNIVERSIDAD NACIONAL ABIERTA Y A DISTANCIA
+     Saldo: $2,339,391
+  475. Poliza: 900315447-6 | Recibo: AMMD 01493 | Fecha: 2025-12-01
+     Tomador: COLEGIO PARROQUIAL SAN BUENAVENTURA
+     Saldo: $295,758
+  476. Poliza: 3226199 | Recibo: 21160065 | Fecha: 2025-11-20
+     Tomador: COOPERATIVA DE DESARROLLO Y EMPLEO SOCIAL - PRECOODES
+     Saldo: $81,726
+  477. Poliza: 2341307700000 | Recibo: 350265702 | Fecha: 2026-01-04
+     Tomador: MARIA NELA GALEANO
+     Saldo: $340,473
+  478. Poliza: 370598 | Recibo: -16 | Fecha: 2025-05-01
+     Tomador: ELIANA MILENA VALDERRAMA PELAEZ
+     Saldo: $138,915
+  479. Poliza: 811039430-5 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO DE MARIA
+     Saldo: $295,758
+  480. Poliza: 994000001527 | Recibo: 1 | Fecha: 2025-05-20
+     Tomador: MUNICIPIO DE VENECIA - ANTIOQUIA
+     Saldo: $-324,324
+  481. Poliza: 13001036411 | Recibo: 14179745 | Fecha: 2025-09-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $319,440
+  482. Poliza: 3100021258 | Recibo: 181482543 | Fecha: 2025-05-12
+     Tomador: ASOCIACION MUTUAL SAN JERONIMO
+     Saldo: $6,055
+  483. Poliza: 890980053-3-2 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: ESCUELAS POPULARES EUCARISTICAS
+     Saldo: $310,546
+  484. Poliza: 900001350905 | Recibo: -9 | Fecha: 2025-12-01
+     Tomador: GRUPO EXEQUIAL JARDINES DEL CIELO
+     Saldo: $69,024
+  485. Poliza: 97-994000000301 | Recibo: 1 | Fecha: 2025-10-17
+     Tomador: ASOCIACION MUTUAL COMPARTIR
+     Saldo: $2,485,611
+  486. Poliza: 811020481-7 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO LA ASUNCION
+     Saldo: $295,758
+  487. Poliza: 4331637 | Recibo: -18 | Fecha: 2025-12-28
+     Tomador: GINO ALEJANDRO MONTOYA MAZO
+     Saldo: $69,715
+  488. Poliza: 994000050267 | Recibo: 2 | Fecha: 2025-12-29
+     Tomador: CORPOBOSQUES
+     Saldo: $206,147
+  489. Poliza: 101008669 | Recibo: -9 | Fecha: 2026-01-18
+     Tomador: MAYRA ALEJANDRA MARQUEZ BENJUMEA
+     Saldo: $141,567
+  490. Poliza: 1085627 | Recibo: -27 | Fecha: 2026-01-19
+     Tomador: CLAUDIA PATRICIA VELASQUEZ
+     Saldo: $1,269,404
+  491. Poliza: 94307915 | Recibo: 2 | Fecha: 2025-06-08
+     Tomador: JAIRO EDUARDO NARANJO GIL
+     Saldo: $106,474
+  492. Poliza: 2010532 | Recibo: 23103936 | Fecha: 2025-09-22
+     Tomador: MARIA ISABEL SUAREZ RIVERA
+     Saldo: $7,312
+  493. Poliza: 1479082 | Recibo: -2 | Fecha: 2025-11-15
+     Tomador: IRINA ESTHER MONERY SAADE
+     Saldo: $1,260,047
+  494. Poliza: 2368116300000 | Recibo: 350647362 | Fecha: 2026-01-01
+     Tomador: ROTRASVEHI S.A.S.
+     Saldo: $3,570,000
+  495. Poliza: 023651483 8 | Recibo: 346640026 | Fecha: 2025-11-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,162,719
+  496. Poliza: 1002079 | Recibo: 12 | Fecha: 2025-11-10
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $116,098
+  497. Poliza: 90000969508 | Recibo: 75438016 | Fecha: 2025-08-26
+     Tomador: JUAN FELIPE GIRALDO VIEIRA
+     Saldo: $8,148,534
+  498. Poliza: 511725 | Recibo: 15149 | Fecha: 2025-12-15
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $340,000
+  499. Poliza: 994000000742 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA DE LA GUAJIRA CONFIAMOS
+     Saldo: $5,374,658
+  500. Poliza: 23000185 | Recibo: 110321340 | Fecha: 2025-11-01
+     Tomador: KARIM KAI CHOHRA
+     Saldo: $-64,800
+  501. Poliza: 900464133-7 | Recibo: 23541 | Fecha: 2025-10-01
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $32,500
+  502. Poliza: 994000054034 | Recibo: 0 | Fecha: 2025-11-10
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $258,286
+  503. Poliza: 5350085876 | Recibo: 12811711 | Fecha: 2025-11-28
+     Tomador: JOSE MEDARDO AREIZA CORREA
+     Saldo: $542,700
+  504. Poliza: 370598 | Recibo: -23 | Fecha: 2025-12-01
+     Tomador: ELIANA MILENA VALDERRAMA PELAEZ
+     Saldo: $138,915
+  505. Poliza: 5223469 | Recibo: -1 | Fecha: 2026-01-01
+     Tomador: LICEO SALAZAR Y HERRERA
+     Saldo: $156,971
+  506. Poliza: 890981425-4 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO SAGRADO CORAZÓN DE MARÍA
+     Saldo: $295,758
+  507. Poliza: 13001038968 | Recibo: 14183396 | Fecha: 2025-09-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $-150,530
+  508. Poliza: 470645 | Recibo: -8 | Fecha: 2025-12-22
+     Tomador: LUIS GUILLERMO OLARTE GALLEGO
+     Saldo: $596,819
+  509. Poliza: 1052966 | Recibo: -9 | Fecha: 2025-11-21
+     Tomador: DANIEL GUEVARA JARAMILLO
+     Saldo: $379,575
+  510. Poliza: 900396323 | Recibo: E23739 | Fecha: 2025-10-01
+     Tomador: TRANSPORTES OSORIO RIOS
+     Saldo: $108,900
+  511. Poliza: 1338322 | Recibo: 1 | Fecha: 2025-11-26
+     Tomador: JUAN CARLOS OSPINA ARBOLEDA
+     Saldo: $650,929
+  512. Poliza: 1059440 | Recibo: 1 | Fecha: 2025-12-23
+     Tomador: SANTIAGO GALLEGO VALLEJO
+     Saldo: $-537,290
+  513. Poliza: 994000000010 | Recibo: 0 | Fecha: 2025-12-12
+     Tomador: CONGREGACIÓN DE MISIONEROS HIJOS DEL INMACULADO CORAZÓN DE MARÍA PROVINCIA COLOMBIA VENEZUELA
+     Saldo: $39,276,574
+  514. Poliza: 2362205400000 | Recibo: -7 | Fecha: 2025-12-01
+     Tomador: AB & C LOGISTICA S.A.S.
+     Saldo: $1,935,142
+  515. Poliza: 9222389 | Recibo: -10 | Fecha: 2025-11-01
+     Tomador: LINA MARIA ARIAS MAYA
+     Saldo: $206,010
+  516. Poliza: 994000004268 | Recibo: 119 | Fecha: 2025-11-30
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $3,471,587
+  517. Poliza: 100952316 | Recibo: -10 | Fecha: 2025-10-30
+     Tomador: MARIA NOHEMY ALVAREZ GUTIERREZ
+     Saldo: $180,802
+  518. Poliza: 811039541-4 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: INSTITUTO CRISTO REY
+     Saldo: $295,758
+  519. Poliza: 900001149614 | Recibo: 100012168838 | Fecha: 2026-01-01
+     Tomador: GRUPO EMPRESARIAL PINTUCOM S.A.S
+     Saldo: $2,354,411
+  520. Poliza: 472118 | Recibo: 14537 | Fecha: 2025-11-01
+     Tomador: PROYECTAR ASOCIACION MUTUAL
+     Saldo: $720,000
+  521. Poliza: 1453395 | Recibo: -4 | Fecha: 2026-01-06
+     Tomador: NATALIA MOLINA VALDEZ
+     Saldo: $160,812
+  522. Poliza: 901039781-1 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO PARROQUIAL SAN GABRIEL DE LA DOLOROSA
+     Saldo: $310,546
+  523. Poliza: 90001600664 | Recibo: -4 | Fecha: 2025-12-09
+     Tomador: MONICA ELIZABETH MORENO DIAZ
+     Saldo: $160,812
+  524. Poliza: 614854 | Recibo: -10 | Fecha: 2025-09-30
+     Tomador: LUZ STELLA CORREA GOMEZ
+     Saldo: $213,465
+  525. Poliza: 2590663503309 | Recibo: 10-2025 | Fecha: 2025-10-01
+     Tomador: TRANSPORTE SIXCAR S.A.S.
+     Saldo: $1,567,886
+  526. Poliza: 90001599377 | Recibo: -5 | Fecha: 2026-01-03
+     Tomador: MARIA ALEJANDRA MENDOZA MACEA
+     Saldo: $399,649
+  527. Poliza: 0826148-7 | Recibo: 100012129832 | Fecha: 2025-12-26
+     Tomador: COOPERATIVA DE DESARROLLO Y EMPLEO SOCIAL - PRECOODES
+     Saldo: $9,641,345
+  528. Poliza: 1059498 | Recibo: 0 | Fecha: 2025-11-25
+     Tomador: SEBASTIAN PAREJA CORTES
+     Saldo: $1,239,694
+  529. Poliza: 5350087299 | Recibo: 5350087299 | Fecha: 2025-12-13
+     Tomador: EDIER ALBERTO RAMIREZ MARTINEZ
+     Saldo: $943,100
+  530. Poliza: 90001598704 | Recibo: -5 | Fecha: 2025-12-23
+     Tomador: MINERA LA FORTUNA SAS
+     Saldo: $2,194,053
+  531. Poliza: 4513-854125 | Recibo: 688825 | Fecha: 2025-03-19
+     Tomador: IUSH-INSTITUCION UNIVERSITARIA SALAZAR Y HERRERA
+     Saldo: $50,000
+  532. Poliza: 1188437 | Recibo: 75664016 | Fecha: 2025-08-30
+     Tomador: MARNY ELLYN VASQUEZ VALDEBLANQUEZ
+     Saldo: $309,596
+  533. Poliza: 1044292 | Recibo: -8 | Fecha: 2025-09-11
+     Tomador: LUZ ELENA MESA ZAPATA
+     Saldo: $161,175
+  534. Poliza: 37723 | Recibo: -10 | Fecha: 2025-12-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  535. Poliza: 71707215 | Recibo: 23744 | Fecha: 2025-09-30
+     Tomador: FIDEMCOOP COOPERATIVA MULTIACTIVA DE SERVICIOS
+     Saldo: $37,400
+  536. Poliza: 994000010330 | Recibo: 0 | Fecha: 2025-12-06
+     Tomador: E.S.E. HOSPITAL LA INMACULADA - GUATAPE
+     Saldo: $536,571
+  537. Poliza: 023651483 6 | Recibo: 348992268 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,165,229
+  538. Poliza: 5098946 | Recibo: -24 | Fecha: 2025-12-19
+     Tomador: GLORIA ESTER COLORADO GOMEZ
+     Saldo: $74,063
+  539. Poliza: 2901125900118 | Recibo: 7 | Fecha: 2025-10-30
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $9,591,370
+  540. Poliza: 900001342237 | Recibo: -9 | Fecha: 2025-12-29
+     Tomador: GLADYS DEL SOCORRO LOAIZA BUITRAGO
+     Saldo: $338,991
+  541. Poliza: 900396323 | Recibo: E24098 | Fecha: 2025-11-01
+     Tomador: TRANSPORTES OSORIO RIOS
+     Saldo: $105,600
+  542. Poliza: 3100031356 | Recibo: 181911237 | Fecha: 2025-09-12
+     Tomador: GESTION FUTURO ROBLES S.A.S.
+     Saldo: $673,155
+  543. Poliza: 5350087114 | Recibo: 0 | Fecha: 2025-12-14
+     Tomador: MARIA LICIRIA PUERTA ARIAS
+     Saldo: $542,700
+  544. Poliza: 994000000087 | Recibo: -11 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $2,531,465
+  545. Poliza: 23699150 | Recibo: -5 | Fecha: 2026-01-01
+     Tomador: ROTRASVEHI S.A.S.
+     Saldo: $4,760,000
+  546. Poliza: 800105459-0 | Recibo: AMMD 01502 | Fecha: 2025-12-01
+     Tomador: LICEO FRANCISCO RESTREPO MOLINA
+     Saldo: $295,758
+  547. Poliza: 472118 | Recibo: 13691 | Fecha: 2025-10-01
+     Tomador: PROYECTAR ASOCIACION MUTUAL
+     Saldo: $760,000
+  548. Poliza: 5223469 | Recibo: 21090223-2 | Fecha: 2025-11-01
+     Tomador: LICEO SALAZAR Y HERRERA
+     Saldo: $65,345
+  549. Poliza: 994000041635 | Recibo: 0 | Fecha: 2025-10-24
+     Tomador: MUNICIPIO YOLOMBO
+     Saldo: $394,602
+  550. Poliza: 37723 | Recibo: -3 | Fecha: 2025-05-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  551. Poliza: 90001225971 | Recibo: -4 | Fecha: 2025-12-26
+     Tomador: LINA MARIA SARMIENTO ORJUELA
+     Saldo: $686,896
+  552. Poliza: 2901124003883 | Recibo: 31960069800 | Fecha: 2025-12-31
+     Tomador: CRISTOFER MUÑOZ GUZMAN
+     Saldo: $-2,255,943
+  553. Poliza: 1528674 | Recibo: -12 | Fecha: 2026-01-01
+     Tomador: COOSANROQUE
+     Saldo: $1,268,327
+  554. Poliza: 37723 | Recibo: -4 | Fecha: 2025-06-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  555. Poliza: 1044292 | Recibo: -10 | Fecha: 2025-11-11
+     Tomador: LUZ ELENA MESA ZAPATA
+     Saldo: $161,175
+  556. Poliza: 100889020 | Recibo: 13595249 | Fecha: 2025-06-10
+     Tomador: DAVID CASTAÑO GRAJALES
+     Saldo: $-107,207
+  557. Poliza: 900000897761 | Recibo: -4 | Fecha: 2025-11-27
+     Tomador: LETICIA MARIA GIRALDO PULGARIN
+     Saldo: $598,852
+  558. Poliza: 30000819684 | Recibo: 1 | Fecha: 2025-11-30
+     Tomador: ASOCIACION MUTUAL LUZ DIVINA
+     Saldo: $7,059,231
+  559. Poliza: 900000802139 | Recibo: -17 | Fecha: 2025-12-29
+     Tomador: GERMAN GIOVANY ECHEVERRY TORRES
+     Saldo: $439,277
+  560. Poliza: 4513854125-840724 | Recibo: -4 | Fecha: 2026-01-06
+     Tomador: CARL DAWKINS BOWEI
+     Saldo: $40,000
+  561. Poliza: 2339967200000 | Recibo: 350262212 | Fecha: 2026-01-09
+     Tomador: SANTIAGO REYES REYES
+     Saldo: $253,481
+  562. Poliza: 1012164 | Recibo: 11 | Fecha: 2025-06-12
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $37,475
+  563. Poliza: 890905864-0 | Recibo: 7794509 | Fecha: 2025-12-01
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $29,286,705
+  564. Poliza: 819575 | Recibo: -5 | Fecha: 2026-01-04
+     Tomador: UNION AGENCIA DE SEGUROS LTDA
+     Saldo: $80,000
+  565. Poliza: 3069381 | Recibo: 0 | Fecha: 2025-11-27
+     Tomador: LUIS GUILLERMO VILLA RODRIGUEZ
+     Saldo: $1,138,452
+  566. Poliza: 994000000179 | Recibo: 4 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $3,141,600
+  567. Poliza: 81005329780 | Recibo: -2 | Fecha: 2026-01-11
+     Tomador: LUNA MUÑOZ FERNANDEZ
+     Saldo: $22,395
+  568. Poliza: 23203005 | Recibo: 111707810 | Fecha: 2025-12-17
+     Tomador: JUAN FELIPE LONDOÑO ALVAREZ
+     Saldo: $-774,592
+  569. Poliza: 927790 | Recibo: -2 | Fecha: 2026-01-20
+     Tomador: MARIA ISABEL JARAMILLO ALVAREZ
+     Saldo: $1,175,292
+  570. Poliza: 5090960 | Recibo: 60648195 | Fecha: 2024-09-20
+     Tomador: ANGEL ANTONIO GRAJALES ATEHORTUA
+     Saldo: $-244,611
+  571. Poliza: 3868134 | Recibo: 21165442 | Fecha: 2025-11-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $8,517,458
+  572. Poliza: 2196072300559 | Recibo: 111487215 | Fecha: 2025-12-05
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $1,665,587
+  573. Poliza: 13001004511 | Recibo: 14206306 | Fecha: 2025-12-22
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $-105,021
+  574. Poliza: 4384810 | Recibo: -20 | Fecha: 2026-01-22
+     Tomador: EDILMA DE JESUS ESCUDERO AGUDELO
+     Saldo: $371,488
+  575. Poliza: 1043164 | Recibo: 12 | Fecha: 2026-01-01
+     Tomador: JOHN FREDDY TABORDA PEREZ
+     Saldo: $828,765
+  576. Poliza: 9222389 | Recibo: -1 | Fecha: 2025-06-01
+     Tomador: LINA MARIA ARIAS MAYA
+     Saldo: $206,010
+  577. Poliza: 71707215 | Recibo: 24103 | Fecha: 2025-10-31
+     Tomador: FIDEMCOOP COOPERATIVA MULTIACTIVA DE SERVICIOS
+     Saldo: $37,400
+  578. Poliza: 23727517 | Recibo: -2 | Fecha: 2025-12-20
+     Tomador: ANA MARIA PINEDA JARAMILLO
+     Saldo: $632,817
+  579. Poliza: 1000474 | Recibo: 10 | Fecha: 2025-10-06
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $192,214
+  580. Poliza: 900001275852 | Recibo: 100011879130 | Fecha: 2025-12-03
+     Tomador: WILSON FABER TAPIAS PUERTA
+     Saldo: $3,147,109
+  581. Poliza: 1291654 | Recibo: -11 | Fecha: 2025-12-30
+     Tomador: BEATRIZ ELENA ROJAS PELAEZ
+     Saldo: $143,346
+  582. Poliza: 994000004677 | Recibo: 3 | Fecha: 2025-11-13
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $282,298
+  583. Poliza: 994000000086 | Recibo: 187 | Fecha: 2025-11-01
+     Tomador: ASOCIACION MUTUAL SAN JERONIMO
+     Saldo: $158,863
+  584. Poliza: 994000000742 | Recibo: -4 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA DE LA GUAJIRA CONFIAMOS
+     Saldo: $5,374,658
+  585. Poliza: 8909824202 | Recibo: 148600620 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $153,346,620
+  586. Poliza: 1052966 | Recibo: -5 | Fecha: 2025-07-21
+     Tomador: DANIEL GUEVARA JARAMILLO
+     Saldo: $379,575
+  587. Poliza: 81005318404 | Recibo: -3 | Fecha: 2026-01-07
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $26,604
+  588. Poliza: 9524440 | Recibo: -12 | Fecha: 2025-11-30
+     Tomador: TEJEDOR TEJEDOR FELICIANO
+     Saldo: $61,950
+  589. Poliza: 929385120000 | Recibo: -7 | Fecha: 2025-12-15
+     Tomador: MARIA NOHEMY ALVAREZ GUTIERREZ
+     Saldo: $1,290,009
+  590. Poliza: 147231 | Recibo: -39 | Fecha: 2025-06-25
+     Tomador: DORA ISABEL OCAMPO GIRALDO
+     Saldo: $337,470
+  591. Poliza: 890980053-3 | Recibo: AMMD 01585 | Fecha: 2025-12-01
+     Tomador: ESCUELAS POPULARES EUCARISTICAS
+     Saldo: $295,758
+  592. Poliza: 811044880-6 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: FUNDACION UNIDAD EDUCATIVA SAN MARCOS
+     Saldo: $295,758
+  593. Poliza: 13001047571 | Recibo: 14199186 | Fecha: 2025-11-27
+     Tomador: GRUPO EMPRESARIAL PINTUCOM S.A.S
+     Saldo: $306,943
+  594. Poliza: 472118 | Recibo: -11 | Fecha: 2026-01-01
+     Tomador: PROYECTAR ASOCIACION MUTUAL
+     Saldo: $260,000
+  595. Poliza: 10108149478 | Recibo: -13 | Fecha: 2026-01-01
+     Tomador: GLENN MICHAEL TORRES
+     Saldo: $680,190
+  596. Poliza: 994000000431 | Recibo: 1 | Fecha: 2025-07-03
+     Tomador: ASOCIACION MUTUAL EL SOCORRO
+     Saldo: $-91,134
+  597. Poliza: 167714 | Recibo: -19 | Fecha: 2025-06-30
+     Tomador: CLAUDIA PATRICIA CORREA GIRALDO
+     Saldo: $568,155
+  598. Poliza: 614854 | Recibo: -12 | Fecha: 2025-11-30
+     Tomador: LUZ STELLA CORREA GOMEZ
+     Saldo: $213,465
+  599. Poliza: 2341291600000 | Recibo: 110859323 | Fecha: 2025-10-30
+     Tomador: PLASTICOS G. Y C. S.A.S.
+     Saldo: $-1,064,600
+  600. Poliza: 370598 | Recibo: -15 | Fecha: 2025-04-01
+     Tomador: ELIANA MILENA VALDERRAMA PELAEZ
+     Saldo: $138,915
+  601. Poliza: 133547 | Recibo: -10 | Fecha: 2025-11-28
+     Tomador: ALBERTO ANTONIO BARROS CARABALLO
+     Saldo: $1,592,010
+  602. Poliza: 1338269 | Recibo: 2 | Fecha: 2025-12-22
+     Tomador: OSCAR ADOLFO ORTEGA VALDES
+     Saldo: $1,614,793
+  603. Poliza: 1075103 | Recibo: -7 | Fecha: 2025-12-30
+     Tomador: CORPORACION GUILLERMO TABORDA
+     Saldo: $120,473
+  604. Poliza: 994000041801 | Recibo: 0 | Fecha: 2025-11-07
+     Tomador: MUNICIPIO DE VENECIA - ANTIOQUIA
+     Saldo: $400,196
+  605. Poliza: 3635101 | Recibo: -4 | Fecha: 2025-12-01
+     Tomador: ASOCIACION MUTUAL LUZ DIVINA
+     Saldo: $354,702
+  606. Poliza: 90001432330 | Recibo: -5 | Fecha: 2026-01-08
+     Tomador: EDDISON RAMIRO VASQUEZ POSADA
+     Saldo: $141,567
+  607. Poliza: 890980053-3 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: ESCUELAS POPULARES EUCARISTICAS
+     Saldo: $295,758
+  608. Poliza: 1527232 | Recibo: -12 | Fecha: 2026-01-01
+     Tomador: COOSANROQUE
+     Saldo: $16,276,903
+  609. Poliza: 1018000064401 | Recibo: 2 | Fecha: 2025-07-30
+     Tomador: ANA DANIELA MARIN TORO
+     Saldo: $-1,960,032
+  610. Poliza: 994000024921 | Recibo: 0 | Fecha: 2025-09-04
+     Tomador: MUNICIPIO DE VENECIA - ANTIOQUIA
+     Saldo: $328,583
+  611. Poliza: 811039319-5 | Recibo: AMMD 01503 | Fecha: 2025-11-01
+     Tomador: COLEGIO SAN FRANCISCO DE ASIS
+     Saldo: $295,758
+  612. Poliza: 1516992 | Recibo: 77075058 | Fecha: 2025-12-20
+     Tomador: SOFIA HERNANDEZ MESA
+     Saldo: $160,812
+  613. Poliza: 1348485 | Recibo: -7 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA AGROPECUARIA DE ENTRERRIOS LTDA
+     Saldo: $787,672
+  614. Poliza: 8272261 | Recibo: -7 | Fecha: 2025-12-30
+     Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO
+     Saldo: $1,591,047
+  615. Poliza: 3438252 | Recibo: 21161565 | Fecha: 2025-10-28
+     Tomador: SISTEMAS Y SOLUCIONES ATHENEA S.A.S
+     Saldo: $660,801
+  616. Poliza: 23379608 | Recibo: 107315180 | Fecha: 2025-01-21
+     Tomador: EDILMA DEL SOCORRO MARTÍNEZ ROJAS
+     Saldo: $-49,767
+  617. Poliza: 023651483 5 | Recibo: 348992250 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $823,718
+  618. Poliza: 900001356448 | Recibo: -8 | Fecha: 2025-12-30
+     Tomador: NICOLAS YEPEZ ARIAS
+     Saldo: $131,624
+  619. Poliza: 4341462 | Recibo: -12 | Fecha: 2026-01-14
+     Tomador: MARNY ELLYN VASQUEZ VALDEBLANQUEZ
+     Saldo: $94,973
+  620. Poliza: 5350087205 | Recibo: 5350087205 | Fecha: 2025-12-11
+     Tomador: ANDRES CAMILO VERGARA COLORADO
+     Saldo: $675,000
+  621. Poliza: 3332412 | Recibo: -1 | Fecha: 2026-01-02
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $1,730,170
+  622. Poliza: 994000000404 | Recibo: 1 | Fecha: 2026-01-04
+     Tomador: MARIA ARACELLY GOMEZ ZULUAGA
+     Saldo: $474,466
+  623. Poliza: 3868125 | Recibo: -9 | Fecha: 2026-01-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $15,190,290
+  624. Poliza: 90001640413 | Recibo: 77304893 | Fecha: 2025-12-09
+     Tomador: PAULA LONDOÑO MARTINEZ
+     Saldo: $172,986
+  625. Poliza: 3438252 | Recibo: -11 | Fecha: 2025-12-28
+     Tomador: SISTEMAS Y SOLUCIONES ATHENEA S.A.S
+     Saldo: $765,977
+  626. Poliza: 224358245-1 | Recibo: 0 | Fecha: 2025-10-03
+     Tomador: GCSI GRUPO COLOMBIANO DE SEGURIDAD INTEGRAL LTDA GCSI
+     Saldo: $4,693
+  627. Poliza: 802969 | Recibo: -5 | Fecha: 2026-01-15
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $13,800
+  628. Poliza: 994000004268 | Recibo: 117 | Fecha: 2025-10-30
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $581,119
+  629. Poliza: 4405033 | Recibo: 16985001 | Fecha: 2025-11-14
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $924,716
+  630. Poliza: 2196072300562 | Recibo: 111590695 | Fecha: 2025-12-15
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $1,647,295
+  631. Poliza: 3065815 | Recibo: 0 | Fecha: 2025-10-14
+     Tomador: HUMBERTO DE JESUS BAENA MORENO
+     Saldo: $1,826,882
+  632. Poliza: 994000006064 | Recibo: 1 | Fecha: 2025-11-21
+     Tomador: BLANCA ODILA MONTOYA FERNANDEZ
+     Saldo: $968,732
+  633. Poliza: 023651483 2 | Recibo: 348992227 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,162,719
+  634. Poliza: 1085627 | Recibo: -26 | Fecha: 2025-12-19
+     Tomador: CLAUDIA PATRICIA VELASQUEZ
+     Saldo: $1,269,404
+  635. Poliza: 100273372 | Recibo: 0 | Fecha: 2025-08-15
+     Tomador: VANESSA ARISTIZABAL GONZALEZ
+     Saldo: $41,650
+  636. Poliza: 810058 | Recibo: 14076629 | Fecha: 2025-12-30
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $1,520,267
+  637. Poliza: 5223469 | Recibo: 21154386-2 | Fecha: 2025-12-01
+     Tomador: LICEO SALAZAR Y HERRERA
+     Saldo: $78,459
+  638. Poliza: 470645 | Recibo: -9 | Fecha: 2026-01-22
+     Tomador: LUIS GUILLERMO OLARTE GALLEGO
+     Saldo: $596,819
+  639. Poliza: 101095846 | Recibo: 1 | Fecha: 2025-11-12
+     Tomador: BERACA CONSTRUCCIONES S.A.S
+     Saldo: $19,040
+  640. Poliza: 2366330000000 | Recibo: 350617779 | Fecha: 2026-01-15
+     Tomador: FELIPE ANDRES RESTREPO ZULUAGA
+     Saldo: $159,255
+  641. Poliza: 1018000074601 | Recibo: 1 | Fecha: 2025-11-25
+     Tomador: ANDERSON JULIAN RIOS GIRLADO
+     Saldo: $3,237,338
+  642. Poliza: 994000054241 | Recibo: 0 | Fecha: 2025-11-14
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $376,172
+  643. Poliza: 2529120002212 | Recibo: 0 | Fecha: 2025-12-15
+     Tomador: CIMA OCUPACIONAL SAS
+     Saldo: $2,656,317
+  644. Poliza: 3057460 | Recibo: -8 | Fecha: 2026-01-01
+     Tomador: FONDO DE EMPLEADOS UNIVERSIDAD CATOLICA DEL NORTE
+     Saldo: $423,867
+  645. Poliza: 802969 | Recibo: 12805 | Fecha: 2025-08-15
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $13,800
+  646. Poliza: 900001444411 | Recibo: -3 | Fecha: 2026-01-15
+     Tomador: ELIZABETH ARIAS QUIROS
+     Saldo: $84,983
+  647. Poliza: 811044880-6-1 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: FUNDACION UNIDAD EDUCATIVA SAN MARCOS
+     Saldo: $295,758
+  648. Poliza: 900476251-1 | Recibo: 15152 | Fecha: 2025-12-01
+     Tomador: CORSAHE - CORPORACION DE FOMENTO ASISTENCIAL DEL LICEO Y LA IUSH
+     Saldo: $500,000
+  649. Poliza: 4380853 | Recibo: -20 | Fecha: 2026-01-13
+     Tomador: MARLEY SOFIA CONEO BRIÑEZ
+     Saldo: $205,905
+  650. Poliza: 5606751 | Recibo: 21179079 | Fecha: 2025-08-01
+     Tomador: GRUPO EXEQUIAL JARDINES DEL CIELO
+     Saldo: $7,188
+  651. Poliza: 20013286 | Recibo: 11 | Fecha: 2025-09-30
+     Tomador: ELKIN RAUL SERNA GOMEZ
+     Saldo: $287,841
+  652. Poliza: 94478876 | Recibo: 1 | Fecha: 2025-12-14
+     Tomador: ANDREA ALZATE GOMEZ
+     Saldo: $1,214,204
+  653. Poliza: 4384810 | Recibo: -18 | Fecha: 2025-11-22
+     Tomador: EDILMA DE JESUS ESCUDERO AGUDELO
+     Saldo: $371,488
+  654. Poliza: 9222389 | Recibo: -5 | Fecha: 2025-10-01
+     Tomador: LINA MARIA ARIAS MAYA
+     Saldo: $206,010
+  655. Poliza: 900000494920 | Recibo: -12 | Fecha: 2026-01-12
+     Tomador: ALEJANDRO JARAMILLO CASTAÑO
+     Saldo: $82,242
+  656. Poliza: 2303378500000 | Recibo: 350028951 | Fecha: 2026-01-01
+     Tomador: JOSE MEDARDO AREIZA CORREA
+     Saldo: $237,503
+  657. Poliza: 890982420-22 | Recibo: 12.1 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $799,470
+  658. Poliza: 994000057244 | Recibo: 1 | Fecha: 2025-12-09
+     Tomador: MUNDIAL DE ESTRUCTURAS Y ROCAS S.A.S.
+     Saldo: $5,207,861
+  659. Poliza: 2361863900000 | Recibo: -4 | Fecha: 2026-01-14
+     Tomador: ELECTROLUMEN SAS
+     Saldo: $5,057,500
+  660. Poliza: 856620 | Recibo: -7 | Fecha: 2025-12-01
+     Tomador: TRANSPORTES OSORIO RIOS
+     Saldo: $508,617
+  661. Poliza: 994000000191 | Recibo: 4 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $3,141,600
+  662. Poliza: 811028188 | Recibo: AMMD 01484 | Fecha: 2025-12-01
+     Tomador: IUSH-INSTITUCION UNIVERSITARIA SALAZAR Y HERRERA
+     Saldo: $1,251,913
+  663. Poliza: 312971 | Recibo: 43471341 | Fecha: 2025-10-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $679,479
+  664. Poliza: 900000017097 | Recibo: 100011938818 | Fecha: 2025-12-14
+     Tomador: FELIX ALBERTO ZAPATA BARRIENTOS
+     Saldo: $1,236,021
+  665. Poliza: 023651483 7 | Recibo: 348992276 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,167,862
+  666. Poliza: 900000505309 | Recibo: -11 | Fecha: 2025-12-21
+     Tomador: ASOCIACION MUTUAL COOPERACION FAMILIAR DE ANTIOQUIA COMUFA
+     Saldo: $4,262,424
+  667. Poliza: 802969 | Recibo: 15288 | Fecha: 2025-11-15
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $3,600
+  668. Poliza: 37723 | Recibo: -1 | Fecha: 2025-03-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  669. Poliza: 5259603 | Recibo: -7 | Fecha: 2025-10-22
+     Tomador: ASTRID YANNETH LOPERA RANGEL
+     Saldo: $35,297
+  670. Poliza: 900001211325 | Recibo: 100011294919 | Fecha: 2025-08-02
+     Tomador: SERVICIOS PUBLICOS Y SEGURIDAD SAS
+     Saldo: $170,150
+  671. Poliza: 1000474 | Recibo: 12 | Fecha: 2025-11-10
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $172,131
+  672. Poliza: 5138368 | Recibo: -20 | Fecha: 2025-12-24
+     Tomador: ASTRID YANNETH LOPERA RANGEL
+     Saldo: $17,678
+  673. Poliza: 5350088312 | Recibo: 20784599 | Fecha: 2025-12-27
+     Tomador: LIBIER DARIO JIMENEZ PEÑA
+     Saldo: $633,000
+  674. Poliza: 100281710 | Recibo: 0 | Fecha: 2025-11-30
+     Tomador: LUIS FERNANDO BAENA AGUDELO
+     Saldo: $68,504
+  675. Poliza: 5259603 | Recibo: -8 | Fecha: 2025-11-22
+     Tomador: ASTRID YANNETH LOPERA RANGEL
+     Saldo: $35,297
+  676. Poliza: 3868125 | Recibo: 21165628 | Fecha: 2025-11-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $20,348,135
+  677. Poliza: 994000053994 | Recibo: 0 | Fecha: 2025-11-07
+     Tomador: UNIVERSIDAD DE SAN BUENAVENTURA
+     Saldo: $168,182
+  678. Poliza: 10323642 | Recibo: 1239715563 | Fecha: 2025-12-01
+     Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+     Saldo: $199,590
+  679. Poliza: 81005332199 | Recibo: -1 | Fecha: 2025-12-20
+     Tomador: ALLISON DANIELA BENAVIDES BARTELS
+     Saldo: $14,626
+  680. Poliza: 900001292385 | Recibo: 100012079153 | Fecha: 2025-12-27
+     Tomador: ALIRIO ORDOÑEZ
+     Saldo: $-5,299,462
+  681. Poliza: 900001372340 | Recibo: 100011444992 | Fecha: 2025-08-28
+     Tomador: TO GOIL S.A.S
+     Saldo: $-3,155,368
+  682. Poliza: 5350088408 | Recibo: 5350088408 | Fecha: 2025-12-28
+     Tomador: LUZ ANGELA JIMENEZ OSPINA
+     Saldo: $1,276,700
+  683. Poliza: 20011937 | Recibo: -6 | Fecha: 2025-12-31
+     Tomador: VERONICA VASQUEZ ECHEVERRI
+     Saldo: $783,191
+  684. Poliza: 811007406-0 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: INSTITUTO PARROQUIAL JESUS DE LA BUENA ESPERANZA
+     Saldo: $295,758
+  685. Poliza: 71707215 | Recibo: 24457 | Fecha: 2025-11-30
+     Tomador: FIDEMCOOP COOPERATIVA MULTIACTIVA DE SERVICIOS
+     Saldo: $37,400
+  686. Poliza: 67-994000001442 | Recibo: 6 | Fecha: 2026-01-10
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $-170,991
+  687. Poliza: 994000010341 | Recibo: 0 | Fecha: 2025-12-15
+     Tomador: E.S.E HOSPITAL SAN LORENZO - LIBORINA
+     Saldo: $4,262,740
+  688. Poliza: 1472032 | Recibo: -2 | Fecha: 2025-10-20
+     Tomador: LEIDY NATALIA SERNA TABARES
+     Saldo: $411,196
+  689. Poliza: 167714 | Recibo: -17 | Fecha: 2025-04-30
+     Tomador: CLAUDIA PATRICIA CORREA GIRALDO
+     Saldo: $568,155
+  690. Poliza: 1279122 | Recibo: -12 | Fecha: 2025-12-03
+     Tomador: CATALINA PELAEZ HINCAPIE
+     Saldo: $91,983
+  691. Poliza: 312971 | Recibo: -4 | Fecha: 2025-12-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $433,631
+  692. Poliza: 900001310580 | Recibo: -7 | Fecha: 2026-01-04
+     Tomador: JULIAN ANDRES BUITRAGO VALENCIA
+     Saldo: $650,811
+  693. Poliza: 1044292 | Recibo: -7 | Fecha: 2025-08-11
+     Tomador: LUZ ELENA MESA ZAPATA
+     Saldo: $161,175
+  694. Poliza: 1434486 | Recibo: -4 | Fecha: 2025-12-01
+     Tomador: INVERSIONES LUZHGM SAS
+     Saldo: $444,444
+  695. Poliza: 3455956 | Recibo: 21165224 | Fecha: 2025-09-01
+     Tomador: ASOCIACION MUTUAL LUZ DIVINA
+     Saldo: $1,055,196
+  696. Poliza: 3059739 | Recibo: 1 | Fecha: 2025-10-29
+     Tomador: MARIA CASILDA ARISTIZABAL ZULUAGA
+     Saldo: $-499,849
+  697. Poliza: 3100021258 | Recibo: 181479490 | Fecha: 2025-05-08
+     Tomador: ASOCIACION MUTUAL SAN JERONIMO
+     Saldo: $6,148
+  698. Poliza: 929385120000 | Recibo: -8 | Fecha: 2026-01-15
+     Tomador: MARIA NOHEMY ALVAREZ GUTIERREZ
+     Saldo: $1,290,009
+  699. Poliza: 3071417 | Recibo: -5 | Fecha: 2026-01-08
+     Tomador: ANTIOQUEÑA DE TRANSPORTES S.A.S
+     Saldo: $844,078
+  700. Poliza: 900000505309 | Recibo: -12 | Fecha: 2026-01-21
+     Tomador: ASOCIACION MUTUAL COOPERACION FAMILIAR DE ANTIOQUIA COMUFA
+     Saldo: $4,262,424
+  701. Poliza: 023651483 - 11 | Recibo: 348992318 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $990,575
+  702. Poliza: 1338319 | Recibo: 2 | Fecha: 2025-12-19
+     Tomador: BERTA LEIDY PALACIOS CORDOBA
+     Saldo: $-995,800
+  703. Poliza: 1012164 | Recibo: 10 | Fecha: 2025-10-06
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $268,057
+  704. Poliza: 4480621 | Recibo: 64198959 | Fecha: 2025-12-29
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $19,802
+  705. Poliza: 472118 | Recibo: 15150 | Fecha: 2025-12-01
+     Tomador: PROYECTAR ASOCIACION MUTUAL
+     Saldo: $680,000
+  706. Poliza: 1472032 | Recibo: -5 | Fecha: 2026-01-20
+     Tomador: LEIDY NATALIA SERNA TABARES
+     Saldo: $411,196
+  707. Poliza: 370598 | Recibo: -21 | Fecha: 2025-10-01
+     Tomador: ELIANA MILENA VALDERRAMA PELAEZ
+     Saldo: $138,915
+  708. Poliza: 40007254315 | Recibo: -7 | Fecha: 2026-01-01
+     Tomador: CARLOS ANDRES GIRALDO HERRERA
+     Saldo: $493,300
+  709. Poliza: 941339180000 | Recibo: -16 | Fecha: 2025-10-15
+     Tomador: MARTHA NELFY BOTERO GARCIA
+     Saldo: $434,700
+  710. Poliza: 90001624084 | Recibo: -3 | Fecha: 2026-01-14
+     Tomador: ISABELLA CORREA URIBE
+     Saldo: $491,386
+  711. Poliza: 101243478 | Recibo: 2 | Fecha: 2025-10-03
+     Tomador: ASOCIACION DE MUNICIPIOS DEL NORTE ANTIOQUEÑO - AMUNORTE
+     Saldo: $156,473
+  712. Poliza: 772984 | Recibo: 15148 | Fecha: 2025-11-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $940,000
+  713. Poliza: 147231 | Recibo: -44 | Fecha: 2025-11-25
+     Tomador: DORA ISABEL OCAMPO GIRALDO
+     Saldo: $337,470
+  714. Poliza: 890901391-0-1 | Recibo: AMMD 01487 | Fecha: 2025-12-01
+     Tomador: ESCUELAS CATOLICAS
+     Saldo: $295,758
+  715. Poliza: 890905421-1 | Recibo: AMMD 01488 | Fecha: 2025-12-01
+     Tomador: LICEO SAN RAFAEL
+     Saldo: $295,758
+  716. Poliza: 3435201 | Recibo: -12 | Fecha: 2025-11-29
+     Tomador: LILILIANA MARIA HERNANDEZ SALINAS
+     Saldo: $300,548
+  717. Poliza: 9002946109 | Recibo: -1 | Fecha: 2026-01-01
+     Tomador: UNION AGENCIA DE SEGUROS LTDA
+     Saldo: $7,827,960
+  718. Poliza: 13001038968 | Recibo: 14183400 | Fecha: 2025-09-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $-273,931
+  719. Poliza: 90001428910 | Recibo: -10 | Fecha: 2026-01-10
+     Tomador: ELKIN RAUL SERNA GOMEZ
+     Saldo: $1,340,014
+  720. Poliza: 802969 | Recibo: 13425 | Fecha: 2025-09-15
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $9,600
+  721. Poliza: 81004868672 | Recibo: -4 | Fecha: 2026-01-22
+     Tomador: JHONATAN ALBERTO MARTINEZ CASTAÑO
+     Saldo: $32,525
+  722. Poliza: 900000679794 | Recibo: 1234 | Fecha: 2026-01-04
+     Tomador: ADMINISTRADORA RODINA S.A.S
+     Saldo: $7,681,158
+  723. Poliza: 5182206 | Recibo: -4 | Fecha: 2025-12-26
+     Tomador: DORA INES GONZALEZ GONZALEZ
+     Saldo: $9,450
+  724. Poliza: 81005298810 | Recibo: 64197523 | Fecha: 2025-12-15
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $103,386
+  725. Poliza: 23699150 | Recibo: -4 | Fecha: 2025-12-01
+     Tomador: ROTRASVEHI S.A.S.
+     Saldo: $4,760,000
+  726. Poliza: 472118 | Recibo: 12560 | Fecha: 2025-08-01
+     Tomador: PROYECTAR ASOCIACION MUTUAL
+     Saldo: $860,000
+  727. Poliza: 900464133-7 | Recibo: 23901 | Fecha: 2025-11-01
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $32,500
+  728. Poliza: 811039541-4 | Recibo: -9 | Fecha: 2025-12-01
+     Tomador: INSTITUTO CRISTO REY
+     Saldo: $295,758
+  729. Poliza: 1433832 | Recibo: -5 | Fecha: 2026-01-04
+     Tomador: MAKROVEHICULOS MJV S.A.S
+     Saldo: $444,444
+  730. Poliza: 1528718 | Recibo: -11 | Fecha: 2025-12-01
+     Tomador: IAC COMERCIALIZADORA NORDESTE SAN ROQUE
+     Saldo: $266,792
+  731. Poliza: 900001350905 | Recibo: -7 | Fecha: 2025-10-01
+     Tomador: GRUPO EXEQUIAL JARDINES DEL CIELO
+     Saldo: $69,024
+  732. Poliza: 994000041607 | Recibo: 0 | Fecha: 2025-10-28
+     Tomador: MUNICIPIO YOLOMBO
+     Saldo: $84,491
+  733. Poliza: 3868134 | Recibo: -9 | Fecha: 2026-01-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $7,545,941
+  734. Poliza: 994000000499 | Recibo: 2 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $1,630,300
+  735. Poliza: 101099431 | Recibo: -10 | Fecha: 2025-12-15
+     Tomador: JOSE RAMIRO SALAZAR LOPEZ
+     Saldo: $143,346
+  736. Poliza: 45213-854125-844214 | Recibo: -3 | Fecha: 2025-12-10
+     Tomador: GRACIELA MOLINA DE RESTREPO
+     Saldo: $40,000
+  737. Poliza: 900001267049 | Recibo: 100011884846 | Fecha: 2025-11-01
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $3,197,986
+  738. Poliza: 994000004268 | Recibo: 1 | Fecha: 2025-10-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $-288,113
+  739. Poliza: 100281229 | Recibo: 3 | Fecha: 2025-11-28
+     Tomador: INGENIERIA Y VISION S.A.S
+     Saldo: $135,322
+  740. Poliza: 472118 | Recibo: 12799 | Fecha: 2025-09-01
+     Tomador: PROYECTAR ASOCIACION MUTUAL
+     Saldo: $260,000
+  741. Poliza: 5090960 | Recibo: 60648199 | Fecha: 2024-09-20
+     Tomador: ANGEL ANTONIO GRAJALES ATEHORTUA
+     Saldo: $-88,412
+  742. Poliza: 1527934 | Recibo: -11 | Fecha: 2025-12-01
+     Tomador: COOSANROQUE
+     Saldo: $11,341,963
+  743. Poliza: 994000000086 | Recibo: -4 | Fecha: 2025-12-01
+     Tomador: ASOCIACION MUTUAL SAN JERONIMO
+     Saldo: $2,000,000
+  744. Poliza: 1479082 | Recibo: -3 | Fecha: 2025-12-15
+     Tomador: IRINA ESTHER MONERY SAADE
+     Saldo: $1,260,047
+  745. Poliza: 3445372 | Recibo: -4 | Fecha: 2025-12-28
+     Tomador: EYMARD EDUARDO HERRERA DIEZ
+     Saldo: $143,299
+  746. Poliza: 890982415 | Recibo: SCMP406292 | Fecha: 2025-12-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $-42,420
+  747. Poliza: 1000475 | Recibo: 3 | Fecha: 2025-07-31
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $18,233
+  748. Poliza: 1011179 | Recibo: 14 | Fecha: 2025-12-15
+     Tomador: EDIFICIO PALOMAR PROPIEDAD HORIZONTAL
+     Saldo: $300,000
+  749. Poliza: 1528674 | Recibo: -11 | Fecha: 2025-12-01
+     Tomador: COOSANROQUE
+     Saldo: $1,268,327
+  750. Poliza: 167714 | Recibo: -23 | Fecha: 2025-10-30
+     Tomador: CLAUDIA PATRICIA CORREA GIRALDO
+     Saldo: $568,155
+  751. Poliza: 1205801 | Recibo: -1 | Fecha: 2025-12-29
+     Tomador: RAFAEL HERNANDO PERDOMO RODRIGUEZ
+     Saldo: $491,385
+  752. Poliza: 133547 | Recibo: -11 | Fecha: 2025-12-28
+     Tomador: ALBERTO ANTONIO BARROS CARABALLO
+     Saldo: $1,592,010
+  753. Poliza: 900001452598 | Recibo: 0 | Fecha: 2025-10-29
+     Tomador: ANDRES EDUARDO SANTIAGO SIERRA
+     Saldo: $133,549
+  754. Poliza: 1152457105 | Recibo: 24-2025 | Fecha: 2025-12-01
+     Tomador: CATALINA ALVAREZ VALENCIA
+     Saldo: $375,690
+  755. Poliza: 2901125900118 | Recibo: -9 | Fecha: 2025-12-30
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $8,832,588
+  756. Poliza: 81003979295 | Recibo: -3 | Fecha: 2026-01-06
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $151,914
+  757. Poliza: 3185898 | Recibo: -7 | Fecha: 2025-12-30
+     Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO
+     Saldo: $379,995
+  758. Poliza: 9524440 | Recibo: -9 | Fecha: 2025-08-30
+     Tomador: TEJEDOR TEJEDOR FELICIANO
+     Saldo: $61,950
+  759. Poliza: 994000000188 | Recibo: 0 | Fecha: 2025-11-19
+     Tomador: E.S.E. HOSPITAL LA INMACULADA - GUATAPE
+     Saldo: $7,151,900
+  760. Poliza: 1059501 | Recibo: 0 | Fecha: 2025-12-10
+     Tomador: JOHNY JOHAN VASQUEZ RAMIREZ
+     Saldo: $1,652,714
+  761. Poliza: 2344189900000 | Recibo: 350277202 | Fecha: 2026-01-12
+     Tomador: GLORIA PATRICIA MORENO LOPEZ
+     Saldo: $338,078
+  762. Poliza: 8905013154 | Recibo: 146309562 | Fecha: 2025-09-01
+     Tomador: UNION DE AUXILIOS DEL CLERO DE LA DIOCESIS DE CUCUTA
+     Saldo: $6,906,060
+  763. Poliza: 5230243 | Recibo: 21156437 | Fecha: 2025-12-10
+     Tomador: INSTITUCION UNIVERSITARIA MARCO FIDEL SUAREZ
+     Saldo: $42,980
+  764. Poliza: 994000053917 | Recibo: 0 | Fecha: 2025-10-23
+     Tomador: CORPORACION AFRO PROGRESO DIEGO LUIS CORDOBA
+     Saldo: $573,318
+  765. Poliza: 2000489529 | Recibo: 1805135074 | Fecha: 2025-11-27
+     Tomador: SEBASTIAN ARISTIZABAL HENAO
+     Saldo: $406,197
+  766. Poliza: 1348472 | Recibo: 21205692 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA AGROPECUARIA DE ENTRERRIOS LTDA
+     Saldo: $2,809,245
+  767. Poliza: 994000001473 | Recibo: 1 | Fecha: 2025-12-12
+     Tomador: ASOCIACION DE MUNICIPIOS DEL NORTE ANTIOQUEÑO - AMUNORTE
+     Saldo: $1,267,350
+  768. Poliza: 890980053-3-4 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: ESCUELAS POPULARES EUCARISTICAS
+     Saldo: $295,758
+  769. Poliza: 890901391-0 | Recibo: -9 | Fecha: 2026-01-01
+     Tomador: ESCUELAS CATOLICAS
+     Saldo: $295,758
+  770. Poliza: 4513-854125-577205 | Recibo: -11 | Fecha: 2025-08-01
+     Tomador: LEIDY TATIANA RESTREPO MUNERA
+     Saldo: $20,000
+  771. Poliza: 2815912 | Recibo: -1 | Fecha: 2025-11-01
+     Tomador: COOPERATIVA MULTIACTIVA EL BAGRE
+     Saldo: $5,700,000
+  772. Poliza: 994000004268 | Recibo: 2 | Fecha: 2025-11-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $-288,113
+  773. Poliza: 1075103 | Recibo: -6 | Fecha: 2025-11-30
+     Tomador: CORPORACION GUILLERMO TABORDA
+     Saldo: $120,473
+  774. Poliza: 2196072300307 | Recibo: 347051041 | Fecha: 2025-12-17
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $2,421,756
+  775. Poliza: 370598 | Recibo: -17 | Fecha: 2025-06-01
+     Tomador: ELIANA MILENA VALDERRAMA PELAEZ
+     Saldo: $138,915
+  776. Poliza: 851773 | Recibo: -1 | Fecha: 2025-12-26
+     Tomador: ROSA JOHANA ZULUAGA SALAZAR
+     Saldo: $411,196
+  777. Poliza: 900396323 | Recibo: E24453 | Fecha: 2025-12-01
+     Tomador: TRANSPORTES OSORIO RIOS
+     Saldo: $105,600
+  778. Poliza: 5271975 | Recibo: -8 | Fecha: 2025-12-29
+     Tomador: ASTRID YANNETH LOPERA RANGEL
+     Saldo: $39,697
+  779. Poliza: 994000001649 | Recibo: 0 | Fecha: 2025-12-12
+     Tomador: CONGREGACIÓN DE MISIONEROS HIJOS DEL INMACULADO CORAZÓN DE MARÍA PROVINCIA COLOMBIA VENEZUELA
+     Saldo: $3,587,850
+  780. Poliza: 1353911 | Recibo: -11 | Fecha: 2025-12-30
+     Tomador: BEATRIZ ELENA SANCHEZ HIGUITA
+     Saldo: $143,346
+  781. Poliza: 4334246 | Recibo: 20999788 | Fecha: 2025-06-01
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $-9,050
+  782. Poliza: 901039781-1 | Recibo: AMMD 01566 | Fecha: 2025-12-01
+     Tomador: COLEGIO PARROQUIAL SAN GABRIEL DE LA DOLOROSA
+     Saldo: $295,758
+  783. Poliza: 4513-854125- 753201 | Recibo: -7 | Fecha: 2026-01-15
+     Tomador: JUAN PEDRO POSADA VERGARA
+     Saldo: $20,000
+  784. Poliza: 1043164 | Recibo: 11 | Fecha: 2025-12-01
+     Tomador: JOHN FREDDY TABORDA PEREZ
+     Saldo: $828,765
+  785. Poliza: 4367361 | Recibo: -22 | Fecha: 2026-01-08
+     Tomador: MARLEY SOFIA CONEO BRIÑEZ
+     Saldo: $159,247
+  786. Poliza: 100060623 | Recibo: 0 | Fecha: 2024-11-07
+     Tomador: CONSTRUCTORA FDS
+     Saldo: $74,697
+  787. Poliza: 147231 | Recibo: -41 | Fecha: 2025-08-25
+     Tomador: DORA ISABEL OCAMPO GIRALDO
+     Saldo: $337,470
+  788. Poliza: 67-994000000038 | Recibo: 7 | Fecha: 2025-09-01
+     Tomador: SIXTO GUSTAVO MAZUERA
+     Saldo: $860,309
+  789. Poliza: 336749 | Recibo: 1 | Fecha: 2025-12-01
+     Tomador: LILILIANA MARIA HERNANDEZ SALINAS
+     Saldo: $58,191
+  790. Poliza: 9222389 | Recibo: -3 | Fecha: 2025-08-01
+     Tomador: LINA MARIA ARIAS MAYA
+     Saldo: $206,010
+  791. Poliza: 2014011 | Recibo: 3 | Fecha: 2025-04-24
+     Tomador: HARVEY HERNANDEZ MORALES
+     Saldo: $-113,177
+  792. Poliza: 2196072300507 | Recibo: 111407254 | Fecha: 2025-11-29
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $-558,922
+  793. Poliza: 90001543052 | Recibo: 0 | Fecha: 2025-04-01
+     Tomador: ADRIANA LONDOÑO MARTINEZ
+     Saldo: $296,410
+  794. Poliza: 3071213 | Recibo: 1 | Fecha: 2025-12-29
+     Tomador: YEISON ARLEY CASTAÑO GRAJALES
+     Saldo: $297,650
+  795. Poliza: 994000041773 | Recibo: 2 | Fecha: 2025-11-07
+     Tomador: MUNICIPIO DE ITUANGO
+     Saldo: $-300,830
+  796. Poliza: 890980053-3-4 | Recibo: AMMD 01584 | Fecha: 2025-12-01
+     Tomador: ESCUELAS POPULARES EUCARISTICAS
+     Saldo: $295,758
+  797. Poliza: 4217814 | Recibo: -19 | Fecha: 2025-12-31
+     Tomador: JORGE IVAN HOYOS HINCAPIE
+     Saldo: $86,350
+  798. Poliza: 147231 | Recibo: -40 | Fecha: 2025-07-25
+     Tomador: DORA ISABEL OCAMPO GIRALDO
+     Saldo: $337,470
+  799. Poliza: 5223469 | Recibo: 21154386-1 | Fecha: 2025-12-01
+     Tomador: LICEO SALAZAR Y HERRERA
+     Saldo: $61,647
+  800. Poliza: 1409021 | Recibo: 76480971 | Fecha: 2025-10-30
+     Tomador: JOSE HERMES HIDALGO GIRALDO
+     Saldo: $330,926
+  801. Poliza: 81005332199 | Recibo: 64207205 | Fecha: 2025-11-20
+     Tomador: ALLISON DANIELA BENAVIDES BARTELS
+     Saldo: $14,626
+  802. Poliza: 900001211325 | Recibo: 100011468039 | Fecha: 2025-09-02
+     Tomador: SERVICIOS PUBLICOS Y SEGURIDAD SAS
+     Saldo: $170,150
+  803. Poliza: 1188437 | Recibo: -2 | Fecha: 2025-10-30
+     Tomador: MARNY ELLYN VASQUEZ VALDEBLANQUEZ
+     Saldo: $314,961
+  804. Poliza: 23744529 | Recibo: 2 | Fecha: 2025-12-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $-307,617
+  805. Poliza: 94130810 | Recibo: 5 | Fecha: 2025-12-09
+     Tomador: CRISTIAN CAMILO ORDOÑEZ NUÑEZ
+     Saldo: $1,168,104
+  806. Poliza: 1472032 | Recibo: -4 | Fecha: 2025-12-20
+     Tomador: LEIDY NATALIA SERNA TABARES
+     Saldo: $411,196
+  807. Poliza: 40005734402 | Recibo: -17 | Fecha: 2025-12-29
+     Tomador: FERNANDO MARIO FLOREZ RIOS
+     Saldo: $199,452
+  808. Poliza: 71707215-1 | Recibo: E24456 | Fecha: 2025-12-01
+     Tomador: UNION AGENCIA DE SEGUROS LTDA
+     Saldo: $618,000
+  809. Poliza: 715632 | Recibo: -25 | Fecha: 2025-12-29
+     Tomador: LILIANA MARIA ECHAVARRIA GARCIA
+     Saldo: $1,992,118
+  810. Poliza: 994000000186 | Recibo: 4 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $3,141,600
+  811. Poliza: 890980053-3-3 | Recibo: AMMD 01583 | Fecha: 2025-12-01
+     Tomador: ESCUELAS POPULARES EUCARISTICAS
+     Saldo: $295,758
+  812. Poliza: 94488329 | Recibo: 0 | Fecha: 2026-01-07
+     Tomador: SAMUEL ARISTIZABAL GOMEZ
+     Saldo: $781,508
+  813. Poliza: 994000000167 | Recibo: -4 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA DE LA GUAJIRA CONFIAMOS
+     Saldo: $10,878,415
+  814. Poliza: 2354310600278 | Recibo: 111469445 | Fecha: 2025-12-04
+     Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+     Saldo: $921,060
+  815. Poliza: 900001487063 | Recibo: 0 | Fecha: 2025-12-24
+     Tomador: KATHERINE MARTINEZ ZAPATA
+     Saldo: $721,393
+  816. Poliza: 900464133-7 | Recibo: -23 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $44,444
+  817. Poliza: 900001203798 | Recibo: -18 | Fecha: 2026-01-17
+     Tomador: WILLIAM ALZATE VILLA
+     Saldo: $53,496
+  818. Poliza: 99165 | Recibo: -11 | Fecha: 2025-10-25
+     Tomador: LUZ MARINA ARANGO GOMEZ
+     Saldo: $324,135
+  819. Poliza: 994000000548 | Recibo: 0 | Fecha: 2025-10-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $3,141,600
+  820. Poliza: 15-994000000665 | Recibo: 1 | Fecha: 2025-10-01
+     Tomador: COOPERATIVA DE AHORRO Y CREDITO CREAFAM - COOCREAFAM
+     Saldo: $164,070
+  821. Poliza: 1000474 | Recibo: 3 | Fecha: 2025-07-31
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $26,873
+  822. Poliza: 614854 | Recibo: -11 | Fecha: 2025-10-30
+     Tomador: LUZ STELLA CORREA GOMEZ
+     Saldo: $213,465
+  823. Poliza: 994000052858 | Recibo: 2 | Fecha: 2025-12-30
+     Tomador: ASOCIACION DE MUNICIPIOS DEL NORTE ANTIOQUEÑO - AMUNORTE
+     Saldo: $539,784
+  824. Poliza: 20000141566 | Recibo: 100012168376 | Fecha: 2026-01-01
+     Tomador: COOPERATIVA AGROPECUARIA DE ENTRERRIOS LTDA
+     Saldo: $2,181,667
+  825. Poliza: 20013286 | Recibo: -3 | Fecha: 2025-11-30
+     Tomador: ELKIN RAUL SERNA GOMEZ
+     Saldo: $287,841
+  826. Poliza: 802969 | Recibo: -4 | Fecha: 2025-12-15
+     Tomador: FUNERARIA SAN JUAN BAUTISTA
+     Saldo: $13,800
+  827. Poliza: 4000069 | Recibo: 9 | Fecha: 2025-04-01
+     Tomador: ASOCIACION MUTUAL BIENESTAR
+     Saldo: $36,000
+  828. Poliza: 929385040000 | Recibo: -19 | Fecha: 2026-01-15
+     Tomador: ANGELA MARINA ECHEVERRI DE MORALES
+     Saldo: $1,529,850
+  829. Poliza: 9222389 | Recibo: -12 | Fecha: 2025-11-01
+     Tomador: LINA MARIA ARIAS MAYA
+     Saldo: $206,010
+  830. Poliza: 994000000087 | Recibo: -10 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $2,531,465
+  831. Poliza: 810115 | Recibo: 14061731 | Fecha: 2025-12-09
+     Tomador: UNIVERSIDAD DE MEDELLIN
+     Saldo: $-266,709
+  832. Poliza: 811020481-7 | Recibo: AMCL 08941 | Fecha: 2025-12-01
+     Tomador: COLEGIO LA ASUNCION
+     Saldo: $295,758
+  833. Poliza: 3868134 | Recibo: 20979329 | Fecha: 2025-09-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $7,545,941
+  834. Poliza: 81005335714 | Recibo: -1 | Fecha: 2025-12-28
+     Tomador: JOHN FREDDY TABORDA PEREZ
+     Saldo: $169,313
+  835. Poliza: 994000000253 | Recibo: 41 | Fecha: 2025-10-28
+     Tomador: FUNDACION UNIVERSITARIA CATOLICA DEL NORTE
+     Saldo: $196,643
+  836. Poliza: 3868125 | Recibo: -8 | Fecha: 2025-12-01
+     Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+     Saldo: $15,190,290
+  837. Poliza: 900001445010 | Recibo: -1 | Fecha: 2025-10-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $24,619
+  838. Poliza: 2323738000000 | Recibo: 350239343 | Fecha: 2026-01-13
+     Tomador: JONATHAN QUICENO LOPEZ
+     Saldo: $377,600
+  839. Poliza: 13001038968 | Recibo: 14188878 | Fecha: 2025-09-01
+     Tomador: ASOCIACION MUTUAL TRIBUTAR
+     Saldo: $-266,054
+  840. Poliza: 4513-854125- 753201 | Recibo: -6 | Fecha: 2025-12-15
+     Tomador: JUAN PEDRO POSADA VERGARA
+     Saldo: $20,000
+  841. Poliza: 3071316 | Recibo: -3 | Fecha: 2025-12-11
+     Tomador: JOSE EDUARDO DUQUE GIRALDO
+     Saldo: $492,661
+  842. Poliza: 81005203242 | Recibo: 63459444 | Fecha: 2025-10-24
+     Tomador: MIGUEL ANGEL COLORADO RESTREPO
+     Saldo: $136,000
+  843. Poliza: 1412636 | Recibo: -8 | Fecha: 2025-11-28
+     Tomador: LUZ DARY FLOREZ ALZATE
+     Saldo: $143,346
+  844. Poliza: 994000053081 | Recibo: 0 | Fecha: 2025-09-04
+     Tomador: MUNICIPIO DE VENECIA - ANTIOQUIA
+     Saldo: $348,596
+  845. Poliza: 100952316 | Recibo: -11 | Fecha: 2025-11-30
+     Tomador: MARIA NOHEMY ALVAREZ GUTIERREZ
+     Saldo: $180,802
+  846. Poliza: 994000000338 | Recibo: 2 | Fecha: 2025-12-01
+     Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+     Saldo: $3,141,600
+  847. Poliza: 1059437 | Recibo: 1 | Fecha: 2025-11-12
+     Tomador: ANDRES MAURICIO GARCIA RAMIREZ
+     Saldo: $-613,355
+  848. Poliza: 5146850 | Recibo: -8 | Fecha: 2026-01-15
+     Tomador: COOPERATIVA ESPECIALIZADA DE AHORRO Y CREDITO AFROAMERICANA
+     Saldo: $136,964
+  849. Poliza: 023651483 3 | Recibo: 348992235 | Fecha: 2025-12-30
+     Tomador: RODOLFO ANTONIO MORALES RUIZ
+     Saldo: $1,086,743
+  850. Poliza: 1410390 | Recibo: 76833965 | Fecha: 2025-11-30
+     Tomador: ROCIO DE JESUS JARAMILLO GALLEGO
+     Saldo: $143,346
+  851. Poliza: 3567460 | Recibo: -12 | Fecha: 2025-12-24
+     Tomador: LUCERO GIRALDO
+     Saldo: $192,798
+  852. Poliza: 900077615-5 | Recibo: -10 | Fecha: 2026-01-01
+     Tomador: COLEGIO PARROQUIAL JUAN PABLO II
+     Saldo: $295,758
+  853. Poliza: 37723 | Recibo: -2 | Fecha: 2025-04-02
+     Tomador: GUSTAVO ADOLFO DUQUE ARIAS
+     Saldo: $49,408
+  854. Poliza: 900001211325 | Recibo: -3 | Fecha: 2025-11-02
+     Tomador: SERVICIOS PUBLICOS Y SEGURIDAD SAS
+     Saldo: $170,150
+  855. Poliza: 994000004677 | Recibo: 7 | Fecha: 2025-11-12
+     Tomador: TRANSPORTES NUS S.A.S
+     Saldo: $129,178
+  856. Poliza: 890901391-0-1 | Recibo: -9 | Fecha: 2026-01-01
+     Tomador: ESCUELAS CATOLICAS
+     Saldo: $295,758
+
+================================================================================
+ESTADISTICAS DE CONCILIACION
+================================================================================
+
+[CASO 1] No han pagado (cartera pendiente): 17
+[CASO 2] Actualizar en sistema (diferente recibo): 2
+[CASO 3] Corregir poliza - Solo en Allianz: 58
+[CASO 3] Corregir poliza - Solo en Celer: 856
+
+Tasa de coincidencia total: 24.68%
+
+================================================================================

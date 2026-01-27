@@ -124,10 +124,17 @@ class AllianzConciliator:
         self.celer_df = pd.read_excel(self.celer_file)
         
         # Verify columns
-        required_cols = ['Poliza', 'Documento', 'F_Inicio']
+        required_cols = ['Poliza', 'Documento', 'F_Inicio', 'Aseguradora']
         missing = [col for col in required_cols if col not in self.celer_df.columns]
         if missing:
             raise ValueError(f"Required columns missing: {missing}. Found: {list(self.celer_df.columns)}")
+        
+        # Filter: Only ALLIANZ SEGUROS S.A
+        total_before = len(self.celer_df)
+        self.celer_df = self.celer_df[
+            self.celer_df['Aseguradora'].str.upper().str.contains('ALLIANZ', na=False)
+        ].copy()
+        logger.info(f"✓ Filtered by Aseguradora 'ALLIANZ': {len(self.celer_df)}/{total_before} records")
         
         # Normalize and create match keys
         self.celer_df['_poliza_norm'] = self.celer_df['Poliza'].apply(self.normalize_number)

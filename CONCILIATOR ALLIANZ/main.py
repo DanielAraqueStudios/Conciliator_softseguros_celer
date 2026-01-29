@@ -76,25 +76,33 @@ def select_file_from_folder(folder_path, extension, description):
 
 class AllianzConciliator:
     """
-    Sistema de conciliación entre Celer y Allianz
+    Sistema de conciliación entre Softseguros, Celer y Allianz
     Identifica pólizas que requieren conciliación basándose en coincidencias
+    Prioridad: Softseguros > Celer
     """
     
-    def __init__(self, celer_file_path, allianz_personas_path, allianz_colectivas_path, data_source='both'):
-        self.celer_file = Path(celer_file_path)
+    def __init__(self, allianz_personas_path, allianz_colectivas_path, data_source='both', 
+                 data_source_type='both', softseguros_file_path=None, celer_file_path=None):
         self.allianz_personas_file = Path(allianz_personas_path)
         self.allianz_colectivas_file = Path(allianz_colectivas_path)
         self.data_source = data_source.lower()  # 'personas', 'colectivas', or 'both'
+        self.data_source_type = data_source_type.lower()  # 'softseguros', 'celer', or 'both'
         
+        self.softseguros_file = Path(softseguros_file_path) if softseguros_file_path else None
+        self.celer_file = Path(celer_file_path) if celer_file_path else None
+        
+        self.softseguros_df = None
         self.celer_df = None
+        self.combined_df = None  # Softseguros + Celer combinados con prioridad
         self.allianz_df = None
         
         self.results = {
-            'no_pagado': [],          # Caso 1: Poliza + Recibo + Fecha coinciden - NO HAN PAGADO
-            'actualizar_sistema': [], # Caso 2: Poliza + Fecha coinciden, Recibo diferente - ACTUALIZAR SISTEMA
-            'corregir_poliza': [],    # Caso 3: No coincide poliza - CORREGIR POLIZA
-            'only_allianz': [],       # Solo en Allianz
-            'only_celer': []          # Solo en Celer
+            'no_pagado': [],                    # Caso 1: Poliza + Recibo + Fecha coinciden - NO HAN PAGADO
+            'actualizar_sistema': [],           # Caso 2: Poliza + Fecha coinciden, Recibo diferente - ACTUALIZAR SISTEMA
+            'actualizar_recibo_softseguros': [], # Caso 2 especial: Sin anexo en Softseguros - ACTUALIZAR RECIBO EN SOFTSEGUROS
+            'corregir_poliza': [],              # Caso 3: No coincide poliza - CORREGIR POLIZA
+            'only_allianz': [],                 # Solo en Allianz
+            'only_combined': []                 # Solo en Softseguros/Celer combinados
         }
     
     def normalize_number(self, value):
@@ -134,6 +142,53 @@ class AllianzConciliator:
         except (ValueError, TypeError):
             return str(value).strip()
     
+    def load_softseguros_data(self):
+        """Load and prepare Softseguros data"""
+        logger.info(f"Loading Softseguros file: {self.softseguros_file.name}")
+        
+        if not self.softseguros_file.exists():
+            raise FileNotFoundError(f"Softseguros file not found: {self.softseguros_file}")
+        
+        self.softseguros_df = pd.read_excel(self.softseguros_file)
+        
+        # Verify columns
+        required_cols = ['NÚMERO PÓLIZA', 'NÚMERO ANEXO', 'FECHA INICIO', 'ASEGURADORA']
+        missing = [col for col in required_cols if col not in self.softseguros_df.columns]
+        if missing:
+            raise ValueError(f"Required columns missing: {missing}. Found: {list(self.softseguros_df.columns)}")
+        
+        # Filter: Only ALLIANZ
+        total_before = len(self.softseguros_df)
+        self.softseguros_df = self.softseguros_df[
+            self.softseguros_df['ASEGURADORA'].str.upper().str.contains('ALLIANZ', na=False)
+        ].copy()
+        logger.info(f"✓ Filtered Softseguros by 'ALLIANZ': {len(self.softseguros_df)}/{total_before} records")
+        
+        # Normalize and create match keys
+        self.softseguros_df['_poliza_norm'] = self.softseguros_df['NÚMERO PÓLIZA'].apply(self.normalize_number)
+        self.softseguros_df['_anexo_norm'] = self.softseguros_df['NÚMERO ANEXO'].apply(self.normalize_recibo)
+        self.softseguros_df['_fecha_inicio_str'] = pd.to_datetime(self.softseguros_df['FECHA INICIO'], errors='coerce').dt.strftime('%Y-%m-%d')
+        
+        # Mark records without anexo
+        self.softseguros_df['_tiene_anexo'] = self.softseguros_df['NÚMERO ANEXO'].notna()
+        
+        # Match keys: completo (poliza+anexo+fecha) solo si tiene anexo, parcial (poliza+fecha) para todos
+        self.softseguros_df['_match_key_full'] = self.softseguros_df.apply(
+            lambda row: row['_poliza_norm'] + "_" + row['_anexo_norm'] + "_" + row['_fecha_inicio_str'] 
+            if row['_tiene_anexo'] else None, axis=1
+        )
+        self.softseguros_df['_match_key_partial'] = self.softseguros_df['_poliza_norm'] + "_" + self.softseguros_df['_fecha_inicio_str']
+        
+        # Mark source
+        self.softseguros_df['_source'] = 'SOFTSEGUROS'
+        
+        # Count records with/without anexo
+        con_anexo = self.softseguros_df['_tiene_anexo'].sum()
+        sin_anexo = len(self.softseguros_df) - con_anexo
+        logger.info(f"✓ Softseguros: {con_anexo} con anexo, {sin_anexo} sin anexo")
+        
+        return self.softseguros_df
+    
     def load_celer_data(self):
         """Load and prepare Celer transformed data"""
         logger.info(f"Loading Celer file: {self.celer_file.name}")
@@ -165,7 +220,40 @@ class AllianzConciliator:
         self.celer_df['_match_key_full'] = self.celer_df['_poliza_norm'] + "_" + self.celer_df['_documento_norm'] + "_" + self.celer_df['_fecha_inicio_str']
         self.celer_df['_match_key_partial'] = self.celer_df['_poliza_norm'] + "_" + self.celer_df['_fecha_inicio_str']
         
+        # Mark source
+        self.celer_df['_source'] = 'CELER'
+        self.celer_df['_tiene_anexo'] = True  # Celer siempre tiene documento
+        
         logger.info(f"✓ Celer loaded: {len(self.celer_df)} records")
+        return self.celer_df
+    
+    def combine_data_sources(self):
+        """
+        Combine Softseguros and Celer data with priority to Softseguros
+        Remove duplicates from Celer if they exist in Softseguros (same poliza+fecha)
+        """
+        logger.info("Combining Softseguros and Celer with prioritization...")
+        
+        if self.softseguros_df is None or self.celer_df is None:
+            raise ValueError("Must load both Softseguros and Celer data first")
+        
+        # Create sets of partial keys from Softseguros (poliza+fecha)
+        soft_partial_keys = set(self.softseguros_df['_match_key_partial'].dropna())
+        
+        # Filter Celer: Keep only records NOT in Softseguros
+        celer_unique = self.celer_df[~self.celer_df['_match_key_partial'].isin(soft_partial_keys)].copy()
+        
+        removed_duplicates = len(self.celer_df) - len(celer_unique)
+        logger.info(f"✓ Removed {removed_duplicates} duplicates from Celer (exist in Softseguros)")
+        
+        # Combine: Softseguros + Celer únicos
+        self.combined_df = pd.concat([self.softseguros_df, celer_unique], ignore_index=True)
+        
+        logger.info(f"✓ Combined data: {len(self.combined_df)} records")
+        logger.info(f"   - From Softseguros: {len(self.softseguros_df)}")
+        logger.info(f"   - From Celer (unique): {len(celer_unique)}")
+        
+        return self.combined_df
         return self.celer_df
     
     def load_allianz_data(self):
@@ -221,74 +309,127 @@ class AllianzConciliator:
     
     def perform_conciliation(self):
         """
-        Perform conciliation analysis with 3 cases:
+        Perform conciliation analysis with cases:
         1. Full match (poliza + recibo + fecha) - NO HAN PAGADO
         2. Partial match (poliza + fecha, diff recibo) - ACTUALIZAR SISTEMA
+        2 especial. Softseguros sin anexo - ACTUALIZAR RECIBO EN SOFTSEGUROS
         3. No match on poliza - CORREGIR POLIZA
         """
         logger.info("Starting conciliation analysis...")
         
-        # Get unique keys
-        celer_keys_full = set(self.celer_df['_match_key_full'].unique())
+        if self.combined_df is None:
+            raise ValueError("Must combine data sources first")
+        
+        # Get unique keys from combined data (Softseguros + Celer únicos)
+        combined_keys_full = set(self.combined_df['_match_key_full'].dropna().unique())
         allianz_keys_full = set(self.allianz_df['_match_key_full'].unique())
         
-        celer_keys_partial = set(self.celer_df['_match_key_partial'].unique())
+        combined_keys_partial = set(self.combined_df['_match_key_partial'].unique())
         allianz_keys_partial = set(self.allianz_df['_match_key_partial'].unique())
         
         # CASO 1: Match completo (Poliza + Recibo + Fecha) - NO HAN PAGADO
-        matched_full = celer_keys_full & allianz_keys_full
+        matched_full = combined_keys_full & allianz_keys_full
         for key in matched_full:
-            celer_row = self.celer_df[self.celer_df['_match_key_full'] == key].iloc[0]
+            combined_row = self.combined_df[self.combined_df['_match_key_full'] == key].iloc[0]
             allianz_row = self.allianz_df[self.allianz_df['_match_key_full'] == key].iloc[0]
             
+            # Determine source-specific fields
+            if combined_row['_source'] == 'SOFTSEGUROS':
+                poliza_orig = combined_row['NÚMERO PÓLIZA']
+                recibo_orig = combined_row['NÚMERO ANEXO']
+                tomador = f"{combined_row.get('NOMBRES CLIENTE', '')} {combined_row.get('APELLIDOS CLIENTE', '')}".strip()
+                saldo = combined_row.get('TOTAL', 0)
+            else:  # CELER
+                poliza_orig = combined_row['Poliza']
+                recibo_orig = combined_row['Documento']
+                tomador = combined_row.get('Tomador', 'N/A')
+                saldo = combined_row.get('Saldo', 0)
+            
             self.results['no_pagado'].append({
-                'poliza': celer_row['_poliza_norm'],
-                'recibo': celer_row['_documento_norm'],
-                'fecha_inicio': celer_row['_fecha_inicio_str'],
-                'tomador_celer': celer_row.get('Tomador', 'N/A'),
+                'poliza': combined_row['_poliza_norm'],
+                'recibo': combined_row.get('_anexo_norm', combined_row.get('_documento_norm', 'N/A')),
+                'fecha_inicio': combined_row['_fecha_inicio_str'],
+                'tomador': tomador,
                 'cliente_allianz': allianz_row['Cliente - Tomador'],
-                'source': allianz_row['_source'],
-                'cartera_total': allianz_row.get('Cartera Total', 0),
-                'vencida': allianz_row.get('Vencida', 0),
-                'comision': allianz_row.get('Comisión', 0)
+                'source_data': combined_row['_source'],
+                'source_allianz': allianz_row['_source'],
+                'saldo': saldo,
+                'cartera_total': allianz_row.get('Cartera Total', 0)
             })
         
-        # CASO 2: Match parcial (Poliza + Fecha, pero diferente Recibo) - ACTUALIZAR SISTEMA
-        # Buscar coincidencias parciales que NO están en match completo
-        matched_partial_only = celer_keys_partial & allianz_keys_partial
-        for key_partial in matched_partial_only:
-            # Obtener todos los registros con esta clave parcial
-            celer_rows = self.celer_df[self.celer_df['_match_key_partial'] == key_partial]
+        # CASO 2 ESPECIAL: Softseguros sin anexo (Poliza + Fecha match, pero SIN anexo)
+        # Estos deben reportarse como "Actualizar recibo en Softseguros"
+        for key_partial in (combined_keys_partial & allianz_keys_partial):
+            combined_rows = self.combined_df[self.combined_df['_match_key_partial'] == key_partial]
+            
+            for _, combined_row in combined_rows.iterrows():
+                # Si es de Softseguros y NO tiene anexo
+                if combined_row['_source'] == 'SOFTSEGUROS' and not combined_row['_tiene_anexo']:
+                    # Buscar el match en Allianz
+                    allianz_match = self.allianz_df[self.allianz_df['_match_key_partial'] == key_partial]
+                    
+                    if len(allianz_match) > 0:
+                        allianz_row = allianz_match.iloc[0]
+                        
+                        self.results['actualizar_recibo_softseguros'].append({
+                            'poliza': combined_row['_poliza_norm'],
+                            'fecha_inicio': combined_row['_fecha_inicio_str'],
+                            'recibo_allianz': allianz_row['_recibo_norm'],
+                            'tomador': f"{combined_row.get('NOMBRES CLIENTE', '')} {combined_row.get('APELLIDOS CLIENTE', '')}".strip(),
+                            'cliente_allianz': allianz_row['Cliente - Tomador'],
+                            'source_allianz': allianz_row['_source'],
+                            'saldo_softseguros': combined_row.get('TOTAL', 0),
+                            'cartera_allianz': allianz_row.get('Cartera Total', 0),
+                            'nota': 'Actualizar NÚMERO ANEXO en Softseguros'
+                        })
+        
+        # CASO 2: Match parcial (Poliza + Fecha, diferente Recibo) - ACTUALIZAR SISTEMA
+        # Solo para registros CON anexo/documento
+        for key_partial in (combined_keys_partial & allianz_keys_partial):
+            combined_rows = self.combined_df[self.combined_df['_match_key_partial'] == key_partial]
             allianz_rows = self.allianz_df[self.allianz_df['_match_key_partial'] == key_partial]
             
-            # Comparar recibos
-            for _, celer_row in celer_rows.iterrows():
+            for _, combined_row in combined_rows.iterrows():
+                # Skip si es Softseguros sin anexo (ya procesado arriba)
+                if combined_row['_source'] == 'SOFTSEGUROS' and not combined_row['_tiene_anexo']:
+                    continue
+                
                 for _, allianz_row in allianz_rows.iterrows():
-                    # Si la clave completa NO coincide, significa que el recibo es diferente
-                    if celer_row['_match_key_full'] != allianz_row['_match_key_full']:
+                    # Si la clave completa NO coincide = recibo diferente
+                    if combined_row['_match_key_full'] != allianz_row['_match_key_full']:
+                        
+                        if combined_row['_source'] == 'SOFTSEGUROS':
+                            recibo_combined = combined_row['_anexo_norm']
+                            tomador = f"{combined_row.get('NOMBRES CLIENTE', '')} {combined_row.get('APELLIDOS CLIENTE', '')}".strip()
+                            saldo = combined_row.get('TOTAL', 0)
+                        else:  # CELER
+                            recibo_combined = combined_row['_documento_norm']
+                            tomador = combined_row.get('Tomador', 'N/A')
+                            saldo = combined_row.get('Saldo', 0)
+                        
                         self.results['actualizar_sistema'].append({
-                            'poliza': celer_row['_poliza_norm'],
-                            'fecha_inicio': celer_row['_fecha_inicio_str'],
-                            'recibo_celer': celer_row['_documento_norm'],
+                            'poliza': combined_row['_poliza_norm'],
+                            'fecha_inicio': combined_row['_fecha_inicio_str'],
+                            'recibo_combinado': recibo_combined,
                             'recibo_allianz': allianz_row['_recibo_norm'],
-                            'tomador_celer': celer_row.get('Tomador', 'N/A'),
+                            'tomador': tomador,
                             'cliente_allianz': allianz_row['Cliente - Tomador'],
-                            'source': allianz_row['_source'],
-                            'saldo_celer': celer_row.get('Saldo', 0),
+                            'source_data': combined_row['_source'],
+                            'source_allianz': allianz_row['_source'],
+                            'saldo_combinado': saldo,
                             'cartera_allianz': allianz_row.get('Cartera Total', 0)
                         })
         
         # CASO 3: CORREGIR POLIZA - Registros que no coinciden en póliza
-        # Solo en Allianz (no en Celer)
+        # Solo en Allianz (no en Combined)
         only_allianz_count = 0
         for key in allianz_keys_full:
-            if key not in celer_keys_full:
+            if key not in combined_keys_full:
                 allianz_row = self.allianz_df[self.allianz_df['_match_key_full'] == key].iloc[0]
                 # Verificar si al menos coincide parcialmente
-                if allianz_row['_match_key_partial'] not in celer_keys_partial:
-                    # DEBUG: Log first 3 cases to verify normalization
+                if allianz_row['_match_key_partial'] not in combined_keys_partial:
                     if only_allianz_count < 3:
-                        logger.debug(f"Only Allianz #{only_allianz_count + 1}: Poliza raw='{allianz_row['Póliza']}' norm='{allianz_row['_poliza_norm']}' | Key={key}")
+                        logger.debug(f"Only Allianz #{only_allianz_count + 1}: Poliza='{allianz_row['_poliza_norm']}' | Key={key}")
                     
                     self.results['only_allianz'].append({
                         'poliza': allianz_row['_poliza_norm'],
@@ -300,30 +441,37 @@ class AllianzConciliator:
                     })
                     only_allianz_count += 1
         
-        # Solo en Celer (no en Allianz)
-        only_celer_count = 0
-        for key in celer_keys_full:
+        # Solo en Combined (no en Allianz)
+        only_combined_count = 0
+        for key in combined_keys_full:
             if key not in allianz_keys_full:
-                celer_row = self.celer_df[self.celer_df['_match_key_full'] == key].iloc[0]
+                combined_row = self.combined_df[self.combined_df['_match_key_full'] == key].iloc[0]
                 # Verificar si al menos coincide parcialmente
-                if celer_row['_match_key_partial'] not in allianz_keys_partial:
-                    # DEBUG: Log first 3 cases to verify normalization
-                    if only_celer_count < 3:
-                        logger.debug(f"Only Celer #{only_celer_count + 1}: Poliza raw='{celer_row['Poliza']}' norm='{celer_row['_poliza_norm']}' | Key={key}")
+                if combined_row['_match_key_partial'] not in allianz_keys_partial:
+                    if only_combined_count < 3:
+                        logger.debug(f"Only Combined #{only_combined_count + 1}: Poliza='{combined_row['_poliza_norm']}' | Source={combined_row['_source']}")
                     
-                    self.results['only_celer'].append({
-                        'poliza': celer_row['_poliza_norm'],
-                        'recibo': celer_row['_documento_norm'],
-                        'fecha_inicio': celer_row['_fecha_inicio_str'],
-                        'tomador': celer_row.get('Tomador', 'N/A'),
-                        'saldo': celer_row.get('Saldo', 0)
+                    if combined_row['_source'] == 'SOFTSEGUROS':
+                        tomador = f"{combined_row.get('NOMBRES CLIENTE', '')} {combined_row.get('APELLIDOS CLIENTE', '')}".strip()
+                        saldo = combined_row.get('TOTAL', 0)
+                    else:
+                        tomador = combined_row.get('Tomador', 'N/A')
+                        saldo = combined_row.get('Saldo', 0)
+                    
+                    self.results['only_combined'].append({
+                        'poliza': combined_row['_poliza_norm'],
+                        'recibo': combined_row.get('_anexo_norm', combined_row.get('_documento_norm', 'N/A')),
+                        'fecha_inicio': combined_row['_fecha_inicio_str'],
+                        'tomador': tomador,
+                        'source': combined_row['_source'],
+                        'saldo': saldo
                     })
-                    only_celer_count += 1
+                    only_combined_count += 1
         
         logger.info("Conciliation analysis completed")
     
     def save_report_to_file(self):
-        """Save detailed conciliation report to text file"""
+        """Save simplified conciliation report to text file"""
         # Create output directory if it doesn't exist
         output_dir = Path(__file__).parent / "output"
         output_dir.mkdir(exist_ok=True)
@@ -335,114 +483,61 @@ class AllianzConciliator:
         with open(output_file, 'w', encoding='utf-8') as f:
             # Header
             f.write("=" * 80 + "\n")
-            f.write("REPORTE DE CONCILIACION ALLIANZ\n")
+            f.write(f"REPORTE DE CONCILIACION ALLIANZ ({self.data_source_type.upper()})\n")
             f.write("=" * 80 + "\n")
             f.write(f"\nFecha de generacion: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n")
-            f.write(f"Fuente de datos: {self.data_source.upper()}\n")
+            f.write(f"Fuente de datos: {self.data_source_type.upper()}\n")
+            f.write(f"Fuente de datos Allianz: {self.data_source.upper()}\n")
             
             # Summary
             f.write(f"\nRESUMEN:\n")
-            f.write(f"  - Total Celer: {len(self.celer_df)} registros\n")
+            if self.softseguros_df is not None and len(self.softseguros_df) > 0:
+                f.write(f"  - Total Softseguros: {len(self.softseguros_df)} registros\n")
+            if self.celer_df is not None and len(self.celer_df) > 0:
+                f.write(f"  - Total Celer: {len(self.celer_df)} registros\n")
+            if self.combined_df is not None:
+                f.write(f"  - Total Combinado: {len(self.combined_df)} registros\n")
             f.write(f"  - Total Allianz: {len(self.allianz_df)} registros\n")
-            f.write(f"  - Polizas unicas Celer: {len(set(self.celer_df['_match_key_full']))}\n")
-            f.write(f"  - Polizas unicas Allianz: {len(set(self.allianz_df['_match_key_full']))}\n")
             
-            # CASO 1: NO HAN PAGADO
+            # Results
+            f.write(f"\nRESULTADOS:\n")
+            f.write(f"  [CASO 1] No han pagado: {len(self.results['no_pagado'])}\n")
+            f.write(f"  [CASO 2 ESPECIAL] Actualizar recibo en Softseguros: {len(self.results['actualizar_recibo_softseguros'])}\n")
+            f.write(f"  [CASO 2] Actualizar sistema: {len(self.results['actualizar_sistema'])}\n")
+            f.write(f"  [CASO 3] Solo en Allianz: {len(self.results['only_allianz'])}\n")
+            f.write(f"  [CASO 3] Solo en Softseguros/Celer: {len(self.results['only_combined'])}\n")
+            
+            # Detailed results (simplified)
             f.write("\n" + "=" * 80 + "\n")
-            f.write("[CASO 1] NO HAN PAGADO - CARTERA PENDIENTE\n")
-            f.write("(Poliza + Recibo + Fecha coinciden en ambos sistemas)\n")
+            f.write("[CASO 2 ESPECIAL] ACTUALIZAR RECIBO EN SOFTSEGUROS\n")
             f.write("=" * 80 + "\n")
-            f.write(f"Total: {len(self.results['no_pagado'])} polizas\n")
+            for i, record in enumerate(self.results['actualizar_recibo_softseguros'], 1):
+                f.write(f"\n{i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}\n")
+                f.write(f"   {record['nota']}\n")
+                f.write(f"   Recibo sugerido (Allianz): {record['recibo_allianz']}\n")
+                f.write(f"   Cliente: {record['tomador']}\n")
             
-            if self.results['no_pagado']:
-                f.write("\nDetalle:\n")
-                for i, record in enumerate(self.results['no_pagado'], 1):
-                    f.write(f"\n  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}\n")
-                    f.write(f"     Celer:   {record['tomador_celer']}\n")
-                    f.write(f"     Allianz: {record['cliente_allianz']} ({record['source']})\n")
-                    f.write(f"     Cartera: ${record['cartera_total']:,.0f} | Vencida: ${record['vencida']:,.0f}\n")
-                    f.write(f"     Comision: ${record['comision']:,.2f}\n")
-            
-            # CASO 2: ACTUALIZAR SISTEMA
             f.write("\n" + "=" * 80 + "\n")
-            f.write("[CASO 2] ACTUALIZAR EN SISTEMA\n")
-            f.write("(Poliza + Fecha coinciden, pero DIFERENTE numero de recibo)\n")
+            f.write("Reporte completo guardado\n")
             f.write("=" * 80 + "\n")
-            f.write(f"Total: {len(self.results['actualizar_sistema'])} polizas\n")
-            
-            if self.results['actualizar_sistema']:
-                f.write("\nDetalle completo:\n")
-                for i, record in enumerate(self.results['actualizar_sistema'], 1):
-                    f.write(f"\n  {i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}\n")
-                    f.write(f"     Recibo Celer:   {record['recibo_celer']} | Saldo: ${record['saldo_celer']:,.0f}\n")
-                    f.write(f"     Recibo Allianz: {record['recibo_allianz']} | Cartera: ${record['cartera_allianz']:,.0f}\n")
-                    f.write(f"     Cliente: {record['cliente_allianz']} ({record['source']})\n")
-            
-            # CASO 3: CORREGIR POLIZA - Solo en Allianz
-            f.write("\n" + "=" * 80 + "\n")
-            f.write("[CASO 3] CORREGIR POLIZA - Solo en Allianz\n")
-            f.write("(Polizas en Allianz que NO coinciden con ninguna en Celer)\n")
-            f.write("=" * 80 + "\n")
-            f.write(f"Total: {len(self.results['only_allianz'])} polizas\n")
-            
-            if len(self.results['only_allianz']) > 0:
-                f.write(f"\nDetalle completo:\n")
-                for i, record in enumerate(self.results['only_allianz'], 1):
-                    f.write(f"  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}\n")
-                    f.write(f"     Cliente: {record['cliente']} ({record['source']})\n")
-                    f.write(f"     Cartera Total: ${record['cartera_total']:,.0f}\n")
-            
-            # CASO 3: CORREGIR POLIZA - Solo en Celer
-            f.write("\n" + "=" * 80 + "\n")
-            f.write("[CASO 3] CORREGIR POLIZA - Solo en Celer\n")
-            f.write("(Polizas en Celer que NO coinciden con ninguna en Allianz)\n")
-            f.write("=" * 80 + "\n")
-            f.write(f"Total: {len(self.results['only_celer'])} polizas\n")
-            
-            if len(self.results['only_celer']) > 0:
-                f.write(f"\nDetalle completo:\n")
-                for i, record in enumerate(self.results['only_celer'], 1):
-                    f.write(f"  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}\n")
-                    f.write(f"     Tomador: {record['tomador']}\n")
-                    f.write(f"     Saldo: ${record['saldo']:,.0f}\n")
-            
-            # Statistics
-            f.write("\n" + "=" * 80 + "\n")
-            f.write("ESTADISTICAS DE CONCILIACION\n")
-            f.write("=" * 80 + "\n")
-            
-            total_no_pagado = len(self.results['no_pagado'])
-            total_actualizar = len(self.results['actualizar_sistema'])
-            total_only_allianz = len(self.results['only_allianz'])
-            total_only_celer = len(self.results['only_celer'])
-            
-            f.write(f"\n[CASO 1] No han pagado (cartera pendiente): {total_no_pagado}\n")
-            f.write(f"[CASO 2] Actualizar en sistema (diferente recibo): {total_actualizar}\n")
-            f.write(f"[CASO 3] Corregir poliza - Solo en Allianz: {total_only_allianz}\n")
-            f.write(f"[CASO 3] Corregir poliza - Solo en Celer: {total_only_celer}\n")
-            
-            total_matched = total_no_pagado + total_actualizar
-            if len(self.allianz_df) > 0:
-                match_rate = (total_matched / len(set(self.allianz_df['_match_key_full']))) * 100
-                f.write(f"\nTasa de coincidencia total: {match_rate:.2f}%\n")
-            
-            f.write("\n" + "=" * 80 + "\n")
         
-        logger.info(f"Report saved to: {output_file}")
         return output_file
     
     def print_report(self):
-        """Print detailed conciliation report"""
+        """Print simplified conciliation report"""
         print("\n" + "=" * 80)
-        print("REPORTE DE CONCILIACION ALLIANZ")
+        print(f"REPORTE DE CONCILIACION ALLIANZ ({self.data_source_type.upper()})")
         print("=" * 80)
         
         # Summary
         print(f"\nRESUMEN:")
-        print(f"  - Total Celer: {len(self.celer_df)} registros")
+        if self.softseguros_df is not None and len(self.softseguros_df) > 0:
+            print(f"  - Total Softseguros: {len(self.softseguros_df)} registros")
+        if self.celer_df is not None and len(self.celer_df) > 0:
+            print(f"  - Total Celer: {len(self.celer_df)} registros")
+        if self.combined_df is not None:
+            print(f"  - Total Combinado (con prioridad Softseguros): {len(self.combined_df)} registros")
         print(f"  - Total Allianz: {len(self.allianz_df)} registros")
-        print(f"  - Polizas unicas Celer: {len(set(self.celer_df['_match_key_full']))}")
-        print(f"  - Polizas unicas Allianz: {len(set(self.allianz_df['_match_key_full']))}")
         
         # CASO 1: NO HAN PAGADO
         print("\n" + "=" * 80)
@@ -451,14 +546,20 @@ class AllianzConciliator:
         print("=" * 80)
         print(f"Total: {len(self.results['no_pagado'])} polizas")
         
-        if self.results['no_pagado']:
-            print("\nDetalle:")
-            for i, record in enumerate(self.results['no_pagado'], 1):
-                print(f"\n  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}")
-                print(f"     Celer:   {record['tomador_celer']}")
-                print(f"     Allianz: {record['cliente_allianz']} ({record['source']})")
-                print(f"     Cartera: ${record['cartera_total']:,.0f} | Vencida: ${record['vencida']:,.0f}")
-                print(f"     Comision: ${record['comision']:,.2f}")
+        # CASO 2 ESPECIAL: ACTUALIZAR RECIBO EN SOFTSEGUROS
+        print("\n" + "=" * 80)
+        print("[CASO 2 ESPECIAL] ACTUALIZAR RECIBO EN SOFTSEGUROS")
+        print("(Poliza + Fecha coinciden, pero Softseguros NO tiene NÚMERO ANEXO)")
+        print("=" * 80)
+        print(f"Total: {len(self.results['actualizar_recibo_softseguros'])} polizas")
+        
+        if self.results['actualizar_recibo_softseguros']:
+            print("\nPrimeras 10:")
+            for i, record in enumerate(self.results['actualizar_recibo_softseguros'][:10], 1):
+                print(f"\n  {i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}")
+                print(f"     ⚠️  {record['nota']}")
+                print(f"     Recibo sugerido (Allianz): {record['recibo_allianz']}")
+                print(f"     Cliente: {record['tomador']}")
         
         # CASO 2: ACTUALIZAR SISTEMA
         print("\n" + "=" * 80)
@@ -467,32 +568,30 @@ class AllianzConciliator:
         print("=" * 80)
         print(f"Total: {len(self.results['actualizar_sistema'])} polizas")
         
-        if self.results['actualizar_sistema']:
-            print("\nDetalle (primeras 20):")
-            for i, record in enumerate(self.results['actualizar_sistema'][:20], 1):
-                print(f"\n  {i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}")
-                print(f"     Recibo Celer:   {record['recibo_celer']} | Saldo: ${record['saldo_celer']:,.0f}")
-                print(f"     Recibo Allianz: {record['recibo_allianz']} | Cartera: ${record['cartera_allianz']:,.0f}")
-                print(f"     Cliente: {record['cliente_allianz']} ({record['source']})")
-        
         # CASO 3: CORREGIR POLIZA - Solo en Allianz
         print("\n" + "=" * 80)
         print("[CASO 3] CORREGIR POLIZA - Solo en Allianz")
-        print("(Polizas en Allianz que NO coinciden con ninguna en Celer)")
+        print("(Polizas en Allianz que NO coinciden con ninguna en Softseguros/Celer)")
         print("=" * 80)
         print(f"Total: {len(self.results['only_allianz'])} polizas")
         
-        if len(self.results['only_allianz']) > 0:
-            print(f"\nPrimeras 10 polizas:")
-            for i, record in enumerate(self.results['only_allianz'][:10], 1):
-                print(f"  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}")
-                print(f"     Cliente: {record['cliente']} ({record['source']})")
-                print(f"     Cartera Total: ${record['cartera_total']:,.0f}")
-        
-        # CASO 3: CORREGIR POLIZA - Solo en Celer
+        # CASO 3: CORREGIR POLIZA - Solo en Combined
         print("\n" + "=" * 80)
-        print("[CASO 3] CORREGIR POLIZA - Solo en Celer")
-        print("(Polizas en Celer que NO coinciden con ninguna en Allianz)")
+        print("[CASO 3] CORREGIR POLIZA - Solo en Softseguros/Celer")
+        print("(Polizas en Softseguros/Celer que NO coinciden con ninguna en Allianz)")
+        print("=" * 80)
+        print(f"Total: {len(self.results['only_combined'])} polizas")
+        
+        # Match rate
+        total_combined = len(set(self.combined_df['_match_key_partial']))
+        total_allianz = len(set(self.allianz_df['_match_key_partial']))
+        matched = len(self.results['no_pagado']) + len(self.results['actualizar_sistema']) + len(self.results['actualizar_recibo_softseguros'])
+        
+        if total_combined > 0:
+            match_rate = (matched / total_combined) * 100
+            print(f"\nTasa de coincidencia: {match_rate:.2f}%")
+        
+        print("\n" + "=" * 80)
         print("=" * 80)
         print(f"Total: {len(self.results['only_celer'])} polizas")
         
@@ -529,11 +628,26 @@ class AllianzConciliator:
         """Execute conciliation workflow"""
         try:
             print("\n" + "=" * 80)
-            print("INICIANDO CONCILIACIÓN ALLIANZ")
+            print(f"INICIANDO CONCILIACIÓN ALLIANZ ({self.data_source_type.upper()})")
             print("=" * 80)
             
-            # Load data
-            self.load_celer_data()
+            # Load data sources based on selection
+            if self.data_source_type == 'softseguros':
+                self.load_softseguros_data()
+                self.combined_df = self.softseguros_df.copy()
+                self.celer_df = pd.DataFrame()  # Empty
+                
+            elif self.data_source_type == 'celer':
+                self.load_celer_data()
+                self.combined_df = self.celer_df.copy()
+                self.softseguros_df = pd.DataFrame()  # Empty
+                
+            else:  # both
+                self.load_softseguros_data()
+                self.load_celer_data()
+                self.combine_data_sources()
+            
+            # Load Allianz data
             self.load_allianz_data()
             
             # Perform conciliation
@@ -556,9 +670,41 @@ class AllianzConciliator:
 
 def main():
     """Main entry point"""
-    # Display menu and get user selection
+    # Menu 1: Select data source type (Softseguros, Celer, or Both)
     print("\n" + "=" * 80)
-    print("CONCILIADOR ALLIANZ - SELECCION DE DATOS")
+    print("CONCILIADOR ALLIANZ - SELECCIÓN DE FUENTE DE DATOS")
+    print("=" * 80)
+    print("\n¿De dónde desea obtener los datos para conciliar?")
+    print("\n  1. SOFTSEGUROS solamente")
+    print("  2. CELER solamente")
+    print("  3. AMBOS (SOFTSEGUROS + CELER con prioridad a Softseguros)")
+    print("\n" + "=" * 80)
+    
+    # Get data source type
+    while True:
+        try:
+            selection = input("\nIngrese su opcion (1-3): ").strip()
+            
+            if selection == '1':
+                data_source_type = 'softseguros'
+                break
+            elif selection == '2':
+                data_source_type = 'celer'
+                break
+            elif selection == '3':
+                data_source_type = 'both'
+                break
+            else:
+                print("[ERROR] Opcion invalida. Por favor ingrese 1, 2 o 3.")
+        except KeyboardInterrupt:
+            print("\n\n[INFO] Proceso cancelado por el usuario.")
+            sys.exit(0)
+        except Exception as e:
+            print(f"[ERROR] Error al leer entrada: {e}")
+    
+    # Menu 2: Select Allianz data source (PERSONAS, COLECTIVAS, or BOTH)
+    print("\n" + "=" * 80)
+    print("CONCILIADOR ALLIANZ - SELECCIÓN DE DATOS ALLIANZ")
     print("=" * 80)
     print("\nSeleccione que datos de Allianz desea procesar:")
     print("\n  1. PERSONAS solamente")
@@ -566,7 +712,7 @@ def main():
     print("  3. AMBOS (PERSONAS + COLECTIVAS)")
     print("\n" + "=" * 80)
     
-    # Get user input
+    # Get Allianz data source
     while True:
         try:
             selection = input("\nIngrese su opcion (1-3): ").strip()
@@ -590,25 +736,36 @@ def main():
     
     # Define folder paths
     base_dir = Path(__file__).parent
+    softseguros_folder = base_dir.parent / "DATA SOFTSEGUROS"
     celer_folder = base_dir.parent / "TRANSFORMER CELER" / "output"
     personas_folder = base_dir / "INPUT" / "PERSONAS"
     colectivas_folder = base_dir / "INPUT" / "COLECTIVAS"
     
-    # Select files from folders
+    # Select files from folders based on data source type
     print("\n" + "=" * 80)
-    print("SELECCION DE ARCHIVOS")
+    print("SELECCIÓN DE ARCHIVOS")
     print("=" * 80)
     
-    celer_file = select_file_from_folder(celer_folder, ".xlsx", "Archivo Celer Transformado")
+    softseguros_file = None
+    celer_file = None
+    
+    if data_source_type in ['softseguros', 'both']:
+        softseguros_file = select_file_from_folder(softseguros_folder, ".xlsx", "Archivo Softseguros")
+    
+    if data_source_type in ['celer', 'both']:
+        celer_file = select_file_from_folder(celer_folder, ".xlsx", "Archivo Celer Transformado")
+    
     allianz_personas = select_file_from_folder(personas_folder, ".xlsb", "Archivo Allianz PERSONAS")
     allianz_colectivas = select_file_from_folder(colectivas_folder, ".xlsb", "Archivo Allianz COLECTIVAS")
     
     # Create conciliator
     conciliator = AllianzConciliator(
-        celer_file_path=celer_file,
         allianz_personas_path=allianz_personas,
         allianz_colectivas_path=allianz_colectivas,
-        data_source=data_source
+        data_source=data_source,
+        data_source_type=data_source_type,
+        softseguros_file_path=softseguros_file,
+        celer_file_path=celer_file
     )
     
     # Run conciliation

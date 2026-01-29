@@ -1,0 +1,774 @@
+================================================================================
+REPORTE DE CONCILIACION ALLIANZ (BOTH)
+================================================================================
+
+Fecha de generacion: 2026-01-29 09:39:20
+Fuente de datos: BOTH
+Fuente de datos Allianz: PERSONAS
+
+RESUMEN:
+  - Total Softseguros: 648 registros
+  - Total Celer: 94 registros
+  - Total Combinado: 736 registros
+  - Total Allianz: 60 registros
+
+RESULTADOS:
+  [CASO 1] No han pagado: 17
+  [CASO 2 ESPECIAL] Actualizar recibo en Softseguros: 8
+  [CASO 2] Actualizar sistema: 10
+  [CASO 3] Solo en Allianz: 32
+  [CASO 3] Solo en Softseguros/Celer: 98
+
+================================================================================
+[CASO 1] NO HAN PAGADO - CARTERA PENDIENTE
+(Poliza + Recibo + Fecha coinciden en ambos sistemas)
+================================================================================
+Total: 17 polizas
+
+1. Poliza: 23537654 | Recibo (SOFTSEGUROS): 112009273 | Recibo Allianz: 112009273 | Fecha: 2025-12-11
+   Tomador (SOFTSEGUROS): GLORIA LUCIA AGUDELO DIEZ
+   Cliente (Allianz): AGUDELO DIEZ,GLORIA LUCIA                    
+   Saldo (SOFTSEGUROS): $327,629.61 | Cartera Allianz: $327,630.00
+
+2. Poliza: 23564015 | Recibo (SOFTSEGUROS): 347315818 | Recibo Allianz: 347315818 | Fecha: 2026-01-29
+   Tomador (SOFTSEGUROS): VICENT GILLES GERARD HOUDAILLE
+   Cliente (Allianz): HOUDAILLE ,VICENT GILLES GERARD              
+   Saldo (SOFTSEGUROS): $433,200.00 | Cartera Allianz: $433,200.00
+
+3. Poliza: 23729799 | Recibo (CELER): 110616186 | Recibo Allianz: 110616186 | Fecha: 2025-11-28
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): ASOCIACION DE MUNICIPIOS DEL NORTE ANTIOQUEÑO - AMUNORTE
+   Cliente (Allianz): AMUNORTE ANTIOQUEÐO                          
+   Saldo (CELER): $832,224.00 | Cartera Allianz: $832,223.00
+
+4. Poliza: 23380199 | Recibo (SOFTSEGUROS): 350080846 | Recibo Allianz: 350080846 | Fecha: 2026-01-13
+   Tomador (SOFTSEGUROS): ELIANA MARIA RUIZ CHAVERRA
+   Cliente (Allianz): COOPERATIVA SAN ROQUE                        
+   Saldo (SOFTSEGUROS): $505,750.00 | Cartera Allianz: $505,750.00
+
+5. Poliza: 23527545 | Recibo (CELER): 347216594 | Recibo Allianz: 347216594 | Fecha: 2025-12-28
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): JOVANA CATALINA CRESPO RAMIREZ
+   Cliente (Allianz): CRESPO RAMIREZ, JOVANA CATALINA              
+   Saldo (CELER): $32,411.00 | Cartera Allianz: $32,411.00
+
+6. Poliza: 23372031 | Recibo (CELER): 350064014 | Recibo Allianz: 350064014 | Fecha: 2026-01-13
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): JUAN FERNANDO GOMEZ ZULUAGA
+   Cliente (Allianz): GOMEZ ZULUAGA, JUAN FERNANDO                 
+   Saldo (CELER): $2,580,040.00 | Cartera Allianz: $2,580,041.00
+
+7. Poliza: 23791522 | Recibo (SOFTSEGUROS): 111971259 | Recibo Allianz: 111971259 | Fecha: 2026-01-14
+   Tomador (SOFTSEGUROS): INVERSIONES CATALEJO SAS nan
+   Cliente (Allianz): INVERSIONES CATALEJO SAS                     
+   Saldo (SOFTSEGUROS): $2,004,371.74 | Cartera Allianz: $2,004,370.00
+
+8. Poliza: 23685571 | Recibo (CELER): 350651398 | Recibo Allianz: 350651398 | Fecha: 2026-01-19
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): GLORIA ELSI CASTRO ARIAS
+   Cliente (Allianz): CASTRO ARIAS, GLORIA ELSI                    
+   Saldo (CELER): $374,052.00 | Cartera Allianz: $374,051.00
+
+9. Poliza: 23626327 | Recibo (CELER): 350485508 | Recibo Allianz: 350485508 | Fecha: 2026-01-15
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): JUAN PABLO CASTAÑO VASQUEZ
+   Cliente (Allianz): CASTAÐO VASQUEZ, JUAN PABLO                  
+   Saldo (CELER): $253,005.00 | Cartera Allianz: $253,006.00
+
+10. Poliza: 23491451 | Recibo (CELER): 350301655 | Recibo Allianz: 350301655 | Fecha: 2026-01-12
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): JOSE GREGORIO PALOMINO BARBUDO
+   Cliente (Allianz): PALOMINO BARBUDO, JOSE GREGORIO              
+   Saldo (CELER): $98,179.00 | Cartera Allianz: $98,179.00
+
+11. Poliza: 23615822 | Recibo (CELER): 348896840 | Recibo Allianz: 348896840 | Fecha: 2025-12-22
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): HUMBERTO EMEL HIGUITA OQUENDO
+   Cliente (Allianz): HIGUITA OQUENDO,HUMBERTO EMEL                
+   Saldo (CELER): $772,349.00 | Cartera Allianz: $772,348.00
+
+12. Poliza: 23729744 | Recibo (CELER): 350780882 | Recibo Allianz: 350780882 | Fecha: 2026-01-22
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): ANA MARCELA ARISTIZABAL ORTIZ
+   Cliente (Allianz): ARISTIZABAL ORTIZ, ANA MARCELA               
+   Saldo (CELER): $81,514.00 | Cartera Allianz: $81,514.00
+
+13. Poliza: 23715938 | Recibo (CELER): 350761189 | Recibo Allianz: 350761189 | Fecha: 2026-01-06
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): TERESITA DE JESUS CASTAÑEDA LOPEZ
+   Cliente (Allianz): CASTAÐEDA LOPEZ, TERESITA DE JESUS           
+   Saldo (CELER): $229,513.00 | Cartera Allianz: $229,511.00
+
+14. Poliza: 23198010 | Recibo (SOFTSEGUROS): 347162178 | Recibo Allianz: 347162178 | Fecha: 2026-01-05
+   Tomador (SOFTSEGUROS): COOPERATIVA FRATERNIDAD SACERDOTAL LTDA nan
+   Cliente (Allianz): COOPERATIVA FRATERNIDAD SACERDOTAL           
+   Saldo (SOFTSEGUROS): $499,500.00 | Cartera Allianz: $499,500.00
+
+15. Poliza: 23770244 | Recibo (SOFTSEGUROS): 111692319 | Recibo Allianz: 111692319 | Fecha: 2025-12-10
+   Tomador (SOFTSEGUROS): TATIANA GALLEGO ORTIZ
+   Cliente (Allianz): GALLEGO ORTIZ, TATIANA                       
+   Saldo (SOFTSEGUROS): $2,429,110.11 | Cartera Allianz: $2,429,110.00
+
+16. Poliza: 23651394 | Recibo (CELER): 350554956 | Recibo Allianz: 350554956 | Fecha: 2026-01-20
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): GLORIA PATRICIA MORENO LOPEZ
+   Cliente (Allianz): MORENO LOPEZ, GLORIA PATRICIA                
+   Saldo (CELER): $263,132.00 | Cartera Allianz: $263,131.00
+
+17. Poliza: 23615822 | Recibo (CELER): 350462788 | Recibo Allianz: 350462788 | Fecha: 2026-01-22
+   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)
+   Tomador (CELER): HUMBERTO EMEL HIGUITA OQUENDO
+   Cliente (Allianz): HIGUITA OQUENDO,HUMBERTO EMEL                
+   Saldo (CELER): $772,349.00 | Cartera Allianz: $772,348.00
+
+
+================================================================================
+[CASO 2 ESPECIAL] ACTUALIZAR RECIBO EN SOFTSEGUROS
+(Poliza + Fecha coinciden, pero Softseguros NO tiene NÚMERO ANEXO)
+================================================================================
+Total: 8 polizas
+
+1. Poliza: 23198010 | Fecha: 2026-01-05
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 347162178
+   Cliente: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA nan
+
+2. Poliza: 23770244 | Fecha: 2025-12-10
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 111692319
+   Cliente: TATIANA GALLEGO ORTIZ
+
+3. Poliza: 23786313 | Fecha: 2025-12-31
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 111998039
+   Cliente: CARLOS ANDRES VALENCIA BURITICA
+
+4. Poliza: 23791522 | Fecha: 2026-01-14
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 111971259
+   Cliente: INVERSIONES CATALEJO SAS nan
+
+5. Poliza: 23537654 | Fecha: 2025-12-11
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 112009273
+   Cliente: GLORIA LUCIA AGUDELO DIEZ
+
+6. Poliza: 23796156 | Fecha: 2026-01-22
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 112072719
+   Cliente: GUILLERMO LEON BETANCUR GIRALDO
+
+7. Poliza: 23380199 | Fecha: 2026-01-13
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 350080846
+   Cliente: ELIANA MARIA RUIZ CHAVERRA
+
+8. Poliza: 23793041 | Fecha: 2026-01-23
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 112066562
+   Cliente: VICTOR ALFONSO LONDOÑO ROLDAN
+
+
+================================================================================
+[CASO 2] ACTUALIZAR EN SISTEMA
+(Poliza + Fecha coinciden, pero DIFERENTE numero de recibo)
+================================================================================
+Total: 10 polizas
+
+1. Poliza: 23718547 | Fecha: 2026-01-02
+   Recibo (CELER): 350763409 | Recibo Allianz: 112055326
+   Tomador (CELER): JOHN FREDY SALDARRIAGA
+   Cliente (Allianz): SALDARRIAGA , JOHN FREDY                     
+   Saldo (CELER): $166,551.00 | Cartera Allianz: $99,930.00
+
+2. Poliza: 23670981 | Fecha: 2026-01-25
+   Recibo (CELER): -5 | Recibo Allianz: 350635722
+   Tomador (CELER): ANA MARIA PINEDA JARAMILLO
+   Cliente (Allianz): PINEDA JARAMILLO, ANA MARIA                  
+   Saldo (CELER): $182,190.00 | Cartera Allianz: $182,194.00
+
+3. Poliza: 23682934 | Fecha: 2026-01-09
+   Recibo (SOFTSEGUROS): 0 | Recibo Allianz: 350648923
+   Tomador (SOFTSEGUROS): FERNEY OSWALDO JARAMILLO LLANOS
+   Cliente (Allianz): JARAMILLO LLANOS,FERNEY OSWALDO              
+   Saldo (SOFTSEGUROS): $244,013.07 | Cartera Allianz: $244,014.00
+
+4. Poliza: 23786313 | Fecha: 2025-12-31
+   Recibo (SOFTSEGUROS): 0 | Recibo Allianz: 111998039
+   Tomador (SOFTSEGUROS): CARLOS ANDRES VALENCIA BURITICA
+   Cliente (Allianz): VALENCIA BURITICA, CARLOS ANDRES             
+   Saldo (SOFTSEGUROS): $373,668.33 | Cartera Allianz: $373,668.00
+
+5. Poliza: 23662573 | Fecha: 2026-01-07
+   Recibo (SOFTSEGUROS): 0 | Recibo Allianz: 350617076
+   Tomador (SOFTSEGUROS): SANDRA MILENA DUQUE CORREA
+   Cliente (Allianz): DUQUE CORREA, SANDRA MILENA                  
+   Saldo (SOFTSEGUROS): $441,824.39 | Cartera Allianz: $441,825.00
+
+6. Poliza: 23263137 | Fecha: 2026-01-08
+   Recibo (SOFTSEGUROS): 0 | Recibo Allianz: 350242974
+   Tomador (SOFTSEGUROS): MARIA ADELAIDA ARBELAEZ ARANGO
+   Cliente (Allianz): ARBELAEZ ARANGO, MARIA ADELAIDA              
+   Saldo (SOFTSEGUROS): $480,481.54 | Cartera Allianz: $480,483.00
+
+7. Poliza: 23564015 | Fecha: 2026-01-29
+   Recibo (SOFTSEGUROS): 0 | Recibo Allianz: 347315818
+   Tomador (SOFTSEGUROS): VICENT GILLES GERARD HOUDAILLE
+   Cliente (Allianz): HOUDAILLE ,VICENT GILLES GERARD              
+   Saldo (SOFTSEGUROS): $0.00 | Cartera Allianz: $433,200.00
+
+8. Poliza: 23505091 | Fecha: 2026-01-09
+   Recibo (SOFTSEGUROS): 0 | Recibo Allianz: 350306571
+   Tomador (SOFTSEGUROS): CARLOS ARTURO VASCO BOLIVAR
+   Cliente (Allianz): VASCO BOLIVAR, CARLOS ARTURO                 
+   Saldo (SOFTSEGUROS): $320,015.99 | Cartera Allianz: $320,016.00
+
+9. Poliza: 23755204 | Fecha: 2026-01-22
+   Recibo (CELER): -2 | Recibo Allianz: 350971366
+   Tomador (CELER): CLAUDIA MARIA OCAMPO ESCOBAR
+   Cliente (Allianz): OCAMPO ESCOBAR,CLAUDIA MARIA                 
+   Saldo (CELER): $147,591.00 | Cartera Allianz: $147,592.00
+
+10. Poliza: 23690498 | Fecha: 2026-01-27
+   Recibo (CELER): -5 | Recibo Allianz: 350669366
+   Tomador (CELER): GLADYS DEL SOCORRO LOAIZA BUITRAGO
+   Cliente (Allianz): LOAIZA BUITRAGO,GLADYS DEL SOCORRO           
+   Saldo (CELER): $221,092.00 | Cartera Allianz: $221,091.00
+
+
+================================================================================
+[CASO 3] CORREGIR POLIZA - Solo en Allianz
+(Polizas en Allianz que NO coinciden con ninguna en Softseguros/Celer)
+================================================================================
+Total: 32 polizas
+
+1. Poliza: 23663300 | Recibo: 350617779 | Fecha: 2026-01-15
+   Cliente: RESTREPO ZULUAGA,FELIPE ANDRES               
+   Source: PERSONAS | Cartera Total: $159,256.00
+
+2. Poliza: 23178309 | Recibo: 349378509 | Fecha: 2026-01-16
+   Cliente: ALZATE GALINDO, PEDRO ANTONIO                
+   Source: PERSONAS | Cartera Total: $209,816.00
+
+3. Poliza: 23008768 | Recibo: 350025569 | Fecha: 2026-01-31
+   Cliente: RUIZ SANTANA, GLORIA TERESA                  
+   Source: PERSONAS | Cartera Total: $1,568,375.00
+
+4. Poliza: 23533502 | Recibo: 350317420 | Fecha: 2026-01-07
+   Cliente: AGUDELO FRANCO,CLARA INES                    
+   Source: PERSONAS | Cartera Total: $197,130.00
+
+5. Poliza: 23785336 | Recibo: 352051530 | Fecha: 2026-01-31
+   Cliente: ESCOBAR ZAPATA, JUAN PABLO                   
+   Source: PERSONAS | Cartera Total: $241,373.00
+
+6. Poliza: 22779240 | Recibo: 350198762 | Fecha: 2026-01-14
+   Cliente: AGUDELO ISAZA, MARIO ALEJANDRO               
+   Source: PERSONAS | Cartera Total: $197,166.00
+
+7. Poliza: 23304865 | Recibo: 350248898 | Fecha: 2026-01-24
+   Cliente: FUNERARIA SAN JUAN BAUTISTA LTDA             
+   Source: PERSONAS | Cartera Total: $377,045.00
+
+8. Poliza: 22928397 | Recibo: 349283188 | Fecha: 2026-01-30
+   Cliente: KNUTH DIAZ, JARMITH ABHELL                   
+   Source: PERSONAS | Cartera Total: $46,786.00
+
+9. Poliza: 23042358 | Recibo: 349345946 | Fecha: 2026-01-02
+   Cliente: WILMAR DARIO, GALEANO CASTRILLON             
+   Source: PERSONAS | Cartera Total: $68,332.00
+
+10. Poliza: 23413077 | Recibo: 350265702 | Fecha: 2026-01-04
+   Cliente: GALEANO , MARIA NELA                         
+   Source: PERSONAS | Cartera Total: $340,471.00
+
+11. Poliza: 23441899 | Recibo: 350277202 | Fecha: 2026-01-12
+   Cliente: MORENO LOPEZ, GLORIA PATRICIA                
+   Source: PERSONAS | Cartera Total: $338,077.00
+
+12. Poliza: 23663300 | Recibo: 349050322 | Fecha: 2025-12-15
+   Cliente: RESTREPO ZULUAGA,FELIPE ANDRES               
+   Source: PERSONAS | Cartera Total: $159,256.00
+
+13. Poliza: 22629971 | Recibo: 350191494 | Fecha: 2026-01-01
+   Cliente: ESCUDERO RINCON, RUBER ALBERTO               
+   Source: PERSONAS | Cartera Total: $225,993.00
+
+14. Poliza: 23237380 | Recibo: 350239343 | Fecha: 2026-01-13
+   Cliente: QUICENO LOPEZ, JONATHAN                      
+   Source: PERSONAS | Cartera Total: $377,599.00
+
+15. Poliza: 23399672 | Recibo: 350262212 | Fecha: 2026-01-09
+   Cliente: REYES REYES,SANTIAGO                         
+   Source: PERSONAS | Cartera Total: $253,480.00
+
+16. Poliza: 23503130 | Recibo: 350305953 | Fecha: 2026-01-25
+   Cliente: TORRES ROLDAN, MARIA EDITH                   
+   Source: PERSONAS | Cartera Total: $253,861.00
+
+17. Poliza: 23526685 | Recibo: 350314971 | Fecha: 2026-01-07
+   Cliente: BEDOYA JAIME, DORYAN JAIME                   
+   Source: PERSONAS | Cartera Total: $124,436.00
+
+18. Poliza: 23033785 | Recibo: 350028951 | Fecha: 2026-01-01
+   Cliente: AREIZA CORREA, JOSE MEDARDO                  
+   Source: PERSONAS | Cartera Total: $237,503.00
+
+19. Poliza: 23672450 | Recibo: 350637017 | Fecha: 2026-01-29
+   Cliente: LOAIZA MONTOYA,LINA MARIA                    
+   Source: PERSONAS | Cartera Total: $100,787.00
+
+20. Poliza: 23008049 | Recibo: 350022921 | Fecha: 2026-01-16
+   Cliente: COOPERATIVA DE TRABAJADORES DEL SENA         
+   Source: PERSONAS | Cartera Total: $324,001.00
+
+21. Poliza: 23786313 | Recibo: 353119021 | Fecha: 2026-01-31
+   Cliente: VALENCIA BURITICA, CARLOS ANDRES             
+   Source: PERSONAS | Cartera Total: $373,668.00
+
+22. Poliza: 23610568 | Recibo: 350442590 | Fecha: 2026-01-01
+   Cliente: GARCIA MORENO, WILLIAM                       
+   Source: PERSONAS | Cartera Total: $796,156.00
+
+23. Poliza: 23007963 | Recibo: 350022665 | Fecha: 2026-01-23
+   Cliente: COOPERATIVA DE TRABAJADORES DEL SENA         
+   Source: PERSONAS | Cartera Total: $292,853.00
+
+24. Poliza: 22951479 | Recibo: 349283501 | Fecha: 2026-01-28
+   Cliente: COOPERATIVA FRATERNIDAD SACERDOTAL           
+   Source: PERSONAS | Cartera Total: $26,671.00
+
+25. Poliza: 23376877 | Recibo: 350073981 | Fecha: 2026-01-19
+   Cliente: ALVAREZ ASPRILLA, MAIBER ALBERTO             
+   Source: PERSONAS | Cartera Total: $2,704,498.00
+
+26. Poliza: 23582209 | Recibo: 348787221 | Fecha: 2025-12-28
+   Cliente: AGUDELO URIBE,MARIA JOSE                     
+   Source: PERSONAS | Cartera Total: $161,526.00
+
+27. Poliza: 23601476 | Recibo: 350382945 | Fecha: 2026-01-05
+   Cliente: BENAVIDES VILLOTA, JAIRO ANDRES              
+   Source: PERSONAS | Cartera Total: $242,878.00
+
+28. Poliza: 23749041 | Recibo: 350965764 | Fecha: 2026-01-12
+   Cliente: ARBOLEDA TAMAYO,DIANA MAGLODY                
+   Source: PERSONAS | Cartera Total: $42,971.00
+
+29. Poliza: 23561786 | Recibo: 350144022 | Fecha: 2026-01-25
+   Cliente: ARTEAGA VELEZ, ERIKA ANDREA                  
+   Source: PERSONAS | Cartera Total: $150,417.00
+
+30. Poliza: 23582209 | Recibo: 350353342 | Fecha: 2026-01-28
+   Cliente: AGUDELO URIBE,MARIA JOSE                     
+   Source: PERSONAS | Cartera Total: $161,526.00
+
+31. Poliza: 23549286 | Recibo: 347303061 | Fecha: 2025-12-27
+   Cliente: CRUZ ,JAIME MAURICIO                         
+   Source: PERSONAS | Cartera Total: $3,288,673.00
+
+32. Poliza: 23727517 | Recibo: 350776492 | Fecha: 2026-01-01
+   Cliente: PINEDA JARAMILLO, ANA MARIA                  
+   Source: PERSONAS | Cartera Total: $458,291.00
+
+
+================================================================================
+[CASO 3] CORREGIR POLIZA - Solo en Softseguros/Celer
+(Polizas en Softseguros/Celer que NO coinciden con ninguna en Allianz)
+================================================================================
+Total: 98 polizas
+
+1. Poliza: 2354928600000 | Recibo: nan | Fecha: 2025-12-27
+   Tomador: JAIME MAURICIO CRUZ
+   Source: CELER | Saldo: $3,288,673.00
+
+2. Poliza: 23792091 | Recibo: 111980102 | Fecha: 2026-01-15
+   Tomador: HENRY ALBERTO GARCIA GARCIA
+   Source: SOFTSEGUROS | Saldo: $352,876.65
+
+3. Poliza: 023651483 6 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $1,165,229.00
+
+4. Poliza: 2341307700000 | Recibo: nan | Fecha: 2026-01-04
+   Tomador: MARIA NELA GALEANO
+   Source: CELER | Saldo: $340,473.00
+
+5. Poliza: 23744529 | Recibo: nan | Fecha: 2025-12-01
+   Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+   Source: CELER | Saldo: $-307,617.00
+
+6. Poliza: 023651483 8 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $1,162,719.00
+
+7. Poliza: 023651483 9 | Recibo: nan | Fecha: 2025-11-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $1,074,413.00
+
+8. Poliza: 2350313000000 | Recibo: nan | Fecha: 2025-12-25
+   Tomador: MARIA EDITH TORRES ROLDAN
+   Source: CELER | Saldo: $253,860.00
+
+9. Poliza: 2353350200000 | Recibo: 350317420 | Fecha: 2026-01-07
+   Tomador: CLARA INES AGUDELO FRANCO
+   Source: SOFTSEGUROS | Saldo: $197,129.45
+
+10. Poliza: 2211561500000 | Recibo: nan | Fecha: 2025-12-01
+   Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO
+   Source: CELER | Saldo: $4,172,910.00
+
+11. Poliza: 23690498 | Recibo: nan | Fecha: 2025-12-27
+   Tomador: GLADYS DEL SOCORRO LOAIZA BUITRAGO
+   Source: CELER | Saldo: $221,092.00
+
+12. Poliza: 023651483 2 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $1,162,719.00
+
+13. Poliza: 2317830900000 | Recibo: nan | Fecha: 2026-01-16
+   Tomador: PEDRO ANTONIO ALZATE GALINDO
+   Source: CELER | Saldo: $209,816.00
+
+14. Poliza: 2330486500000 | Recibo: 350248898 | Fecha: 2026-01-24
+   Tomador: FUNERARIA SAN JUAN BAUTISTA nan
+   Source: SOFTSEGUROS | Saldo: $377,045.55
+
+15. Poliza: 2262997100000 | Recibo: nan | Fecha: 2026-01-01
+   Tomador: RUBER ALBERTO ESCUDERO RINCON
+   Source: CELER | Saldo: $225,993.00
+
+16. Poliza: 2354310600190 | Recibo: nan | Fecha: 2025-12-05
+   Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+   Source: CELER | Saldo: $150,890.00
+
+17. Poliza: 2323738000000 | Recibo: nan | Fecha: 2026-01-13
+   Tomador: JONATHAN QUICENO LOPEZ
+   Source: CELER | Saldo: $377,600.00
+
+18. Poliza: 023651483 - 11 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $990,575.00
+
+19. Poliza: 23727517 | Recibo: nan | Fecha: 2025-12-20
+   Tomador: ANA MARIA PINEDA JARAMILLO
+   Source: CELER | Saldo: $632,817.00
+
+20. Poliza: 023651483 3 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $1,086,743.00
+
+21. Poliza: 023651483 7 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $1,167,862.00
+
+22. Poliza: 23778646 | Recibo: nan | Fecha: 2025-11-26
+   Tomador: LICEO SALAZAR Y HERRERA
+   Source: CELER | Saldo: $5,350,835.00
+
+23. Poliza: 2211561500000 | Recibo: 351209808 | Fecha: 2026-01-01
+   Tomador: AVANCOP COOPERATIVA DE AHORRO Y CREDITO nan
+   Source: SOFTSEGUROS | Saldo: $4,172,910.00
+
+24. Poliza: 23541083 | Recibo: nan | Fecha: 2025-12-19
+   Tomador: ELIZABET CHAVERRA HINCAPIE
+   Source: CELER | Saldo: $3,417,261.00
+
+25. Poliza: 23727517 | Recibo: nan | Fecha: 2026-01-20
+   Tomador: ANA MARIA PINEDA JARAMILLO
+   Source: CELER | Saldo: $632,817.00
+
+26. Poliza: 236197260028 | Recibo: 0 | Fecha: 2026-01-28
+   Tomador: ANTIOQUEÑA DE TRANSPORTES S.A.S nan
+   Source: SOFTSEGUROS | Saldo: $823,658.50
+
+27. Poliza: 23792692 | Recibo: 353092186 | Fecha: 2025-12-17
+   Tomador: DIOCESIS DE ARMENIA nan
+   Source: SOFTSEGUROS | Saldo: $42,273,379.12
+
+28. Poliza: 2365148300010 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $740,901.00
+
+29. Poliza: 23749041 | Recibo: 0 | Fecha: 2025-11-12
+   Tomador: DIANA MAGLODY ARBOLEDA TAMAYO
+   Source: SOFTSEGUROS | Saldo: $42,971.00
+
+30. Poliza: 23584452 | Recibo: 111832055 | Fecha: 2025-12-16
+   Tomador: ANDERSON JULIAN RIOS GIRLADO
+   Source: SOFTSEGUROS | Saldo: $-870,955.05
+
+31. Poliza: 2355807700000 | Recibo: nan | Fecha: 2026-01-17
+   Tomador: WILLIAM ALBERTO TAMAYO CANO
+   Source: CELER | Saldo: $7,298,487.00
+
+32. Poliza: 2362205400000 | Recibo: nan | Fecha: 2025-11-01
+   Tomador: AB & C LOGISTICA S.A.S.
+   Source: CELER | Saldo: $315,643.00
+
+33. Poliza: 23792653 | Recibo: 111988857 | Fecha: 2025-12-17
+   Tomador: DIOCESIS DE ARMENIA nan
+   Source: SOFTSEGUROS | Saldo: $5,950,000.00
+
+34. Poliza: 23641909 | Recibo: 3641909-7 | Fecha: 2025-11-30
+   Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO nan
+   Source: SOFTSEGUROS | Saldo: $5,925,771.60
+
+35. Poliza: 2361056800000 | Recibo: nan | Fecha: 2026-01-01
+   Tomador: GARCIA MORENO WILLIAM
+   Source: CELER | Saldo: $796,155.00
+
+36. Poliza: 2344189900000 | Recibo: nan | Fecha: 2026-01-12
+   Tomador: GLORIA PATRICIA MORENO LOPEZ
+   Source: CELER | Saldo: $338,078.00
+
+37. Poliza: 2356178600000 | Recibo: nan | Fecha: 2025-12-25
+   Tomador: ERIKA ANDREA ARTEAGA VELEZ
+   Source: CELER | Saldo: $152,917.00
+
+38. Poliza: 2352668500000 | Recibo: nan | Fecha: 2026-01-07
+   Tomador: DORIAN JAIME BEDOYA SALDARRIAGA
+   Source: CELER | Saldo: $124,438.00
+
+39. Poliza: 2196072300559 | Recibo: nan | Fecha: 2025-12-05
+   Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+   Source: CELER | Saldo: $1,665,587.00
+
+40. Poliza: 2354310600190 | Recibo: nan | Fecha: 2026-01-05
+   Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+   Source: CELER | Saldo: $150,890.00
+
+41. Poliza: 2196072300564 | Recibo: 111661587 | Fecha: 2026-01-13
+   Tomador: ELKIN JAVIER CORTES MORENO
+   Source: SOFTSEGUROS | Saldo: $1,479,052.00
+
+42. Poliza: 2361863900000 | Recibo: nan | Fecha: 2026-01-14
+   Tomador: ELECTROLUMEN SAS
+   Source: CELER | Saldo: $5,057,500.00
+
+43. Poliza: 22819686913 | Recibo: 111738591 | Fecha: 2025-12-04
+   Tomador: COOSANROQUE nan
+   Source: SOFTSEGUROS | Saldo: $333,186.91
+
+44. Poliza: 23755204 | Recibo: nan | Fecha: 2025-12-22
+   Tomador: CLAUDIA MARIA OCAMPO ESCOBAR
+   Source: CELER | Saldo: $147,591.00
+
+45. Poliza: 2354310600280 | Recibo: 111738286 | Fecha: 2025-12-04
+   Tomador: COOSANROQUE nan
+   Source: SOFTSEGUROS | Saldo: $246,139.60
+
+46. Poliza: 2359725300000 | Recibo: nan | Fecha: 2025-12-17
+   Tomador: PLASTICOS G. Y C. S.A.S.
+   Source: CELER | Saldo: $849,660.00
+
+47. Poliza: 23543106274 | Recibo: nan | Fecha: 2025-11-27
+   Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+   Source: CELER | Saldo: $520,030.00
+
+48. Poliza: 2366330000000 | Recibo: 0 | Fecha: 2025-12-15
+   Tomador: FELIPE ANDRES RESTREPO ZULUAGA
+   Source: SOFTSEGUROS | Saldo: $159,255.32
+
+49. Poliza: 023651483 8 | Recibo: nan | Fecha: 2025-11-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $1,162,719.00
+
+50. Poliza: 2368116300000 | Recibo: nan | Fecha: 2026-01-01
+   Tomador: ROTRASVEHI S.A.S.
+   Source: CELER | Saldo: $3,570,000.00
+
+51. Poliza: 023651483 5 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $823,718.00
+
+52. Poliza: 23793101 | Recibo: 111996967 | Fecha: 2026-01-16
+   Tomador: JUAN FELIPE LONDOÑO ALVAREZ
+   Source: SOFTSEGUROS | Saldo: $7,163,422.77
+
+53. Poliza: 23647756 | Recibo: 0 | Fecha: 2025-12-30
+   Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO nan
+   Source: SOFTSEGUROS | Saldo: $532,487.89
+
+54. Poliza: 23780982 | Recibo: nan | Fecha: 2025-12-20
+   Tomador: DIANA EDITH PAZ CANO
+   Source: CELER | Saldo: $2,555,951.00
+
+55. Poliza: 2341291600000 | Recibo: nan | Fecha: 2025-10-30
+   Tomador: PLASTICOS G. Y C. S.A.S.
+   Source: CELER | Saldo: $-1,064,600.00
+
+56. Poliza: 2338416400000 | Recibo: nan | Fecha: 2025-05-08
+   Tomador: ESCUELA NORMAL SUPERIOR ANTIOQUEÑA
+   Source: CELER | Saldo: $-35,700.00
+
+57. Poliza: 23729744 | Recibo: nan | Fecha: 2025-12-22
+   Tomador: ANA MARCELA ARISTIZABAL ORTIZ
+   Source: CELER | Saldo: $81,514.00
+
+58. Poliza: 2196072300562 | Recibo: nan | Fecha: 2025-12-15
+   Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+   Source: CELER | Saldo: $1,647,295.00
+
+59. Poliza: 2196072300507 | Recibo: nan | Fecha: 2025-11-29
+   Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+   Source: CELER | Saldo: $-558,922.00
+
+60. Poliza: 23670981 | Recibo: nan | Fecha: 2025-12-25
+   Tomador: ANA MARIA PINEDA JARAMILLO
+   Source: CELER | Saldo: $182,190.00
+
+61. Poliza: 23768375 | Recibo: nan | Fecha: 2026-01-05
+   Tomador: CARLOS ORLANDO PARRA OROZCO
+   Source: CELER | Saldo: $253,257.00
+
+62. Poliza: 23699150 | Recibo: nan | Fecha: 2025-11-01
+   Tomador: ROTRASVEHI S.A.S.
+   Source: CELER | Saldo: $4,760,000.00
+
+63. Poliza: 23761287 | Recibo: 0 | Fecha: 2025-12-29
+   Tomador: DIEGO LEON TORO VALENCIA
+   Source: SOFTSEGUROS | Saldo: $-1,645,953.26
+
+64. Poliza: 23699150 | Recibo: nan | Fecha: 2025-12-01
+   Tomador: ROTRASVEHI S.A.S.
+   Source: CELER | Saldo: $4,760,000.00
+
+65. Poliza: 2196072300567 | Recibo: 111942326 | Fecha: 2026-01-09
+   Tomador: HERNAN DARIO RODRIGUEZ MARIACA
+   Source: SOFTSEGUROS | Saldo: $1,582,707.00
+
+66. Poliza: 2366330000000 | Recibo: nan | Fecha: 2026-01-15
+   Tomador: FELIPE ANDRES RESTREPO ZULUAGA
+   Source: CELER | Saldo: $159,255.00
+
+67. Poliza: 2329428400000 | Recibo: 0 | Fecha: 2026-01-10
+   Tomador: LAURA PRADA LARA
+   Source: SOFTSEGUROS | Saldo: $185,738.77
+
+68. Poliza: 23370992 | Recibo: 350061929 | Fecha: 2026-01-05
+   Tomador: CLAUDIA PATRICIA ALVAREZ CORREA
+   Source: SOFTSEGUROS | Saldo: $2,873,147.90
+
+69. Poliza: 2339967200000 | Recibo: nan | Fecha: 2026-01-09
+   Tomador: SANTIAGO REYES REYES
+   Source: CELER | Saldo: $253,481.00
+
+70. Poliza: 2277924000000 | Recibo: nan | Fecha: 2026-01-14
+   Tomador: MARIO ALEJANDRO AGUDELO ISAZA
+   Source: CELER | Saldo: $197,168.00
+
+71. Poliza: 022884117 180 | Recibo: nan | Fecha: 2025-09-23
+   Tomador: PEDRO ANTONIO ALZATE GALINDO
+   Source: CELER | Saldo: $-602,423.00
+
+72. Poliza: 2354310600278 | Recibo: nan | Fecha: 2025-12-04
+   Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+   Source: CELER | Saldo: $921,060.00
+
+73. Poliza: 2361972600000 | Recibo: nan | Fecha: 2025-12-28
+   Tomador: ANTIOQUEÑA DE TRANSPORTES S.A.S
+   Source: CELER | Saldo: $18,787,745.00
+
+74. Poliza: 2340478500000 | Recibo: nan | Fecha: 2026-01-14
+   Tomador: MARIA EUGENIA SANCHEZ DE LA PEÑA
+   Source: CELER | Saldo: $146,928.00
+
+75. Poliza: 23744529 | Recibo: nan | Fecha: 2025-12-01
+   Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+   Source: CELER | Saldo: $11,536,779.00
+
+76. Poliza: 2288411700000419 | Recibo: 351535525 | Fecha: 2026-02-04
+   Tomador: PEDRO ANTONIO ALZATE GALINDO
+   Source: SOFTSEGUROS | Saldo: $1,515,223.43
+
+77. Poliza: 23699150 | Recibo: nan | Fecha: 2026-01-01
+   Tomador: ROTRASVEHI S.A.S.
+   Source: CELER | Saldo: $4,760,000.00
+
+78. Poliza: 23198010 | Recibo: 0 | Fecha: 2026-01-07
+   Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA nan
+   Source: SOFTSEGUROS | Saldo: $0.00
+
+79. Poliza: 2196072300307 | Recibo: nan | Fecha: 2025-12-17
+   Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+   Source: CELER | Saldo: $2,421,756.00
+
+80. Poliza: 23593956 | Recibo: 350373639 | Fecha: 2026-01-15
+   Tomador: ANDRES ZULETA MARTINEZ
+   Source: SOFTSEGUROS | Saldo: $254,055.48
+
+81. Poliza: 23792651 | Recibo: 111988808 | Fecha: 2025-12-17
+   Tomador: DIOCESIS DE ARMENIA nan
+   Source: SOFTSEGUROS | Saldo: $4,165,000.00
+
+82. Poliza: 23744529 | Recibo: nan | Fecha: 2026-01-01
+   Tomador: FONDO DE EMPLEADOS DEL DEPARTAMENTO DE ANTIOQUIA - FEDEAN
+   Source: CELER | Saldo: $12,649,388.00
+
+83. Poliza: 2359725300000 | Recibo: 0 | Fecha: 2026-01-17
+   Tomador: PLASTICOS G. Y C. S.A.S. nan
+   Source: SOFTSEGUROS | Saldo: $849,660.00
+
+84. Poliza: 2258260800000 | Recibo: nan | Fecha: 2026-01-01
+   Tomador: LINA MARIA AGUDELO ISAZA
+   Source: CELER | Saldo: $217,024.00
+
+85. Poliza: 23203005 | Recibo: nan | Fecha: 2025-12-17
+   Tomador: JUAN FELIPE LONDOÑO ALVAREZ
+   Source: CELER | Saldo: $-774,592.00
+
+86. Poliza: 2368116700000 | Recibo: nan | Fecha: 2026-01-01
+   Tomador: ROTRASVEHI S.A.S.
+   Source: CELER | Saldo: $8,925,000.00
+
+87. Poliza: 2330486500000 | Recibo: nan | Fecha: 2025-12-24
+   Tomador: FUNERARIA SAN JUAN BAUTISTA
+   Source: CELER | Saldo: $377,046.00
+
+88. Poliza: 2362205400000 | Recibo: nan | Fecha: 2025-12-01
+   Tomador: AB & C LOGISTICA S.A.S.
+   Source: CELER | Saldo: $1,935,142.00
+
+89. Poliza: 023651483 1 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $824,624.00
+
+90. Poliza: 2304235800000 | Recibo: nan | Fecha: 2026-01-02
+   Tomador: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA
+   Source: CELER | Saldo: $68,332.00
+
+91. Poliza: 023651483 9 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $1,074,413.00
+
+92. Poliza: 23647756 | Recibo: nan | Fecha: 2025-11-30
+   Tomador: COOPERATIVA DEL COMERCIO EXTERIOR COLOMBIANO
+   Source: CELER | Saldo: $495,646.00
+
+93. Poliza: 2362205400000 | Recibo: nan | Fecha: 2026-01-01
+   Tomador: AB & C LOGISTICA S.A.S.
+   Source: CELER | Saldo: $1,935,142.00
+
+94. Poliza: 2358220900000 | Recibo: nan | Fecha: 2025-12-28
+   Tomador: MARIA JOSE AGUDELO URIBE
+   Source: CELER | Saldo: $161,526.00
+
+95. Poliza: 023651483 4 | Recibo: nan | Fecha: 2025-12-30
+   Tomador: RODOLFO ANTONIO MORALES RUIZ
+   Source: CELER | Saldo: $1,079,331.00
+
+96. Poliza: 23379608 | Recibo: nan | Fecha: 2025-01-21
+   Tomador: EDILMA DEL SOCORRO MARTÍNEZ ROJAS
+   Source: CELER | Saldo: $-49,767.00
+
+97. Poliza: 2196072300565 | Recibo: nan | Fecha: 2025-12-23
+   Tomador: FONDO DE BENEFICIO COMUN DE LOS EMPLEADOS DEL SENA
+   Source: CELER | Saldo: $2,361,004.00
+
+98. Poliza: 2303378500000 | Recibo: nan | Fecha: 2026-01-01
+   Tomador: JOSE MEDARDO AREIZA CORREA
+   Source: CELER | Saldo: $237,503.00
+
+================================================================================
+REPORTE COMPLETO GUARDADO
+================================================================================

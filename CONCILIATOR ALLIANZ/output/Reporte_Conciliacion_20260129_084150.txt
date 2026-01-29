@@ -1,0 +1,68 @@
+================================================================================
+REPORTE DE CONCILIACION ALLIANZ (BOTH)
+================================================================================
+
+Fecha de generacion: 2026-01-29 08:41:50
+Fuente de datos: BOTH
+Fuente de datos Allianz: PERSONAS
+
+RESUMEN:
+  - Total Softseguros: 648 registros
+  - Total Celer: 94 registros
+  - Total Combinado: 736 registros
+  - Total Allianz: 60 registros
+
+RESULTADOS:
+  [CASO 1] No han pagado: 17
+  [CASO 2 ESPECIAL] Actualizar recibo en Softseguros: 8
+  [CASO 2] Actualizar sistema: 10
+  [CASO 3] Solo en Allianz: 32
+  [CASO 3] Solo en Softseguros/Celer: 98
+
+================================================================================
+[CASO 2 ESPECIAL] ACTUALIZAR RECIBO EN SOFTSEGUROS
+================================================================================
+
+1. Poliza: 23786313 | Fecha: 2025-12-31
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 111998039
+   Cliente: CARLOS ANDRES VALENCIA BURITICA
+
+2. Poliza: 23537654 | Fecha: 2025-12-11
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 112009273
+   Cliente: GLORIA LUCIA AGUDELO DIEZ
+
+3. Poliza: 23793041 | Fecha: 2026-01-23
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 112066562
+   Cliente: VICTOR ALFONSO LONDOÑO ROLDAN
+
+4. Poliza: 23791522 | Fecha: 2026-01-14
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 111971259
+   Cliente: INVERSIONES CATALEJO SAS nan
+
+5. Poliza: 23198010 | Fecha: 2026-01-05
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 347162178
+   Cliente: COOPERATIVA FRATERNIDAD SACERDOTAL LTDA nan
+
+6. Poliza: 23380199 | Fecha: 2026-01-13
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 350080846
+   Cliente: ELIANA MARIA RUIZ CHAVERRA
+
+7. Poliza: 23770244 | Fecha: 2025-12-10
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 111692319
+   Cliente: TATIANA GALLEGO ORTIZ
+
+8. Poliza: 23796156 | Fecha: 2026-01-22
+   Actualizar NÚMERO ANEXO en Softseguros
+   Recibo sugerido (Allianz): 112072719
+   Cliente: GUILLERMO LEON BETANCUR GIRALDO
+
+================================================================================
+Reporte completo guardado
+================================================================================

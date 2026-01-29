@@ -1,0 +1,28 @@
+================================================================================
+REPORTE DE CONCILIACION ALLIANZ (BOTH)
+================================================================================
+
+Fecha de generacion: 2026-01-29 09:26:50
+Fuente de datos: BOTH
+Fuente de datos Allianz: PERSONAS
+
+RESUMEN:
+  - Total Softseguros: 648 registros
+  - Total Celer: 94 registros
+  - Total Combinado: 736 registros
+  - Total Allianz: 60 registros
+
+RESULTADOS:
+  [CASO 1] No han pagado: 17
+  [CASO 2 ESPECIAL] Actualizar recibo en Softseguros: 8
+  [CASO 2] Actualizar sistema: 10
+  [CASO 3] Solo en Allianz: 32
+  [CASO 3] Solo en Softseguros/Celer: 98
+
+================================================================================
+[CASO 1] NO HAN PAGADO - CARTERA PENDIENTE
+(Poliza + Recibo + Fecha coinciden en ambos sistemas)
+================================================================================
+Total: 17 polizas
+
+1. Poliza: 23770244 | Recibo: 111692319 | Fecha: 2025-12-10

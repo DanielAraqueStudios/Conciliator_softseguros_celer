@@ -337,24 +337,28 @@ class AllianzConciliator:
             if combined_row['_source'] == 'SOFTSEGUROS':
                 poliza_orig = combined_row['NÚMERO PÓLIZA']
                 recibo_orig = combined_row['NÚMERO ANEXO']
+                recibo_norm = combined_row['_anexo_norm']
                 tomador = f"{combined_row.get('NOMBRES CLIENTE', '')} {combined_row.get('APELLIDOS CLIENTE', '')}".strip()
                 saldo = combined_row.get('TOTAL', 0)
             else:  # CELER
                 poliza_orig = combined_row['Poliza']
                 recibo_orig = combined_row['Documento']
+                recibo_norm = combined_row['_documento_norm']
                 tomador = combined_row.get('Tomador', 'N/A')
                 saldo = combined_row.get('Saldo', 0)
             
             self.results['no_pagado'].append({
                 'poliza': combined_row['_poliza_norm'],
-                'recibo': combined_row.get('_anexo_norm', combined_row.get('_documento_norm', 'N/A')),
+                'recibo': recibo_norm,
+                'recibo_allianz': allianz_row['_recibo_norm'],
                 'fecha_inicio': combined_row['_fecha_inicio_str'],
                 'tomador': tomador,
                 'cliente_allianz': allianz_row['Cliente - Tomador'],
                 'source_data': combined_row['_source'],
                 'source_allianz': allianz_row['_source'],
                 'saldo': saldo,
-                'cartera_total': allianz_row.get('Cartera Total', 0)
+                'cartera_total': allianz_row.get('Cartera Total', 0),
+                'necesita_actualizar_softseguros': combined_row['_source'] == 'CELER'
             })
         
         # CASO 2 ESPECIAL: Softseguros sin anexo (Poliza + Fecha match, pero SIN anexo)
@@ -507,18 +511,89 @@ class AllianzConciliator:
             f.write(f"  [CASO 3] Solo en Allianz: {len(self.results['only_allianz'])}\n")
             f.write(f"  [CASO 3] Solo en Softseguros/Celer: {len(self.results['only_combined'])}\n")
             
-            # Detailed results (simplified)
+            # CASO 1: NO HAN PAGADO - TODAS LAS POLIZAS
+            f.write("\n" + "=" * 80 + "\n")
+            f.write("[CASO 1] NO HAN PAGADO - CARTERA PENDIENTE\n")
+            f.write("(Poliza + Recibo + Fecha coinciden en ambos sistemas)\n")
+            f.write("=" * 80 + "\n")
+            f.write(f"Total: {len(self.results['no_pagado'])} polizas\n\n")
+            
+            if self.results['no_pagado']:
+                for i, record in enumerate(self.results['no_pagado'], 1):
+                    f.write(f"{i}. Poliza: {record['poliza']} | Recibo ({record['source_data']}): {record['recibo']} | Recibo Allianz: {record['recibo_allianz']} | Fecha: {record['fecha_inicio']}\n")
+                    if record['necesita_actualizar_softseguros']:
+                        f.write(f"   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)\n")
+                    f.write(f"   Tomador ({record['source_data']}): {record['tomador']}\n")
+                    f.write(f"   Cliente (Allianz): {record['cliente_allianz']}\n")
+                    f.write(f"   Saldo ({record['source_data']}): ${record['saldo']:,.2f} | Cartera Allianz: ${record['cartera_total']:,.2f}\n\n")
+            else:
+                f.write("No hay polizas en este caso.\n\n")
+            
+            # CASO 2 ESPECIAL: ACTUALIZAR RECIBO EN SOFTSEGUROS - TODAS LAS POLIZAS
             f.write("\n" + "=" * 80 + "\n")
             f.write("[CASO 2 ESPECIAL] ACTUALIZAR RECIBO EN SOFTSEGUROS\n")
+            f.write("(Poliza + Fecha coinciden, pero Softseguros NO tiene NÚMERO ANEXO)\n")
             f.write("=" * 80 + "\n")
-            for i, record in enumerate(self.results['actualizar_recibo_softseguros'], 1):
-                f.write(f"\n{i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}\n")
-                f.write(f"   {record['nota']}\n")
-                f.write(f"   Recibo sugerido (Allianz): {record['recibo_allianz']}\n")
-                f.write(f"   Cliente: {record['tomador']}\n")
+            f.write(f"Total: {len(self.results['actualizar_recibo_softseguros'])} polizas\n\n")
             
+            if self.results['actualizar_recibo_softseguros']:
+                for i, record in enumerate(self.results['actualizar_recibo_softseguros'], 1):
+                    f.write(f"{i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}\n")
+                    f.write(f"   {record['nota']}\n")
+                    f.write(f"   Recibo sugerido (Allianz): {record['recibo_allianz']}\n")
+                    f.write(f"   Cliente: {record['tomador']}\n\n")
+            else:
+                f.write("No hay polizas en este caso.\n\n")
+            
+            # CASO 2: ACTUALIZAR SISTEMA - TODAS LAS POLIZAS
             f.write("\n" + "=" * 80 + "\n")
-            f.write("Reporte completo guardado\n")
+            f.write("[CASO 2] ACTUALIZAR EN SISTEMA\n")
+            f.write("(Poliza + Fecha coinciden, pero DIFERENTE numero de recibo)\n")
+            f.write("=" * 80 + "\n")
+            f.write(f"Total: {len(self.results['actualizar_sistema'])} polizas\n\n")
+            
+            if self.results['actualizar_sistema']:
+                for i, record in enumerate(self.results['actualizar_sistema'], 1):
+                    f.write(f"{i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}\n")
+                    f.write(f"   Recibo ({record['source_data']}): {record['recibo_combinado']} | Recibo Allianz: {record['recibo_allianz']}\n")
+                    f.write(f"   Tomador ({record['source_data']}): {record['tomador']}\n")
+                    f.write(f"   Cliente (Allianz): {record['cliente_allianz']}\n")
+                    f.write(f"   Saldo ({record['source_data']}): ${record['saldo_combinado']:,.2f} | Cartera Allianz: ${record['cartera_allianz']:,.2f}\n\n")
+            else:
+                f.write("No hay polizas en este caso.\n\n")
+            
+            # CASO 3: SOLO EN ALLIANZ - TODAS LAS POLIZAS
+            f.write("\n" + "=" * 80 + "\n")
+            f.write("[CASO 3] CORREGIR POLIZA - Solo en Allianz\n")
+            f.write("(Polizas en Allianz que NO coinciden con ninguna en Softseguros/Celer)\n")
+            f.write("=" * 80 + "\n")
+            f.write(f"Total: {len(self.results['only_allianz'])} polizas\n\n")
+            
+            if self.results['only_allianz']:
+                for i, record in enumerate(self.results['only_allianz'], 1):
+                    f.write(f"{i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}\n")
+                    f.write(f"   Cliente: {record['cliente']}\n")
+                    f.write(f"   Source: {record['source']} | Cartera Total: ${record['cartera_total']:,.2f}\n\n")
+            else:
+                f.write("No hay polizas en este caso.\n\n")
+            
+            # CASO 3: SOLO EN COMBINED - TODAS LAS POLIZAS
+            f.write("\n" + "=" * 80 + "\n")
+            f.write("[CASO 3] CORREGIR POLIZA - Solo en Softseguros/Celer\n")
+            f.write("(Polizas en Softseguros/Celer que NO coinciden con ninguna en Allianz)\n")
+            f.write("=" * 80 + "\n")
+            f.write(f"Total: {len(self.results['only_combined'])} polizas\n\n")
+            
+            if self.results['only_combined']:
+                for i, record in enumerate(self.results['only_combined'], 1):
+                    f.write(f"{i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}\n")
+                    f.write(f"   Tomador: {record['tomador']}\n")
+                    f.write(f"   Source: {record['source']} | Saldo: ${record['saldo']:,.2f}\n\n")
+            else:
+                f.write("No hay polizas en este caso.\n\n")
+            
+            f.write("=" * 80 + "\n")
+            f.write("REPORTE COMPLETO GUARDADO\n")
             f.write("=" * 80 + "\n")
         
         return output_file
@@ -539,48 +614,86 @@ class AllianzConciliator:
             print(f"  - Total Combinado (con prioridad Softseguros): {len(self.combined_df)} registros")
         print(f"  - Total Allianz: {len(self.allianz_df)} registros")
         
-        # CASO 1: NO HAN PAGADO
+        # CASO 1: NO HAN PAGADO - TODAS LAS POLIZAS
         print("\n" + "=" * 80)
         print("[CASO 1] NO HAN PAGADO - CARTERA PENDIENTE")
         print("(Poliza + Recibo + Fecha coinciden en ambos sistemas)")
         print("=" * 80)
-        print(f"Total: {len(self.results['no_pagado'])} polizas")
+        print(f"Total: {len(self.results['no_pagado'])} polizas\n")
         
-        # CASO 2 ESPECIAL: ACTUALIZAR RECIBO EN SOFTSEGUROS
+        if self.results['no_pagado']:
+            for i, record in enumerate(self.results['no_pagado'], 1):
+                print(f"{i}. Poliza: {record['poliza']} | Recibo ({record['source_data']}): {record['recibo']} | Recibo Allianz: {record['recibo_allianz']} | Fecha: {record['fecha_inicio']}")
+                if record['necesita_actualizar_softseguros']:
+                    print(f"   ⚠️  ACTUALIZAR RECIBO EN SOFTSEGUROS (actualmente solo en CELER)")
+                print(f"   Tomador ({record['source_data']}): {record['tomador']}")
+                print(f"   Cliente (Allianz): {record['cliente_allianz']}")
+                print(f"   Saldo ({record['source_data']}): ${record['saldo']:,.2f} | Cartera Allianz: ${record['cartera_total']:,.2f}\n")
+        else:
+            print("No hay polizas en este caso.\n")
+        
+        # CASO 2 ESPECIAL: ACTUALIZAR RECIBO EN SOFTSEGUROS - TODAS LAS POLIZAS
         print("\n" + "=" * 80)
         print("[CASO 2 ESPECIAL] ACTUALIZAR RECIBO EN SOFTSEGUROS")
         print("(Poliza + Fecha coinciden, pero Softseguros NO tiene NÚMERO ANEXO)")
         print("=" * 80)
-        print(f"Total: {len(self.results['actualizar_recibo_softseguros'])} polizas")
+        print(f"Total: {len(self.results['actualizar_recibo_softseguros'])} polizas\n")
         
         if self.results['actualizar_recibo_softseguros']:
-            print("\nPrimeras 10:")
-            for i, record in enumerate(self.results['actualizar_recibo_softseguros'][:10], 1):
-                print(f"\n  {i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}")
-                print(f"     ⚠️  {record['nota']}")
-                print(f"     Recibo sugerido (Allianz): {record['recibo_allianz']}")
-                print(f"     Cliente: {record['tomador']}")
+            for i, record in enumerate(self.results['actualizar_recibo_softseguros'], 1):
+                print(f"{i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}")
+                print(f"   {record['nota']}")
+                print(f"   Recibo sugerido (Allianz): {record['recibo_allianz']}")
+                print(f"   Cliente: {record['tomador']}\n")
+        else:
+            print("No hay polizas en este caso.\n")
         
-        # CASO 2: ACTUALIZAR SISTEMA
+        # CASO 2: ACTUALIZAR SISTEMA - TODAS LAS POLIZAS
         print("\n" + "=" * 80)
         print("[CASO 2] ACTUALIZAR EN SISTEMA")
         print("(Poliza + Fecha coinciden, pero DIFERENTE numero de recibo)")
         print("=" * 80)
-        print(f"Total: {len(self.results['actualizar_sistema'])} polizas")
+        print(f"Total: {len(self.results['actualizar_sistema'])} polizas\n")
         
-        # CASO 3: CORREGIR POLIZA - Solo en Allianz
+        if self.results['actualizar_sistema']:
+            for i, record in enumerate(self.results['actualizar_sistema'], 1):
+                print(f"{i}. Poliza: {record['poliza']} | Fecha: {record['fecha_inicio']}")
+                print(f"   Recibo ({record['source_data']}): {record['recibo_combinado']} | Recibo Allianz: {record['recibo_allianz']}")
+                print(f"   Tomador ({record['source_data']}): {record['tomador']}")
+                print(f"   Cliente (Allianz): {record['cliente_allianz']}")
+                print(f"   Saldo ({record['source_data']}): ${record['saldo_combinado']:,.2f} | Cartera Allianz: ${record['cartera_allianz']:,.2f}\n")
+        else:
+            print("No hay polizas en este caso.\n")
+        
+        # CASO 3: CORREGIR POLIZA - Solo en Allianz - TODAS LAS POLIZAS
         print("\n" + "=" * 80)
         print("[CASO 3] CORREGIR POLIZA - Solo en Allianz")
         print("(Polizas en Allianz que NO coinciden con ninguna en Softseguros/Celer)")
         print("=" * 80)
-        print(f"Total: {len(self.results['only_allianz'])} polizas")
+        print(f"Total: {len(self.results['only_allianz'])} polizas\n")
         
-        # CASO 3: CORREGIR POLIZA - Solo en Combined
+        if self.results['only_allianz']:
+            for i, record in enumerate(self.results['only_allianz'], 1):
+                print(f"{i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}")
+                print(f"   Cliente: {record['cliente']}")
+                print(f"   Source: {record['source']} | Cartera Total: ${record['cartera_total']:,.2f}\n")
+        else:
+            print("No hay polizas en este caso.\n")
+        
+        # CASO 3: CORREGIR POLIZA - Solo en Combined - TODAS LAS POLIZAS
         print("\n" + "=" * 80)
         print("[CASO 3] CORREGIR POLIZA - Solo en Softseguros/Celer")
         print("(Polizas en Softseguros/Celer que NO coinciden con ninguna en Allianz)")
         print("=" * 80)
-        print(f"Total: {len(self.results['only_combined'])} polizas")
+        print(f"Total: {len(self.results['only_combined'])} polizas\n")
+        
+        if self.results['only_combined']:
+            for i, record in enumerate(self.results['only_combined'], 1):
+                print(f"{i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}")
+                print(f"   Tomador: {record['tomador']}")
+                print(f"   Source: {record['source']} | Saldo: ${record['saldo']:,.2f}\n")
+        else:
+            print("No hay polizas en este caso.\n")
         
         # Match rate
         total_combined = len(set(self.combined_df['_match_key_partial']))

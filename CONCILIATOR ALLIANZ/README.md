@@ -2,22 +2,48 @@
 
 ## 📋 Descripción del Proyecto
 
-Sistema automatizado de conciliación para reportes de cartera de la compañía de seguros **Allianz**. Este sistema procesa los informes de intermediario para analizar la cartera pendiente, comisiones y vencimientos de pólizas.
+Sistema automatizado de conciliación multi-fuente para reportes de cartera de la compañía de seguros **Allianz**. Este sistema integra datos de **Softseguros** (2025-2026) y **Celer** (2000-2026) con los informes de intermediario de Allianz, aplicando lógica de priorización y normalización inteligente para identificar cartera pendiente, discrepancias y pólizas que requieren actualización.
 
 ## 🎯 Objetivo
 
-Automatizar el proceso de conciliación de la cartera de seguros Allianz, procesando archivos `.xlsb` (Excel Binary Workbook) que contienen información detallada de pólizas, comisiones, antigüedad de cartera y vencimientos.
+Automatizar el proceso de conciliación de la cartera de seguros Allianz mediante:
+- **Integración dual-source**: Combina datos de Softseguros y Celer con priorización inteligente
+- **Normalización avanzada**: Tolerancia de 9 dígitos en números de recibo
+- **Detección de casos especiales**: Identifica registros sin NÚMERO ANEXO en Softseguros
+- **Clasificación automática**: 3 casos de conciliación con alertas específicas
+- **Reportes completos**: Consola y archivos TXT con todos los detalles de pólizas
 
 ## 📊 Estructura de Datos de Entrada
 
-### Carpetas de Entrada
+### Carpetas y Archivos de Entrada
 
 ```
-INPUT/
-├── COLECTIVAS/     # Seguros colectivos
-│   └── Informe Intermediario UNION AGENCIA DE SEGUROS LTDA_1701932_11_Jan_2026 (1).xlsb
-└── PERSONAS/       # Seguros de personas
-    └── Informe Intermediario UNION AGENCIA DE SEGUROS LTDA_1701932_11_Jan_2026 (2).xlsb
+DATA SOFTSEGUROS/
+└── produccion_total.xlsx           # Excel con 62 columnas, 3,434 registros totales
+    ├── NÚMERO PÓLIZA               # 648 registros Allianz (filtrados)
+    ├── NÚMERO ANEXO                # Solo 38 registros tienen anexo (5.9%)
+    ├── FECHA INICIO                # Para matching
+    ├── ASEGURADORA                 # Filtro: "ALLIANZ"
+    └── TOTAL                       # Saldo
+
+TRANSFORMER CELER/output/
+└── Cartera_Transformada_XML_*.xlsx # Celer transformado, 847 registros totales
+    ├── Poliza                      # 94 registros Allianz (filtrados)
+    ├── Documento                   # Recibo/anexo
+    ├── F_Inicio                    # Para matching
+    ├── Aseguradora                 # Filtro: contiene "ALLIANZ"
+    └── Saldo                       # Saldo pendiente
+
+ALLIANZ PERSONAS/
+└── Informe Intermediario*.xlsb    # 60 registros
+    ├── Póliza                      # Número de póliza
+    ├── Recibo                      # Número de recibo
+    ├── F.INI VIG                   # Fecha inicio vigencia
+    ├── Cliente - Tomador           # Nombre cliente
+    └── Cartera Total               # Monto total
+
+ALLIANZ COLECTIVAS/
+└── Informe Intermediario*.xlsb    # Seguros colectivos (disponible)
 ```
 
 ### Formato de Archivo
@@ -260,7 +286,7 @@ MAIN PROJECT/
 
 ## 🚀 Funcionalidades Implementadas
 
-### Sprint 1: Lectura y Validación ✅
+### ✅ Sprint 1: Lectura y Validación de Allianz (COMPLETADO)
 - [x] Lector de archivos `.xlsb` con `pyxlsb`
 - [x] Validación de estructura de columnas (23 columnas esperadas)
 - [x] Detección automática de hojas "Detalle"
@@ -269,58 +295,116 @@ MAIN PROJECT/
 - [x] Validación de tipos de datos
 - [x] Logs de errores y advertencias
 - [x] Normalización de números de póliza (elimina ceros a la izquierda)
-- [x] Tests automatizados: 3/3 muestras verificadas en ambos sistemas
+- [x] Tests automatizados: 3/3 muestras verificadas
 
-### Sprint 2: Sistema de Conciliación ✅
-- [x] Programa principal `main.py` con clase `AllianzConciliator`
-- [x] Menú interactivo para seleccionar origen de datos (PERSONAS/COLECTIVAS/AMBOS)
-- [x] Carga y normalización automática de archivos Celer y Allianz
-- [x] Sistema de match key: `{poliza_normalizada}_{recibo_normalizado}`
-- [x] Clasificación en 3 categorías:
-  - **Cartera Pendiente**: Pólizas en ambos sistemas (20 registros)
-  - **[ALERTA] Pagadas - Faltan en sistema**: En Allianz pero no en Celer (1010 registros)
-  - **[INFO] Solo en Celer**: En Celer pero no en Allianz (1024 registros)
-- [x] Reporte detallado en consola con información de cliente, cartera y comisiones
-- [x] Estadísticas de coincidencia y tasas de match
+### ✅ Sprint 2: Sistema de Conciliación Multi-Fuente (COMPLETADO)
+- [x] **Integración Softseguros + Celer**:
+  - Carga y normalización de produccion_total.xlsx (Softseguros)
+  - Carga de Cartera_Transformada XML (Celer)
+  - Filtro automático: solo registros "ALLIANZ"
+  - Priorización: Softseguros > Celer (período 2025-2026)
+  - Eliminación de duplicados: 6 registros removidos de Celer
 
-### Sprint 3: Análisis de Cartera (Pendiente)
+- [x] **Sistema de Matching Inteligente**:
+  - Match key completo: `{poliza}_{recibo}_{fecha}`
+  - Match key parcial: `{poliza}_{fecha}`
+  - Normalización de recibos: últimos 9 dígitos (tolerancia Allianz)
+  - Normalización de pólizas: elimina ceros a la izquierda
+
+- [x] **Clasificación en 3 Casos**:
+  - **CASO 1 - No han pagado**: Match completo (poliza + recibo + fecha)
+    - Marca registros de CELER para actualizar en Softseguros
+    - Muestra ambos recibos cuando coinciden
+  - **CASO 2 ESPECIAL - Actualizar recibo en Softseguros**: 
+    - Poliza + fecha coinciden, pero Softseguros NO tiene NÚMERO ANEXO
+    - Sugiere recibo de Allianz para actualización
+  - **CASO 2 - Actualizar sistema**: Match parcial (poliza + fecha, recibo diferente)
+  - **CASO 3 - Corregir póliza**: 
+    - Solo en Allianz (no en Softseguros/Celer)
+    - Solo en Softseguros/Celer (no en Allianz)
+
+- [x] **Menú Interactivo**:
+  - Selección de fuente de datos: Softseguros / Celer / Ambos
+  - Selección de Allianz: PERSONAS / COLECTIVAS / Ambos
+  - Auto-detección de archivos con selección manual
+
+- [x] **Reportes Completos**:
+  - Consola: TODAS las pólizas de cada caso con detalles
+  - Archivo TXT: Reporte completo con timestamp
+  - Información: Tomador, Cliente Allianz, Saldos, Source
+
+### 🔜 Sprint 3: Análisis de Cartera y Automatización (PLANEADO)
+- [ ] Exportación a Excel con hojas separadas por caso
+- [ ] Actualización automática de NÚMERO ANEXO en Softseguros
+- [ ] Dashboard con métricas visuales
 - [ ] Cálculo de totales por aging (1-30, 31-90, etc.)
-- [ ] Resumen por macroramo
-- [ ] Resumen por sucursal/regional
+- [ ] Resumen por macroramo y regional
 - [ ] Identificación de pólizas críticas (180+ días)
-- [ ] Estadísticas de comisiones vencidas
+- [ ] Sistema de alertas por email
 
-### Sprint 4: Reportes y Exportación (Pendiente)
-- [ ] Exportación de resultados a Excel (.xlsx)
+### 📅 Sprint 4: Reportes Avanzados y Exportación (FUTURO)
+- [ ] Exportación de resultados a Excel multi-hoja
 - [ ] Generación de archivo consolidado
-- [ ] Dashboard de métricas clave
-- [ ] Resumen ejecutivo
+- [ ] Dashboard interactivo de métricas clave
+- [ ] Resumen ejecutivo PDF
 - [ ] Alertas automáticas para pólizas críticas
+- [ ] Integración con API de Softseguros
 
 ## 📈 Métricas Clave
 
-### Resultados de Conciliación Actual (Enero 2026)
+### Resultados de Conciliación Actual (Enero 29, 2026)
 
 **Datos procesados:**
-- Total Celer: 1,044 registros
-- Total Allianz: 1,030 registros (77 PERSONAS + 953 COLECTIVAS)
+- **Softseguros**: 648 registros Allianz (de 3,434 totales)
+  - Con NÚMERO ANEXO: 38 registros (5.9%)
+  - Sin NÚMERO ANEXO: 610 registros (94.1%)
+- **Celer**: 94 registros Allianz (de 847 totales)
+- **Combined**: 736 registros únicos (6 duplicados removidos con prioridad Softseguros)
+- **Allianz PERSONAS**: 60 registros
 
-**Clasificación:**
-1. **Cartera Pendiente** (20 pólizas): Existen en ambos sistemas, requieren conciliación
-2. **[ALERTA] Pagadas - Faltan en sistema** (1,010 pólizas): Clientes pagaron a Allianz pero no están actualizados en Celer
-3. **Solo en Celer** (1,024 pólizas): No encontradas en reporte Allianz
+**Clasificación de Conciliación:**
+1. **CASO 1 - No han pagado** (17 pólizas): 
+   - Match completo: poliza + recibo + fecha coinciden
+   - 11 de CELER → requieren actualización en Softseguros
+   - 6 de SOFTSEGUROS → ya actualizados
+
+2. **CASO 2 ESPECIAL** (8 pólizas):
+   - Poliza + fecha coinciden en Softseguros y Allianz
+   - Softseguros NO tiene NÚMERO ANEXO registrado
+   - Sistema sugiere recibo de Allianz para actualización
+
+3. **CASO 2 - Actualizar sistema** (10 pólizas):
+   - Poliza + fecha coinciden
+   - Recibo diferente entre sistemas
+   - Requiere investigación y actualización
+
+4. **CASO 3 - Solo en Allianz** (32 pólizas):
+   - Pólizas reportadas por Allianz no encontradas en Softseguros/Celer
+   - Posibles pagos directos o nuevas pólizas
+
+5. **CASO 3 - Solo en Combined** (98 pólizas):
+   - Pólizas en Softseguros/Celer no reportadas por Allianz
+   - Posibles pagos completados o pólizas de otras fechas
 
 **Tasas de coincidencia:**
-- Allianz: 1.94% (20/1030)
-- Celer: 1.92% (20/1044)
+- **Match Rate**: 4.90% (35 de 736 registros combinados)
+- **Desglose de matches**:
+  - Full match (CASO 1): 17 pólizas (2.31%)
+  - Partial match (CASO 2): 10 pólizas (1.36%)
+  - Special case (CASO 2 ESPECIAL): 8 pólizas (1.09%)
 
-### Métricas por Origen de Datos
+**Calidad de Datos Softseguros:**
+- **NÚMERO ANEXO presente**: 5.9% (38/648)
+- **NÚMERO ANEXO ausente**: 94.1% (610/648)
+- **Impacto**: Mayor tasa de CASO 2 ESPECIAL por datos incompletos
 
-| Origen | Registros | Cartera Pendiente | Alertas | Solo en Celer | Match Rate |
-|--------|-----------|-------------------|---------|---------------|------------|
-| PERSONAS | 77 | 20 | 57 | 1,024 | 25.97% |
-| COLECTIVAS | 953 | 0 | 953 | 1,044 | 0.00% |
-| AMBOS | 1,030 | 20 | 1,010 | 1,024 | 1.94% |
+### Resumen de Duplicados Removidos
+
+| Período | Registros Softseguros | Registros Celer | Duplicados | Combined Final |
+|---------|----------------------|-----------------|------------|----------------|
+| 2025-2026 | 648 | 94 | 6 | 736 |
+
+**Lógica de priorización**: Softseguros > Celer para período de overlap (2025-2026)
 
 ## ⚠️ Consideraciones Especiales
 
@@ -362,20 +446,42 @@ cd "CONCILIATOR ALLIANZ"
 python main.py
 ```
 
-### Menú Interactivo
+### Menú Interactivo - Nivel 1: Selección de Fuente de Datos
 
-Al ejecutar, aparecerá un menú de selección:
+Al ejecutar, aparecerá el primer menú:
 
 ```
 ================================================================================
-CON~~**Sistema de conciliación completo**~~: ✅ Completado
-3. ~~**Normalización de números de póliza**~~: ✅ Completado
-4. ~~**Menú interactivo de selección**~~: ✅ Completado
-5. **Exportación a Excel**: Guardar resultados en archivo .xlsx
-6. **Sistema de filtros**: Filtrar por monto, fecha, o estado
-7. **Dashboard visual**: Gráficos de distribución y aging
-8. **Automatización**: Programar ejecución mensual
-9. **Notificaciones**: Email alerts para pólizas críticas
+CONCILIADOR ALLIANZ - SELECCIÓN DE FUENTE DE DATOS
+================================================================================
+
+¿De dónde desea obtener los datos para conciliar?
+
+  1. SOFTSEGUROS solamente
+  2. CELER solamente
+  3. AMBOS (SOFTSEGUROS + CELER con prioridad a Softseguros)
+
+================================================================================
+
+Ingrese su opcion (1-3): _
+```
+
+**Opciones:**
+- **Opción 1**: Conciliar solo con datos de Softseguros (produccion_total.xlsx)
+- **Opción 2**: Conciliar solo con datos de Celer (Cartera_Transformada XML)
+- **Opción 3**: Conciliar con ambas fuentes (recomendado - prioriza Softseguros)
+
+### Menú Interactivo - Nivel 2: Selección de Datos Allianz
+
+Después de seleccionar la fuente, aparece el segundo menú:
+
+```
+================================================================================
+CONCILIADOR ALLIANZ - SELECCIÓN DE DATOS ALLIANZ
+================================================================================
+
+Seleccione que datos de Allianz desea procesar:
+
   1. PERSONAS solamente
   2. COLECTIVAS solamente
   3. AMBOS (PERSONAS + COLECTIVAS)
@@ -383,53 +489,74 @@ CON~~**Sistema de conciliación completo**~~: ✅ Completado
 ================================================================================
 
 Ingrese su opcion (1-3): _
-```Sprint 2 completado ✅ | Tests pasando 3/3 ✅  
-**Sistema**: Producción - Conciliador funcional con menú interactivo
+```
 
-### Salida del Programa
+**Opciones:**
+- **Opción 1**: Procesar solo seguros de PERSONAS (60 registros)
+- **Opción 2**: Procesar solo seguros COLECTIVAS
+- **Opción 3**: Procesar ambos tipos de seguros
 
-El programa genera un reporte detallado que incluye:
+### Selección de Archivos
 
-1. **Resumen**: Totales de registros Celer y Allianz
-2. **Cartera Pendiente**: Listado de pólizas en ambos sistemas con:
-   - Número de póliza y recibo
-   - Nombre del cliente (Celer vs Allianz)
-   - Montos de cartera total, vencida y comisión
-3. **[ALERTA] Pagadas - Faltan en sistema**: Pólizas que requieren actualización
-4. **[INFO] Solo en Celer**: Pólizas no encontradas en Allianz
-5. **Estadísticas**: Totales y tasas de coincidencia
+El sistema detecta automáticamente los archivos disponibles en cada carpeta y permite seleccionarlos:
 
-### 1. test_sample_data.py
-- **Objetivo**: Verificar que las 3 muestras del README existen en los archivos de entrada
-- **Resultado**: ✅ 3/3 muestras encontradas en PERSONAS
-- **Cobertura**: Validación de datos documentados
+1. **Archivo Softseguros** (si aplica): produccion_total.xlsx
+2. **Archivo Celer** (si aplica): Cartera_Transformada_XML_*.xlsx
+3. **Archivo Allianz PERSONAS** (si aplica): Informe Intermediario*.xlsb
+4. **Archivo Allianz COLECTIVAS** (si aplica): Informe Intermediario*.xlsb
 
-### 2. test_readme_samples.py
-- **Objetivo**: Cross-check entre archivos Celer y Allianz
-- **Resultado**: ✅ 3/3 muestras encontradas en AMBOS sistemas
-- **Features**: Normalización de números con ceros a la izquierda
+### Ejemplo de Ejecución Completa
 
-### 3. test_reconciliation.py
-- **Objetivo**: Reconciliación completa Celer ↔ Allianz
-- **Resultado**: 2 coincidencias directas, 1042 solo en Celer, 1028 solo en Allianz
-- **Match Rate**: 0.19% (indica que Celer contiene múltiples aseguradoras)
+```bash
+$ python main.py
 
-## 🎓 Próximos Pasos
+# Seleccionar: 3 (AMBOS - Softseguros + Celer)
+# Seleccionar: 1 (PERSONAS solamente)
+# Seleccionar archivos automáticamente detectados
 
-1. ~~**Implementar lector de `.xlsb`**~~: ✅ Completado
-2. **Crear esquemas Pydantic**: Definir modelos de validación para las 23 columnas
-3. **Desarrollar validadores**: Verificar tipos, rangos y consistencia
-4. **Construir transformador**: Limpiar, normalizar y enriquecer datos
-5. **Crear sistema de reportes**: Generar outputs consolidados
-6. **GUI para carga de archivos**: Interfaz para seleccionar archivos dinámicamente
+# Output:
+================================================================================
+INICIANDO CONCILIACIÓN ALLIANZ (BOTH)
+================================================================================
+✓ Softseguros: 648 registros Allianz (38 con anexo, 610 sin anexo)
+✓ Celer: 94 registros Allianz
+✓ Combined: 736 registros (6 duplicados removidos)
+✓ Allianz PERSONAS: 60 registros
+
+================================================================================
+REPORTE DE CONCILIACION ALLIANZ (BOTH)
+================================================================================
+[CASO 1] NO HAN PAGADO - CARTERA PENDIENTE: 17 pólizas
+[CASO 2 ESPECIAL] ACTUALIZAR RECIBO EN SOFTSEGUROS: 8 pólizas
+[CASO 2] ACTUALIZAR EN SISTEMA: 10 pólizas
+[CASO 3] SOLO EN ALLIANZ: 32 pólizas
+[CASO 3] SOLO EN SOFTSEGUROS/CELER: 98 pólizas
+
+Tasa de coincidencia: 4.90%
+
+✅ Reporte guardado en: output\Reporte_Conciliacion_20260129_093107.txt
+```
 
 ## 📞 Contacto y Soporte
 
 - **Empresa**: SEGUROS UNIÓN
 - **Proyecto**: Automatizaciones de Conciliación
-- **Fecha de inicio**: Enero 2026
+- **Última actualización**: Enero 29, 2026
 
 ---
 
-**Última actualización**: 20 de enero de 2026  
-**Estado**: Sprint 1 completado ✅ | Tests pasando 3/3 ✅
+**Última actualización**: 29 de enero de 2026  
+**Estado**: Sprint 2 completado ✅ | Sistema dual-source operativo ✅  
+**Versión**: 2.0.0 - Conciliador Multi-Fuente con Alertas Inteligentes
+
+### 🎉 Logros del Sprint 2
+
+✅ **Integración Dual-Source** - Softseguros + Celer con priorización automática  
+✅ **Matching Inteligente** - 3 casos de conciliación con lógica avanzada  
+✅ **Normalización Avanzada** - Tolerancia de 9 dígitos en recibos  
+✅ **Detección Especial** - Identifica registros sin NÚMERO ANEXO  
+✅ **Reportes Completos** - Consola + TXT con todas las pólizas listadas  
+✅ **Alertas Inteligentes** - Marca CELER para actualizar en Softseguros  
+✅ **Sistema de Menús** - Selección interactiva de fuentes y archivos  
+
+**Sistema**: ✅ Producción - Conciliador funcional con 165 pólizas procesadas (Ene 29, 2026)

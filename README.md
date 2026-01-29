@@ -455,11 +455,11 @@ For questions or issues:
 - Contact: SEGUROS UNIÓN - Automation Team
 
 ---
-✅ **Production Ready - Initial Release**
-**Last Updated**: January 16, 2026  
-**Version**: 1.0.0
+✅ **Production Ready - Current Release**
+**Last Updated**: January 29, 2026  
+**Version**: 2.0.0
 
-### ✅ Sprint 1 - Completed Features (DONE)
+### ✅ Sprint 1 - Data Transformation (COMPLETED)
 - [x] Read Celer exports (49 columns, row 5 start)
 - [x] Column mapping configuration (22 mapped + 1 generated)
 - [x] Transformation engine with validation
@@ -471,25 +471,57 @@ For questions or issues:
 - [x] Auto-detect input files from DATA CELER folder
 - [x] Formatted Excel output with styled headers
 
-### 📋 Current Capabilities
-- **Input:** CarteraPendiente.xlsx from Celer (1,044 rows tested)
-- **Output:** 23-column standardized format (A-W)
-- **Performance:** ~1,000 rows/second
-- **Data Quality:** 100% row preservation, deterministic output
+### ✅ Sprint 2 - Allianz Conciliation System (COMPLETED)
+- [x] Dual-source data integration (Softseguros + Celer)
+- [x] Data source prioritization (Softseguros > Celer, 2025-2026 overlap)
+- [x] 9-digit receipt normalization for tolerance matching
+- [x] Three-tier matching logic:
+  - Full match: poliza + recibo + fecha
+  - Partial match: poliza + fecha (different receipt)
+  - Special case: Softseguros records without NÚMERO ANEXO
+- [x] Interactive console menu (data source selection)
+- [x] Comprehensive reporting (console + TXT file)
+- [x] Duplicate removal with Softseguros priority
+- [x] Allianz filter: only "ALLIANZ SEGUROS S.A" records
 
-### 🔜 Sprint 2 - Planned Features
-- [ ] Column A generation logic (custom business rule)
-- [ ] Data validation rules (email format, phone format)
-- [ ] Duplicate detection
-- [ ] Summary statistics report
-- [ ] Data quality metrics dashboard
+### 📋 Current Capabilities
+
+**TRANSFORMER CELER:**
+- **Input:** CarteraPendiente.xlsx (847 rows → 94 Allianz after filter)
+- **Output:** 23-column standardized format
+- **Performance:** ~1,000 rows/second
+- **Data Quality:** 100% row preservation
+
+**CONCILIATOR ALLIANZ:**
+- **Data Sources:** 
+  - Softseguros: produccion_total.xlsx (648 Allianz records)
+  - Celer: Transformed XML (94 Allianz records)
+  - Combined: 736 unique records (6 duplicates removed)
+- **Allianz Sources:** PERSONAS (60 records), COLECTIVAS available
+- **Match Types:**
+  - CASO 1: No han pagado (full match)
+  - CASO 2: Actualizar sistema (partial match, different receipt)
+  - CASO 2 ESPECIAL: Actualizar recibo en Softseguros (no NÚMERO ANEXO)
+  - CASO 3: Solo en Allianz / Solo en Combined
+- **Features:**
+  - Receipt tolerance: last 9 digits comparison
+  - Softseguros priority over Celer
+  - CELER records marked for Softseguros update
+  - Complete policy details in reports
+
+### 🔜 Sprint 3 - Planned Enhancements
+- [ ] Excel export with formatted sheets
+- [ ] Historical trend analysis
+- [ ] Automated NÚMERO ANEXO updates
+- [ ] Email notifications for critical cases
+- [ ] Dashboard with visual metrics
 
 ### 📅 Future Sprints - Backlog
 - [ ] Web UI for file upload
 - [ ] Batch processing multiple files
-- [ ] Historical data comparison
-- [ ] Integration with downstream systems
+- [ ] Integration with Softseguros API
 - [ ] Automated scheduling/batch jobs
+- [ ] Machine learning for receipt matching
 
 ---
 
@@ -508,21 +540,38 @@ All features verified:
 
 ## 📊 Production Metrics
 
-**Sprint 1 Delivery:**
+**Sprint 2 Delivery (Conciliator Allianz):**
+- **Completion Date:** January 29, 2026
+- **Last Run:** January 29, 2026 09:31:07
+- **Data Sources Integrated:** 2 (Softseguros + Celer)
+- **Input Rows Processed:**
+  - Softseguros: 648 Allianz records (from 3,434 total)
+  - Celer: 94 Allianz records (from 847 total)
+  - Combined: 736 unique records (6 duplicates removed)
+- **Allianz Rows:** 60 records (PERSONAS)
+- **Conciliation Results:**
+  - CASO 1 (No han pagado): 17 policies
+  - CASO 2 ESPECIAL (Sin anexo): 8 policies
+  - CASO 2 (Diferentes recibos): 10 policies
+  - CASO 3 Solo Allianz: 32 policies
+  - CASO 3 Solo Combined: 98 policies
+- **Match Rate:** 4.90%
+- **Processing Time:** <1 second
+- **Output Format:** TXT report + console display (all policies listed)
+- **Data Integrity:** 100% policy tracking with dual-source validation
+
+**Sprint 1 Metrics (Transformer Celer):**
 - **Completion Date:** January 16, 2026
-- **Last Run:** January 16, 2026 17:01:17
-- **Input Rows Processed:** 1,044
-- **Output Rows Generated:** 1,044
+- **Input Rows:** 847 (CarteraPendiente.xml)
+- **Output Rows:** 94 (Allianz filtered)
 - **Processing Time:** ~1 second
 - **Success Rate:** 100%
-- **Output Format:** 23 columns with descriptive headers
-- **Data Integrity:** 100% row preservation
 
 ---
 
 ## 🎯 Sprint Summary
 
-### Sprint 1 Achievements
+### Sprint 1 Achievements (Transformer Celer)
 ✅ **Core Transformation Engine** - Fully functional Celer data processor  
 ✅ **Column Mapping System** - 49 input → 23 output columns  
 ✅ **Production Ready** - Handles 1,000+ rows with robust error handling  
@@ -531,9 +580,21 @@ All features verified:
 
 **Sprint 1 Status:** ✅ COMPLETE - Ready for production use!
 
+### Sprint 2 Achievements (Conciliator Allianz)
+✅ **Dual-Source Integration** - Softseguros + Celer with intelligent prioritization  
+✅ **Smart Matching Engine** - 3-tier matching logic with 9-digit receipt tolerance  
+✅ **Special Case Handling** - Detects Softseguros records missing NÚMERO ANEXO  
+✅ **Interactive Console** - Menu-driven data source selection  
+✅ **Comprehensive Reporting** - All policies listed in console and TXT file  
+✅ **CELER Update Alerts** - Identifies policies needing Softseguros updates  
+✅ **Duplicate Management** - Removes 6 duplicates with Softseguros priority  
+✅ **Allianz Filtering** - Processes only "ALLIANZ SEGUROS S.A" records  
+
+**Sprint 2 Status:** ✅ COMPLETE - Production-grade conciliation system!
+
 ---
 
-**Production-grade Excel automation delivered
+**Production-grade insurance data automation delivered! 🚀**
 **Sprint 1 Status:** ✅ COMPLETE - Ready for production use!
 
 ---

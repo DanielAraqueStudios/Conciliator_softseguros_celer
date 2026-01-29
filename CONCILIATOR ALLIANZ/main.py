@@ -592,37 +592,6 @@ class AllianzConciliator:
             print(f"\nTasa de coincidencia: {match_rate:.2f}%")
         
         print("\n" + "=" * 80)
-        print("=" * 80)
-        print(f"Total: {len(self.results['only_celer'])} polizas")
-        
-        if len(self.results['only_celer']) > 0:
-            print(f"\nPrimeras 10 polizas:")
-            for i, record in enumerate(self.results['only_celer'][:10], 1):
-                print(f"  {i}. Poliza: {record['poliza']} | Recibo: {record['recibo']} | Fecha: {record['fecha_inicio']}")
-                print(f"     Tomador: {record['tomador']}")
-                print(f"     Saldo: ${record['saldo']:,.0f}")
-        
-        # Statistics
-        print("\n" + "=" * 80)
-        print("ESTADISTICAS DE CONCILIACION")
-        print("=" * 80)
-        
-        total_no_pagado = len(self.results['no_pagado'])
-        total_actualizar = len(self.results['actualizar_sistema'])
-        total_only_allianz = len(self.results['only_allianz'])
-        total_only_celer = len(self.results['only_celer'])
-        
-        print(f"\n[CASO 1] No han pagado (cartera pendiente): {total_no_pagado}")
-        print(f"[CASO 2] Actualizar en sistema (diferente recibo): {total_actualizar}")
-        print(f"[CASO 3] Corregir poliza - Solo en Allianz: {total_only_allianz}")
-        print(f"[CASO 3] Corregir poliza - Solo en Celer: {total_only_celer}")
-        
-        total_matched = total_no_pagado + total_actualizar
-        if len(self.allianz_df) > 0:
-            match_rate = (total_matched / len(set(self.allianz_df['_match_key_full']))) * 100
-            print(f"\nTasa de coincidencia total: {match_rate:.2f}%")
-        
-        print("\n" + "=" * 80)
     
     def run(self):
         """Execute conciliation workflow"""

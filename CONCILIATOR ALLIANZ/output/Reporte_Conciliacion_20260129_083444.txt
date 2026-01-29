@@ -1,0 +1,27 @@
+================================================================================
+REPORTE DE CONCILIACION ALLIANZ (CELER)
+================================================================================
+
+Fecha de generacion: 2026-01-29 08:34:44
+Fuente de datos: CELER
+Fuente de datos Allianz: PERSONAS
+
+RESUMEN:
+  - Total Celer: 94 registros
+  - Total Combinado: 94 registros
+  - Total Allianz: 60 registros
+
+RESULTADOS:
+  [CASO 1] No han pagado: 11
+  [CASO 2 ESPECIAL] Actualizar recibo en Softseguros: 0
+  [CASO 2] Actualizar sistema: 4
+  [CASO 3] Solo en Allianz: 45
+  [CASO 3] Solo en Softseguros/Celer: 79
+
+================================================================================
+[CASO 2 ESPECIAL] ACTUALIZAR RECIBO EN SOFTSEGUROS
+================================================================================
+
+================================================================================
+Reporte completo guardado
+================================================================================

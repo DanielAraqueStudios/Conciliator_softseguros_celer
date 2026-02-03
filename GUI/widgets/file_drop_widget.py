@@ -37,22 +37,25 @@ class FileDropWidget(QFrame):
         layout = QVBoxLayout()
         layout.setAlignment(Qt.AlignmentFlag.AlignCenter)
         
-        # Icon label (you can add an icon here)
+        # Icon label
         self.icon_label = QLabel("📁")
         self.icon_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.icon_label.setStyleSheet("font-size: 48pt; background: transparent; border: none;")
+        self.icon_label.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents, True)
         
         # Text label
         self.text_label = QLabel("Arrastra y suelta archivos aquí")
         self.text_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.text_label.setProperty("subheading", True)
         self.text_label.setStyleSheet("background: transparent; border: none;")
+        self.text_label.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents, True)
         
         # OR label
         or_label = QLabel("o")
         or_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         or_label.setProperty("secondary", True)
         or_label.setStyleSheet("background: transparent; border: none; margin: 5px;")
+        or_label.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents, True)
         
         # Browse button
         self.browse_button = QPushButton("📂 Seleccionar Archivo")
@@ -80,6 +83,7 @@ class FileDropWidget(QFrame):
         self.formats_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         self.formats_label.setProperty("secondary", True)
         self.formats_label.setStyleSheet("background: transparent; border: none;")
+        self.formats_label.setAttribute(Qt.WidgetAttribute.WA_TransparentForMouseEvents, True)
         
         layout.addWidget(self.icon_label)
         layout.addWidget(self.text_label)
@@ -115,18 +119,22 @@ class FileDropWidget(QFrame):
         """Handle drag enter event"""
         if event.mimeData().hasUrls():
             # Check if at least one file has valid extension
+            valid = False
             for url in event.mimeData().urls():
                 file_path = Path(url.toLocalFile())
                 if file_path.suffix.lower() in self.accepted_extensions:
-                    event.acceptProposedAction()
-                    self.setStyleSheet("""
-                        FileDropWidget {
-                            border: 2px solid #3b82f6;
-                            border-radius: 8px;
-                            background-color: #363654;
-                        }
-                    """)
-                    return
+                    valid = True
+                    break
+            
+            if valid:
+                event.acceptProposedAction()
+                self.setStyleSheet("""
+                    FileDropWidget {
+                        border: 2px solid #3b82f6;
+                        border-radius: 8px;
+                        background-color: #363654;
+                    }
+                """)
                     
     def dragLeaveEvent(self, event):
         """Handle drag leave event"""
@@ -146,7 +154,8 @@ class FileDropWidget(QFrame):
         """Handle drop event"""
         if not event.mimeData().hasUrls():
             return
-            
+        
+        event.acceptProposedAction()
         files = [url.toLocalFile() for url in event.mimeData().urls()]
         
         for file_path in files:

@@ -12,7 +12,7 @@ from datetime import datetime
 
 # Add parent directory to import main reader
 sys.path.insert(0, str(Path(__file__).parent.parent))
-from main import read_allianz_file
+from main import read_allianz_file  # Import from root main.py
 
 # Configure logging
 logging.basicConfig(
@@ -83,8 +83,8 @@ class AllianzConciliator:
     
     def __init__(self, allianz_personas_path, allianz_colectivas_path, data_source='both', 
                  data_source_type='both', softseguros_file_path=None, celer_file_path=None):
-        self.allianz_personas_file = Path(allianz_personas_path)
-        self.allianz_colectivas_file = Path(allianz_colectivas_path)
+        self.allianz_personas_file = Path(allianz_personas_path) if allianz_personas_path else None
+        self.allianz_colectivas_file = Path(allianz_colectivas_path) if allianz_colectivas_path else None
         self.data_source = data_source.lower()  # 'personas', 'colectivas', or 'both'
         self.data_source_type = data_source_type.lower()  # 'softseguros', 'celer', or 'both'
         
@@ -264,6 +264,8 @@ class AllianzConciliator:
         
         # Load PERSONAS if requested
         if self.data_source in ['personas', 'both']:
+            if self.allianz_personas_file is None or not self.allianz_personas_file.exists():
+                raise FileNotFoundError(f"Allianz Personas file is required but not provided or doesn't exist")
             personas_df = read_allianz_file(str(self.allianz_personas_file))
             personas_df['_source'] = 'PERSONAS'
             logger.info(f"✓ PERSONAS: {len(personas_df)} records")
@@ -271,6 +273,8 @@ class AllianzConciliator:
         
         # Load COLECTIVAS if requested
         if self.data_source in ['colectivas', 'both']:
+            if self.allianz_colectivas_file is None or not self.allianz_colectivas_file.exists():
+                raise FileNotFoundError(f"Allianz Colectivas file is required but not provided or doesn't exist")
             colectivas_df = read_allianz_file(str(self.allianz_colectivas_file))
             colectivas_df['_source'] = 'COLECTIVAS'
             logger.info(f"✓ COLECTIVAS: {len(colectivas_df)} records")

@@ -3,6 +3,7 @@ Worker Threads - Background processing
 """
 from PyQt6.QtCore import QThread, pyqtSignal
 import sys
+import importlib.util
 from pathlib import Path
 
 
@@ -26,20 +27,27 @@ class TransformerWorker(QThread):
             
             self.progress.emit(10)
             
-            # Import the transformer main module
-            import main as transformer_main
-            procesar_archivo = transformer_main.procesar_archivo
+            # Import the transformer module
+            import transformer as transformer_main
             
             self.progress.emit(30)
             
-            # Process the file
-            output_file = procesar_archivo(self.file_path)
+            # Determine file type and call appropriate function
+            file_path = Path(self.file_path)
+            file_extension = file_path.suffix.lower()
+            
+            if file_extension == '.xml':
+                # Process XML file
+                output_file = transformer_main.transform_xml_format(file_path)
+            else:
+                # Process XLSX/XLSB file
+                output_file = transformer_main.transform_xlsx_format(file_path)
             
             self.progress.emit(80)
             
             if output_file:
                 message = f"Archivo transformado exitosamente"
-                self.finished.emit(True, message, output_file)
+                self.finished.emit(True, message, str(output_file.absolute()))
             else:
                 self.finished.emit(False, "No se pudo generar el archivo de salida", "")
                 
@@ -54,7 +62,7 @@ class ConciliatorWorker(QThread):
     """Worker thread for Allianz conciliation"""
     
     progress = pyqtSignal(int)
-    finished = pyqtSignal(bool, str, list)  # success, summary, output_files
+    finished = pyqtSignal(bool, str, list, dict)  # success, summary, output_files, results
     
     def __init__(self, config: dict):
         super().__init__()
@@ -63,70 +71,77 @@ class ConciliatorWorker(QThread):
     def run(self):
         """Run the conciliation process"""
         try:
-            # Add CONCILIATOR ALLIANZ path to sys.path
+            # Store original sys.path
+            original_sys_path = sys.path.copy()
+            
+            # Clear sys.path and add only necessary paths
             conciliator_path = Path(__file__).parent.parent.parent / "CONCILIATOR ALLIANZ"
-            if str(conciliator_path) not in sys.path:
-                sys.path.insert(0, str(conciliator_path))
+            root_path = Path(__file__).parent.parent.parent
+            
+            # Reset sys.path with correct order
+            sys.path = [str(root_path), str(conciliator_path)] + original_sys_path
             
             self.progress.emit(10)
             
-            # Import the conciliator main module
-            import main as conciliator_main
-            load_softseguros_data = conciliator_main.load_softseguros_data
-            load_celer_data = conciliator_main.load_celer_data
-            load_allianz_data = conciliator_main.load_allianz_data
-            combine_data_sources = conciliator_main.combine_data_sources
-            run_conciliation = conciliator_main.run_conciliation
-            save_report_to_file = conciliator_main.save_report_to_file
+            # Import the conciliator module using importlib
+            import importlib.util
+            spec = importlib.util.spec_from_file_location("conciliator_module", conciliator_path / "conciliator.py")
+            conciliator_main = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(conciliator_main)
             
             self.progress.emit(20)
             
-            # Load data
-            soft_df = load_softseguros_data(self.config['softseguros'])
-            self.progress.emit(30)
+            # Create conciliator instance
+            conciliator = conciliator_main.AllianzConciliator(
+                allianz_personas_path=self.config['allianz_personas'],
+                allianz_colectivas_path=self.config['allianz_colectivas'],
+                data_source=self.config['allianz_source'],
+                data_source_type='both',
+                softseguros_file_path=self.config['softseguros'],
+                celer_file_path=self.config['celer']
+            )
             
-            celer_df = load_celer_data(self.config['celer'])
             self.progress.emit(40)
             
-            allianz_df = load_allianz_data(self.config['allianz'])
-            self.progress.emit(50)
-            
-            # Combine data sources
-            combined_df = combine_data_sources(soft_df, celer_df)
-            self.progress.emit(60)
-            
             # Run conciliation
-            results = run_conciliation(combined_df, allianz_df)
+            conciliator.run()
+            
             self.progress.emit(80)
             
-            # Save reports
+            # Generate summary
+            summary = self.generate_summary_from_conciliator(conciliator)
+            
+            # Get output files
             output_files = []
             if self.config.get('export_txt', True):
-                txt_file = save_report_to_file(results)
-                if txt_file:
-                    output_files.append(txt_file)
-            
-            self.progress.emit(90)
-            
-            # Generate summary
-            summary = self.generate_summary(results)
+                output_path = conciliator_path / "output"
+                if output_path.exists():
+                    txt_files = sorted(output_path.glob("Reporte_Conciliacion_*.txt"))
+                    if txt_files:
+                        output_files.append(str(txt_files[-1]))
             
             self.progress.emit(100)
-            self.finished.emit(True, summary, output_files)
+            
+            # Restore original sys.path
+            sys.path = original_sys_path
+            
+            # Pass results to dashboard
+            self.finished.emit(True, summary, output_files, conciliator.results)
             
         except Exception as e:
             error_msg = f"Error durante la conciliación: {str(e)}"
-            self.finished.emit(False, error_msg, [])
+            self.finished.emit(False, error_msg, [], {})
             
-    def generate_summary(self, results: dict) -> str:
-        """Generate results summary"""
+    def generate_summary_from_conciliator(self, conciliator) -> str:
+        """Generate results summary from conciliator instance"""
         summary = []
         
-        caso1 = results.get('caso_1', [])
-        caso2_especial = results.get('caso_2_especial', [])
-        caso2 = results.get('caso_2', [])
-        caso3_allianz = results.get('caso_3_allianz', [])
-        caso3_combined = results.get('caso_3_combined', [])
+        # Map the correct keys from conciliator.results
+        caso1 = conciliator.results.get('no_pagado', [])
+        caso2_especial = conciliator.results.get('actualizar_recibo_softseguros', [])
+        caso2 = conciliator.results.get('actualizar_sistema', [])
+        caso3_allianz = conciliator.results.get('only_allianz', [])
+        caso3_combined = conciliator.results.get('only_combined', [])
         
         summary.append(f"CASO 1 - Coincidencias exactas: {len(caso1)} pólizas")
         summary.append(f"CASO 2 ESPECIAL - Recibos Allianz en Softseguros: {len(caso2_especial)} pólizas")

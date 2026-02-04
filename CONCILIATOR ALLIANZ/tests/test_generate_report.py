@@ -7,7 +7,7 @@ from pathlib import Path
 # Add parent directory
 sys.path.insert(0, str(Path(__file__).parent))
 
-from main import AllianzConciliator
+from conciliator import AllianzConciliator
 
 # File paths
 base_dir = Path(__file__).parent

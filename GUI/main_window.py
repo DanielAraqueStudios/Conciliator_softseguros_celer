@@ -84,6 +84,11 @@ class MainWindow(QMainWindow):
         
         if success:
             self.status_bar.showMessage("✓ Transformación completada exitosamente", 5000)
+            
+            # Auto-load transformed file into conciliator tab
+            if output_file:
+                self.conciliator_tab.load_celer_file(output_file)
+                self.status_bar.showMessage("✓ Archivo Celer cargado automáticamente en Conciliador", 5000)
         else:
             self.status_bar.showMessage("✗ Error en la transformación", 5000)
             
@@ -99,60 +104,19 @@ class MainWindow(QMainWindow):
         self.conciliator_worker.finished.connect(self.on_conciliator_finished)
         self.conciliator_worker.start()
         
-    def on_conciliator_finished(self, success: bool, summary: str, output_files: list):
+    def on_conciliator_finished(self, success: bool, summary: str, output_files: list, results: dict = None):
         """Handle conciliator process completion"""
         self.conciliator_tab.show_results(success, summary, output_files)
         
         if success:
             self.status_bar.showMessage("✓ Conciliación completada exitosamente", 5000)
-            # Update dashboard with results
-            self.update_dashboard_from_summary(summary)
+            # Update dashboard with full results
+            if results:
+                self.dashboard_tab.update_results(results)
         else:
             self.status_bar.showMessage("✗ Error en la conciliación", 5000)
             
         self.conciliator_worker = None
-        
-    def update_dashboard_from_summary(self, summary: str):
-        """Update dashboard with conciliation results"""
-        try:
-            lines = summary.split('\n')
-            
-            # Extract case counts
-            case_data = {}
-            total = 0
-            coincidences = 0
-            
-            for line in lines:
-                if 'CASO 1' in line and ':' in line:
-                    count = int(line.split(':')[1].split()[0])
-                    case_data['CASO 1'] = count
-                    coincidences = count
-                    total += count
-                elif 'CASO 2 ESPECIAL' in line and ':' in line:
-                    count = int(line.split(':')[1].split()[0])
-                    case_data['CASO 2 ESP'] = count
-                    total += count
-                elif 'CASO 2 -' in line and ':' in line:
-                    count = int(line.split(':')[1].split()[0])
-                    case_data['CASO 2'] = count
-                    total += count
-                elif 'CASO 3' in line and 'Allianz' in line and ':' in line:
-                    count = int(line.split(':')[1].split()[0])
-                    case_data['CASO 3 A'] = count
-                    total += count
-                elif 'CASO 3' in line and 'Combined' in line and ':' in line:
-                    count = int(line.split(':')[1].split()[0])
-                    case_data['CASO 3 C'] = count
-                    total += count
-            
-            pending = total - coincidences
-            
-            # Update dashboard
-            self.dashboard_tab.update_metrics(total, coincidences, pending)
-            self.dashboard_tab.update_case_chart(case_data)
-            
-        except Exception as e:
-            print(f"Error updating dashboard: {e}")
             
     def on_dashboard_refresh(self):
         """Handle dashboard refresh"""

@@ -40,7 +40,7 @@ class TransformerTab(QWidget):
         file_group = QGroupBox("Cargar Archivo")
         file_layout = QVBoxLayout()
         
-        self.drop_widget = FileDropWidget(accepted_extensions=['.xlsb', '.xlsx'])
+        self.drop_widget = FileDropWidget(accepted_extensions=['.xlsb', '.xlsx', '.xml'])
         self.drop_widget.fileDropped.connect(self.on_file_dropped)
         file_layout.addWidget(self.drop_widget)
         
@@ -51,13 +51,17 @@ class TransformerTab(QWidget):
         options_group = QGroupBox("Opciones de Transformación")
         options_layout = QVBoxLayout()
         
-        self.info_label = QLabel("• Normalización de números de recibo (últimos 9 dígitos)")
+        self.info_label = QLabel("• Soporta archivos XLSX, XLSB y XML")
         self.info_label.setProperty("secondary", True)
         options_layout.addWidget(self.info_label)
         
-        self.info_label2 = QLabel("• Limpieza y formateo de datos")
+        self.info_label2 = QLabel("• Normalización de números de recibo (últimos 9 dígitos)")
         self.info_label2.setProperty("secondary", True)
         options_layout.addWidget(self.info_label2)
+        
+        self.info_label3 = QLabel("• Limpieza y formateo de datos")
+        self.info_label3.setProperty("secondary", True)
+        options_layout.addWidget(self.info_label3)
         
         options_group.setLayout(options_layout)
         layout.addWidget(options_group)

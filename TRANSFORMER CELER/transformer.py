@@ -183,13 +183,16 @@ def write_output_file(df: pd.DataFrame, file_path: Path) -> None:
 def transform_xlsx_format(
     input_file: Path,
     output_file: Optional[Path] = None
-) -> None:
+) -> Path:
     """
     PROGRAM 1: Transform XLSX format files.
     
     Args:
         input_file: Path to input XLSX file
         output_file: Path to output file (optional)
+        
+    Returns:
+        Path to the generated output file
     """
     try:
         # Setup
@@ -228,6 +231,8 @@ def transform_xlsx_format(
         logger.info(f"Output columns: {len(transformed_df.columns)}")
         logger.info(f"Output file: {output_file.absolute()}")
         
+        return output_file
+        
     except Exception as e:
         logger.error(f"[PROGRAM 1 - XLSX] Error: {e}", exc_info=True)
         raise
@@ -236,13 +241,16 @@ def transform_xlsx_format(
 def transform_xml_format(
     input_file: Path,
     output_file: Optional[Path] = None
-) -> None:
+) -> Path:
     """
     PROGRAM 2: Transform XML format files.
     
     Args:
         input_file: Path to input XML file
         output_file: Path to output file (optional)
+        
+    Returns:
+        Path to the generated output file
     """
     try:
         # Setup
@@ -280,6 +288,8 @@ def transform_xml_format(
         logger.info(f"Output rows: {len(transformed_df)}")
         logger.info(f"Output columns: {len(transformed_df.columns)}")
         logger.info(f"Output file: {output_file.absolute()}")
+        
+        return output_file
         
     except Exception as e:
         logger.error(f"[PROGRAM 2 - XML] Error: {e}", exc_info=True)

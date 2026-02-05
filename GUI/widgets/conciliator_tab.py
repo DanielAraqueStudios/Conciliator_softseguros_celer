@@ -3,7 +3,8 @@ Conciliator Tab - Interface for CONCILIATOR ALLIANZ system
 """
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QPushButton, 
                              QLabel, QTextEdit, QProgressBar, QGroupBox, 
-                             QComboBox, QCheckBox, QRadioButton, QButtonGroup)
+                             QComboBox, QCheckBox, QRadioButton, QButtonGroup,
+                             QFileDialog, QMessageBox, QScrollArea)
 from PyQt6.QtCore import Qt, pyqtSignal
 from widgets.file_drop_widget import FileDropWidget
 
@@ -12,6 +13,7 @@ class ConciliatorTab(QWidget):
     """Tab for Allianz conciliation operations"""
     
     processStarted = pyqtSignal(dict)  # Emits config dict with file paths
+    outputDirectoryChanged = pyqtSignal(str)  # Emits new output directory path
     
     def __init__(self, parent=None):
         super().__init__(parent)
@@ -19,10 +21,18 @@ class ConciliatorTab(QWidget):
         self.celer_file = None
         self.allianz_personas_file = None
         self.allianz_colectivas_file = None
+        self.output_directory = None
         self.setup_ui()
         
     def setup_ui(self):
         """Setup the UI components"""
+        # Create scroll area
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QScrollArea.Shape.NoFrame)
+        
+        # Create content widget
+        content_widget = QWidget()
         layout = QVBoxLayout()
         layout.setSpacing(20)
         
@@ -40,45 +50,55 @@ class ConciliatorTab(QWidget):
         description.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(description)
         
-        # File drop zones
+        # File drop zones - 2 columns layout
         files_group = QGroupBox("Archivos de Entrada")
-        files_layout = QVBoxLayout()
+        files_layout = QHBoxLayout()
+        
+        # Column 1: Softseguros and Celer
+        column1_layout = QVBoxLayout()
         
         # Softseguros
         soft_label = QLabel("1. Archivo Softseguros:")
         soft_label.setProperty("subheading", True)
-        files_layout.addWidget(soft_label)
+        column1_layout.addWidget(soft_label)
         
         self.soft_drop = FileDropWidget(accepted_extensions=['.xlsx', '.xlsb'])
         self.soft_drop.fileDropped.connect(self.on_soft_dropped)
-        files_layout.addWidget(self.soft_drop)
+        column1_layout.addWidget(self.soft_drop)
         
         # Celer
         celer_label = QLabel("2. Archivo Celer:")
         celer_label.setProperty("subheading", True)
-        files_layout.addWidget(celer_label)
+        column1_layout.addWidget(celer_label)
         
         self.celer_drop = FileDropWidget(accepted_extensions=['.xlsx', '.xlsb'])
         self.celer_drop.fileDropped.connect(self.on_celer_dropped)
-        files_layout.addWidget(self.celer_drop)
+        column1_layout.addWidget(self.celer_drop)
+        
+        # Column 2: Allianz Personas and Colectivas
+        column2_layout = QVBoxLayout()
         
         # Allianz Personas
-        allianz_personas_label = QLabel("3a. Archivo Allianz Personas:")
+        allianz_personas_label = QLabel("3. Archivo Allianz Personas:")
         allianz_personas_label.setProperty("subheading", True)
-        files_layout.addWidget(allianz_personas_label)
+        column2_layout.addWidget(allianz_personas_label)
         
         self.allianz_personas_drop = FileDropWidget(accepted_extensions=['.xlsb', '.xlsx'])
         self.allianz_personas_drop.fileDropped.connect(self.on_allianz_personas_dropped)
-        files_layout.addWidget(self.allianz_personas_drop)
+        column2_layout.addWidget(self.allianz_personas_drop)
         
         # Allianz Colectivas
-        allianz_colectivas_label = QLabel("3b. Archivo Allianz Colectivas:")
+        allianz_colectivas_label = QLabel("4. Archivo Allianz Colectivas:")
         allianz_colectivas_label.setProperty("subheading", True)
-        files_layout.addWidget(allianz_colectivas_label)
+        column2_layout.addWidget(allianz_colectivas_label)
         
         self.allianz_colectivas_drop = FileDropWidget(accepted_extensions=['.xlsb', '.xlsx'])
         self.allianz_colectivas_drop.fileDropped.connect(self.on_allianz_colectivas_dropped)
-        files_layout.addWidget(self.allianz_colectivas_drop)
+        column2_layout.addWidget(self.allianz_colectivas_drop)
+        
+        # Add columns to main layout
+        files_layout.addLayout(column1_layout)
+        files_layout.addLayout(column2_layout)
         
         files_group.setLayout(files_layout)
         layout.addWidget(files_group)
@@ -141,6 +161,36 @@ class ConciliatorTab(QWidget):
         options_group.setLayout(options_layout)
         layout.addWidget(options_group)
         
+        # Output directory section
+        output_group = QGroupBox("Carpeta de Salida")
+        output_layout = QVBoxLayout()
+        
+        output_info_layout = QHBoxLayout()
+        output_info_layout.addWidget(QLabel("📁 Los reportes se guardarán en:"))
+        
+        self.output_path_label = QLabel("No configurado")
+        self.output_path_label.setProperty("secondary", True)
+        self.output_path_label.setWordWrap(True)
+        output_info_layout.addWidget(self.output_path_label, 1)
+        
+        output_layout.addLayout(output_info_layout)
+        
+        output_buttons_layout = QHBoxLayout()
+        
+        self.change_output_button = QPushButton("📁 Cambiar Carpeta")
+        self.change_output_button.clicked.connect(self.on_change_output_clicked)
+        output_buttons_layout.addWidget(self.change_output_button)
+        
+        self.open_output_button = QPushButton("📂 Abrir Carpeta")
+        self.open_output_button.clicked.connect(self.on_open_output_clicked)
+        output_buttons_layout.addWidget(self.open_output_button)
+        
+        output_buttons_layout.addStretch()
+        output_layout.addLayout(output_buttons_layout)
+        
+        output_group.setLayout(output_layout)
+        layout.addWidget(output_group)
+        
         # Progress bar
         self.progress_bar = QProgressBar()
         self.progress_bar.setVisible(False)
@@ -176,7 +226,17 @@ class ConciliatorTab(QWidget):
         results_group.setLayout(results_layout)
         layout.addWidget(results_group)
         
-        self.setLayout(layout)
+        layout.addStretch()
+        content_widget.setLayout(layout)
+        
+        # Set content widget to scroll area
+        scroll.setWidget(content_widget)
+        
+        # Set scroll area as main layout
+        main_layout = QVBoxLayout()
+        main_layout.setContentsMargins(0, 0, 0, 0)
+        main_layout.addWidget(scroll)
+        self.setLayout(main_layout)
         
     def on_soft_dropped(self, file_path: str):
         """Handle Softseguros file drop"""
@@ -291,3 +351,64 @@ class ConciliatorTab(QWidget):
         self.process_button.setEnabled(False)
         self.progress_bar.setVisible(False)
         self.progress_bar.setValue(0)
+    
+    def set_output_directory(self, directory: str):
+        """Set and display the output directory"""
+        self.output_directory = directory
+        self.output_path_label.setText(directory)
+    
+    def on_change_output_clicked(self):
+        """Handle change output directory button click"""
+        from pathlib import Path
+        
+        current_dir = self.output_directory if self.output_directory else str(Path.home() / "Documents")
+        
+        new_dir = QFileDialog.getExistingDirectory(
+            self,
+            "Seleccionar Carpeta de Salida para Reportes",
+            current_dir,
+            QFileDialog.Option.ShowDirsOnly
+        )
+        
+        if new_dir:
+            self.set_output_directory(new_dir)
+            self.outputDirectoryChanged.emit(new_dir)
+            
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Icon.Information)
+            msg.setWindowTitle("Carpeta Actualizada")
+            msg.setText("La carpeta de salida ha sido actualizada:")
+            msg.setInformativeText(new_dir)
+            msg.exec()
+            
+            self.results_text.append(f"\n📁 Carpeta de salida actualizada:\n{new_dir}\n")
+    
+    def on_open_output_clicked(self):
+        """Handle open output directory button click"""
+        import subprocess
+        import platform
+        
+        if not self.output_directory:
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Icon.Warning)
+            msg.setWindowTitle("No Configurado")
+            msg.setText("No hay carpeta de salida configurada")
+            msg.exec()
+            return
+        
+        try:
+            if platform.system() == 'Windows':
+                subprocess.Popen(['explorer', self.output_directory])
+            elif platform.system() == 'Darwin':  # macOS
+                subprocess.Popen(['open', self.output_directory])
+            else:  # Linux
+                subprocess.Popen(['xdg-open', self.output_directory])
+            
+            self.results_text.append(f"\n📂 Carpeta abierta: {self.output_directory}\n")
+        except Exception as e:
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Icon.Warning)
+            msg.setWindowTitle("Error")
+            msg.setText("No se pudo abrir la carpeta")
+            msg.setInformativeText(str(e))
+            msg.exec()

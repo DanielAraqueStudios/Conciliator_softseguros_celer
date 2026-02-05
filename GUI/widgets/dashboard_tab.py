@@ -3,7 +3,7 @@ Dashboard Tab - Metrics and visualizations
 """
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QGridLayout,
                              QLabel, QFrame, QPushButton, QGroupBox, QTextEdit,
-                             QTabWidget)
+                             QTabWidget, QScrollArea)
 from PyQt6.QtCore import Qt
 import matplotlib
 matplotlib.use('Qt5Agg')
@@ -78,6 +78,13 @@ class DashboardTab(QWidget):
         
     def setup_ui(self):
         """Setup the UI components"""
+        # Create scroll area
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QScrollArea.Shape.NoFrame)
+        
+        # Create content widget
+        content_widget = QWidget()
         layout = QVBoxLayout()
         layout.setSpacing(20)
         
@@ -118,10 +125,12 @@ class DashboardTab(QWidget):
         
         # Case distribution chart
         self.case_chart = ChartWidget(self, width=5, height=4, dpi=100)
+        self.case_chart.setMinimumHeight(300)
         charts_layout.addWidget(self.case_chart)
         
         # Amount distribution chart
         self.amount_chart = ChartWidget(self, width=5, height=4, dpi=100)
+        self.amount_chart.setMinimumHeight(300)
         charts_layout.addWidget(self.amount_chart)
         
         charts_group.setLayout(charts_layout)
@@ -172,7 +181,17 @@ class DashboardTab(QWidget):
         self.status_label.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(self.status_label)
         
-        self.setLayout(layout)
+        layout.addStretch()
+        content_widget.setLayout(layout)
+        
+        # Set content widget to scroll area
+        scroll.setWidget(content_widget)
+        
+        # Set scroll area as main layout
+        main_layout = QVBoxLayout()
+        main_layout.setContentsMargins(0, 0, 0, 0)
+        main_layout.addWidget(scroll)
+        self.setLayout(main_layout)
         
         # Initialize with empty charts
         self.update_case_chart({})

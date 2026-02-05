@@ -82,7 +82,8 @@ class AllianzConciliator:
     """
     
     def __init__(self, allianz_personas_path, allianz_colectivas_path, data_source='both', 
-                 data_source_type='both', softseguros_file_path=None, celer_file_path=None):
+                 data_source_type='both', softseguros_file_path=None, celer_file_path=None,
+                 output_directory=None):
         self.allianz_personas_file = Path(allianz_personas_path) if allianz_personas_path else None
         self.allianz_colectivas_file = Path(allianz_colectivas_path) if allianz_colectivas_path else None
         self.data_source = data_source.lower()  # 'personas', 'colectivas', or 'both'
@@ -90,6 +91,13 @@ class AllianzConciliator:
         
         self.softseguros_file = Path(softseguros_file_path) if softseguros_file_path else None
         self.celer_file = Path(celer_file_path) if celer_file_path else None
+        
+        # Output directory configuration
+        if output_directory:
+            self.output_dir = Path(output_directory)
+        else:
+            self.output_dir = Path(__file__).parent / "output"
+        self.output_dir.mkdir(parents=True, exist_ok=True)
         
         self.softseguros_df = None
         self.celer_df = None
@@ -480,13 +488,12 @@ class AllianzConciliator:
     
     def save_report_to_file(self):
         """Save simplified conciliation report to text file"""
-        # Create output directory if it doesn't exist
-        output_dir = Path(__file__).parent / "output"
-        output_dir.mkdir(exist_ok=True)
+        # Use configured output directory
+        self.output_dir.mkdir(parents=True, exist_ok=True)
         
         # Generate filename with timestamp
         timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
-        output_file = output_dir / f"Reporte_Conciliacion_{timestamp}.txt"
+        output_file = self.output_dir / f"Reporte_Conciliacion_{timestamp}.txt"
         
         with open(output_file, 'w', encoding='utf-8') as f:
             # Header

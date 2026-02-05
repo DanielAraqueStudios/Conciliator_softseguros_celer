@@ -91,14 +91,15 @@ class ConciliatorWorker(QThread):
             
             self.progress.emit(20)
             
-            # Create conciliator instance
+            # Create conciliator instance with output directory
             conciliator = conciliator_main.AllianzConciliator(
                 allianz_personas_path=self.config['allianz_personas'],
                 allianz_colectivas_path=self.config['allianz_colectivas'],
                 data_source=self.config['allianz_source'],
                 data_source_type='both',
                 softseguros_file_path=self.config['softseguros'],
-                celer_file_path=self.config['celer']
+                celer_file_path=self.config['celer'],
+                output_directory=self.config.get('output_directory')
             )
             
             self.progress.emit(40)
@@ -111,10 +112,10 @@ class ConciliatorWorker(QThread):
             # Generate summary
             summary = self.generate_summary_from_conciliator(conciliator)
             
-            # Get output files
+            # Get output files from configured directory
             output_files = []
             if self.config.get('export_txt', True):
-                output_path = conciliator_path / "output"
+                output_path = Path(self.config.get('output_directory', conciliator_path / "output"))
                 if output_path.exists():
                     txt_files = sorted(output_path.glob("Reporte_Conciliacion_*.txt"))
                     if txt_files:

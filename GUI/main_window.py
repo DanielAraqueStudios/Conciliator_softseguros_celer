@@ -1,13 +1,14 @@
 """
 Main Window - Application main interface
 """
-from PyQt6.QtWidgets import QMainWindow, QTabWidget, QStatusBar, QWidget, QVBoxLayout
+from PyQt6.QtWidgets import QMainWindow, QTabWidget, QStatusBar, QWidget, QVBoxLayout, QMessageBox
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QIcon
 from widgets.transformer_tab import TransformerTab
 from widgets.conciliator_tab import ConciliatorTab
 from widgets.dashboard_tab import DashboardTab
 from workers import TransformerWorker, ConciliatorWorker
+from config import ConfigManager
 
 
 class MainWindow(QMainWindow):
@@ -18,14 +19,48 @@ class MainWindow(QMainWindow):
         self.setWindowTitle("Seguros Unión - Sistema de Conciliación v2.0")
         self.setMinimumSize(1200, 800)
         
+        # Configuration manager
+        self.config = ConfigManager()
+        
         # Workers
         self.transformer_worker = None
         self.conciliator_worker = None
         
         self.setup_ui()
         
+        # Check first run and setup output directory
+        self.check_first_run()
+        
+    def check_first_run(self):
+        """Check if this is the first run and setup configuration"""
+        if self.config.is_first_run():
+            success = self.config.setup_output_directory(self)
+            if not success:
+                # User cancelled, show warning and use default
+                msg = QMessageBox(self)
+                msg.setIcon(QMessageBox.Icon.Warning)
+                msg.setWindowTitle("Configuración No Completada")
+                msg.setText("No se configuró la carpeta de salida.")
+                msg.setInformativeText(
+                    "Se usará la carpeta predeterminada:\n"
+                    f"{self.config.get_output_directory()}"
+                )
+                msg.exec()
+        
     def setup_ui(self):
         """Setup the user interface"""
+        # Menu bar
+        menubar = self.menuBar()
+        
+        # Settings menu
+        settings_menu = menubar.addMenu("⚙️ Configuración")
+        
+        change_output_action = settings_menu.addAction("📁 Cambiar Carpeta de Salida")
+        change_output_action.triggered.connect(self.change_output_directory)
+        
+        show_output_action = settings_menu.addAction("📂 Abrir Carpeta de Salida")
+        show_output_action.triggered.connect(self.open_output_directory)
+        
         # Central widget with tabs
         central_widget = QWidget()
         self.setCentralWidget(central_widget)
@@ -57,6 +92,9 @@ class MainWindow(QMainWindow):
         # Connect signals
         self.connect_signals()
         
+        # Set initial output directory in conciliator tab
+        self.conciliator_tab.set_output_directory(str(self.config.get_output_directory()))
+        
     def connect_signals(self):
         """Connect widget signals to handlers"""
         # Transformer tab
@@ -64,6 +102,7 @@ class MainWindow(QMainWindow):
         
         # Conciliator tab
         self.conciliator_tab.processStarted.connect(self.on_conciliator_started)
+        self.conciliator_tab.outputDirectoryChanged.connect(self.on_output_directory_changed)
         
         # Dashboard tab
         self.dashboard_tab.refresh_button.clicked.connect(self.on_dashboard_refresh)
@@ -98,6 +137,9 @@ class MainWindow(QMainWindow):
         """Handle conciliator process start"""
         self.status_bar.showMessage("Ejecutando conciliación...")
         
+        # Add output directory to config
+        config['output_directory'] = str(self.config.get_output_directory())
+        
         # Create and start worker
         self.conciliator_worker = ConciliatorWorker(config)
         self.conciliator_worker.progress.connect(self.conciliator_tab.update_progress)
@@ -121,6 +163,61 @@ class MainWindow(QMainWindow):
     def on_dashboard_refresh(self):
         """Handle dashboard refresh"""
         self.status_bar.showMessage("Dashboard actualizado", 3000)
+    
+    def on_output_directory_changed(self, new_dir: str):
+        """Handle output directory change from conciliator tab"""
+        self.config.set('output_directory', new_dir)
+        self.status_bar.showMessage(f"✓ Carpeta de salida actualizada: {new_dir}", 5000)
+    
+    def change_output_directory(self):
+        """Allow user to change output directory"""
+        from PyQt6.QtWidgets import QFileDialog
+        from pathlib import Path
+        
+        current_dir = str(self.config.get_output_directory())
+        
+        new_dir = QFileDialog.getExistingDirectory(
+            self,
+            "Seleccionar Nueva Carpeta de Salida",
+            current_dir,
+            QFileDialog.Option.ShowDirsOnly
+        )
+        
+        if new_dir:
+            self.config.set('output_directory', new_dir)
+            # Update the label in conciliator tab
+            self.conciliator_tab.set_output_directory(new_dir)
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Icon.Information)
+            msg.setWindowTitle("Configuración Actualizada")
+            msg.setText("Carpeta de salida actualizada correctamente:")
+            msg.setInformativeText(new_dir)
+            msg.exec()
+            self.status_bar.showMessage(f"✓ Carpeta de salida actualizada: {new_dir}", 5000)
+    
+    def open_output_directory(self):
+        """Open output directory in file explorer"""
+        import subprocess
+        import platform
+        
+        output_dir = str(self.config.get_output_directory())
+        
+        try:
+            if platform.system() == 'Windows':
+                subprocess.Popen(['explorer', output_dir])
+            elif platform.system() == 'Darwin':  # macOS
+                subprocess.Popen(['open', output_dir])
+            else:  # Linux
+                subprocess.Popen(['xdg-open', output_dir])
+            
+            self.status_bar.showMessage(f"✓ Carpeta abierta: {output_dir}", 3000)
+        except Exception as e:
+            msg = QMessageBox(self)
+            msg.setIcon(QMessageBox.Icon.Warning)
+            msg.setWindowTitle("Error")
+            msg.setText("No se pudo abrir la carpeta")
+            msg.setInformativeText(str(e))
+            msg.exec()
         
     def closeEvent(self, event):
         """Handle window close event"""

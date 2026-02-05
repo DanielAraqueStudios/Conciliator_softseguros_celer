@@ -2,7 +2,7 @@
 Transformer Tab - Interface for TRANSFORMER CELER system
 """
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QPushButton, 
-                             QLabel, QTextEdit, QProgressBar, QGroupBox)
+                             QLabel, QTextEdit, QProgressBar, QGroupBox, QScrollArea)
 from PyQt6.QtCore import Qt, pyqtSignal
 from widgets.file_drop_widget import FileDropWidget
 
@@ -19,6 +19,13 @@ class TransformerTab(QWidget):
         
     def setup_ui(self):
         """Setup the UI components"""
+        # Create scroll area
+        scroll = QScrollArea()
+        scroll.setWidgetResizable(True)
+        scroll.setFrameShape(QScrollArea.Shape.NoFrame)
+        
+        # Create content widget
+        content_widget = QWidget()
         layout = QVBoxLayout()
         layout.setSpacing(20)
         
@@ -103,7 +110,16 @@ class TransformerTab(QWidget):
         layout.addWidget(results_group)
         
         layout.addStretch()
-        self.setLayout(layout)
+        content_widget.setLayout(layout)
+        
+        # Set content widget to scroll area
+        scroll.setWidget(content_widget)
+        
+        # Set scroll area as main layout
+        main_layout = QVBoxLayout()
+        main_layout.setContentsMargins(0, 0, 0, 0)
+        main_layout.addWidget(scroll)
+        self.setLayout(main_layout)
         
     def on_file_dropped(self, file_path: str):
         """Handle file drop event"""

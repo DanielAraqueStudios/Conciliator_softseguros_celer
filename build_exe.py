@@ -47,8 +47,13 @@ import shutil
 for folder in ['build', 'dist']:
     folder_path = project_dir / folder
     if folder_path.exists():
-        shutil.rmtree(folder_path)
-        print(f"   Eliminado: {folder}")
+        try:
+            shutil.rmtree(folder_path)
+            print(f"   Eliminado: {folder}")
+        except PermissionError:
+            print(f"   ⚠️  No se pudo eliminar {folder} (archivo en uso). Se sobrescribirá.")
+        except Exception as e:
+            print(f"   ⚠️  Error al eliminar {folder}: {e}")
 
 # 3. Construir ejecutable
 print_header("Iniciando Construcción del Ejecutable")
@@ -83,6 +88,8 @@ PyInstaller.__main__.run([
     '--hidden-import', 'PyQt6.QtWidgets',
     '--hidden-import', 'matplotlib',
     '--hidden-import', 'matplotlib.backends.backend_qt5agg',
+    '--hidden-import', 'PIL',
+    '--hidden-import', 'PIL.Image',
     '--hidden-import', 'pandas',
     '--hidden-import', 'openpyxl',
     '--hidden-import', 'pyxlsb',
@@ -98,7 +105,6 @@ PyInstaller.__main__.run([
     '--exclude-module', 'IPython',
     '--exclude-module', 'notebook',
     '--exclude-module', 'jupyter',
-    '--exclude-module', 'PIL',
     '--exclude-module', 'tkinter',
     '--exclude-module', 'pytest',
     '--exclude-module', 'setuptools',

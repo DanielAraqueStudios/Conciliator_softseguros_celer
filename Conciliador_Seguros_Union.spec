@@ -6,11 +6,11 @@ a = Analysis(
     pathex=[],
     binaries=[],
     datas=[('C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\widgets', 'widgets'), ('C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\workers', 'workers'), ('C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\styles', 'styles'), ('C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\TRANSFORMER CELER', 'TRANSFORMER CELER'), ('C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\CONCILIATOR ALLIANZ', 'CONCILIATOR ALLIANZ')],
-    hiddenimports=['PyQt6', 'PyQt6.QtCore', 'PyQt6.QtGui', 'PyQt6.QtWidgets', 'matplotlib', 'matplotlib.backends.backend_qt5agg', 'pandas', 'openpyxl', 'pyxlsb', 'xlrd', 'importlib', 'importlib.util'],
+    hiddenimports=['PyQt6', 'PyQt6.QtCore', 'PyQt6.QtGui', 'PyQt6.QtWidgets', 'matplotlib', 'matplotlib.backends.backend_qt5agg', 'PIL', 'PIL.Image', 'pandas', 'openpyxl', 'pyxlsb', 'xlrd', 'importlib', 'importlib.util'],
     hookspath=[],
     hooksconfig={},
     runtime_hooks=[],
-    excludes=['torch', 'torchvision', 'tensorflow', 'scipy', 'IPython', 'notebook', 'jupyter', 'PIL', 'tkinter', 'pytest', 'setuptools'],
+    excludes=['torch', 'torchvision', 'tensorflow', 'scipy', 'IPython', 'notebook', 'jupyter', 'tkinter', 'pytest', 'setuptools'],
     noarchive=False,
     optimize=0,
 )

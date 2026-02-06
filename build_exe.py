@@ -71,11 +71,10 @@ PyInstaller.__main__.run([
     
     # Añadir datos necesarios
     '--add-data', f'{project_dir / "GUI" / "widgets"};widgets',
-    '--add-data', f'{project_dir / "GUI" / "workers.py"};.',
-    '--add-data', f'{project_dir / "GUI" / "config.py"};.',
+    '--add-data', f'{project_dir / "GUI" / "workers"};workers',
+    '--add-data', f'{project_dir / "GUI" / "styles"};styles',
     '--add-data', f'{project_dir / "TRANSFORMER CELER"};TRANSFORMER CELER',
     '--add-data', f'{project_dir / "CONCILIATOR ALLIANZ"};CONCILIATOR ALLIANZ',
-    '--add-data', f'{project_dir / "main.py"};.',
     
     # Importaciones ocultas necesarias
     '--hidden-import', 'PyQt6',
@@ -90,6 +89,19 @@ PyInstaller.__main__.run([
     '--hidden-import', 'xlrd',
     '--hidden-import', 'importlib',
     '--hidden-import', 'importlib.util',
+    
+    # Excluir módulos innecesarios para hacer el ejecutable más pequeño
+    '--exclude-module', 'torch',
+    '--exclude-module', 'torchvision',
+    '--exclude-module', 'tensorflow',
+    '--exclude-module', 'scipy',
+    '--exclude-module', 'IPython',
+    '--exclude-module', 'notebook',
+    '--exclude-module', 'jupyter',
+    '--exclude-module', 'PIL',
+    '--exclude-module', 'tkinter',
+    '--exclude-module', 'pytest',
+    '--exclude-module', 'setuptools',
     
     # Directorio de salida
     '--distpath', str(project_dir / 'dist'),

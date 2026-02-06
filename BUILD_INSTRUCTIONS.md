@@ -1,28 +1,17 @@
 # Construcción del Ejecutable
 
-## Opción 1: Usando el script .bat (Recomendado)
+## Método Rápido (Recomendado)
 
-Simplemente haz doble clic en:
-```
-build_exe.bat
-```
-
-## Opción 2: Manual
-
-1. Activar el entorno virtual:
-```bash
-.venv\Scripts\activate
-```
-
-2. Instalar PyInstaller:
-```bash
-pip install pyinstaller
-```
-
-3. Ejecutar el script de construcción:
+Simplemente ejecuta:
 ```bash
 python build_exe.py
 ```
+
+El script automáticamente:
+- ✅ Verifica/Instala PyInstaller
+- ✅ Limpia compilaciones anteriores
+- ✅ Construye el ejecutable
+- ✅ Muestra el resultado con emojis informativos
 
 ## Resultado
 

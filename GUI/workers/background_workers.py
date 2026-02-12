@@ -20,15 +20,24 @@ class TransformerWorker(QThread):
     def run(self):
         """Run the transformation process"""
         try:
-            # Add TRANSFORMER CELER path to sys.path
+            # Get transformer path (works both in dev and packaged exe)
             transformer_path = Path(__file__).parent.parent.parent / "TRANSFORMER CELER"
-            if str(transformer_path) not in sys.path:
-                sys.path.insert(0, str(transformer_path))
+            
+            # For packaged executable, check sys._MEIPASS
+            if getattr(sys, 'frozen', False):
+                # Running as packaged executable
+                base_path = Path(sys._MEIPASS)
+                transformer_path = base_path / "TRANSFORMER CELER"
             
             self.progress.emit(10)
             
-            # Import the transformer module
-            import transformer as transformer_main
+            # Import the transformer module using importlib
+            spec = importlib.util.spec_from_file_location("transformer_module", transformer_path / "transformer.py")
+            if spec is None or spec.loader is None:
+                raise ImportError(f"No se pudo encontrar transformer.py en {transformer_path}")
+            
+            transformer_main = importlib.util.module_from_spec(spec)
+            spec.loader.exec_module(transformer_main)
             
             self.progress.emit(30)
             
@@ -74,9 +83,16 @@ class ConciliatorWorker(QThread):
             # Store original sys.path
             original_sys_path = sys.path.copy()
             
-            # Clear sys.path and add only necessary paths
+            # Get conciliator path (works both in dev and packaged exe)
             conciliator_path = Path(__file__).parent.parent.parent / "CONCILIATOR ALLIANZ"
             root_path = Path(__file__).parent.parent.parent
+            
+            # For packaged executable, check sys._MEIPASS
+            if getattr(sys, 'frozen', False):
+                # Running as packaged executable
+                base_path = Path(sys._MEIPASS)
+                conciliator_path = base_path / "CONCILIATOR ALLIANZ"
+                root_path = base_path
             
             # Reset sys.path with correct order
             sys.path = [str(root_path), str(conciliator_path)] + original_sys_path
@@ -84,8 +100,10 @@ class ConciliatorWorker(QThread):
             self.progress.emit(10)
             
             # Import the conciliator module using importlib
-            import importlib.util
             spec = importlib.util.spec_from_file_location("conciliator_module", conciliator_path / "conciliator.py")
+            if spec is None or spec.loader is None:
+                raise ImportError(f"No se pudo encontrar conciliator.py en {conciliator_path}")
+            
             conciliator_main = importlib.util.module_from_spec(spec)
             spec.loader.exec_module(conciliator_main)
             

@@ -2,10 +2,10 @@
 
 
 a = Analysis(
-    ['C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\app.py'],
+    ['c:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\app.py'],
     pathex=[],
     binaries=[],
-    datas=[('C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\widgets', 'widgets'), ('C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\workers', 'workers'), ('C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\styles', 'styles'), ('C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\TRANSFORMER CELER', 'TRANSFORMER CELER'), ('C:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\CONCILIATOR ALLIANZ', 'CONCILIATOR ALLIANZ')],
+    datas=[('c:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\widgets', 'widgets'), ('c:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\workers', 'workers'), ('c:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\GUI\\styles', 'styles'), ('c:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\TRANSFORMER CELER', 'TRANSFORMER CELER'), ('c:\\Users\\danie\\Documents\\EMPRESA\\SEGUROS UNIÓN\\AUTOMATIZACIONES\\Conciliator_softseguros_celer\\CONCILIATOR ALLIANZ', 'CONCILIATOR ALLIANZ')],
     hiddenimports=['PyQt6', 'PyQt6.QtCore', 'PyQt6.QtGui', 'PyQt6.QtWidgets', 'matplotlib', 'matplotlib.backends.backend_qt5agg', 'PIL', 'PIL.Image', 'pandas', 'openpyxl', 'pyxlsb', 'xlrd', 'importlib', 'importlib.util'],
     hookspath=[],
     hooksconfig={},

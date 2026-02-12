@@ -21,7 +21,14 @@ from datetime import datetime
 from typing import Optional
 
 import pandas as pd
-from dotenv import load_dotenv
+
+# Optional import for dotenv (not critical for execution)
+try:
+    from dotenv import load_dotenv
+    load_dotenv()
+except ImportError:
+    # dotenv not available, continue without it
+    pass
 
 from schemas.celer_mapping import CELER_MAPPING, OutputColumn
 from services.column_transformer import ColumnTransformer
@@ -30,9 +37,6 @@ from domain.exceptions import (
     TransformationError,
     FileProcessingError
 )
-
-# Load environment variables
-load_dotenv()
 
 
 def setup_directories() -> None:

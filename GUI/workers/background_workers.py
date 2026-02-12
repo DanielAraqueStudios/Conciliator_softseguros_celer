@@ -29,6 +29,11 @@ class TransformerWorker(QThread):
                 base_path = Path(sys._MEIPASS)
                 transformer_path = base_path / "TRANSFORMER CELER"
             
+            # Add transformer path to sys.path so it can find its submodules
+            transformer_path_str = str(transformer_path)
+            if transformer_path_str not in sys.path:
+                sys.path.insert(0, transformer_path_str)
+            
             self.progress.emit(10)
             
             # Import the transformer module using importlib
@@ -37,6 +42,7 @@ class TransformerWorker(QThread):
                 raise ImportError(f"No se pudo encontrar transformer.py en {transformer_path}")
             
             transformer_main = importlib.util.module_from_spec(spec)
+            sys.modules['transformer_module'] = transformer_main  # Register in sys.modules
             spec.loader.exec_module(transformer_main)
             
             self.progress.emit(30)
@@ -94,8 +100,14 @@ class ConciliatorWorker(QThread):
                 conciliator_path = base_path / "CONCILIATOR ALLIANZ"
                 root_path = base_path
             
-            # Reset sys.path with correct order
-            sys.path = [str(root_path), str(conciliator_path)] + original_sys_path
+            # Add paths to sys.path so modules can find their dependencies
+            conciliator_path_str = str(conciliator_path)
+            root_path_str = str(root_path)
+            
+            if conciliator_path_str not in sys.path:
+                sys.path.insert(0, conciliator_path_str)
+            if root_path_str not in sys.path:
+                sys.path.insert(0, root_path_str)
             
             self.progress.emit(10)
             
@@ -105,6 +117,7 @@ class ConciliatorWorker(QThread):
                 raise ImportError(f"No se pudo encontrar conciliator.py en {conciliator_path}")
             
             conciliator_main = importlib.util.module_from_spec(spec)
+            sys.modules['conciliator_module'] = conciliator_main  # Register in sys.modules
             spec.loader.exec_module(conciliator_main)
             
             self.progress.emit(20)

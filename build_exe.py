@@ -41,7 +41,40 @@ except ImportError:
         sys.exit(1)
     import PyInstaller
 
-# 2. Limpiar compilaciones anteriores
+# 2. Verificar/Instalar dependencias críticas
+print("\n📦 Verificando dependencias críticas...")
+required_packages = [
+    'pydantic',
+    'python-dateutil',
+    'pyxlsb',
+    'openpyxl',
+    'pandas',
+    'matplotlib',
+    'reportlab',
+    'PyQt6',
+    'numpy',
+    'Pillow'
+]
+
+missing_packages = []
+for package in required_packages:
+    try:
+        __import__(package.replace('-', '_').split('[')[0])
+        print(f"   ✅ {package}")
+    except ImportError:
+        print(f"   ⚠️  {package} no encontrado")
+        missing_packages.append(package)
+
+if missing_packages:
+    print(f"\n📥 Instalando {len(missing_packages)} paquetes faltantes...")
+    for package in missing_packages:
+        run_command([sys.executable, "-m", "pip", "install", package],
+                   f"Instalación de {package}")
+    print("✅ Todas las dependencias instaladas")
+else:
+    print("✅ Todas las dependencias ya están instaladas")
+
+# 3. Limpiar compilaciones anteriores
 print("\n🧹 Limpiando archivos anteriores...")
 import shutil
 for folder in ['build', 'dist']:
@@ -55,7 +88,7 @@ for folder in ['build', 'dist']:
         except Exception as e:
             print(f"   ⚠️  Error al eliminar {folder}: {e}")
 
-# 3. Construir ejecutable
+# 4. Construir ejecutable
 print_header("Iniciando Construcción del Ejecutable")
 
 import PyInstaller.__main__
@@ -74,6 +107,11 @@ PyInstaller.__main__.run([
     # Ventana (sin consola)
     '--windowed',
     
+    # Añadir rutas de búsqueda para módulos
+    '--paths', str(project_dir / 'GUI'),
+    '--paths', str(project_dir / 'TRANSFORMER CELER'),
+    '--paths', str(project_dir / 'CONCILIATOR ALLIANZ'),
+    
     # Añadir datos necesarios
     '--add-data', f'{project_dir / "GUI" / "widgets"};widgets',
     '--add-data', f'{project_dir / "GUI" / "workers"};workers',
@@ -81,21 +119,67 @@ PyInstaller.__main__.run([
     '--add-data', f'{project_dir / "TRANSFORMER CELER"};TRANSFORMER CELER',
     '--add-data', f'{project_dir / "CONCILIATOR ALLIANZ"};CONCILIATOR ALLIANZ',
     
-    # Importaciones ocultas necesarias
+    # Importaciones ocultas necesarias - GUI
     '--hidden-import', 'PyQt6',
     '--hidden-import', 'PyQt6.QtCore',
     '--hidden-import', 'PyQt6.QtGui',
     '--hidden-import', 'PyQt6.QtWidgets',
+    
+    # Matplotlib y gráficos
     '--hidden-import', 'matplotlib',
     '--hidden-import', 'matplotlib.backends.backend_qt5agg',
+    '--hidden-import', 'matplotlib.backends.backend_agg',
+    '--hidden-import', 'matplotlib.figure',
+    '--hidden-import', 'matplotlib.pyplot',
     '--hidden-import', 'PIL',
     '--hidden-import', 'PIL.Image',
+    '--hidden-import', 'PIL._imaging',
+    
+    # Pandas y lectores de Excel
     '--hidden-import', 'pandas',
+    '--hidden-import', 'pandas._libs',
+    '--hidden-import', 'pandas._libs.tslibs',
     '--hidden-import', 'openpyxl',
+    '--hidden-import', 'openpyxl.cell',
+    '--hidden-import', 'openpyxl.cell._writer',
+    '--hidden-import', 'openpyxl.styles',
     '--hidden-import', 'pyxlsb',
+    '--hidden-import', 'pyxlsb.recordreader',
     '--hidden-import', 'xlrd',
+    
+    # Pydantic (requerido por TRANSFORMER CELER)
+    '--hidden-import', 'pydantic',
+    '--hidden-import', 'pydantic.fields',
+    '--hidden-import', 'pydantic.main',
+    '--hidden-import', 'pydantic.types',
+    '--hidden-import', 'pydantic.validator',
+    '--hidden-import', 'pydantic_core',
+    
+    # ReportLab (para generación de PDFs)
+    '--hidden-import', 'reportlab',
+    '--hidden-import', 'reportlab.pdfgen',
+    '--hidden-import', 'reportlab.lib',
+    
+    # Python-dateutil
+    '--hidden-import', 'dateutil',
+    '--hidden-import', 'dateutil.parser',
+    '--hidden-import', 'dateutil.tz',
+    
+    # Librerías estándar con importaciones dinámicas
     '--hidden-import', 'importlib',
     '--hidden-import', 'importlib.util',
+    '--hidden-import', 'xml.etree.ElementTree',
+    '--hidden-import', 'html',
+    '--hidden-import', 're',
+    '--hidden-import', 'enum',
+    
+    # Numpy (usado por pandas y matplotlib)
+    '--hidden-import', 'numpy',
+    '--hidden-import', 'numpy.core',
+    '--hidden-import', 'numpy.core._methods',
+    '--hidden-import', 'numpy.lib',
+    '--hidden-import', 'numpy.lib.format',
+    '--hidden-import', 'numpy._typing',
     
     # Excluir módulos innecesarios para hacer el ejecutable más pequeño
     '--exclude-module', 'torch',
@@ -121,7 +205,7 @@ PyInstaller.__main__.run([
     '--log-level', 'INFO',
 ])
 
-# 4. Verificar resultado
+# 5. Verificar resultado
 exe_path = project_dir / 'dist' / 'Conciliador_Seguros_Union.exe'
 if exe_path.exists():
     size_mb = exe_path.stat().st_size / (1024 * 1024)

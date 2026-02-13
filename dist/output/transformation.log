@@ -1,54 +1,19 @@
-2026-02-12 17:33:30,520 - transformer_module - INFO - ================================================================================
-2026-02-12 17:33:30,520 - transformer_module - INFO - PROGRAM 2: XML FORMAT TRANSFORMATION
-2026-02-12 17:33:30,520 - transformer_module - INFO - ================================================================================
-2026-02-12 17:33:30,520 - transformer_module - INFO - Input file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\DATA CELER\CarteraPendiente.xml
-2026-02-12 17:33:30,520 - transformer_module - INFO - Output file: output\Cartera_Transformada_XML_20260212_173330.xlsx
-2026-02-12 17:33:30,521 - transformer_module - INFO - [PROGRAM 2 - XML] Reading file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\DATA CELER\CarteraPendiente.xml
-2026-02-12 17:33:30,529 - adapters.xml_reader - INFO - ExcelXMLReader initialized
-2026-02-12 17:33:30,529 - adapters.xml_reader - INFO - Reading XML file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\DATA CELER\CarteraPendiente.xml
-2026-02-12 17:33:30,650 - adapters.xml_reader - INFO - Successfully parsed XML with lxml (recover mode)
-2026-02-12 17:33:30,661 - adapters.xml_reader - INFO - Found 852 rows in XML
-2026-02-12 17:33:30,662 - adapters.xml_reader - INFO - Found 49 headers at row 4
-2026-02-12 17:33:30,878 - adapters.xml_reader - INFO - Created DataFrame with 847 rows and 49 columns
-2026-02-12 17:33:30,897 - transformer_module - INFO - [PROGRAM 2 - XML] Successfully read 847 rows, 49 columns
-2026-02-12 17:33:30,897 - services.column_transformer - INFO - ColumnTransformer initialized with 23 output columns
-2026-02-12 17:33:30,897 - transformer_module - INFO - [PROGRAM 2 - XML] Starting column transformation...
-2026-02-12 17:33:30,897 - services.column_transformer - INFO - Starting transformation for 847 rows
-2026-02-12 17:33:30,902 - services.column_transformer - WARNING - Column A generation not yet implemented, using placeholder
-2026-02-12 17:33:30,904 - services.column_transformer - INFO - Transformation completed successfully for 847 rows, 23 columns
-2026-02-12 17:33:30,904 - transformer_module - INFO - Writing output file: output\Cartera_Transformada_XML_20260212_173330.xlsx
-2026-02-12 17:33:31,311 - transformer_module - INFO - Successfully wrote 847 rows to output\Cartera_Transformada_XML_20260212_173330.xlsx
-2026-02-12 17:33:31,311 - transformer_module - INFO - ================================================================================
-2026-02-12 17:33:31,311 - transformer_module - INFO - PROGRAM 2: TRANSFORMATION COMPLETED SUCCESSFULLY
-2026-02-12 17:33:31,311 - transformer_module - INFO - ================================================================================
-2026-02-12 17:33:31,311 - transformer_module - INFO - Input rows: 847
-2026-02-12 17:33:31,311 - transformer_module - INFO - Output rows: 847
-2026-02-12 17:33:31,311 - transformer_module - INFO - Output columns: 23
-2026-02-12 17:33:31,311 - transformer_module - INFO - Output file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\dist\output\Cartera_Transformada_XML_20260212_173330.xlsx
-2026-02-12 17:34:17,381 - transformer_module - INFO - ================================================================================
-2026-02-12 17:34:17,382 - transformer_module - INFO - PROGRAM 2: XML FORMAT TRANSFORMATION
-2026-02-12 17:34:17,382 - transformer_module - INFO - ================================================================================
-2026-02-12 17:34:17,382 - transformer_module - INFO - Input file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\DATA CELER\CarteraPendiente.xml
-2026-02-12 17:34:17,382 - transformer_module - INFO - Output file: output\Cartera_Transformada_XML_20260212_173417.xlsx
-2026-02-12 17:34:17,382 - transformer_module - INFO - [PROGRAM 2 - XML] Reading file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\DATA CELER\CarteraPendiente.xml
-2026-02-12 17:34:17,389 - adapters.xml_reader - INFO - ExcelXMLReader initialized
-2026-02-12 17:34:17,389 - adapters.xml_reader - INFO - Reading XML file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\DATA CELER\CarteraPendiente.xml
-2026-02-12 17:34:17,505 - adapters.xml_reader - INFO - Successfully parsed XML with lxml (recover mode)
-2026-02-12 17:34:17,518 - adapters.xml_reader - INFO - Found 852 rows in XML
-2026-02-12 17:34:17,518 - adapters.xml_reader - INFO - Found 49 headers at row 4
-2026-02-12 17:34:17,731 - adapters.xml_reader - INFO - Created DataFrame with 847 rows and 49 columns
-2026-02-12 17:34:17,749 - transformer_module - INFO - [PROGRAM 2 - XML] Successfully read 847 rows, 49 columns
-2026-02-12 17:34:17,749 - services.column_transformer - INFO - ColumnTransformer initialized with 23 output columns
-2026-02-12 17:34:17,749 - transformer_module - INFO - [PROGRAM 2 - XML] Starting column transformation...
-2026-02-12 17:34:17,749 - services.column_transformer - INFO - Starting transformation for 847 rows
-2026-02-12 17:34:17,754 - services.column_transformer - WARNING - Column A generation not yet implemented, using placeholder
-2026-02-12 17:34:17,756 - services.column_transformer - INFO - Transformation completed successfully for 847 rows, 23 columns
-2026-02-12 17:34:17,756 - transformer_module - INFO - Writing output file: output\Cartera_Transformada_XML_20260212_173417.xlsx
-2026-02-12 17:34:18,160 - transformer_module - INFO - Successfully wrote 847 rows to output\Cartera_Transformada_XML_20260212_173417.xlsx
-2026-02-12 17:34:18,161 - transformer_module - INFO - ================================================================================
-2026-02-12 17:34:18,161 - transformer_module - INFO - PROGRAM 2: TRANSFORMATION COMPLETED SUCCESSFULLY
-2026-02-12 17:34:18,161 - transformer_module - INFO - ================================================================================
-2026-02-12 17:34:18,161 - transformer_module - INFO - Input rows: 847
-2026-02-12 17:34:18,161 - transformer_module - INFO - Output rows: 847
-2026-02-12 17:34:18,161 - transformer_module - INFO - Output columns: 23
-2026-02-12 17:34:18,161 - transformer_module - INFO - Output file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\dist\output\Cartera_Transformada_XML_20260212_173417.xlsx
+2026-02-13 12:58:10,678 - transformer_module - INFO - ================================================================================
+2026-02-13 12:58:10,679 - transformer_module - INFO - PROGRAM 2: XML FORMAT TRANSFORMATION
+2026-02-13 12:58:10,679 - transformer_module - INFO - ================================================================================
+2026-02-13 12:58:10,679 - transformer_module - INFO - Input file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\DATA CELER\CarteraPendiente.xml
+2026-02-13 12:58:10,679 - transformer_module - INFO - Output file: output\Cartera_Transformada_XML_20260213_125810.xlsx
+2026-02-13 12:58:10,680 - transformer_module - INFO - [PROGRAM 2 - XML] Reading file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\DATA CELER\CarteraPendiente.xml
+2026-02-13 12:58:10,695 - adapters.xml_reader - INFO - ExcelXMLReader initialized
+2026-02-13 12:58:10,696 - adapters.xml_reader - INFO - Reading XML file: C:\Users\danie\Documents\EMPRESA\SEGUROS UNIÓN\AUTOMATIZACIONES\Conciliator_softseguros_celer\DATA CELER\CarteraPendiente.xml
+2026-02-13 12:58:10,831 - adapters.xml_reader - WARNING - lxml not available, using built-in ElementTree
+2026-02-13 12:58:11,065 - adapters.xml_reader - INFO - Found 852 rows in XML
+2026-02-13 12:58:11,066 - adapters.xml_reader - INFO - Found 49 headers at row 4
+2026-02-13 12:58:11,381 - adapters.xml_reader - INFO - Created DataFrame with 847 rows and 49 columns
+2026-02-13 12:58:11,395 - transformer_module - INFO - [PROGRAM 2 - XML] Successfully read 847 rows, 49 columns
+2026-02-13 12:58:11,396 - services.column_transformer - INFO - ColumnTransformer initialized with 23 output columns
+2026-02-13 12:58:11,396 - transformer_module - INFO - [PROGRAM 2 - XML] Starting column transformation...
+2026-02-13 12:58:11,396 - services.column_transformer - INFO - Starting transformation for 847 rows
+2026-02-13 12:58:11,405 - services.column_transformer - WARNING - Column A generation not yet implemented, using placeholder
+2026-02-13 12:58:11,410 - services.column_transformer - INFO - Transformation completed successfully for 847 rows, 23 columns
+2026-02-13 12:58:11,410 - transformer_module - INFO - Writing output file: output\Cartera_Transformada_XML_20260213_125810.xlsx

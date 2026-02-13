@@ -106,7 +106,7 @@ PyInstaller.__main__.run([
     
     # Ventana (sin consola)
     '--windowed',
-    
+      
     # Añadir rutas de búsqueda para módulos
     '--paths', str(project_dir / 'GUI'),
     '--paths', str(project_dir / 'TRANSFORMER CELER'),

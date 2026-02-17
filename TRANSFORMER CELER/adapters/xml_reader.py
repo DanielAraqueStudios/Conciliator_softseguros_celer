@@ -52,6 +52,14 @@ class ExcelXMLReader:
         with open(file_path, 'r', encoding='utf-8', errors='replace') as f:
             content = f.read()
         
+        # Validate file is not empty
+        if not content or not content.strip():
+            raise ValueError("El archivo XML está vacío. Por favor, verifica que el archivo contenga datos válidos.")
+        
+        # Validate it looks like XML
+        if not content.strip().startswith('<?xml') and not content.strip().startswith('<'):
+            raise ValueError("El archivo no parece ser un XML válido. Asegúrate de seleccionar el archivo correcto.")
+        
         # Fix common entity issues in malformed XML
         # Excel XML should have entities properly encoded, but Celer might not
         # We need to be careful not to break existing proper XML
@@ -111,7 +119,21 @@ class ExcelXMLReader:
             
         except Exception as e:
             logger.error(f"Failed to parse XML file: {e}")
-            raise ValueError(f"Failed to parse XML file: {e}")
+            error_msg = str(e)
+            
+            # Provide more helpful error messages
+            if "no element found" in error_msg.lower() or "line 1, column 0" in error_msg.lower():
+                raise ValueError(
+                    "El archivo XML está vacío o corrupto.\n\n"
+                    "Posibles causas:\n"
+                    "• El archivo está vacío\n"
+                    "• El archivo se descargó incorrectamente\n"
+                    "• El archivo no es un XML válido\n\n"
+                    "Solución: Intenta descargar el archivo nuevamente desde el sistema."
+                )
+            else:
+                raise ValueError(f"Error al procesar el archivo XML: {error_msg}")
+
         
         # Find the worksheet (usually first one)
         worksheet = root.find('.//ss:Worksheet', self.namespaces)

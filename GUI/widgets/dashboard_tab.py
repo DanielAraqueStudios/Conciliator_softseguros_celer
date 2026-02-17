@@ -3,12 +3,15 @@ Dashboard Tab - Metrics and visualizations
 """
 from PyQt6.QtWidgets import (QWidget, QVBoxLayout, QHBoxLayout, QGridLayout,
                              QLabel, QFrame, QPushButton, QGroupBox, QTextEdit,
-                             QTabWidget, QScrollArea)
+                             QTabWidget, QScrollArea, QFileDialog, QMessageBox)
 from PyQt6.QtCore import Qt
 import matplotlib
 matplotlib.use('Qt5Agg')
 from matplotlib.backends.backend_qt5agg import FigureCanvasQTAgg
 from matplotlib.figure import Figure
+import pandas as pd
+from datetime import datetime
+from pathlib import Path
 
 
 class MetricCard(QFrame):
@@ -94,13 +97,20 @@ class DashboardTab(QWidget):
         title.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(title)
         
-        # Refresh button
-        refresh_layout = QHBoxLayout()
-        refresh_layout.addStretch()
+        # Buttons layout
+        buttons_layout = QHBoxLayout()
+        buttons_layout.addStretch()
+        
+        self.export_button = QPushButton("📊 Exportar a Excel")
+        self.export_button.clicked.connect(self.export_to_excel)
+        self.export_button.setEnabled(False)  # Disabled until data is loaded
+        buttons_layout.addWidget(self.export_button)
+        
         self.refresh_button = QPushButton("🔄 Actualizar Datos")
         self.refresh_button.clicked.connect(self.refresh_metrics)
-        refresh_layout.addWidget(self.refresh_button)
-        layout.addLayout(refresh_layout)
+        buttons_layout.addWidget(self.refresh_button)
+        
+        layout.addLayout(buttons_layout)
         
         # Metrics cards
         metrics_group = QGroupBox("Métricas Generales")
@@ -267,6 +277,9 @@ class DashboardTab(QWidget):
         """Update dashboard with conciliation results"""
         self.conciliator_results = results
         
+        # Enable export button when data is loaded
+        self.export_button.setEnabled(True)
+        
         # Extract case data
         caso1 = results.get('no_pagado', [])
         caso2_especial = results.get('actualizar_recibo_softseguros', [])
@@ -420,3 +433,238 @@ class DashboardTab(QWidget):
             text += "\n"
         
         self.caso3_combined_text.setPlainText(text)
+    
+    def export_to_excel(self):
+        """Export all cases to Excel file with 5 sheets using A-W column mapping"""
+        if not self.conciliator_results:
+            QMessageBox.warning(self, "Sin Datos", "No hay datos para exportar. Ejecuta una conciliación primero.")
+            return
+        
+        # Ask user for file location
+        file_path, _ = QFileDialog.getSaveFileName(
+            self,
+            "Guardar Reporte de Conciliación",
+            str(Path.home() / f"Conciliacion_Allianz_{datetime.now().strftime('%Y%m%d_%H%M%S')}.xlsx"),
+            "Excel Files (*.xlsx)"
+        )
+        
+        if not file_path:
+            return  # User cancelled
+        
+        try:
+            # Extract case data
+            caso1 = self.conciliator_results.get('no_pagado', [])
+            caso2_especial = self.conciliator_results.get('actualizar_recibo_softseguros', [])
+            caso2 = self.conciliator_results.get('actualizar_sistema', [])
+            caso3_allianz = self.conciliator_results.get('only_allianz', [])
+            caso3_combined = self.conciliator_results.get('only_combined', [])
+            
+            # Create Excel writer
+            with pd.ExcelWriter(file_path, engine='openpyxl') as writer:
+                # Sheet 1: CASO 1 - No han pagado
+                if caso1:
+                    df1 = self._prepare_caso1_dataframe(caso1)
+                    df1.to_excel(writer, sheet_name='CASO 1 - No Pagado', index=False)
+                
+                # Sheet 2: CASO 2 ESPECIAL - Actualizar Softseguros
+                if caso2_especial:
+                    df2_esp = self._prepare_caso2_especial_dataframe(caso2_especial)
+                    df2_esp.to_excel(writer, sheet_name='CASO 2 ESP - Act Softseguros', index=False)
+                
+                # Sheet 3: CASO 2 - Actualizar Sistema
+                if caso2:
+                    df2 = self._prepare_caso2_dataframe(caso2)
+                    df2.to_excel(writer, sheet_name='CASO 2 - Act Sistema', index=False)
+                
+                # Sheet 4: CASO 3 - Solo Allianz
+                if caso3_allianz:
+                    df3_allianz = self._prepare_caso3_allianz_dataframe(caso3_allianz)
+                    df3_allianz.to_excel(writer, sheet_name='CASO 3 - Solo Allianz', index=False)
+                
+                # Sheet 5: CASO 3 - Solo Softseguros/Celer
+                if caso3_combined:
+                    df3_combined = self._prepare_caso3_combined_dataframe(caso3_combined)
+                    df3_combined.to_excel(writer, sheet_name='CASO 3 - Solo Soft-Celer', index=False)
+            
+            QMessageBox.information(
+                self,
+                "Exportación Exitosa",
+                f"Reporte exportado correctamente a:\n{file_path}"
+            )
+            
+        except Exception as e:
+            QMessageBox.critical(
+                self,
+                "Error de Exportación",
+                f"Error al exportar el archivo:\n{str(e)}"
+            )
+    
+    def _prepare_caso1_dataframe(self, caso1: list) -> pd.DataFrame:
+        """Prepare CASO 1 data in A-W format"""
+        data = []
+        for i, item in enumerate(caso1, 1):
+            row = {
+                'A - ID': i,
+                'B - Días': '',  # Not available
+                'C - Tomador': item.get('tomador_combined', ''),
+                'D - Tipo_Doc': '',  # Not available
+                'E - Identificacion': '',  # Not available
+                'F - Poliza': item.get('poliza', ''),
+                'G - Documento': item.get('recibo_combined', ''),
+                'H - Cuota': '',  # Not available
+                'I - Placa': '',  # Not available
+                'J - Saldo': item.get('saldo_combined', 0),
+                'K - Aseguradora': 'ALLIANZ',
+                'L - Ramo': '',  # Not available
+                'M - Carta_Cobro': '',  # Not available
+                'N - F_Inicio': item.get('fecha', ''),
+                'O - F_Expedicion': '',  # Not available
+                'P - F_Creacion': '',  # Not available
+                'Q - Ejecutivo': '',  # Not available
+                'R - Unidad': '',  # Not available
+                'S - Descripcion_Riesgo': '',  # Not available
+                'T - Celular_Pers': '',  # Not available
+                'U - Celular_Lab': '',  # Not available
+                'V - Mail_Lab': '',  # Not available
+                'W - Mail_Pers': '',  # Not available
+                'Cliente Allianz': item.get('cliente_allianz', ''),
+                'Recibo Allianz': item.get('recibo_allianz', ''),
+                'Cartera Allianz': item.get('cartera_allianz', 0),
+                'Actualizar Softseguros': 'SÍ' if item.get('necesita_actualizar_softseguros') else 'NO'
+            }
+            data.append(row)
+        return pd.DataFrame(data)
+    
+    def _prepare_caso2_especial_dataframe(self, caso2_especial: list) -> pd.DataFrame:
+        """Prepare CASO 2 ESPECIAL data in A-W format"""
+        data = []
+        for i, item in enumerate(caso2_especial, 1):
+            row = {
+                'A - ID': i,
+                'B - Días': '',
+                'C - Tomador': item.get('tomador_softseguros', ''),
+                'D - Tipo_Doc': '',
+                'E - Identificacion': '',
+                'F - Poliza': item.get('poliza', ''),
+                'G - Documento': item.get('recibo_allianz', ''),
+                'H - Cuota': '',
+                'I - Placa': '',
+                'J - Saldo': item.get('saldo_softseguros', 0),
+                'K - Aseguradora': 'ALLIANZ',
+                'L - Ramo': '',
+                'M - Carta_Cobro': '',
+                'N - F_Inicio': item.get('fecha', ''),
+                'O - F_Expedicion': '',
+                'P - F_Creacion': '',
+                'Q - Ejecutivo': '',
+                'R - Unidad': '',
+                'S - Descripcion_Riesgo': '',
+                'T - Celular_Pers': '',
+                'U - Celular_Lab': '',
+                'V - Mail_Lab': '',
+                'W - Mail_Pers': '',
+                'Cliente Allianz': item.get('cliente_allianz', ''),
+                'Cartera Allianz': item.get('cartera_allianz', 0),
+                'Alerta': 'Softseguros NO tiene anexo/recibo registrado'
+            }
+            data.append(row)
+        return pd.DataFrame(data)
+    
+    def _prepare_caso2_dataframe(self, caso2: list) -> pd.DataFrame:
+        """Prepare CASO 2 data in A-W format"""
+        data = []
+        for i, item in enumerate(caso2, 1):
+            row = {
+                'A - ID': i,
+                'B - Días': '',
+                'C - Tomador': item.get('tomador_combined', ''),
+                'D - Tipo_Doc': '',
+                'E - Identificacion': '',
+                'F - Poliza': item.get('poliza', ''),
+                'G - Documento': item.get('recibo_combined', ''),
+                'H - Cuota': '',
+                'I - Placa': '',
+                'J - Saldo': item.get('saldo_combined', 0),
+                'K - Aseguradora': 'ALLIANZ',
+                'L - Ramo': '',
+                'M - Carta_Cobro': '',
+                'N - F_Inicio': item.get('fecha', ''),
+                'O - F_Expedicion': '',
+                'P - F_Creacion': '',
+                'Q - Ejecutivo': '',
+                'R - Unidad': '',
+                'S - Descripcion_Riesgo': '',
+                'T - Celular_Pers': '',
+                'U - Celular_Lab': '',
+                'V - Mail_Lab': '',
+                'W - Mail_Pers': '',
+                'Recibo Allianz': item.get('recibo_allianz', ''),
+                'Cliente Allianz': item.get('cliente_allianz', ''),
+                'Cartera Allianz': item.get('cartera_allianz', 0)
+            }
+            data.append(row)
+        return pd.DataFrame(data)
+    
+    def _prepare_caso3_allianz_dataframe(self, caso3: list) -> pd.DataFrame:
+        """Prepare CASO 3 Allianz data in A-W format"""
+        data = []
+        for i, item in enumerate(caso3, 1):
+            row = {
+                'A - ID': i,
+                'B - Días': '',
+                'C - Tomador': item.get('cliente_allianz', ''),
+                'D - Tipo_Doc': '',
+                'E - Identificacion': '',
+                'F - Poliza': item.get('poliza', ''),
+                'G - Documento': item.get('recibo_allianz', ''),
+                'H - Cuota': '',
+                'I - Placa': '',
+                'J - Saldo': item.get('cartera_allianz', 0),
+                'K - Aseguradora': 'ALLIANZ',
+                'L - Ramo': '',
+                'M - Carta_Cobro': '',
+                'N - F_Inicio': item.get('fecha', ''),
+                'O - F_Expedicion': '',
+                'P - F_Creacion': '',
+                'Q - Ejecutivo': '',
+                'R - Unidad': '',
+                'S - Descripcion_Riesgo': '',
+                'T - Celular_Pers': '',
+                'U - Celular_Lab': '',
+                'V - Mail_Lab': '',
+                'W - Mail_Pers': ''
+            }
+            data.append(row)
+        return pd.DataFrame(data)
+    
+    def _prepare_caso3_combined_dataframe(self, caso3: list) -> pd.DataFrame:
+        """Prepare CASO 3 Combined data in A-W format"""
+        data = []
+        for i, item in enumerate(caso3, 1):
+            row = {
+                'A - ID': i,
+                'B - Días': '',
+                'C - Tomador': item.get('tomador_combined', ''),
+                'D - Tipo_Doc': '',
+                'E - Identificacion': '',
+                'F - Poliza': item.get('poliza', ''),
+                'G - Documento': item.get('recibo_combined', ''),
+                'H - Cuota': '',
+                'I - Placa': '',
+                'J - Saldo': item.get('saldo_combined', 0),
+                'K - Aseguradora': 'ALLIANZ',
+                'L - Ramo': '',
+                'M - Carta_Cobro': '',
+                'N - F_Inicio': item.get('fecha', ''),
+                'O - F_Expedicion': '',
+                'P - F_Creacion': '',
+                'Q - Ejecutivo': '',
+                'R - Unidad': '',
+                'S - Descripcion_Riesgo': '',
+                'T - Celular_Pers': '',
+                'U - Celular_Lab': '',
+                'V - Mail_Lab': '',
+                'W - Mail_Pers': ''
+            }
+            data.append(row)
+        return pd.DataFrame(data)

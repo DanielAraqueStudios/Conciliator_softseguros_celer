@@ -500,33 +500,33 @@ class DashboardTab(QWidget):
             )
     
     def _prepare_caso1_dataframe(self, caso1: list) -> pd.DataFrame:
-        """Prepare CASO 1 data in A-W format"""
+        """Prepare CASO 1 data in B-W format from COLUMN_MAPPING.md"""
         data = []
-        for i, item in enumerate(caso1, 1):
+        for item in caso1:
             row = {
-                'A - ID': i,
-                'B - Días': '',  # Not available
-                'C - Tomador': item.get('tomador_combined', ''),
-                'D - Tipo_Doc': '',  # Not available
-                'E - Identificacion': '',  # Not available
-                'F - Poliza': item.get('poliza', ''),
-                'G - Documento': item.get('recibo_combined', ''),
-                'H - Cuota': '',  # Not available
-                'I - Placa': '',  # Not available
-                'J - Saldo': item.get('saldo_combined', 0),
-                'K - Aseguradora': 'ALLIANZ',
-                'L - Ramo': '',  # Not available
-                'M - Carta_Cobro': '',  # Not available
-                'N - F_Inicio': item.get('fecha', ''),
-                'O - F_Expedicion': '',  # Not available
-                'P - F_Creacion': '',  # Not available
-                'Q - Ejecutivo': '',  # Not available
-                'R - Unidad': '',  # Not available
-                'S - Descripcion_Riesgo': '',  # Not available
-                'T - Celular_Pers': '',  # Not available
-                'U - Celular_Lab': '',  # Not available
-                'V - Mail_Lab': '',  # Not available
-                'W - Mail_Pers': '',  # Not available
+                'Dias': '',
+                'Tomador': item.get('tomador_combined', ''),
+                'Tipo_Doc': '',
+                'Identificacion': '',
+                'Poliza': item.get('poliza', ''),
+                'Documento': item.get('recibo_combined', ''),
+                'Cuota': '',
+                'Placa': '',
+                'Saldo': item.get('saldo_combined', 0),
+                'Aseguradora': 'ALLIANZ',
+                'Ramo': '',
+                'Carta_Cobro': '',
+                'F_Inicio': item.get('fecha', ''),
+                'F_Expedicion': '',
+                'F_Creacion': '',
+                'Ejecutivo': '',
+                'Unidad': '',
+                'Descripcion_Riesgo': '',
+                'Celular_Pers': '',
+                'Celular_Lab': '',
+                'Mail_Lab': '',
+                'Mail_Pers': '',
+                # Additional conciliation fields
                 'Cliente Allianz': item.get('cliente_allianz', ''),
                 'Recibo Allianz': item.get('recibo_allianz', ''),
                 'Cartera Allianz': item.get('cartera_allianz', 0),
@@ -536,33 +536,33 @@ class DashboardTab(QWidget):
         return pd.DataFrame(data)
     
     def _prepare_caso2_especial_dataframe(self, caso2_especial: list) -> pd.DataFrame:
-        """Prepare CASO 2 ESPECIAL data in A-W format"""
+        """Prepare CASO 2 ESPECIAL data in B-W format from COLUMN_MAPPING.md"""
         data = []
-        for i, item in enumerate(caso2_especial, 1):
+        for item in caso2_especial:
             row = {
-                'A - ID': i,
-                'B - Días': '',
-                'C - Tomador': item.get('tomador_softseguros', ''),
-                'D - Tipo_Doc': '',
-                'E - Identificacion': '',
-                'F - Poliza': item.get('poliza', ''),
-                'G - Documento': item.get('recibo_allianz', ''),
-                'H - Cuota': '',
-                'I - Placa': '',
-                'J - Saldo': item.get('saldo_softseguros', 0),
-                'K - Aseguradora': 'ALLIANZ',
-                'L - Ramo': '',
-                'M - Carta_Cobro': '',
-                'N - F_Inicio': item.get('fecha', ''),
-                'O - F_Expedicion': '',
-                'P - F_Creacion': '',
-                'Q - Ejecutivo': '',
-                'R - Unidad': '',
-                'S - Descripcion_Riesgo': '',
-                'T - Celular_Pers': '',
-                'U - Celular_Lab': '',
-                'V - Mail_Lab': '',
-                'W - Mail_Pers': '',
+                'Dias': '',
+                'Tomador': item.get('tomador_softseguros', ''),
+                'Tipo_Doc': '',
+                'Identificacion': '',
+                'Poliza': item.get('poliza', ''),
+                'Documento': item.get('recibo_allianz', ''),
+                'Cuota': '',
+                'Placa': '',
+                'Saldo': item.get('saldo_softseguros', 0),
+                'Aseguradora': 'ALLIANZ',
+                'Ramo': '',
+                'Carta_Cobro': '',
+                'F_Inicio': item.get('fecha', ''),
+                'F_Expedicion': '',
+                'F_Creacion': '',
+                'Ejecutivo': '',
+                'Unidad': '',
+                'Descripcion_Riesgo': '',
+                'Celular_Pers': '',
+                'Celular_Lab': '',
+                'Mail_Lab': '',
+                'Mail_Pers': '',
+                # Additional conciliation fields
                 'Cliente Allianz': item.get('cliente_allianz', ''),
                 'Cartera Allianz': item.get('cartera_allianz', 0),
                 'Alerta': 'Softseguros NO tiene anexo/recibo registrado'
@@ -571,33 +571,33 @@ class DashboardTab(QWidget):
         return pd.DataFrame(data)
     
     def _prepare_caso2_dataframe(self, caso2: list) -> pd.DataFrame:
-        """Prepare CASO 2 data in A-W format"""
+        """Prepare CASO 2 data in B-W format from COLUMN_MAPPING.md"""
         data = []
-        for i, item in enumerate(caso2, 1):
+        for item in caso2:
             row = {
-                'A - ID': i,
-                'B - Días': '',
-                'C - Tomador': item.get('tomador_combined', ''),
-                'D - Tipo_Doc': '',
-                'E - Identificacion': '',
-                'F - Poliza': item.get('poliza', ''),
-                'G - Documento': item.get('recibo_combined', ''),
-                'H - Cuota': '',
-                'I - Placa': '',
-                'J - Saldo': item.get('saldo_combined', 0),
-                'K - Aseguradora': 'ALLIANZ',
-                'L - Ramo': '',
-                'M - Carta_Cobro': '',
-                'N - F_Inicio': item.get('fecha', ''),
-                'O - F_Expedicion': '',
-                'P - F_Creacion': '',
-                'Q - Ejecutivo': '',
-                'R - Unidad': '',
-                'S - Descripcion_Riesgo': '',
-                'T - Celular_Pers': '',
-                'U - Celular_Lab': '',
-                'V - Mail_Lab': '',
-                'W - Mail_Pers': '',
+                'Dias': '',
+                'Tomador': item.get('tomador_combined', ''),
+                'Tipo_Doc': '',
+                'Identificacion': '',
+                'Poliza': item.get('poliza', ''),
+                'Documento': item.get('recibo_combined', ''),
+                'Cuota': '',
+                'Placa': '',
+                'Saldo': item.get('saldo_combined', 0),
+                'Aseguradora': 'ALLIANZ',
+                'Ramo': '',
+                'Carta_Cobro': '',
+                'F_Inicio': item.get('fecha', ''),
+                'F_Expedicion': '',
+                'F_Creacion': '',
+                'Ejecutivo': '',
+                'Unidad': '',
+                'Descripcion_Riesgo': '',
+                'Celular_Pers': '',
+                'Celular_Lab': '',
+                'Mail_Lab': '',
+                'Mail_Pers': '',
+                # Additional conciliation fields
                 'Recibo Allianz': item.get('recibo_allianz', ''),
                 'Cliente Allianz': item.get('cliente_allianz', ''),
                 'Cartera Allianz': item.get('cartera_allianz', 0)
@@ -606,65 +606,63 @@ class DashboardTab(QWidget):
         return pd.DataFrame(data)
     
     def _prepare_caso3_allianz_dataframe(self, caso3: list) -> pd.DataFrame:
-        """Prepare CASO 3 Allianz data in A-W format"""
+        """Prepare CASO 3 Allianz data in B-W format from COLUMN_MAPPING.md"""
         data = []
-        for i, item in enumerate(caso3, 1):
+        for item in caso3:
             row = {
-                'A - ID': i,
-                'B - Días': '',
-                'C - Tomador': item.get('cliente_allianz', ''),
-                'D - Tipo_Doc': '',
-                'E - Identificacion': '',
-                'F - Poliza': item.get('poliza', ''),
-                'G - Documento': item.get('recibo_allianz', ''),
-                'H - Cuota': '',
-                'I - Placa': '',
-                'J - Saldo': item.get('cartera_allianz', 0),
-                'K - Aseguradora': 'ALLIANZ',
-                'L - Ramo': '',
-                'M - Carta_Cobro': '',
-                'N - F_Inicio': item.get('fecha', ''),
-                'O - F_Expedicion': '',
-                'P - F_Creacion': '',
-                'Q - Ejecutivo': '',
-                'R - Unidad': '',
-                'S - Descripcion_Riesgo': '',
-                'T - Celular_Pers': '',
-                'U - Celular_Lab': '',
-                'V - Mail_Lab': '',
-                'W - Mail_Pers': ''
+                'Dias': '',
+                'Tomador': item.get('cliente_allianz', ''),
+                'Tipo_Doc': '',
+                'Identificacion': '',
+                'Poliza': item.get('poliza', ''),
+                'Documento': item.get('recibo_allianz', ''),
+                'Cuota': '',
+                'Placa': '',
+                'Saldo': item.get('cartera_allianz', 0),
+                'Aseguradora': 'ALLIANZ',
+                'Ramo': '',
+                'Carta_Cobro': '',
+                'F_Inicio': item.get('fecha', ''),
+                'F_Expedicion': '',
+                'F_Creacion': '',
+                'Ejecutivo': '',
+                'Unidad': '',
+                'Descripcion_Riesgo': '',
+                'Celular_Pers': '',
+                'Celular_Lab': '',
+                'Mail_Lab': '',
+                'Mail_Pers': ''
             }
             data.append(row)
         return pd.DataFrame(data)
     
     def _prepare_caso3_combined_dataframe(self, caso3: list) -> pd.DataFrame:
-        """Prepare CASO 3 Combined data in A-W format"""
+        """Prepare CASO 3 Combined data in B-W format from COLUMN_MAPPING.md"""
         data = []
-        for i, item in enumerate(caso3, 1):
+        for item in caso3:
             row = {
-                'A - ID': i,
-                'B - Días': '',
-                'C - Tomador': item.get('tomador_combined', ''),
-                'D - Tipo_Doc': '',
-                'E - Identificacion': '',
-                'F - Poliza': item.get('poliza', ''),
-                'G - Documento': item.get('recibo_combined', ''),
-                'H - Cuota': '',
-                'I - Placa': '',
-                'J - Saldo': item.get('saldo_combined', 0),
-                'K - Aseguradora': 'ALLIANZ',
-                'L - Ramo': '',
-                'M - Carta_Cobro': '',
-                'N - F_Inicio': item.get('fecha', ''),
-                'O - F_Expedicion': '',
-                'P - F_Creacion': '',
-                'Q - Ejecutivo': '',
-                'R - Unidad': '',
-                'S - Descripcion_Riesgo': '',
-                'T - Celular_Pers': '',
-                'U - Celular_Lab': '',
-                'V - Mail_Lab': '',
-                'W - Mail_Pers': ''
+                'Dias': '',
+                'Tomador': item.get('tomador_combined', ''),
+                'Tipo_Doc': '',
+                'Identificacion': '',
+                'Poliza': item.get('poliza', ''),
+                'Documento': item.get('recibo_combined', ''),
+                'Cuota': '',
+                'Placa': '',
+                'Saldo': item.get('saldo_combined', 0),
+                'Aseguradora': 'ALLIANZ',
+                'Ramo': '',
+                'Carta_Cobro': '',
+                'F_Inicio': item.get('fecha', ''),
+                'F_Expedicion': '',
+                'F_Creacion': '',
+                'Ejecutivo': '',
+                'Unidad': '',
+                'Descripcion_Riesgo': '',
+                'Celular_Pers': '',
+                'Celular_Lab': '',
+                'Mail_Lab': '',
+                'Mail_Pers': ''
             }
             data.append(row)
         return pd.DataFrame(data)
